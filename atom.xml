@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://peilei6026.github.io/"/>
-  <updated>2020-04-13T05:46:05.647Z</updated>
+  <updated>2020-04-13T14:41:56.219Z</updated>
   <id>https://peilei6026.github.io/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>React元素渲染</title>
+    <link href="https://peilei6026.github.io/2020/04/13/React%E5%85%83%E7%B4%A0%E6%B8%B2%E6%9F%93/"/>
+    <id>https://peilei6026.github.io/2020/04/13/React%E5%85%83%E7%B4%A0%E6%B8%B2%E6%9F%93/</id>
+    <published>2020-04-13T14:21:30.000Z</published>
+    <updated>2020-04-13T14:41:56.219Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="React元素渲染"><a href="#React元素渲染" class="headerlink" title="React元素渲染"></a>React元素渲染</h1><p>元素是构成React应用得最小单位</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const element &#x3D; &lt;h1&gt;Hello,world!&lt;&#x2F;h1&gt;;</span><br></pre></td></tr></table></figure><p>与浏览去得DOM元素不同，React当中的元素事实上是普通的对象,React DOM可以确保浏览器DOM的数据内容与React元素保持一致。</p><h1 id="将元素渲染到DOM中"><a href="#将元素渲染到DOM中" class="headerlink" title="将元素渲染到DOM中"></a>将元素渲染到DOM中</h1><p>首先我们在HTML页面中添加一个<code>id=&quot;example&quot;</code>的<code>&lt;div&gt;</code></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id&#x3D;&quot;example&quot;&gt;&lt;&#x2F;div&gt;</span><br></pre></td></tr></table></figure><p>在此div中的所有内容都将由React DOM来管理，所以我们将其成为”根“DOM节点<br>我们用React开发应用时一般只会定义一个根节点，但如果你是一个在已有的项目中引用React的话，你可能会需要在不同的部分单独定义React根节点。<br>要将React元素渲染到根DOM节点中，我们通过把他们都传递给<code>ReactDOM.render()</code>的方法来将其渲染到页面中：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">const element &#x3D; &lt;h1&gt;Hello,world!&lt;&#x2F;h1&gt;;</span><br><span class="line">ReactDOM.render(</span><br><span class="line">    element,</span><br><span class="line">    document.getElementById(&#39;example&#39;)</span><br><span class="line">);</span><br></pre></td></tr></table></figure><h1 id="更新元素渲染"><a href="#更新元素渲染" class="headerlink" title="更新元素渲染"></a>更新元素渲染</h1><p>React元素都是不可变的。当元素被创建之后，你是无法改变其内容或者属性的<br>目前更新界面的唯一办法激素hi创建一个新的元素，然后将他传入ReactDOM</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;React元素渲染&quot;&gt;&lt;a href=&quot;#React元素渲染&quot; class=&quot;headerlink&quot; title=&quot;React元素渲染&quot;&gt;&lt;/a&gt;React元素渲染&lt;/h1&gt;&lt;p&gt;元素是构成React应用得最小单位&lt;/p&gt;
+&lt;figure class=&quot;highl
+      
+    
+    </summary>
+    
+    
+    
+      <category term="React" scheme="https://peilei6026.github.io/tags/React/"/>
+    
+  </entry>
   
   <entry>
     <title>React 安装</title>

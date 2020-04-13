@@ -68,6 +68,10 @@
     			
             
     			
+    			<a q-on="click: openSlider(e, 'friends')" href="javascript:void(0)">友链</a>
+    			
+            
+    			
     			<a q-on="click: openSlider(e, 'aboutme')" href="javascript:void(0)">关于我</a>
     			
             
@@ -143,6 +147,87 @@
           </div>
           <div id="js-content" class="content-ll">
             
+  
+    <article id="post-React元素渲染" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/04/13/React%E5%85%83%E7%B4%A0%E6%B8%B2%E6%9F%93/">React元素渲染</a>
+    </h1>
+  
+
+        
+        <a href="/2020/04/13/React%E5%85%83%E7%B4%A0%E6%B8%B2%E6%9F%93/" class="archive-article-date">
+  	<time datetime="2020-04-13T14:21:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-13</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="React元素渲染"><a href="#React元素渲染" class="headerlink" title="React元素渲染"></a>React元素渲染</h1><p>元素是构成React应用得最小单位</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const element &#x3D; &lt;h1&gt;Hello,world!&lt;&#x2F;h1&gt;;</span><br></pre></td></tr></table></figure>
+<p>与浏览去得DOM元素不同，React当中的元素事实上是普通的对象,React DOM可以确保浏览器DOM的数据内容与React元素保持一致。</p>
+<h1 id="将元素渲染到DOM中"><a href="#将元素渲染到DOM中" class="headerlink" title="将元素渲染到DOM中"></a>将元素渲染到DOM中</h1><p>首先我们在HTML页面中添加一个<code>id=&quot;example&quot;</code>的<code>&lt;div&gt;</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id&#x3D;&quot;example&quot;&gt;&lt;&#x2F;div&gt;</span><br></pre></td></tr></table></figure>
+<p>在此div中的所有内容都将由React DOM来管理，所以我们将其成为”根“DOM节点<br>我们用React开发应用时一般只会定义一个根节点，但如果你是一个在已有的项目中引用React的话，你可能会需要在不同的部分单独定义React根节点。<br>要将React元素渲染到根DOM节点中，我们通过把他们都传递给<code>ReactDOM.render()</code>的方法来将其渲染到页面中：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">const element &#x3D; &lt;h1&gt;Hello,world!&lt;&#x2F;h1&gt;;</span><br><span class="line">ReactDOM.render(</span><br><span class="line">    element,</span><br><span class="line">    document.getElementById(&#39;example&#39;)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<h1 id="更新元素渲染"><a href="#更新元素渲染" class="headerlink" title="更新元素渲染"></a>更新元素渲染</h1><p>React元素都是不可变的。当元素被创建之后，你是无法改变其内容或者属性的<br>目前更新界面的唯一办法激素hi创建一个新的元素，然后将他传入ReactDOM</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">React</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/04/13/React%E5%85%83%E7%B4%A0%E6%B8%B2%E6%9F%93/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
   
     <article id="post-React-安装" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -678,17 +763,25 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
       
       
     
+      
+      
+      
+    
     
 
     <ul style="width: 70%">
     
     
       
-      <li style="width: 50%" q-on="click: openSlider(e, 'innerArchive')"><a href="javascript:void(0)" q-class="active:innerArchive">所有文章</a></li>
+      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'innerArchive')"><a href="javascript:void(0)" q-class="active:innerArchive">所有文章</a></li>
       
         
       
-      <li style="width: 50%" q-on="click: openSlider(e, 'aboutme')"><a href="javascript:void(0)" q-class="active:aboutme">关于我</a></li>
+      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'friends')"><a href="javascript:void(0)" q-class="active:friends">友链</a></li>
+      
+        
+      
+      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'aboutme')"><a href="javascript:void(0)" q-class="active:aboutme">关于我</a></li>
       
         
     </ul>
@@ -775,6 +868,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
     	</section>
     
 
+    
+    	<section class="tools-section tools-section-friends" q-show="friends">
+  		
+        <ul class="search-ul">
+          
+            <li class="search-li">
+              <a href="https://codemaster520.github.io/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>小小强的博客</a>
+            </li>
+          
+        </ul>
+  		
+    	</section>
     
 
     
