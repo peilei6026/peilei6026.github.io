@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>裴雷de博客</title>
+  
+  <subtitle>行在路上</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="https://peilei6026.github.io/"/>
+  <updated>2020-04-13T05:46:05.647Z</updated>
+  <id>https://peilei6026.github.io/</id>
+  
+  <author>
+    <name>裴雷</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>React 安装</title>
+    <link href="https://peilei6026.github.io/2020/04/12/React-%E5%AE%89%E8%A3%85/"/>
+    <id>https://peilei6026.github.io/2020/04/12/React-%E5%AE%89%E8%A3%85/</id>
+    <published>2020-04-11T17:11:47.000Z</published>
+    <updated>2020-04-13T05:46:05.647Z</updated>
+    
+    <content type="html"><![CDATA[<p>React可以直接下载使用<br>直接使用Staticfile CDN的React CDN库，地址如下：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src&#x3D;&quot;https:&#x2F;&#x2F;cdn.staticfile.org&#x2F;react&#x2F;16.4.0&#x2F;umd&#x2F;react.development.js&quot;&gt;&lt;&#x2F;script&gt;</span><br><span class="line">&lt;script src&#x3D;&quot;https:&#x2F;&#x2F;cdn.staticfile.org&#x2F;react-dom&#x2F;16.4.0&#x2F;umd&#x2F;react-dom.development.js&quot;&gt;&lt;&#x2F;script&gt;</span><br><span class="line">&lt;!-- 生产环境中不建议使用 --&gt;</span><br><span class="line">&lt;script src&#x3D;&quot;https:&#x2F;&#x2F;cdn.staticfile.org&#x2F;babel-standalone&#x2F;6.26.0&#x2F;babel.min.js&quot;&gt;&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure><p>官方提供的CDN地址</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src&#x3D;&quot;https:&#x2F;&#x2F;unpkg.com&#x2F;react@16&#x2F;umd&#x2F;react.development.js&quot;&gt;&lt;&#x2F;script&gt;</span><br><span class="line">&lt;script src&#x3D;&quot;https:&#x2F;&#x2F;unpkg.com&#x2F;react-dom@16&#x2F;umd&#x2F;react-dom.development.js&quot;&gt;&lt;&#x2F;script&gt;</span><br><span class="line">&lt;!-- 生产环境中不建议使用 --&gt;</span><br><span class="line">&lt;script src&#x3D;&quot;https:&#x2F;&#x2F;unpkg.com&#x2F;babel-standalone@6.15.0&#x2F;babel.min.js&quot;&gt;&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure><p>注意：在浏览器中使用Bael编译JSX效率是非常低的。</p><p><strong>使用示例</strong><br>以下示例输出了，Hello,world!</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">&lt;meta charset&#x3D;&quot;UTF-8&quot; &#x2F;&gt;</span><br><span class="line">&lt;title&gt;Hello React!&lt;&#x2F;title&gt;</span><br><span class="line">&lt;script src&#x3D;&quot;https:&#x2F;&#x2F;cdn.staticfile.org&#x2F;react&#x2F;16.4.0&#x2F;umd&#x2F;react.development.js&quot;&gt;&lt;&#x2F;script&gt;</span><br><span class="line">&lt;script src&#x3D;&quot;https:&#x2F;&#x2F;cdn.staticfile.org&#x2F;react-dom&#x2F;16.4.0&#x2F;umd&#x2F;react-dom.development.js&quot;&gt;&lt;&#x2F;script&gt;</span><br><span class="line">&lt;script src&#x3D;&quot;https:&#x2F;&#x2F;cdn.staticfile.org&#x2F;babel-standalone&#x2F;6.26.0&#x2F;babel.min.js&quot;&gt;&lt;&#x2F;script&gt;</span><br><span class="line">&lt;&#x2F;head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line"> </span><br><span class="line">&lt;div id&#x3D;&quot;example&quot;&gt;&lt;&#x2F;div&gt;</span><br><span class="line">&lt;script type&#x3D;&quot;text&#x2F;babel&quot;&gt;</span><br><span class="line">ReactDOM.render(</span><br><span class="line">    &lt;h1&gt;Hello, world!&lt;&#x2F;h1&gt;,</span><br><span class="line">    document.getElementById(&#39;example&#39;)</span><br><span class="line">);</span><br><span class="line">&lt;&#x2F;script&gt;</span><br><span class="line"> </span><br><span class="line">&lt;&#x2F;body&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure><p><strong>实例解析：</strong><br>实例中我们引入了三个库：react.min.js,react-dom.min.js和babel.min.js</p><ul><li>react.min.js-React的核心库</li><li>react-dom.min.js-提供与DOM相关的功能</li><li>babel.min.js-Babel 可以将 ES6 代码转为 ES5 代码，这样我们就能在目前不支持 ES6 浏览器上执行 React 代码。Babel 内嵌了对 JSX 的支持。通过将 Babel 和 babel-sublime 包（package）一同使用可以让源码的语法渲染上升到一个全新的水平<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ReactDOM.render(</span><br><span class="line">    &lt;h1&gt;Hello,world!&lt;&#x2F;h1&gt;,</span><br><span class="line">    document.getElementById(&#39;example&#39;)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>以上代码将一个h1标题，插入id=”example”节点中</li><li><em>注意*</em><br>如果我们需要使用JSX,则<script></script>标签得type属性需要设置为text/babel</li></ul><h2 id="通过npm使用React"><a href="#通过npm使用React" class="headerlink" title="通过npm使用React"></a>通过npm使用React</h2><h3 id="cnpm安装"><a href="#cnpm安装" class="headerlink" title="cnpm安装"></a>cnpm安装</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install -g cnpm --registry&#x3D;https:&#x2F;&#x2F;registry.npm.taobao.org</span><br><span class="line">npm config set registry https:&#x2F;&#x2F;registry.npm.taobao.org</span><br></pre></td></tr></table></figure><h3 id="使用-create-react-app-快速构建-React-开发环境"><a href="#使用-create-react-app-快速构建-React-开发环境" class="headerlink" title="使用 create-react-app 快速构建 React 开发环境"></a>使用 create-react-app 快速构建 React 开发环境</h3><p>create-react-app 是来自于 Facebook，通过该命令我们无需配置就能快速构建 React 开发环境。<br>create-react-app 自动创建的项目是基于 Webpack + ES6 。<br>执行以下命令创建项目：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cnpm install -g create-react-app</span><br><span class="line">create-react-app my-app</span><br><span class="line">cd my-app&#x2F;</span><br><span class="line">npm start</span><br></pre></td></tr></table></figure><p>项目的目录结构如下：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">my-app&#x2F;</span><br><span class="line">  README.md</span><br><span class="line">  node_modules&#x2F;</span><br><span class="line">  package.json</span><br><span class="line">  .gitignore</span><br><span class="line">  public&#x2F;</span><br><span class="line">    favicon.ico</span><br><span class="line">    index.html</span><br><span class="line">    manifest.json</span><br><span class="line">  src&#x2F;</span><br><span class="line">    App.css</span><br><span class="line">    App.js</span><br><span class="line">    App.test.js</span><br><span class="line">    index.css</span><br><span class="line">    index.js</span><br><span class="line">    logo.svg</span><br></pre></td></tr></table></figure><p>manifest.json 指定了开始页面 index.html，一切的开始都从这里开始，所以这个是代码执行的源头。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">尝试修改 src&#x2F;App.js 文件代码：</span><br><span class="line">import React, &#123; Component &#125; from &#39;react&#39;;</span><br><span class="line">import logo from &#39;.&#x2F;logo.svg&#39;;</span><br><span class="line">import &#39;.&#x2F;App.css&#39;;</span><br><span class="line"> </span><br><span class="line">class App extends Component &#123;</span><br><span class="line">  render() &#123;</span><br><span class="line">    return (</span><br><span class="line">      &lt;div className&#x3D;&quot;App&quot;&gt;</span><br><span class="line">        &lt;div className&#x3D;&quot;App-header&quot;&gt;</span><br><span class="line">          &lt;img src&#x3D;&#123;logo&#125; className&#x3D;&quot;App-logo&quot; alt&#x3D;&quot;logo&quot; &#x2F;&gt;</span><br><span class="line">          &lt;h2&gt;欢迎来到菜鸟教程&lt;&#x2F;h2&gt;</span><br><span class="line">        &lt;&#x2F;div&gt;</span><br><span class="line">        &lt;p className&#x3D;&quot;App-intro&quot;&gt;</span><br><span class="line">          你可以在 &lt;code&gt;src&#x2F;App.js&lt;&#x2F;code&gt; 文件中修改。</span><br><span class="line">        &lt;&#x2F;p&gt;</span><br><span class="line">      &lt;&#x2F;div&gt;</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">export default App;</span><br></pre></td></tr></table></figure><img width=200 src="/assets/blogImg/react1.png" >]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;React可以直接下载使用&lt;br&gt;直接使用Staticfile CDN的React CDN库，地址如下：&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;
+      
+    
+    </summary>
+    
+    
+    
+      <category term="React" scheme="https://peilei6026.github.io/tags/React/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>随笔</title>
+    <link href="https://peilei6026.github.io/2020/04/11/%E9%9A%8F%E7%AC%94/"/>
+    <id>https://peilei6026.github.io/2020/04/11/%E9%9A%8F%E7%AC%94/</id>
+    <published>2020-04-11T03:28:07.000Z</published>
+    <updated>2020-04-11T03:28:17.440Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+    
+      <category term="随笔" scheme="https://peilei6026.github.io/tags/%E9%9A%8F%E7%AC%94/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>hexo引入音乐</title>
+    <link href="https://peilei6026.github.io/2020/04/11/hexo%E5%BC%95%E5%85%A5%E9%9F%B3%E4%B9%90/"/>
+    <id>https://peilei6026.github.io/2020/04/11/hexo%E5%BC%95%E5%85%A5%E9%9F%B3%E4%B9%90/</id>
+    <published>2020-04-11T03:21:49.000Z</published>
+    <updated>2020-04-11T03:23:31.009Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="引入音乐"><a href="#引入音乐" class="headerlink" title="引入音乐"></a>引入音乐</h1><h2 id="通过网易云插件"><a href="#通过网易云插件" class="headerlink" title="通过网易云插件"></a>通过网易云插件</h2><p>通过<code>https://music.163.com/</code>网站搜索音乐<br><img width=200 src="/assets/blogImg/网易云音乐插件.png" > </br></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;iframe frameborder&#x3D;&quot;no&quot; border&#x3D;&quot;0&quot; marginwidth&#x3D;&quot;0&quot; marginheight&#x3D;&quot;0&quot; width&#x3D;330 height&#x3D;86 src&#x3D;&quot;&#x2F;&#x2F;music.163.com&#x2F;outchain&#x2F;player?type&#x3D;2&amp;id&#x3D;448184048&amp;auto&#x3D;1&amp;height&#x3D;66&quot;&gt;&lt;&#x2F;iframe&gt;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;引入音乐&quot;&gt;&lt;a href=&quot;#引入音乐&quot; class=&quot;headerlink&quot; title=&quot;引入音乐&quot;&gt;&lt;/a&gt;引入音乐&lt;/h1&gt;&lt;h2 id=&quot;通过网易云插件&quot;&gt;&lt;a href=&quot;#通过网易云插件&quot; class=&quot;headerlink&quot; title=&quot;通过网
+      
+    
+    </summary>
+    
+    
+    
+      <category term="hexo" scheme="https://peilei6026.github.io/tags/hexo/"/>
+    
+      <category term="hexo个人博客" scheme="https://peilei6026.github.io/tags/hexo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>博客编写文章指南</title>
+    <link href="https://peilei6026.github.io/2020/04/11/%E5%8D%9A%E5%AE%A2%E7%BC%96%E5%86%99%E6%96%87%E7%AB%A0%E6%8C%87%E5%8D%97/"/>
+    <id>https://peilei6026.github.io/2020/04/11/%E5%8D%9A%E5%AE%A2%E7%BC%96%E5%86%99%E6%96%87%E7%AB%A0%E6%8C%87%E5%8D%97/</id>
+    <published>2020-04-11T02:32:59.000Z</published>
+    <updated>2020-04-12T15:05:42.889Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="头部"><a href="#头部" class="headerlink" title="头部"></a>头部</h2><ul><li>title 标题：文章的题目</li><li>data 日期：可有hexo new命令自动生成也可自己编写</li><li>tags 标签：可快速找到对应文章<h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><h3 id="图片引用"><a href="#图片引用" class="headerlink" title="图片引用"></a>图片引用</h3>例子：<br><br><img width=200 src="/assets/blogImg/peilei.jpg" > </br></li></ul><h3 id="音乐引用"><a href="#音乐引用" class="headerlink" title="音乐引用"></a>音乐引用</h3><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=448184048&auto=1&height=66"></iframe><h3 id="文字加粗"><a href="#文字加粗" class="headerlink" title="文字加粗"></a>文字加粗</h3><p><strong>设置文字加粗的语句是给文字加上一组双星号</strong></p><h3 id=""><a href="#" class="headerlink" title=""></a></h3>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;头部&quot;&gt;&lt;a href=&quot;#头部&quot; class=&quot;headerlink&quot; title=&quot;头部&quot;&gt;&lt;/a&gt;头部&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;title 标题：文章的题目&lt;/li&gt;
+&lt;li&gt;data 日期：可有hexo new命令自动生成也可自己编写&lt;/li&gt;
+&lt;li&gt;
+      
+    
+    </summary>
+    
+    
+    
+      <category term="hexo个人博客" scheme="https://peilei6026.github.io/tags/hexo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/"/>
+    
+      <category term="编写规范" scheme="https://peilei6026.github.io/tags/%E7%BC%96%E5%86%99%E8%A7%84%E8%8C%83/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>HTML标签</title>
+    <link href="https://peilei6026.github.io/2020/04/11/HTML%E6%A0%87%E7%AD%BE/"/>
+    <id>https://peilei6026.github.io/2020/04/11/HTML%E6%A0%87%E7%AD%BE/</id>
+    <published>2020-04-11T02:21:50.000Z</published>
+    <updated>2020-04-11T02:32:33.164Z</updated>
+    
+    <content type="html"><![CDATA[<img width=200 src="/assets/blogImg/peilei.jpg" >]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;img width=200 src=&quot;/assets/blogImg/peilei.jpg&quot; &gt;
+      
+    
+    </summary>
+    
+    
+    
+      <category term="HTML" scheme="https://peilei6026.github.io/tags/HTML/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>HEXO相关的命令</title>
+    <link href="https://peilei6026.github.io/2020/04/11/HEXO%E7%9B%B8%E5%85%B3%E7%9A%84%E5%91%BD%E4%BB%A4/"/>
+    <id>https://peilei6026.github.io/2020/04/11/HEXO%E7%9B%B8%E5%85%B3%E7%9A%84%E5%91%BD%E4%BB%A4/</id>
+    <published>2020-04-10T16:00:00.000Z</published>
+    <updated>2020-04-11T03:23:04.830Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="开启本地调试"><a href="#开启本地调试" class="headerlink" title="开启本地调试"></a>开启本地调试</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo server --debug</span><br></pre></td></tr></table></figure><h1 id="上传到服务器"><a href="#上传到服务器" class="headerlink" title="上传到服务器"></a>上传到服务器</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo generate</span><br><span class="line">hexo deploy</span><br></pre></td></tr></table></figure><h1 id="写文章"><a href="#写文章" class="headerlink" title="写文章"></a>写文章</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new &quot;文章名&quot;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;开启本地调试&quot;&gt;&lt;a href=&quot;#开启本地调试&quot; class=&quot;headerlink&quot; title=&quot;开启本地调试&quot;&gt;&lt;/a&gt;开启本地调试&lt;/h1&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gut
+      
+    
+    </summary>
+    
+    
+    
+      <category term="hexo" scheme="https://peilei6026.github.io/tags/hexo/"/>
+    
+  </entry>
+  
+</feed>
