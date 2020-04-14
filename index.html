@@ -59,6 +59,10 @@
 	        
 				<li><a href="/tags/%E9%9A%8F%E7%AC%94/">随笔</a></li>
 	        
+				<li><a href="/tags/%E8%B0%83%E9%85%92/">调酒</a></li>
+	        
+				<li><a href="/tags/React/">React</a></li>
+	        
 			</ul>
 		</nav>
 		<nav class="header-smart-menu">
@@ -113,6 +117,10 @@
 			
 				
 			
+				
+			
+				
+			
 			
 			
 			<nav class="header-nav">
@@ -126,12 +134,16 @@
 			</nav>
 
 			<nav class="header-menu js-header-menu">
-				<ul style="width: 50%">
+				<ul style="width: 70%">
 				
 				
-					<li style="width: 50%"><a href="/">主页</a></li>
+					<li style="width: 25%"><a href="/">主页</a></li>
 		        
-					<li style="width: 50%"><a href="/tags/%E9%9A%8F%E7%AC%94/">随笔</a></li>
+					<li style="width: 25%"><a href="/tags/%E9%9A%8F%E7%AC%94/">随笔</a></li>
+		        
+					<li style="width: 25%"><a href="/tags/%E8%B0%83%E9%85%92/">调酒</a></li>
+		        
+					<li style="width: 25%"><a href="/tags/React/">React</a></li>
 		        
 				</ul>
 			</nav>
@@ -147,6 +159,79 @@
           </div>
           <div id="js-content" class="content-ll">
             
+  
+    <article id="post-调酒" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/04/14/%E8%B0%83%E9%85%92/">调酒</a>
+    </h1>
+  
+
+        
+        <a href="/2020/04/14/%E8%B0%83%E9%85%92/" class="archive-article-date">
+  	<time datetime="2020-04-14T06:26:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-14</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">调酒</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/04/14/%E8%B0%83%E9%85%92/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
   
     <article id="post-React-JSX" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -168,14 +253,23 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="React-JSX"><a href="#React-JSX" class="headerlink" title="React JSX"></a>React JSX</h1><p>React使用JSX来代替常规的JavaScipt。<br>JSX是一个看起来很像XML的JavaScript语法扩展。<br>我们不需要一定使用JSX,但它有以下优点：</p>
+        <h2 id="React-JSX"><a href="#React-JSX" class="headerlink" title="React JSX"></a>React JSX</h2><p>React使用JSX来代替常规的JavaScipt。<br>JSX是一个看起来很像XML的JavaScript语法扩展。<br>我们不需要一定使用JSX,但它有以下优点：</p>
 <ul>
 <li>JSX执行更快，因为它在编译为JavaScript代码后进行了优化。</li>
 <li>它是类型安全的，在编译过程中就能发现错误。</li>
 <li>使用JSX编写模板更加见到那快速。<br>我们先看下以下代码<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const element &#x3D; &lt;h1&gt;Hello,world!&lt;&#x2F;h1&gt;;</span><br></pre></td></tr></table></figure>
 这种看起来可能有些奇怪的标签语法即不是字符串也不是HTML。<br>它被称为JSX,一种JavaScript的语法扩展，我们扩展在React中使用JSX来描述用户界面。<br>JSX是在JavaScript内部实现的<br>我们知道元素是构成React应用的最小单位，JSX就是用来声明React当中的元素。<br>与浏览器的DOM元素不同,React当中的元素事实上就是普通的对象，React DOM可以确保浏览器DOM的数据内容与React元素保持一致。<br>要将React元素渲染到根DOM节点中，我们通过把他们都传递给ReactDOM.render()的方法来将其渲染到页面上:<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var myDivElement &#x3D; &lt;div className&#x3D;&quot;foo&quot; &#x2F;&gt;;</span><br><span class="line">ReactDOM.render(myDivElement,document.getElementById(&#39;example&#39;));</span><br></pre></td></tr></table></figure></li>
+<li><em>注意*</em><br>由于JSX就是javaScript,一些标识符就像class和for不建议作为xml属性名。作为替代，React DOM使用className和htmlFor来作对应的属性。</li>
 </ul>
-
+<h2 id="使用JSX"><a href="#使用JSX" class="headerlink" title="使用JSX"></a>使用JSX</h2><p>JSX看起来类似HTML，我们可以看下实例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ReactDOM.render(</span><br><span class="line">    &lt;h1&gt;Hello,World!&lt;&#x2F;h1&gt;,</span><br><span class="line">    document.getElementById(&#39;example&#39;)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<p>我们可以在以上代码中嵌套多个HTML标签，需要使用一个div元素包裹它，实例中的p元素添加了自定义属性<code>data-myattribute</code>,添加自定义属性需要使用<code>data-</code>前缀。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">ReactDOM.render(</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">    &lt;h1&gt;欢迎学习React&lt;&#x2F;h1&gt;</span><br><span class="line">    &lt;p data-myattribute &#x3D; &quot;somevalue&quot;&gt;这是一个不错的JavaScript库！&lt;&#x2F;p&gt;</span><br><span class="line">    &lt;&#x2F;div&gt;</span><br><span class="line">    ,</span><br><span class="line">    document.getElementById(&#39;example&#39;)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<h2 id="独立文件"><a href="#独立文件" class="headerlink" title="独立文件"></a>独立文件</h2><p>你的React JSX代码可以放在一个单独的文件上，例如我们创建一个helloworld_react.js文件,代码如下:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ReactDOM.render(</span><br><span class="line">    &lt;h1&gt;Hello,world!&lt;&#x2F;h1&gt;,</span><br><span class="line">    document.getElementById(&#39;example&#39;)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<p>然后再HTML文件中引入该JS文件:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;div id&#x3D;&quot;example&quot;&gt;&lt;&#x2F;div&gt;</span><br><span class="line">    &lt;script type&#x3D;&quot;text&#x2F;babel&quot; src&#x3D;&quot;helloworld_react.js&quot;&gt;&lt;&#x2F;script&gt;</span><br><span class="line">&lt;&#x2F;body&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="JavaScript表达式"><a href="#JavaScript表达式" class="headerlink" title="JavaScript表达式"></a>JavaScript表达式</h2>
       
 
       
@@ -892,6 +986,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">React</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">HTML</a>
               </li>
              
@@ -900,15 +998,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">React</a>
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">调酒</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">编写规范</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
             
             <div class="clearfix"></div>
