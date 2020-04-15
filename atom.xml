@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://peilei6026.github.io/"/>
-  <updated>2020-04-14T06:29:31.652Z</updated>
+  <updated>2020-04-15T15:41:31.179Z</updated>
   <id>https://peilei6026.github.io/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>React组件</title>
+    <link href="https://peilei6026.github.io/2020/04/14/React%E7%BB%84%E4%BB%B6/"/>
+    <id>https://peilei6026.github.io/2020/04/14/React%E7%BB%84%E4%BB%B6/</id>
+    <published>2020-04-14T14:07:14.000Z</published>
+    <updated>2020-04-15T15:41:31.179Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="React组件"><a href="#React组件" class="headerlink" title="React组件"></a>React组件</h2><p>我们将讨论如何使用组件来使得我们的应用更容易来管理<br>接下来我们封装一个输出”Hello World!”的组件，组件名为HelloMessage;</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">function HelloMessage(props)&#123;</span><br><span class="line">    return &lt;h1&gt;Hello World!&lt;&#x2F;h1&gt;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">const element &#x3D; &lt;HelloMessage &#x2F;&gt;;</span><br><span class="line"></span><br><span class="line">ReactDOM.render(</span><br><span class="line">    element,</span><br><span class="line">    document.getElementById(&#39;example&#39;)</span><br><span class="line">);</span><br></pre></td></tr></table></figure><p><strong>实例解析</strong><br>1,我们可以使用函数定义了一个组件:</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">function HelloMessage(props)&#123;</span><br><span class="line">    return &lt;h1&gt;Hello World!&lt;&#x2F;h1&gt;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>你也可以使用ES6 class来定义一个组件：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">class Welcome extends React.Component &#123;</span><br><span class="line">    render()&#123;</span><br><span class="line">        return &lt;h1&gt;Hello World!&lt;&#x2F;h1&gt;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>2,const element = <HelloMessage />为用户自定义的组件。<br>注意，原生HTML元素名以小写字母开头，而自定义的React类名以大写字母开头，比如HelloMessage不能写成helloMessage.除此之外还需要注意组件类只能包含一个顶层标签，否则也会报错。<br>如果我们需要向组件传递参数，可以使用this.props对象,实例如下：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">function HelloMessage(props)&#123;</span><br><span class="line">    return &lt;h1&gt;Hello &#123;props.name&#125;!&lt;&#x2F;h1&gt;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">const element &#x3D; &lt;HelloMessage name&#x3D;&quot;Runoob&quot; &#x2F;&gt;;</span><br><span class="line"></span><br><span class="line">ReactDOM.render(</span><br><span class="line">    element,</span><br><span class="line">    document.getElementById(&#39;example&#39;)</span><br><span class="line">);</span><br></pre></td></tr></table></figure><p>以上实例中<em>name</em>属性通过<code>props.name</code>来获取。<br>注意,在添加属性时,class属性需要写成className,for属性需要写成htmlFor,这是因为class和for是JavaScript的保留字。</p><h2 id="复合组件"><a href="#复合组件" class="headerlink" title="复合组件"></a>复合组件</h2><p>我们可以通过创建多个组件来合成一个组件，即把组件的不同功能点进行分离。<br>以下实例我们实现了输出网站的名称和网址的组件。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">function Name(props)&#123;</span><br><span class="line">    return &lt;h1&gt;网站名称：&#123;props.name&#125;&lt;&#x2F;h1&gt;;</span><br><span class="line">&#125;</span><br><span class="line">function Url(props)&#123;</span><br><span class="line">    return &lt;h1&gt;网站地址：&#123;props.url&#125;&lt;&#x2F;h1&gt;;</span><br><span class="line">&#125;</span><br><span class="line">function Nickname(props)&#123;</span><br><span class="line">    return &lt;h1&gt;网站小名：&#123;props.nickname&#125;&lt;&#x2F;h1&gt;;</span><br><span class="line">&#125;</span><br><span class="line">function App()&#123;</span><br><span class="line">    return (</span><br><span class="line">        &lt;div&gt;</span><br><span class="line">            &lt;Name name&#x3D;&quot;菜鸟教程&quot; &#x2F;&gt;</span><br><span class="line">            &lt;Url url&#x3D;&quot;http:&#x2F;&#x2F;www.runoob.com&quot; &#x2F;&gt;</span><br><span class="line">            &lt;Nickname nickname&#x3D;&quot;Runoob&quot; &#x2F;&gt;</span><br><span class="line">        &lt;&#x2F;div&gt;</span><br><span class="line">    );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">ReactDOM.render(</span><br><span class="line">    &lt;APP &#x2F;&gt;,</span><br><span class="line">    document.getElementById(&#39;example&#39;)</span><br><span class="line">);</span><br></pre></td></tr></table></figure><p>实例中App组件使用了Name,Url和Nickname组件来输出对应的信息。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;React组件&quot;&gt;&lt;a href=&quot;#React组件&quot; class=&quot;headerlink&quot; title=&quot;React组件&quot;&gt;&lt;/a&gt;React组件&lt;/h2&gt;&lt;p&gt;我们将讨论如何使用组件来使得我们的应用更容易来管理&lt;br&gt;接下来我们封装一个输出”Hello Wor
+      
+    
+    </summary>
+    
+    
+    
+      <category term="React" scheme="https://peilei6026.github.io/tags/React/"/>
+    
+  </entry>
   
   <entry>
     <title>调酒</title>
