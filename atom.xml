@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://peilei6026.github.io/"/>
-  <updated>2020-04-17T17:39:45.145Z</updated>
+  <updated>2020-04-19T15:08:58.930Z</updated>
   <id>https://peilei6026.github.io/</id>
   
   <author>
@@ -15,6 +15,55 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>React条件渲染</title>
+    <link href="https://peilei6026.github.io/2020/04/19/React%E6%9D%A1%E4%BB%B6%E6%B8%B2%E6%9F%93/"/>
+    <id>https://peilei6026.github.io/2020/04/19/React%E6%9D%A1%E4%BB%B6%E6%B8%B2%E6%9F%93/</id>
+    <published>2020-04-19T14:35:47.000Z</published>
+    <updated>2020-04-19T15:08:58.930Z</updated>
+    
+    <content type="html"><![CDATA[<p>在React中,你可以创建不同的组件来封装各种你需要的行为。然后还可以根据应用的状态变化只渲染其中的一部分。<br>React中的条件渲染和JavaScript中的一致，使用JavaScript操作符if或者条件运算符来创建表示当前状态的元素，然后让React根据它们来更新UI<br>先看两个组件</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">function UserGreting(props)&#123;</span><br><span class="line">    return &lt;h1&gt;欢迎回来！&lt;?h1&gt;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function GuestGreetion(props)&#123;</span><br><span class="line">    return &lt;h1&gt;请先注册。&lt;&#x2F;h1&gt;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>我们将创建一个Greetin组件，它会根据用户是否来 登录来显示其中之一。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">function Greeting(props)&#123;</span><br><span class="line">    const isLoggedIn &#x3D; props.isLoggedIn;</span><br><span class="line">    if(isLoggedIn)&#123;</span><br><span class="line">        return &lt;UserGreeting &#x2F;&gt;;</span><br><span class="line">    &#125;</span><br><span class="line">    return &lt;GuestGreeting &#x2F;&gt;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">ReactDOM.render(</span><br><span class="line">    &#x2F;&#x2F;尝试修改isLoggedIn&#x3D;&#123;true&#125;:</span><br><span class="line">    &lt;Greeting isLoggedIn&#x3D;&#123;false&#125; &#x2F;&gt;,</span><br><span class="line">    document.getElementById(&#39;example&#39;)</span><br><span class="line">);</span><br></pre></td></tr></table></figure><h2 id="元素变量"><a href="#元素变量" class="headerlink" title="元素变量"></a>元素变量</h2><p>你可以使用变量来存储元素，它可以帮你有条件的渲染组件的一部分，而输出的其他部分不会更改，在下面的例子中，我们将要创建一个名为LoginControl的有状态的组件。<br>他会根据当前的状态来渲染<code>&lt;LoginButton /&gt;</code>或<code>&lt;LogoutButton&gt;</code>，它也将渲染前面例子中的<code>&lt;Greeting /&gt;</code>.</p><h2 id="与运算符-amp-amp"><a href="#与运算符-amp-amp" class="headerlink" title="与运算符&amp;&amp;"></a>与运算符&amp;&amp;</h2><p>你可以通过用花括号包裹代码在JSX中嵌入任何表达式，也包括JavaScript的逻辑与&amp;&amp;,它可以方便低条件渲染一个元素。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">function Mailbox(props)&#123;</span><br><span class="line">    const unredMessages &#x3D; props.unreadMessage;</span><br><span class="line">    return(</span><br><span class="line">        &lt;div&gt;</span><br><span class="line">           &lt;h1&gt;Hello!&lt;&#x2F;h1&gt;</span><br><span class="line">           &#123;unreadMessages.length &gt; 0 &amp;&amp;</span><br><span class="line">                &lt;h2&gt;</span><br><span class="line">                    您有&#123;unreadMessages.length&#125;条消息</span><br><span class="line">                &lt;&#x2F;h2&gt;</span><br><span class="line">           &#125;</span><br><span class="line">        &lt;&#x2F;div&gt;</span><br><span class="line">    );</span><br><span class="line">&#125;</span><br><span class="line">const messages &#x3D; [&#39;React&#39;,&#39;Re:React&#39;,&#39;Re:Re：React&#39;];</span><br><span class="line">ReactDOM.render(</span><br><span class="line">    &lt;Mailbox unreadMessages&#x3D;&#123;messages&#125; &#x2F;&gt;,</span><br><span class="line">    document.getElementById(&#39;example&#39;)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;在React中,你可以创建不同的组件来封装各种你需要的行为。然后还可以根据应用的状态变化只渲染其中的一部分。&lt;br&gt;React中的条件渲染和JavaScript中的一致，使用JavaScript操作符if或者条件运算符来创建表示当前状态的元素，然后让React根据它们来更新
+      
+    
+    </summary>
+    
+    
+    
+      <category term="React" scheme="https://peilei6026.github.io/tags/React/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>经验</title>
+    <link href="https://peilei6026.github.io/2020/04/18/%E7%BB%8F%E9%AA%8C/"/>
+    <id>https://peilei6026.github.io/2020/04/18/%E7%BB%8F%E9%AA%8C/</id>
+    <published>2020-04-18T15:39:42.000Z</published>
+    <updated>2020-04-18T15:40:07.405Z</updated>
+    
+    <content type="html"><![CDATA[<p>写项目前一定明确需求</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;写项目前一定明确需求&lt;/p&gt;
+
+      
+    
+    </summary>
+    
+    
+    
+      <category term="项目" scheme="https://peilei6026.github.io/tags/%E9%A1%B9%E7%9B%AE/"/>
+    
+  </entry>
   
   <entry>
     <title>React事件处理</title>
