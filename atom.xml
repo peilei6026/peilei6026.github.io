@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://peilei6026.github.io/"/>
-  <updated>2020-04-29T14:56:12.401Z</updated>
+  <updated>2020-04-29T15:33:17.267Z</updated>
   <id>https://peilei6026.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>CSS文本格式</title>
+    <link href="https://peilei6026.github.io/2020/04/29/CSS%E6%96%87%E6%9C%AC%E6%A0%BC%E5%BC%8F/"/>
+    <id>https://peilei6026.github.io/2020/04/29/CSS%E6%96%87%E6%9C%AC%E6%A0%BC%E5%BC%8F/</id>
+    <published>2020-04-29T15:12:35.000Z</published>
+    <updated>2020-04-29T15:33:17.267Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="文本颜色"><a href="#文本颜色" class="headerlink" title="文本颜色"></a>文本颜色</h1><p>颜色属性被用来设置文字的颜色<br>颜色是通过CSS最经常的指定；</p><ul><li>十六进制值-如：#FF0000</li><li>一个RGB值-如:RGB(255,0,0)</li><li>颜色的名称-如：red<br>一个网页的背景颜色是指在主体内的选择：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">body &#123;color:red;&#125;</span><br><span class="line">h1 &#123;color:#00ff00;&#125;</span><br><span class="line">h2 &#123;color:rgb(255,0,0);&#125;</span><br></pre></td></tr></table></figure>对于W3C标准的CSS:如果你定义了颜色属性，你还必须定义背景色属性。<h1 id="文本的对齐方式"><a href="#文本的对齐方式" class="headerlink" title="文本的对齐方式"></a>文本的对齐方式</h1>文本排列属性是用于设置文本的水平对齐方式。<br>文本可居中或对齐到左或右，两端对齐。<br>当text-align设置为”justify”,每一行被展开宽度相等，左，右外边距是对齐（如杂志和报纸）。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">h1 &#123;text-align:center;&#125;</span><br><span class="line">p.date &#123;text-align:right;&#125;</span><br><span class="line">p.main &#123;text-align:justify;&#125;</span><br></pre></td></tr></table></figure><h2 id="文本修饰"><a href="#文本修饰" class="headerlink" title="文本修饰"></a>文本修饰</h2>text-decoration属性用来设置或删除文本的装饰。<br>从设计的角度看text-decoration属性主要是用来删除链接的下滑线：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a &#123;text-decoration:none;&#125;</span><br></pre></td></tr></table></figure>也可以这样装饰文字：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">h1 &#123;text-decoration:overline;&#125;</span><br><span class="line">h2 &#123;text-decoration:line-through;&#125;</span><br><span class="line">h3 &#123;text-decoration:underline;&#125;</span><br></pre></td></tr></table></figure>我们不建议强调指出不是链接的文本，因为这常常混淆用户。<h1 id="文本转换"><a href="#文本转换" class="headerlink" title="文本转换"></a>文本转换</h1>文本转换属性是用来指定在一个文本中的大写和小写字母。<br>可用于所有字句变成大写或小写字母，或每个单词的首字母大写。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">p.uppercase &#123;text-transform:uppercase;&#125;</span><br><span class="line">p.lowercase &#123;text-transform:lowercase;&#125;</span><br><span class="line">p.capitalize &#123;text-transform:capitalize;&#125;</span><br></pre></td></tr></table></figure><h1 id="文本缩进"><a href="#文本缩进" class="headerlink" title="文本缩进"></a>文本缩进</h1>文本缩进属性是用来指定文本的第一行的缩进。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">p &#123;text-indent:50px;&#125;</span><br></pre></td></tr></table></figure></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;文本颜色&quot;&gt;&lt;a href=&quot;#文本颜色&quot; class=&quot;headerlink&quot; title=&quot;文本颜色&quot;&gt;&lt;/a&gt;文本颜色&lt;/h1&gt;&lt;p&gt;颜色属性被用来设置文字的颜色&lt;br&gt;颜色是通过CSS最经常的指定；&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;十六进制值-如：#FF0000
+      
+    
+    </summary>
+    
+    
+    
+      <category term="CSS" scheme="https://peilei6026.github.io/tags/CSS/"/>
+    
+  </entry>
   
   <entry>
     <title>CSS背景</title>
@@ -484,30 +510,6 @@
       <category term="hexo个人博客" scheme="https://peilei6026.github.io/tags/hexo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/"/>
     
       <category term="编写规范" scheme="https://peilei6026.github.io/tags/%E7%BC%96%E5%86%99%E8%A7%84%E8%8C%83/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>HTML标签</title>
-    <link href="https://peilei6026.github.io/2020/04/11/HTML%E6%A0%87%E7%AD%BE/"/>
-    <id>https://peilei6026.github.io/2020/04/11/HTML%E6%A0%87%E7%AD%BE/</id>
-    <published>2020-04-11T02:21:50.000Z</published>
-    <updated>2020-04-11T02:32:33.164Z</updated>
-    
-    <content type="html"><![CDATA[<img width=200 src="/assets/blogImg/peilei.jpg" >]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;img width=200 src=&quot;/assets/blogImg/peilei.jpg&quot; &gt;
-      
-    
-    </summary>
-    
-    
-    
-      <category term="HTML" scheme="https://peilei6026.github.io/tags/HTML/"/>
     
   </entry>
   
