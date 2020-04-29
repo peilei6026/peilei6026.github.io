@@ -6,19 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://peilei6026.github.io">
-  <title>React元素渲染 | 裴雷de博客</title>
+  <title>CSS多重样式优先级深入概念 | 裴雷de博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="React元素渲染元素是构成React应用得最小单位 1const element &#x3D; &lt;h1&gt;Hello,world!&lt;&#x2F;h1&gt;; 与浏览去得DOM元素不同，React当中的元素事实上是普通的对象,React DOM可以确保浏览器DOM的数据内容与React元素保持一致。 将元素渲染到DOM中首先我们在HTML页面中添加一个id&#x3D;&quot;examp">
+  <meta name="description" content="优先级是浏览器通过判断哪些元素值与元素最相关以决定并应用到该元素上的。优先级仅由选择器组成的匹配规则决定的。优先级就是分配给指定的CSS声明的一个权重，它由匹配的选择器中的每一种选择器类型的数值决定。 优先级顺序优先级逐级增加的选择器列表  通用选择器（*） 元素(类型)选择器 类选择器 属性选择器 伪类 ID选择器 内联样式！important规则例外当！important规则被应用在一个样式声">
 <meta property="og:type" content="article">
-<meta property="og:title" content="React元素渲染">
-<meta property="og:url" content="https://peilei6026.github.io/2020/04/13/React%E5%85%83%E7%B4%A0%E6%B8%B2%E6%9F%93/index.html">
+<meta property="og:title" content="CSS多重样式优先级深入概念">
+<meta property="og:url" content="https://peilei6026.github.io/2020/04/29/CSS%E5%A4%9A%E9%87%8D%E6%A0%B7%E5%BC%8F%E4%BC%98%E5%85%88%E7%BA%A7%E6%B7%B1%E5%85%A5%E6%A6%82%E5%BF%B5/index.html">
 <meta property="og:site_name" content="裴雷de博客">
-<meta property="og:description" content="React元素渲染元素是构成React应用得最小单位 1const element &#x3D; &lt;h1&gt;Hello,world!&lt;&#x2F;h1&gt;; 与浏览去得DOM元素不同，React当中的元素事实上是普通的对象,React DOM可以确保浏览器DOM的数据内容与React元素保持一致。 将元素渲染到DOM中首先我们在HTML页面中添加一个id&#x3D;&quot;examp">
+<meta property="og:description" content="优先级是浏览器通过判断哪些元素值与元素最相关以决定并应用到该元素上的。优先级仅由选择器组成的匹配规则决定的。优先级就是分配给指定的CSS声明的一个权重，它由匹配的选择器中的每一种选择器类型的数值决定。 优先级顺序优先级逐级增加的选择器列表  通用选择器（*） 元素(类型)选择器 类选择器 属性选择器 伪类 ID选择器 内联样式！important规则例外当！important规则被应用在一个样式声">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-04-13T14:21:30.000Z">
-<meta property="article:modified_time" content="2020-04-13T15:16:22.941Z">
+<meta property="article:published_time" content="2020-04-29T08:41:34.000Z">
+<meta property="article:modified_time" content="2020-04-29T09:10:10.694Z">
 <meta property="article:author" content="裴雷">
-<meta property="article:tag" content="React">
+<meta property="article:tag" content="CSS">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="裴雷de博客" type="application/atom+xml">
@@ -163,40 +163,48 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-React元素渲染" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-CSS多重样式优先级深入概念" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      React元素渲染
+      CSS多重样式优先级深入概念
     </h1>
   
 
         
-        <a href="/2020/04/13/React%E5%85%83%E7%B4%A0%E6%B8%B2%E6%9F%93/" class="archive-article-date">
-  	<time datetime="2020-04-13T14:21:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-13</time>
+        <a href="/2020/04/29/CSS%E5%A4%9A%E9%87%8D%E6%A0%B7%E5%BC%8F%E4%BC%98%E5%85%88%E7%BA%A7%E6%B7%B1%E5%85%A5%E6%A6%82%E5%BF%B5/" class="archive-article-date">
+  	<time datetime="2020-04-29T08:41:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-29</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="React元素渲染"><a href="#React元素渲染" class="headerlink" title="React元素渲染"></a>React元素渲染</h1><p>元素是构成React应用得最小单位</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const element &#x3D; &lt;h1&gt;Hello,world!&lt;&#x2F;h1&gt;;</span><br></pre></td></tr></table></figure>
-<p>与浏览去得DOM元素不同，React当中的元素事实上是普通的对象,React DOM可以确保浏览器DOM的数据内容与React元素保持一致。</p>
-<h1 id="将元素渲染到DOM中"><a href="#将元素渲染到DOM中" class="headerlink" title="将元素渲染到DOM中"></a>将元素渲染到DOM中</h1><p>首先我们在HTML页面中添加一个<code>id=&quot;example&quot;</code>的<code>&lt;div&gt;</code></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id&#x3D;&quot;example&quot;&gt;&lt;&#x2F;div&gt;</span><br></pre></td></tr></table></figure>
-<p>在此div中的所有内容都将由React DOM来管理，所以我们将其成为”根“DOM节点<br>我们用React开发应用时一般只会定义一个根节点，但如果你是一个在已有的项目中引用React的话，你可能会需要在不同的部分单独定义React根节点。<br>要将React元素渲染到根DOM节点中，我们通过把他们都传递给<code>ReactDOM.render()</code>的方法来将其渲染到页面中：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">const element &#x3D; &lt;h1&gt;Hello,world!&lt;&#x2F;h1&gt;;</span><br><span class="line">ReactDOM.render(</span><br><span class="line">    element,</span><br><span class="line">    document.getElementById(&#39;example&#39;)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
-<h1 id="更新元素渲染"><a href="#更新元素渲染" class="headerlink" title="更新元素渲染"></a>更新元素渲染</h1><p>React元素都是不可变的。当元素被创建之后，你是无法改变其内容或者属性的<br>目前更新界面的唯一办法激素hi创建一个新的元素，然后将他传入ReactDOM.render()方法：<br>来看一下这个计时器的例子：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">function tick()&#123;</span><br><span class="line">    const element &#x3D; (</span><br><span class="line">        &lt;div&gt;</span><br><span class="line">            &lt;h1&gt;Hello,world!&lt;&#x2F;h1&gt;</span><br><span class="line">            &lt;h2&gt;现在时&#123;new Date().toLocaleTimeString()&#125;.&lt;&#x2F;h2&gt;</span><br><span class="line">        &lt;&#x2F;div&gt;</span><br><span class="line">    );</span><br><span class="line">    ReactDOM.render(</span><br><span class="line">        element,</span><br><span class="line">        document.getElementById(&#39;example&#39;)</span><br><span class="line">    );</span><br><span class="line">&#125;</span><br><span class="line">setInterval(tick,1000);</span><br></pre></td></tr></table></figure>
-<p>以上实例通过setinterval()方法。<br>我们可以将要展示的部分封装起来，以下实例用一个函数来表示：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">function Clock(props)&#123;</span><br><span class="line">    return (</span><br><span class="line">        &lt;div&gt;</span><br><span class="line">            &lt;h1&gt;Hello,world!&lt;&#x2F;h1&gt;</span><br><span class="line">            &lt;h2&gt;现在时&#123;props.date.toLocaleTimeString()&#125;.&lt;&#x2F;h2&gt;</span><br><span class="line">        &lt;&#x2F;div&gt;</span><br><span class="line">    );</span><br><span class="line">&#125;</span><br><span class="line">function tick()&#123;</span><br><span class="line">    ReactDOM.render(</span><br><span class="line">        &lt;Clock date&#x3D;&#123;new Data()&#125; &#x2F;&gt;,</span><br><span class="line">        document.getElementById(&#39;example&#39;)</span><br><span class="line">    );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">setInterval(tick,1000);</span><br></pre></td></tr></table></figure>
-<p>除了函数外我们还可以创建一个React.Component的ES6类，该类封装了要展示的元素,需要注意的是render()方法中，需要使用<code>this.props</code>替代<code>props</code>:<br>React只会更新必要的部分</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">class Clock extends React.Component&#123;</span><br><span class="line">    render()&#123;</span><br><span class="line">        return()</span><br><span class="line">        &lt;div&gt;</span><br><span class="line">            &lt;h1&gt;Hello,world!&lt;&#x2F;h1&gt;</span><br><span class="line">            &lt;h2&gt;现在是&#123;this.props.date.toLocaleTimeString()&#125;.&lt;&#x2F;h2&gt;</span><br><span class="line">        &lt;&#x2F;div&gt;</span><br><span class="line">        );</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function tick()&#123;</span><br><span class="line">    ReactDOM.render(</span><br><span class="line">        &lt;Clock date&#x3D;&#123;new Date()&#125; &#x2F;&gt;,</span><br><span class="line">        document.getElementById(&#39;example&#39;)</span><br><span class="line">    );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">setInterval(tick,1000);</span><br></pre></td></tr></table></figure>
-<p>指的主义的是React DOM首先会比较元素内容先后的不同，而在渲染过程中只会更新改变了的部分。</p>
+        <p>优先级是浏览器通过判断哪些元素值与元素最相关以决定并应用到该元素上的。优先级仅由选择器组成的匹配规则决定的。<br>优先级就是分配给指定的CSS声明的一个权重，它由匹配的选择器中的每一种选择器类型的数值决定。</p>
+<h2 id="优先级顺序"><a href="#优先级顺序" class="headerlink" title="优先级顺序"></a>优先级顺序</h2><p>优先级逐级增加的选择器列表</p>
+<ul>
+<li>通用选择器（*）</li>
+<li>元素(类型)选择器</li>
+<li>类选择器</li>
+<li>属性选择器</li>
+<li>伪类</li>
+<li>ID选择器</li>
+<li>内联样式<h2 id="！important规则例外"><a href="#！important规则例外" class="headerlink" title="！important规则例外"></a>！important规则例外</h2>当！important规则被应用在一个样式声明中的时候，该样式声明会覆盖CSS中任何其他的声明，无论它处在声明列表中的哪里，尽管如此，!important规则还是与优先级毫无关系，使用!important不是一个好习惯，因为它改变了你样式表本来的级联规则，从而使其难以调试。<br>一些经验规则：</li>
+<li>Always 要优化考虑使用样式规则的优先级来解决问题而不是!important</li>
+<li>Only只在需要覆盖全站或者外部CSS（例如引用的ExtJs或者YUI）的特定页面中使用!important</li>
+<li>Never永远不要在全站范围的CSS上使用!important</li>
+<li>Never 永远不要在你的插件中使用!important<br>权重计算<br>内联样式1000+id选择器100+类选择器10+元素选择器1</li>
+</ul>
+<h2 id="CSS优先级法则："><a href="#CSS优先级法则：" class="headerlink" title="CSS优先级法则："></a>CSS优先级法则：</h2><ul>
+<li>A选择器都有一个权值，权值越大越优先；</li>
+<li>B当权值相等时，后出现的样式表设置要优于先出现的样式表设置；</li>
+<li>C创作者的规则高于浏览者，即网页编写者设置的css样式的优先权高于浏览器所设置的样式；</li>
+<li>D继承的CSS样式不如后面指定的CSS样式；</li>
+<li>E在同一组属性设置中标有!important规则的优先级最大</li>
+</ul>
 
       
 
@@ -210,7 +218,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">React</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">CSS</a>
         		</li>
       		
 		</ul>
@@ -229,18 +237,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2020/04/13/React-JSX/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2020/04/29/CSS%E8%83%8C%E6%99%AF/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          React JSX
+          CSS背景
         
       </div>
     </a>
   
   
-    <a href="/2020/04/12/React-%E5%AE%89%E8%A3%85/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">React 安装</div>
+    <a href="/2020/04/26/CSS%E5%88%9B%E5%BB%BA/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">CSS创建</div>
       <i class="icon-circle-right"></i>
     </a>
   

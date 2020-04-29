@@ -16,7 +16,7 @@
 <meta property="og:description" content="CSS创建当读到一个样式表时，浏览器会根据它来格式化HTML文档。 如何插入样式表插入样式表的方法有三种：  外部样式表(External style sheet) 内部样式表(Internal style sheet) 内联样式(Inline style)外部样式表当样式需要应用于很多页面时，外部样式表将是理想的选择。在使用外部样式表的情况下，你可以通过改变一个文件来改变整个站点的外观。每个页面">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-04-26T14:53:37.000Z">
-<meta property="article:modified_time" content="2020-04-26T15:34:26.049Z">
+<meta property="article:modified_time" content="2020-04-28T14:45:14.873Z">
 <meta property="article:author" content="裴雷">
 <meta property="article:tag" content="CSS">
 <meta name="twitter:card" content="summary">
@@ -197,7 +197,7 @@
 假如拥有内部样式表的这个页面同时与外部样式表链接，那么h3的最后的样式是：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">color:red;</span><br><span class="line">text-align:right;</span><br><span class="line">font-size:20px;</span><br></pre></td></tr></table></figure>
 即颜色属性将继承于外部样式表，而文字排列和字体尺寸会被内部样式表中的规则取代。<h2 id="多重样式优先级"><a href="#多重样式优先级" class="headerlink" title="多重样式优先级"></a>多重样式优先级</h2>样式表允许以多种方式规定样式信息，样式可以规定在单个HTML元素中，在HTML页的头元素中，或者在一个外部的CSS文件中，甚至可以在同一个HTML文档内部引用多个样式表。<br>一般情况下，优先级</li>
 <li>内联样式Inline Style&gt;内部样式Internal style sheet&gt;外部样式External style sheet&gt;浏览器默认样式*<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;head&gt;</span><br><span class="line">     &lt;link rel&#x3D;&quot;stylesheet&quot; type&#x3D;&quot;text&#x2F;css&quot; href&#x3D;&quot;style.css&quot;&#x2F;&gt;</span><br><span class="line">     &lt;style type&#x3D;&quot;text&#x2F;css&quot;&gt;</span><br><span class="line">            h3&#123;color:green;&#125;</span><br><span class="line">     &lt;&#x2F;style&gt;</span><br><span class="line">&lt;&#x2F;head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;h3&gt;测试！&lt;&#x2F;h3&gt;</span><br><span class="line">&lt;&#x2F;body&gt;</span><br></pre></td></tr></table></figure>
-注意：乳沟外部样式放在内部样式的后面，则外部样式将覆盖内部样式。</li>
+注意：如果外部样式放在内部样式的后面，则外部样式将覆盖内部样式。</li>
 </ul>
 
       
@@ -230,6 +230,15 @@
 
   
 <nav id="article-nav">
+  
+    <a href="/2020/04/29/CSS%E5%A4%9A%E9%87%8D%E6%A0%B7%E5%BC%8F%E4%BC%98%E5%85%88%E7%BA%A7%E6%B7%B1%E5%85%A5%E6%A6%82%E5%BF%B5/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          CSS多重样式优先级深入概念
+        
+      </div>
+    </a>
   
   
     <a href="/2020/04/26/CSS-Id%E5%92%8CClass/" id="article-nav-older" class="article-nav-link-wrap">
@@ -359,11 +368,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -379,15 +388,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">调酒</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">项目</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">编写规范</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">调酒</a>
               </li>
              
               <li class="article-tag-list-item">
