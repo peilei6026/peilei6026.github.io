@@ -160,6 +160,92 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-React事件处理" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/04/17/React%E4%BA%8B%E4%BB%B6%E5%A4%84%E7%90%86/">React事件处理</a>
+    </h1>
+  
+
+        
+        <a href="/2020/04/17/React%E4%BA%8B%E4%BB%B6%E5%A4%84%E7%90%86/" class="archive-article-date">
+  	<time datetime="2020-04-17T14:04:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-17</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>React元素的事件处理和DOM元素类似。但是有一点语法上的不同：</p>
+<ul>
+<li>React事件绑定属性的命名采用驼峰式写法，而不是小写</li>
+<li>如果采用JSX的语法你需要传入一个函数作为事件处理函数，而不是一个字符串（DOM元素的写法）<br>HTML通常写法是：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;botton onclick&#x3D;&quot;acticateLasers()&quot;&gt;</span><br><span class="line">    激活按钮</span><br><span class="line">&lt;&#x2F;button&gt;</span><br></pre></td></tr></table></figure>
+React中写法为：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;button onClick&#x3D;&#123;activateLsers&#125;&gt;</span><br><span class="line">    激活按钮</span><br><span class="line">&lt;&#x2F;button&gt;</span><br></pre></td></tr></table></figure>
+React中另一个不同是你不能使用返回<em>false</em>的方式阻止默认行为，你必须明确使用<code>proventDefault</code>.<br>例如，通常我们在HTML中阻止链接默认打开一个新页面，可以这样写。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;a href&#x3D;&quot;#&quot; onclick&#x3D;&quot;console.log(&#39;点击链接&#39;);return false&quot;&gt;</span><br><span class="line">点我</span><br><span class="line">&lt;&#x2F;a&gt;</span><br></pre></td></tr></table></figure>
+React中的写法为<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">function ActionLink()&#123;</span><br><span class="line">    function handleClick(e)&#123;</span><br><span class="line">        e.preventDefault();</span><br><span class="line">        console.log(&#39;链接被点击&#39;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    return (</span><br><span class="line">        &lt;a href&#x3D;&quot;#&quot; onClick&#x3D;&#123;handleClick&#125;&gt;</span><br><span class="line">            点我</span><br><span class="line">        &lt;&#x2F;a&gt;</span><br><span class="line">    );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+实例中e是一个合成事件。<br>使用React的时候通常你不需要使用addEventListener为一个已创建的DOM元素添加监听器。你仅仅需要在这个元素初始渲染的时候提供一个监听器。<br>当你使用ES6 class语法来定义一个组件的时候，事件处理器会成为类的一个方法，例如，下面的Toggle组件渲染一个让用户切换开关状态的按钮：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">class Toglle extends React.Component&#123;</span><br><span class="line">    constructor(props)&#123;</span><br><span class="line">        super(props);</span><br><span class="line">            super(props);</span><br><span class="line">            this.state &#x3D; &#123;isToggleOn: true&#125;;</span><br><span class="line"></span><br><span class="line">            &#x2F;&#x2F;这边绑定是必要的，这样&#96;this&#96;才能在回调函数中使用</span><br><span class="line">            this.handleClick &#x3D; this.handleClick.bing(this);</span><br><span class="line">        &#125;</span><br><span class="line">        handleClick()&#123;</span><br><span class="line">            this.setState(prevState&#x3D;&gt;(&#123;</span><br><span class="line">                isToggleOn: !prevState.isToggleOn</span><br><span class="line">            &#125;));</span><br><span class="line">        &#125;</span><br><span class="line">        render()&#123;</span><br><span class="line">            return(</span><br><span class="line">                &lt;button onClick&#x3D;&#123;this.handleClick&#125;&gt;</span><br><span class="line">                    &#123;this.state.isToggleOn ? &#39;ON&#39; :&#39;OFF&#39;&#125;</span><br><span class="line">                &lt;&#x2F;button&gt;</span><br><span class="line">            );</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">ReactDOM.render(</span><br><span class="line">    &lt;Toggle &#x2F;&gt;,</span><br><span class="line">    document.getElementById(&#39;example&#39;)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+你必须谨慎对待JSX回调函数中的this，类的方法默认不会绑定this的。如果你忘记绑定this.handleClick并把它传入onClick,当你调用这个函数的时候this的值会是undefinde.<br>并不是React的特殊行为，他是函数如何在JacaScript中运行的一部分，通常情况下，如果你没有在方法后面添加(),例如<code>onClick={this.handleClick}</code>,你应该为这个方法绑定this.<br>如果使用bind让你很烦，这里有两种方法可以解决，如果你正在使用实验性的属性初始化器语法，你可以使用属性初始化器来让你正确的绑定回调函数<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">class LoggingButton extends React.Component&#123;</span><br><span class="line">    &#x2F;&#x2F;这个语法确保了&#39;this&#39;绑定在handleClick中</span><br><span class="line">    &#x2F;&#x2F;这里只是一个测试</span><br><span class="line">    handleClik &#x3D; () &#x3D;&gt; &#123;</span><br><span class="line">        console.log(&#39;this is:&#39;,this);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    render()&#123;</span><br><span class="line">        return(</span><br><span class="line">            &lt;botton onClick&#x3D;&#123;this.handleClick&#125;&gt;</span><br><span class="line">            Click me</span><br><span class="line">            &lt;&#x2F;botton&gt;</span><br><span class="line">        );</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+如果你没有使用属性初始化器语法，你可以在回调函数中使用箭头函数：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">class LogginButton extends React.Component&#123;</span><br><span class="line">    handleClick()&#123;</span><br><span class="line">        console.log(&#39;this is:&#39;,this);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    render()&#123;</span><br><span class="line">        &#x2F;&#x2F;这个语法确保了&#96;this&#96;绑定在handleClick中</span><br><span class="line">        return (</span><br><span class="line">            &lt;button onClick&#x3D;&#123;(e) &#x3D;&gt; this.handleClick(e)&#125;&gt;Click me</span><br><span class="line">            &lt;&#x2F;button&gt;</span><br><span class="line">        );</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+使用这个语法有个问题就是每次LoggingButton渲染的时候都会创建一个不同的回调函数。在大多数情况下，这没有问题，然而如果这个回调函数作为一个属性值传入低阶组件，这些组件可能会进行额外的重新渲染。我们通常建议在构造函数中绑定或者使用属性初始化器来避免这些性能问题。<h2 id="向事件处理程序传递参数"><a href="#向事件处理程序传递参数" class="headerlink" title="向事件处理程序传递参数"></a>向事件处理程序传递参数</h2>通常我们会为事件处理程序传递额外的参数。例如，若是ID是你要删除的那一行的id，以下两种方式都可以向事件处理程序传递参数：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;button onClink&#x3D;&#123;(e) &#x3D;&gt; this.deleteRow(id,e)&#125;&gt;Delete Row&lt;&#x2F;button&gt;</span><br><span class="line">&lt;button onClink&#x3D;&#123;this.deleteRow.bing(this,id)&#125;&gt;Delete Row&lt;&#x2F;button&gt;</span><br></pre></td></tr></table></figure>
+上述两种方式都是等价的<br>上面两个例子中，参数e作为React事件对象将会被作为第二个参数进行传递。通过箭头函数的方式，事件对象必须显式的进行传递，但是通过bind的方式，事件对象以及更多的参数将会被隐式的进行传递。<br>指的注意的是，通过bind方式向监听函数传参，在类组件中定义的监听函数，事件对象e要排在所传递参数的后面，例如<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">class Popper extends React.Component&#123;</span><br><span class="line">    constructor()&#123;</span><br><span class="line">        super();</span><br><span class="line">        this.state&#x3D;&#123;name:&#39;Hello World!&#39;&#125;;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    preventPop(name,e)&#123; &#x2F;&#x2F;事件对象e要放到最后</span><br><span class="line">        e.preventDefault();</span><br><span class="line">        alert(name); </span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    render()&#123;</span><br><span class="line">        return(</span><br><span class="line">            &lt;div&gt;</span><br><span class="line">                &lt;p&gt;hello&lt;&#x2F;p&gt;</span><br><span class="line">                &#123;&#x2F;*通过bing()方法传递参数。*&#x2F;&#125;</span><br><span class="line">                &lt;a href&#x3D;&quot;https:&#x2F;&#x2F;reactjs.org&quot; onClick&#x3D;&#123;this.preventPop.bind(this,this.state.name)&#125;&gt;Click&lt;&#x2F;a&gt;</span><br><span class="line">            &lt;&#x2F;div&gt;</span><br><span class="line">        );</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">React</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/04/17/React%E4%BA%8B%E4%BB%B6%E5%A4%84%E7%90%86/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-React-Props" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -918,91 +1004,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2020/04/11/hexo%E5%BC%95%E5%85%A5%E9%9F%B3%E4%B9%90/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-博客编写文章指南" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/11/%E5%8D%9A%E5%AE%A2%E7%BC%96%E5%86%99%E6%96%87%E7%AB%A0%E6%8C%87%E5%8D%97/">博客编写文章指南</a>
-    </h1>
-  
-
-        
-        <a href="/2020/04/11/%E5%8D%9A%E5%AE%A2%E7%BC%96%E5%86%99%E6%96%87%E7%AB%A0%E6%8C%87%E5%8D%97/" class="archive-article-date">
-  	<time datetime="2020-04-11T02:32:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-11</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="头部"><a href="#头部" class="headerlink" title="头部"></a>头部</h2><ul>
-<li>title 标题：文章的题目</li>
-<li>data 日期：可有hexo new命令自动生成也可自己编写</li>
-<li>tags 标签：可快速找到对应文章<h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><h3 id="图片引用"><a href="#图片引用" class="headerlink" title="图片引用"></a>图片引用</h3>例子：<br><br><img width=200 src="/assets/blogImg/peilei.jpg" > </br></li>
-</ul>
-<h3 id="音乐引用"><a href="#音乐引用" class="headerlink" title="音乐引用"></a>音乐引用</h3><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=448184048&auto=1&height=66"></iframe>
-
-<h3 id="文字加粗"><a href="#文字加粗" class="headerlink" title="文字加粗"></a>文字加粗</h3><p><strong>设置文字加粗的语句是给文字加上一组双星号</strong></p>
-<h3 id=""><a href="#" class="headerlink" title=""></a></h3>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">hexo个人博客</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">编写规范</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/11/%E5%8D%9A%E5%AE%A2%E7%BC%96%E5%86%99%E6%96%87%E7%AB%A0%E6%8C%87%E5%8D%97/">展开全文 >></a>
         </p>
       
 

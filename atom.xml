@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://peilei6026.github.io/"/>
-  <updated>2020-04-29T15:33:17.267Z</updated>
+  <updated>2020-05-07T15:33:53.224Z</updated>
   <id>https://peilei6026.github.io/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>React组件API</title>
+    <link href="https://peilei6026.github.io/2020/05/07/React%E7%BB%84%E4%BB%B6API/"/>
+    <id>https://peilei6026.github.io/2020/05/07/React%E7%BB%84%E4%BB%B6API/</id>
+    <published>2020-05-07T13:59:10.000Z</published>
+    <updated>2020-05-07T15:33:53.224Z</updated>
+    
+    <content type="html"><![CDATA[<p>在本章节中我们将讨论React组件API.我们将讲解一下7个方法：</p><ul><li>设置状态:setState</li><li>替换状态:replaceState</li><li>设置属性:setProps</li><li>替换属性:replaceProps</li><li>强制更新:forceUpdate</li><li>获取DOM节点:findDOMNode</li><li>判断组件挂载状态:isMounted<h2 id="设置状态setState"><a href="#设置状态setState" class="headerlink" title="设置状态setState"></a>设置状态setState</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">setState(object nextState[, function callback])</span><br></pre></td></tr></table></figure><h3 id="参数说明"><a href="#参数说明" class="headerlink" title="参数说明"></a>参数说明</h3></li><li>nextState,将要设置得新状态，该状态会和当前得state合并</li><li>callback，可选参数，回调函数。该函数会在setState设置成功，且组件重新渲染后调用。<br>合并nextState和当前state,并重新渲染组件。setState是React事件处理函数中和请求回调函数中触发UI更新得主要方法。<h3 id="关于setState"><a href="#关于setState" class="headerlink" title="关于setState"></a>关于setState</h3>不能再组件内部通过this.state修改状态，因为该状态会在调用setState()后被替换。<br>setState()并不会立即改变this.state,而是创建一个即将处理的state.setState()并不一定是同步得，为了提升性能React会批量执行state和DOM渲染。<br>setState()总是会出发一次组件重绘，除非在shouldComponentUpdate()中实现了一些条件渲染逻辑。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">class Counter extends React.Component&#123;</span><br><span class="line">    constructor(props)&#123;</span><br><span class="line">        super(props);</span><br><span class="line">        this.state &#x3D; &#123;clickCount: 0&#125;;</span><br><span class="line">        this.handleClick &#x3D; this.handleClick.bind(this);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    handleClick()&#123;</span><br><span class="line">        this.setState(function(state)&#123;</span><br><span class="line">            return &#123;clickCount: state.clickCount + 1&#125;;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">    render()&#123;</span><br><span class="line">        return (&lt;h2 onClick&#x3D;&#123;this.handleClick&#125;&gt;点我！点击次数为:&#123;this.state.clickCount&#125;&lt;&#x2F;h2&gt;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">ReactDOM.render(</span><br><span class="line">    &lt;Counter &#x2F;&gt;,</span><br><span class="line">    document.getElementById(&#39;example&#39;)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>实例中通过点击h2标签来使得点击计数器加1<h2 id="替换状态：replaceState"><a href="#替换状态：replaceState" class="headerlink" title="替换状态：replaceState"></a>替换状态：replaceState</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">replaceState(object nextState[, function call back])</span><br></pre></td></tr></table></figure></li><li>nextState,将要设置的新状态，该状态会替换当前的state.</li><li>callback,可选参数，回调函数，该函数会在replaceState设置成功，且组件重新渲染后调用。<br>设置组件属性，并重新渲染组件。<br>props相当于组件的数据量，它总会从父组件向下传递至所有的子组件中，当和一个外部的JavaScript应用集成时，我们可能会需要想组件传递数据或者通知React.render()组件需要重新渲染，可以使用setProps().<br>更新组件，我可以在节点上再次调用React.render(),也可以通过setProps()方法改变组件属性，出发组件重新渲染。<h2 id="替换属性-replaceProps"><a href="#替换属性-replaceProps" class="headerlink" title="替换属性:replaceProps"></a>替换属性:replaceProps</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">replaceProps(object nextProps[, function callback])</span><br></pre></td></tr></table></figure></li><li>nextProps,将要设置的新属性，该属性会替换当前的props.</li><li>callback,可选参数，回调函数，该函数会在replaceProps设置成功，且组件重新渲染后调用。<br>replaceProps()方法与setProps类似，但它会删除原有的props.<h2 id="强制更新-forceUpdate"><a href="#强制更新-forceUpdate" class="headerlink" title="强制更新:forceUpdate"></a>强制更新:forceUpdate</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">forceUpdate([function callback])</span><br></pre></td></tr></table></figure>参数说明</li><li>callback,可选参数，回调函数，该函数会在组件render()方法调用后调用。<br>forceUpdate()方法会使组件调用自身的render()方法重新渲染组件，组件的子组件也会调用自己的render(),但是，组件重新渲染时，依然会读取this.props和this.state，如果状态没有改变，那么React只会更新DOM。<br>forceUpdate()方法适用于this.props和this.state之外的组件重绘（如:修改了this.state后),通过该方法通知React需要调用render()<br>一般来说，应该尽量避免使用forceUpdate(),而仅从this.props和this.state中读取状态并由React触发render()调用<h2 id="获取DOM节点-findDOMNode"><a href="#获取DOM节点-findDOMNode" class="headerlink" title="获取DOM节点:findDOMNode"></a>获取DOM节点:findDOMNode</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DOMElement fundDOMNode()</span><br></pre></td></tr></table></figure></li><li>返回值：DOM元素DOMElement<br>如果组件已经挂载到DOM中，该方法返回对应的本地浏览器DOM元素。当render返回null或false时，this.findDOMNode()也会返回null，从DOM中读取值得时候，该方法很有用，如：获取表单字段的值和做一些DOM操作。<h2 id="判断组件挂载状态-isMounted"><a href="#判断组件挂载状态-isMounted" class="headerlink" title="判断组件挂载状态:isMounted"></a>判断组件挂载状态:isMounted</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bool isMounted()</span><br></pre></td></tr></table></figure></li><li>返回值：true或false,表示组件是否已挂载到DOM中<br>isMounted()方法用于判断组件是否已挂载DOM中，可以使用该方法保证了setState()和forceUpdate()在异步场景下的调用不会出错</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;在本章节中我们将讨论React组件API.我们将讲解一下7个方法：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;设置状态:setState&lt;/li&gt;
+&lt;li&gt;替换状态:replaceState&lt;/li&gt;
+&lt;li&gt;设置属性:setProps&lt;/li&gt;
+&lt;li&gt;替换属性:replaceProps
+      
+    
+    </summary>
+    
+    
+    
+      <category term="React" scheme="https://peilei6026.github.io/tags/React/"/>
+    
+  </entry>
   
   <entry>
     <title>CSS文本格式</title>
@@ -481,35 +510,6 @@
       <category term="hexo" scheme="https://peilei6026.github.io/tags/hexo/"/>
     
       <category term="hexo个人博客" scheme="https://peilei6026.github.io/tags/hexo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>博客编写文章指南</title>
-    <link href="https://peilei6026.github.io/2020/04/11/%E5%8D%9A%E5%AE%A2%E7%BC%96%E5%86%99%E6%96%87%E7%AB%A0%E6%8C%87%E5%8D%97/"/>
-    <id>https://peilei6026.github.io/2020/04/11/%E5%8D%9A%E5%AE%A2%E7%BC%96%E5%86%99%E6%96%87%E7%AB%A0%E6%8C%87%E5%8D%97/</id>
-    <published>2020-04-11T02:32:59.000Z</published>
-    <updated>2020-04-12T15:05:42.889Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="头部"><a href="#头部" class="headerlink" title="头部"></a>头部</h2><ul><li>title 标题：文章的题目</li><li>data 日期：可有hexo new命令自动生成也可自己编写</li><li>tags 标签：可快速找到对应文章<h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><h3 id="图片引用"><a href="#图片引用" class="headerlink" title="图片引用"></a>图片引用</h3>例子：<br><br><img width=200 src="/assets/blogImg/peilei.jpg" > </br></li></ul><h3 id="音乐引用"><a href="#音乐引用" class="headerlink" title="音乐引用"></a>音乐引用</h3><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=448184048&auto=1&height=66"></iframe><h3 id="文字加粗"><a href="#文字加粗" class="headerlink" title="文字加粗"></a>文字加粗</h3><p><strong>设置文字加粗的语句是给文字加上一组双星号</strong></p><h3 id=""><a href="#" class="headerlink" title=""></a></h3>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;头部&quot;&gt;&lt;a href=&quot;#头部&quot; class=&quot;headerlink&quot; title=&quot;头部&quot;&gt;&lt;/a&gt;头部&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;title 标题：文章的题目&lt;/li&gt;
-&lt;li&gt;data 日期：可有hexo new命令自动生成也可自己编写&lt;/li&gt;
-&lt;li&gt;
-      
-    
-    </summary>
-    
-    
-    
-      <category term="hexo个人博客" scheme="https://peilei6026.github.io/tags/hexo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/"/>
-    
-      <category term="编写规范" scheme="https://peilei6026.github.io/tags/%E7%BC%96%E5%86%99%E8%A7%84%E8%8C%83/"/>
     
   </entry>
   
