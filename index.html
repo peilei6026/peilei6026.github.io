@@ -160,6 +160,93 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-React组件生命周期" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/05/08/React%E7%BB%84%E4%BB%B6%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/">React组件生命周期</a>
+    </h1>
+  
+
+        
+        <a href="/2020/05/08/React%E7%BB%84%E4%BB%B6%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/" class="archive-article-date">
+  	<time datetime="2020-05-08T15:49:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-08</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在本章节我们将讨论React组件的生命周期。<br>组件的生命周期可分成三个状态：</p>
+<ul>
+<li>Mounting:已插入真实DOM</li>
+<li>Updating:正在被重新渲染</li>
+<li>Unmounting:已移出真实DOM<br>生命周期的方法有：</li>
+<li>componentWillMount在渲染前调用，在客户端也在服务端。</li>
+<li>componentDidMOunt:在第一次渲染后调用，只在客户端，之后组件已经生成了对应的DOM结构，可以通过this.getDOMNode()来进行访问。如果你想和其他的JavaScript框架一起使用，可以在这个方法中调用setTimeout,setlnterval或者发送AJAX请求等操作（防止异步操作阻塞UI)</li>
+<li>componentWillReceiveProps在组件接受到一个新的prop(更新后)时被调用，这个方法在初始话render时不会被调用。</li>
+<li>shouldComponentUpdate返回一个布尔值，在组件接受到新的props或者state时被调用，在初始化时或者使用forceUpdate时不被调用。<br>可以在你确认不需要更新组件时使用。</li>
+<li>componentWillUpdate在组件接受到新的props或者state但还没有render时被调用。在初始化时不会被调用。</li>
+<li>componentDidUpdate在组件完成更新后立即调用。在初始化时不会被调用。</li>
+<li>componentWillUnmount在组件从DOM中移除之前立即被调用。<br>以下实例在Hello组件加载以后，通过componentDidMount方法设置一个定时器，每隔100毫秒重新设置组建的透明度，并重新渲染：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">class Hello extends React.Component &#123;</span><br><span class="line"> </span><br><span class="line">  constructor(props) &#123;</span><br><span class="line">      super(props);</span><br><span class="line">      this.state &#x3D; &#123;opacity: 1.0&#125;;</span><br><span class="line">  &#125;</span><br><span class="line"> </span><br><span class="line">  componentDidMount() &#123;</span><br><span class="line">    this.timer &#x3D; setInterval(function () &#123;</span><br><span class="line">      var opacity &#x3D; this.state.opacity;</span><br><span class="line">      opacity -&#x3D; .05;</span><br><span class="line">      if (opacity &lt; 0.1) &#123;</span><br><span class="line">        opacity &#x3D; 1.0;</span><br><span class="line">      &#125;</span><br><span class="line">      this.setState(&#123;</span><br><span class="line">        opacity: opacity</span><br><span class="line">      &#125;);</span><br><span class="line">    &#125;.bind(this), 100);</span><br><span class="line">  &#125;</span><br><span class="line"> </span><br><span class="line">  render () &#123;</span><br><span class="line">    return (</span><br><span class="line">      &lt;div style&#x3D;&#123;&#123;opacity: this.state.opacity&#125;&#125;&gt;</span><br><span class="line">        Hello &#123;this.props.name&#125;</span><br><span class="line">      &lt;&#x2F;div&gt;</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">ReactDOM.render(</span><br><span class="line">  &lt;Hello name&#x3D;&quot;world&quot;&#x2F;&gt;,</span><br><span class="line">  document.body</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+以下实例初始化state,setNuwnumber用于更新state.所有生命周期在Content组件中。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line">class Button extends React.Component&#123;</span><br><span class="line">    constructor(props)&#123;</span><br><span class="line">        super(props);</span><br><span class="line">        this.state&#x3D;&#123;data:0&#125;;</span><br><span class="line">        this.setNewNumer&#x3D;this.setNewNumber.bing(this);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    setNewNumber()&#123;</span><br><span class="line">        this.serState(&#123;data: this.state.date +1&#125;)</span><br><span class="line">    &#125;</span><br><span class="line">    render()&#123;</span><br><span class="line">        return(</span><br><span class="line">            &lt;div&gt;</span><br><span class="line">                &lt;button onClick&#x3D;&#123;this.setNewNumber&#125;&gt;INCREMENT&lt;&#x2F;button&gt;</span><br><span class="line">                &lt;Content myNumber&#x3D;&#123;this.state.data&#125;&gt;&lt;&#x2F;Content&gt;</span><br><span class="line">            &lt;&#x2F;div&gt;</span><br><span class="line">        );</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class Content extends React.Component&#123;</span><br><span class="line">    componentWillMount()&#123;</span><br><span class="line">        console.log(&#39;Component WILL MOUNT!&#39;)</span><br><span class="line">    &#125;</span><br><span class="line">    componentDidMount()&#123;</span><br><span class="line">        console.log(&#39;Component DID MOUNT!&#39;)</span><br><span class="line">    &#125;</span><br><span class="line">    componentWillReceiveProps(newProps)&#123;</span><br><span class="line">        console.log(&#39;Component WILL RECEIVE PROPS!&#39;)</span><br><span class="line">    &#125;</span><br><span class="line">    shouldComponentUpdate(newProps, newState)&#123;</span><br><span class="line">        return true;</span><br><span class="line">    &#125;</span><br><span class="line">    componentWillUpdate(nextProps,nextState)&#123;</span><br><span class="line">        console.log(&#39;Component WILL UPDATE!&#39;)</span><br><span class="line">    &#125;</span><br><span class="line">    componentDidUpdate(prevProps, prevState)&#123;</span><br><span class="line">        console.log(&#39;Component DID UPDATE!&#39;)</span><br><span class="line">    &#125;</span><br><span class="line">    componentWillUnmount()&#123;</span><br><span class="line">        console.log(&#39;Component WILL NUMOUNT!&#39;)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    render()&#123;</span><br><span class="line">        return(</span><br><span class="line">            &lt;div&gt;</span><br><span class="line">                &lt;h2&gt;&#123;this.props.myNumber&#125;&lt;&#x2F;h2&gt;</span><br><span class="line">            &lt;&#x2F;div&gt;</span><br><span class="line">        );</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">ReactDOM.render(</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">        &lt;Button &#x2F;&gt;</span><br><span class="line">    &lt;&#x2F;div&gt;,</span><br><span class="line">    document.getElementById(&#39;example&#39;)</span><br><span class="line">);</span><br></pre></td></tr></table></figure></li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">React</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/05/08/React%E7%BB%84%E4%BB%B6%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-React组件API" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -202,7 +289,23 @@
 <li>返回值：DOM元素DOMElement<br>如果组件已经挂载到DOM中，该方法返回对应的本地浏览器DOM元素。当render返回null或false时，this.findDOMNode()也会返回null，从DOM中读取值得时候，该方法很有用，如：获取表单字段的值和做一些DOM操作。<h2 id="判断组件挂载状态-isMounted"><a href="#判断组件挂载状态-isMounted" class="headerlink" title="判断组件挂载状态:isMounted"></a>判断组件挂载状态:isMounted</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bool isMounted()</span><br></pre></td></tr></table></figure></li>
 <li>返回值：true或false,表示组件是否已挂载到DOM中<br>isMounted()方法用于判断组件是否已挂载DOM中，可以使用该方法保证了setState()和forceUpdate()在异步场景下的调用不会出错</li>
 </ul>
-
+<h2 id="关于setState-有三件事情要知道"><a href="#关于setState-有三件事情要知道" class="headerlink" title="关于setState()有三件事情要知道"></a>关于setState()有三件事情要知道</h2><h3 id="1、不要直接更新状态"><a href="#1、不要直接更新状态" class="headerlink" title="1、不要直接更新状态"></a>1、不要直接更新状态</h3><p>例如，此代码不会重新渲染组件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;wrong</span><br><span class="line">this.state.comment &#x3D; &#39;Hello&#39;;</span><br></pre></td></tr></table></figure>
+<p>应当使用setState();</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;corect</span><br><span class="line">this.setState(&#123;comment:&#39;Hello&#39;&#125;);</span><br></pre></td></tr></table></figure>
+<p>构造函数是唯一能够初始化this.state的地方</p>
+<h3 id="2-状态更新可能是异步的"><a href="#2-状态更新可能是异步的" class="headerlink" title="2,状态更新可能是异步的"></a>2,状态更新可能是异步的</h3><p>React可以将多个setState()调用合成并一个调用来提高性能。<br>因为this.props和this.state可能是异步更新的，你不应该依靠他们的值来计算下一个状态。<br>例如，此代码无法更新计数器；</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;wrong</span><br><span class="line">this.setState(&#123;</span><br><span class="line">    counter: this.state.counter + this.props.increment,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>要修复它，请使用第二种形式的setState()来接受一个函数而不是一个对象。该函数将接受先前的状态作为第一个参数，将此次更新被应用时的props作为第二个参数：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;Correct</span><br><span class="line">this.setState((prevState, props)&#x3D;&gt;(&#123;</span><br><span class="line">    counter: prevState.counter + props.increment</span><br><span class="line">&#125;));</span><br></pre></td></tr></table></figure>
+<p>上方代码使用了箭头函数，但它也使用于常规函数：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;Correct</span><br><span class="line">this.setState(function(prevState, props)&#123;</span><br><span class="line">    return &#123;</span><br><span class="line">        counter: prevState.counter + props.increment</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h3 id="3-状态更新合并"><a href="#3-状态更新合并" class="headerlink" title="3,状态更新合并"></a>3,状态更新合并</h3><p>当你调用setState()时，React将你提供的对象合并到当前状态。例如，你的状态可能包含一些独立的变量：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">constructor(props)&#123;</span><br><span class="line">    super(props);</span><br><span class="line">    this.state&#x3D;&#123;</span><br><span class="line">        posts:[],</span><br><span class="line">        comments:[]</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>你可以调用setState()独立地更新他们：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">componentDidMount()&#123;</span><br><span class="line">    fetchPosts().then(response &#x3D;&gt;&#123;</span><br><span class="line">        this.setState(&#123;</span><br><span class="line">            posts: response.posts</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    fetchComments().then(response &#x3D;&gt; &#123;</span><br><span class="line">        this.setState(&#123;</span><br><span class="line">            comments: response.comments</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这里的合并时浅合并，也就是说this.setState({comments})完整保留了this.state.posts,但完全替换了this.state.comments.<br>isMounted的方法在ES6中已经废除了。主要的原因是它经过实际与测试可能不足以检测组件是否挂载，尤其是对于有一些异步的程序情况，以及逻辑上造成混乱。现在用以下方法替代；</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">componentDidMount()&#123;</span><br><span class="line">    this.mounted&#x3D;true;</span><br><span class="line">&#125;</span><br><span class="line">componentWillUnmount()&#123;</span><br><span class="line">    this.mounted&#x3D;false;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
 
       
@@ -1003,80 +1106,6 @@ git commit -m &quot;初始化项目(备注)&quot;</code><br>稍等片刻，eject
 
 
   
-    <article id="post-经验" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/18/%E7%BB%8F%E9%AA%8C/">经验</a>
-    </h1>
-  
-
-        
-        <a href="/2020/04/18/%E7%BB%8F%E9%AA%8C/" class="archive-article-date">
-  	<time datetime="2020-04-18T15:39:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-18</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>写项目前一定明确需求</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">项目</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/18/%E7%BB%8F%E9%AA%8C/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
@@ -1178,7 +1207,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">React</a>
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1186,15 +1215,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">hexo个人博客</a>
+                <a href="javascript:void(0)" class="js-tag color1">React</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">编写规范</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">hexo个人博客</a>
               </li>
              
               <li class="article-tag-list-item">
