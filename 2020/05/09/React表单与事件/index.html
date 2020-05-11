@@ -6,14 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://peilei6026.github.io">
-  <title>Archives: 2020/5 | 裴雷de博客</title>
+  <title>React表单与事件 | 裴雷de博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="裴雷de博客">
-<meta property="og:url" content="https://peilei6026.github.io/archives/2020/05/index.html">
+  <meta name="description" content="HTML表单元素与React中的其他DOM元素有所不同，因为表单元素生来就保留一些内部状态。在HTML当中，想,,和这类表单元素会维持自身状态,并根据用户输入进行更新,但在React中,可变的状态通常保存在组件的状态属性中，并且只能用setState()方法进行更新。 一个简单的实例在实例中我们设置了输入框input值value&#x3D;{this.state.data}。在输入框发生变化时我们可以更新s">
+<meta property="og:type" content="article">
+<meta property="og:title" content="React表单与事件">
+<meta property="og:url" content="https://peilei6026.github.io/2020/05/09/React%E8%A1%A8%E5%8D%95%E4%B8%8E%E4%BA%8B%E4%BB%B6/index.html">
 <meta property="og:site_name" content="裴雷de博客">
+<meta property="og:description" content="HTML表单元素与React中的其他DOM元素有所不同，因为表单元素生来就保留一些内部状态。在HTML当中，想,,和这类表单元素会维持自身状态,并根据用户输入进行更新,但在React中,可变的状态通常保存在组件的状态属性中，并且只能用setState()方法进行更新。 一个简单的实例在实例中我们设置了输入框input值value&#x3D;{this.state.data}。在输入框发生变化时我们可以更新s">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-05-09T12:59:31.000Z">
+<meta property="article:modified_time" content="2020-05-11T14:46:59.921Z">
 <meta property="article:author" content="裴雷">
+<meta property="article:tag" content="React">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="裴雷de博客" type="application/atom+xml">
@@ -158,74 +163,46 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-React表单与事件" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/11/React-Refs/" class="archive-article-date">
-  	<time datetime="2020-05-11T14:54:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-11</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/11/React-Refs/">React Refs</a>
+    <h1 class="article-title" itemprop="name">
+      React表单与事件
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">React</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/09/React%E8%A1%A8%E5%8D%95%E4%B8%8E%E4%BA%8B%E4%BB%B6/" class="archive-article-date">
+        
+        <a href="/2020/05/09/React%E8%A1%A8%E5%8D%95%E4%B8%8E%E4%BA%8B%E4%BB%B6/" class="archive-article-date">
   	<time datetime="2020-05-09T12:59:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-09</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/09/React%E8%A1%A8%E5%8D%95%E4%B8%8E%E4%BA%8B%E4%BB%B6/">React表单与事件</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>HTML表单元素与React中的其他DOM元素有所不同，因为表单元素生来就保留一些内部状态。<br>在HTML当中，想<input>,<textarea>,和<select>这类表单元素会维持自身状态,并根据用户输入进行更新,但在React中,可变的状态通常保存在组件的状态属性中，并且只能用setState()方法进行更新。</p>
+<h2 id="一个简单的实例"><a href="#一个简单的实例" class="headerlink" title="一个简单的实例"></a>一个简单的实例</h2><p>在实例中我们设置了输入框input值value={this.state.data}。在输入框发生变化时我们可以更新state.我们可以使用onChange事件来监听input的变化,并修改state.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">class HelloMessage extends React.Component&#123;</span><br><span class="line">    constructor(props)&#123;</span><br><span class="line">        super(props);</span><br><span class="line">        this.state&#x3D;&#123;value: &#39;Hello Runoob!&#39;&#125;;</span><br><span class="line">        this.handleChange&#x3D;this.handleChange.bind(this);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    handleChange(event)&#123;</span><br><span class="line">        this.setState(&#123;value:event.target.value&#125;);</span><br><span class="line">    &#125;</span><br><span class="line">    render()&#123;</span><br><span class="line">        var value &#x3D; this.state.value;</span><br><span class="line">        return &lt;div&gt;</span><br><span class="line">        &lt;input type&#x3D;&quot;text&quot; value&#x3D;&#123;value&#125; onChange&#x3D;&#123;this.handleChange&#125; &#x2F;&gt;</span><br><span class="line">                &lt;&#x2F;div&gt;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">ReactDOM.render(</span><br><span class="line">    &lt;HelloMessage &#x2F;&gt;,</span><br><span class="line">    document.getElementById(&#39;example&#39;)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<p>上面代码将要渲染出一个值为Hello Runoob!的input元素，并且通过onChange事件响应更新用户输入的值。</p>
+<h2 id="实例2"><a href="#实例2" class="headerlink" title="实例2"></a>实例2</h2><p>在以下实例中我们将为大家演示如何在子组件上使用表单，onChange方法将触发state的更新并将更新的值传递到子组件的输入框的value上来重新渲染界面。<br>你需要在父组件通过创建事件句柄(handleChange)，并作为prop(updateStateProp)传递到你的子组件上。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">  &lt;head&gt;</span><br><span class="line">    &lt;meta charset&#x3D;&quot;UTF-8&quot; &#x2F;&gt;</span><br><span class="line">    &lt;title&gt;菜鸟教程 React 实例&lt;&#x2F;title&gt;</span><br><span class="line">    &lt;script src&#x3D;&quot;https:&#x2F;&#x2F;cdn.staticfile.org&#x2F;react&#x2F;15.4.2&#x2F;react.min.js&quot;&gt;&lt;&#x2F;script&gt;</span><br><span class="line">	&lt;script src&#x3D;&quot;https:&#x2F;&#x2F;cdn.staticfile.org&#x2F;react&#x2F;15.4.2&#x2F;react-dom.min.js&quot;&gt;&lt;&#x2F;script&gt;</span><br><span class="line">	&lt;script src&#x3D;&quot;https:&#x2F;&#x2F;cdn.staticfile.org&#x2F;babel-standalone&#x2F;6.22.1&#x2F;babel.min.js&quot;&gt;&lt;&#x2F;script&gt;</span><br><span class="line">  &lt;&#x2F;head&gt;</span><br><span class="line">  &lt;body&gt;</span><br><span class="line">    &lt;div id&#x3D;&quot;example&quot;&gt;&lt;&#x2F;div&gt;</span><br><span class="line">    &lt;script type&#x3D;&quot;text&#x2F;babel&quot;&gt;</span><br><span class="line">    var Content &#x3D; React.createClass(&#123;</span><br><span class="line">      render: function() &#123;</span><br><span class="line">        return  &lt;div&gt;</span><br><span class="line">                &lt;input type&#x3D;&quot;text&quot; value&#x3D;&#123;this.props.myDataProp&#125; onChange&#x3D;&#123;this.props.updateStateProp&#125; &#x2F;&gt; </span><br><span class="line">                &lt;h4&gt;&#123;this.props.myDataProp&#125;&lt;&#x2F;h4&gt;</span><br><span class="line">                &lt;&#x2F;div&gt;;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">    var HelloMessage &#x3D; React.createClass(&#123;</span><br><span class="line">      getInitialState: function() &#123;</span><br><span class="line">        return &#123;value: &#39;Hello Runoob!&#39;&#125;;</span><br><span class="line">      &#125;,</span><br><span class="line">      handleChange: function(event) &#123;</span><br><span class="line">        this.setState(&#123;value: event.target.value&#125;);</span><br><span class="line">      &#125;,</span><br><span class="line">      render: function() &#123;</span><br><span class="line">        var value &#x3D; this.state.value;</span><br><span class="line">        return &lt;div&gt;</span><br><span class="line">                &lt;Content myDataProp &#x3D; &#123;value&#125; </span><br><span class="line">                  updateStateProp &#x3D; &#123;this.handleChange&#125;&gt;&lt;&#x2F;Content&gt;</span><br><span class="line">               &lt;&#x2F;div&gt;;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">    ReactDOM.render(</span><br><span class="line">      &lt;HelloMessage &#x2F;&gt;,</span><br><span class="line">      document.getElementById(&#39;example&#39;)</span><br><span class="line">    );</span><br><span class="line">    &lt;&#x2F;script&gt;</span><br><span class="line">  &lt;&#x2F;body&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="Select下拉菜单"><a href="#Select下拉菜单" class="headerlink" title="Select下拉菜单"></a>Select下拉菜单</h2><p>在React中，不适用selected属性，而在根select标签上用value属性来表示选中项。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">class FlavorForm extends React.Component&#123;</span><br><span class="line">  constructor(props)&#123;</span><br><span class="line">    super(props);</span><br><span class="line">    this.state &#x3D; &#123;value: &#39;coconut&#39;&#125;;</span><br><span class="line"></span><br><span class="line">    this.handleChange&#x3D;this.handleChange.bind(this);</span><br><span class="line">    this.handleSubmit&#x3D;this.handleSumit.bind(this);</span><br><span class="line">  &#125;</span><br><span class="line">  handleChange(event)&#123;</span><br><span class="line">    alert(&#39;Yout facorite flavor is:&#39; +this.state.value);</span><br><span class="line">    event.preventDefault();</span><br><span class="line">  &#125;</span><br><span class="line">   render() &#123;</span><br><span class="line">    return (</span><br><span class="line">      &lt;form onSubmit&#x3D;&#123;this.handleSubmit&#125;&gt;</span><br><span class="line">        &lt;label&gt;</span><br><span class="line">          选择您最喜欢的网站</span><br><span class="line">          &lt;select value&#x3D;&#123;this.state.value&#125; onChange&#x3D;&#123;this.handleChange&#125;&gt;</span><br><span class="line">            &lt;option value&#x3D;&quot;gg&quot;&gt;Google&lt;&#x2F;option&gt;</span><br><span class="line">            &lt;option value&#x3D;&quot;rn&quot;&gt;Runoob&lt;&#x2F;option&gt;</span><br><span class="line">            &lt;option value&#x3D;&quot;tb&quot;&gt;Taobao&lt;&#x2F;option&gt;</span><br><span class="line">            &lt;option value&#x3D;&quot;fb&quot;&gt;Facebook&lt;&#x2F;option&gt;</span><br><span class="line">          &lt;&#x2F;select&gt;</span><br><span class="line">        &lt;&#x2F;label&gt;</span><br><span class="line">        &lt;input type&#x3D;&quot;submit&quot; value&#x3D;&quot;提交&quot; &#x2F;&gt;</span><br><span class="line">      &lt;&#x2F;form&gt;</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">ReactDOM.render(</span><br><span class="line">  &lt;FlavorForm &#x2F;&gt;,</span><br><span class="line">  document.getElementById(&#39;example&#39;)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<h2 id="多个表单"><a href="#多个表单" class="headerlink" title="多个表单"></a>多个表单</h2><p>当你有处理多个 input 元素时，你可以通过给每个元素添加一个 name 属性，来让处理函数根据 event.target.name 的值来选择做什么。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">class Reservation extends React.Component &#123;</span><br><span class="line">  constructor(props) &#123;</span><br><span class="line">    super(props);</span><br><span class="line">    this.state &#x3D; &#123;</span><br><span class="line">      isGoing: true,</span><br><span class="line">      numberOfGuests: 2</span><br><span class="line">    &#125;;</span><br><span class="line"> </span><br><span class="line">    this.handleInputChange &#x3D; this.handleInputChange.bind(this);</span><br><span class="line">  &#125;</span><br><span class="line"> </span><br><span class="line">  handleInputChange(event) &#123;</span><br><span class="line">    const target &#x3D; event.target;</span><br><span class="line">    const value &#x3D; target.type &#x3D;&#x3D;&#x3D; &#39;checkbox&#39; ? target.checked : target.value;</span><br><span class="line">    const name &#x3D; target.name;</span><br><span class="line"> </span><br><span class="line">    this.setState(&#123;</span><br><span class="line">      [name]: value</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;</span><br><span class="line"> </span><br><span class="line">  render() &#123;</span><br><span class="line">    return (</span><br><span class="line">      &lt;form&gt;</span><br><span class="line">        &lt;label&gt;</span><br><span class="line">          是否离开:</span><br><span class="line">          &lt;input</span><br><span class="line">            name&#x3D;&quot;isGoing&quot;</span><br><span class="line">            type&#x3D;&quot;checkbox&quot;</span><br><span class="line">            checked&#x3D;&#123;this.state.isGoing&#125;</span><br><span class="line">            onChange&#x3D;&#123;this.handleInputChange&#125; &#x2F;&gt;</span><br><span class="line">        &lt;&#x2F;label&gt;</span><br><span class="line">        &lt;br &#x2F;&gt;</span><br><span class="line">        &lt;label&gt;</span><br><span class="line">          访客数:</span><br><span class="line">          &lt;input</span><br><span class="line">            name&#x3D;&quot;numberOfGuests&quot;</span><br><span class="line">            type&#x3D;&quot;number&quot;</span><br><span class="line">            value&#x3D;&#123;this.state.numberOfGuests&#125;</span><br><span class="line">            onChange&#x3D;&#123;this.handleInputChange&#125; &#x2F;&gt;</span><br><span class="line">        &lt;&#x2F;label&gt;</span><br><span class="line">      &lt;&#x2F;form&gt;</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="React-事件"><a href="#React-事件" class="headerlink" title="React 事件"></a>React 事件</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">class HelloMessage extends React.Component &#123;</span><br><span class="line">  constructor(props) &#123;</span><br><span class="line">      super(props);</span><br><span class="line">      this.state &#x3D; &#123;value: &#39;Hello Runoob!&#39;&#125;;</span><br><span class="line">      this.handleChange &#x3D; this.handleChange.bind(this);</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  handleChange(event) &#123;</span><br><span class="line">    this.setState(&#123;value: &#39;菜鸟教程&#39;&#125;)</span><br><span class="line">  &#125;</span><br><span class="line">  render() &#123;</span><br><span class="line">    var value &#x3D; this.state.value;</span><br><span class="line">    return &lt;div&gt;</span><br><span class="line">            &lt;button onClick&#x3D;&#123;this.handleChange&#125;&gt;点我&lt;&#x2F;button&gt;</span><br><span class="line">            &lt;h4&gt;&#123;value&#125;&lt;&#x2F;h4&gt;</span><br><span class="line">           &lt;&#x2F;div&gt;;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">ReactDOM.render(</span><br><span class="line">  &lt;HelloMessage &#x2F;&gt;,</span><br><span class="line">  document.getElementById(&#39;example&#39;)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<p>当你需要从子组件中更新父组件的 state 时，你需要在父组件通过创建事件句柄 (handleChange) ，并作为 prop (updateStateProp) 传递到你的子组件上。实例如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">class Content extends React.Component &#123;</span><br><span class="line">  render() &#123;</span><br><span class="line">    return  &lt;div&gt;</span><br><span class="line">              &lt;button onClick &#x3D; &#123;this.props.updateStateProp&#125;&gt;点我&lt;&#x2F;button&gt;</span><br><span class="line">              &lt;h4&gt;&#123;this.props.myDataProp&#125;&lt;&#x2F;h4&gt;</span><br><span class="line">           &lt;&#x2F;div&gt;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">class HelloMessage extends React.Component &#123;</span><br><span class="line">  constructor(props) &#123;</span><br><span class="line">      super(props);</span><br><span class="line">      this.state &#x3D; &#123;value: &#39;Hello Runoob!&#39;&#125;;</span><br><span class="line">      this.handleChange &#x3D; this.handleChange.bind(this);</span><br><span class="line">  &#125;</span><br><span class="line">  handleChange(event) &#123;</span><br><span class="line">    this.setState(&#123;value: &#39;菜鸟教程&#39;&#125;)</span><br><span class="line">  &#125;</span><br><span class="line">  render() &#123;</span><br><span class="line">    var value &#x3D; this.state.value;</span><br><span class="line">    return &lt;div&gt;</span><br><span class="line">            &lt;Content myDataProp &#x3D; &#123;value&#125; </span><br><span class="line">              updateStateProp &#x3D; &#123;this.handleChange&#125;&gt;&lt;&#x2F;Content&gt;</span><br><span class="line">           &lt;&#x2F;div&gt;;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">ReactDOM.render(</span><br><span class="line">  &lt;HelloMessage &#x2F;&gt;,</span><br><span class="line">  document.getElementById(&#39;example&#39;)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+      
 
-        <div class="article-info info-on-right">
-          
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -237,133 +214,64 @@
 		</ul>
 	</div>
 
-          
+      
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/09/React-AJAX/" class="archive-article-date">
-  	<time datetime="2020-05-09T12:44:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-09</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/2020/05/11/React-Refs/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          React Refs
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/05/09/React-AJAX/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">React AJAX</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/09/React-AJAX/">React AJAX</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">React</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/08/React%E7%BB%84%E4%BB%B6%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/" class="archive-article-date">
-  	<time datetime="2020-05-08T15:49:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-08</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/08/React%E7%BB%84%E4%BB%B6%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/">React组件生命周期</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">React</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/07/React%E7%BB%84%E4%BB%B6API/" class="archive-article-date">
-  	<time datetime="2020-05-07T13:59:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-07</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/07/React%E7%BB%84%E4%BB%B6API/">React组件API</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">React</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -386,8 +294,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
