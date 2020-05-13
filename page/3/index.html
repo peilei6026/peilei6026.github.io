@@ -160,6 +160,104 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-React-JSX" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/04/13/React-JSX/">React JSX</a>
+    </h1>
+  
+
+        
+        <a href="/2020/04/13/React-JSX/" class="archive-article-date">
+  	<time datetime="2020-04-13T15:19:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-13</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="React-JSX"><a href="#React-JSX" class="headerlink" title="React JSX"></a>React JSX</h2><p>React使用JSX来代替常规的JavaScipt。<br>JSX是一个看起来很像XML的JavaScript语法扩展。<br>我们不需要一定使用JSX,但它有以下优点：</p>
+<ul>
+<li>JSX执行更快，因为它在编译为JavaScript代码后进行了优化。</li>
+<li>它是类型安全的，在编译过程中就能发现错误。</li>
+<li>使用JSX编写模板更加见到那快速。<br>我们先看下以下代码<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const element &#x3D; &lt;h1&gt;Hello,world!&lt;&#x2F;h1&gt;;</span><br></pre></td></tr></table></figure>
+这种看起来可能有些奇怪的标签语法即不是字符串也不是HTML。<br>它被称为JSX,一种JavaScript的语法扩展，我们扩展在React中使用JSX来描述用户界面。<br>JSX是在JavaScript内部实现的<br>我们知道元素是构成React应用的最小单位，JSX就是用来声明React当中的元素。<br>与浏览器的DOM元素不同,React当中的元素事实上就是普通的对象，React DOM可以确保浏览器DOM的数据内容与React元素保持一致。<br>要将React元素渲染到根DOM节点中，我们通过把他们都传递给ReactDOM.render()的方法来将其渲染到页面上:<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var myDivElement &#x3D; &lt;div className&#x3D;&quot;foo&quot; &#x2F;&gt;;</span><br><span class="line">ReactDOM.render(myDivElement,document.getElementById(&#39;example&#39;));</span><br></pre></td></tr></table></figure></li>
+<li><em>注意*</em><br>由于JSX就是javaScript,一些标识符就像class和for不建议作为xml属性名。作为替代，React DOM使用className和htmlFor来作对应的属性。</li>
+</ul>
+<h2 id="使用JSX"><a href="#使用JSX" class="headerlink" title="使用JSX"></a>使用JSX</h2><p>JSX看起来类似HTML，我们可以看下实例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ReactDOM.render(</span><br><span class="line">    &lt;h1&gt;Hello,World!&lt;&#x2F;h1&gt;,</span><br><span class="line">    document.getElementById(&#39;example&#39;)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<p>我们可以在以上代码中嵌套多个HTML标签，需要使用一个div元素包裹它，实例中的p元素添加了自定义属性<code>data-myattribute</code>,添加自定义属性需要使用<code>data-</code>前缀。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">ReactDOM.render(</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">    &lt;h1&gt;欢迎学习React&lt;&#x2F;h1&gt;</span><br><span class="line">    &lt;p data-myattribute &#x3D; &quot;somevalue&quot;&gt;这是一个不错的JavaScript库！&lt;&#x2F;p&gt;</span><br><span class="line">    &lt;&#x2F;div&gt;</span><br><span class="line">    ,</span><br><span class="line">    document.getElementById(&#39;example&#39;)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<h2 id="独立文件"><a href="#独立文件" class="headerlink" title="独立文件"></a>独立文件</h2><p>你的React JSX代码可以放在一个单独的文件上，例如我们创建一个helloworld_react.js文件,代码如下:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ReactDOM.render(</span><br><span class="line">    &lt;h1&gt;Hello,world!&lt;&#x2F;h1&gt;,</span><br><span class="line">    document.getElementById(&#39;example&#39;)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<p>然后再HTML文件中引入该JS文件:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;div id&#x3D;&quot;example&quot;&gt;&lt;&#x2F;div&gt;</span><br><span class="line">    &lt;script type&#x3D;&quot;text&#x2F;babel&quot; src&#x3D;&quot;helloworld_react.js&quot;&gt;&lt;&#x2F;script&gt;</span><br><span class="line">&lt;&#x2F;body&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="JavaScript表达式"><a href="#JavaScript表达式" class="headerlink" title="JavaScript表达式"></a>JavaScript表达式</h2><p>我们可以在JSX中使用JavaScript表达式。表达式写在花括号{}中。实例如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">ReactDOM.render(</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">        &lt;h1&gt;&#123;1+1&#125;&lt;&#x2F;h1&gt;</span><br><span class="line">    &lt;&#x2F;div&gt;,</span><br><span class="line">    document.getElementById(&#39;example&#39;)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<p>在JSX中不能使用if else语句，但可以使用conditional(三元运算)表达式来代替，以下实例中如果变量i等于1浏览器将输出true,如果修改i的值，则会输出false</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">ReactDOM.reder(</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">        &lt;h1&gt;&#123;1 &#x3D;&#x3D; ? &#39;True!&#39; : &#39;False&#39;&#125;&lt;&#x2F;h1&gt;</span><br><span class="line">    &lt;&#x2F;div&gt;</span><br><span class="line">    ,</span><br><span class="line">    document.getElementById(&#39;example&#39;)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<h2 id="样式"><a href="#样式" class="headerlink" title="样式"></a>样式</h2><p>React推荐使用内联样式。我们可以使用camlCase语法来设置内联样式，React会在指定元素数字后自动添加px。以下实例演示了为h1元素添加myStule内联样式：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var myStyle &#x3D; &#123;</span><br><span class="line">    fontSize: 100,</span><br><span class="line">    color: &#39;#FF000&#39;</span><br><span class="line">&#125;;</span><br><span class="line">ReactDOM.render(</span><br><span class="line">    &lt;h1&gt;&lt;&#x2F;h1&gt;,</span><br><span class="line">    document.getElementById(&#39;example)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<h2 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h2><p>注释需要写在花括号内，实例如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">ReactDOM.render(</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">    &lt;h1&gt;React注释&lt;&#x2F;1&gt;</span><br><span class="line">    &#123;&#x2F;*注释....*&#x2F;&#125;</span><br><span class="line">    &lt;&#x2F;div&gt;</span><br><span class="line">    document.getElementById(&#39;example&#39;)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<h2 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h2><p>JSX允许在模板中插入数组，数组会自动展开所有成员：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var arr &#x3D; [</span><br><span class="line">    &lt;h1&gt;裴雷&lt;&#x2F;h1&gt;</span><br><span class="line">    &lt;h2&gt;欢迎来到React的世界&lt;&#x2F;h2&gt;</span><br><span class="line">];</span><br><span class="line">ReactDOM.render(</span><br><span class="line">    &lt;div&gt;&#123;arr&#125;&lt;&#x2F;div&gt;,</span><br><span class="line">    document.getElementById(&#39;example&#39;)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">React</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/04/13/React-JSX/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-React元素渲染" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -551,11 +649,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">编写规范</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">hexo个人博客</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">hexo个人博客</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">编写规范</a>
         		</li>
       		
 		</ul>
@@ -856,11 +954,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">编写规范</a>
+                <a href="javascript:void(0)" class="js-tag color4">hexo个人博客</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">hexo个人博客</a>
+                <a href="javascript:void(0)" class="js-tag color5">编写规范</a>
               </li>
              
               <li class="article-tag-list-item">

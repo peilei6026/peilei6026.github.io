@@ -6,14 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://peilei6026.github.io">
-  <title>Archives: 2020 | 裴雷de博客</title>
+  <title>React面试题 | 裴雷de博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="裴雷de博客">
-<meta property="og:url" content="https://peilei6026.github.io/archives/2020/page/3/index.html">
+  <meta name="description" content="1.什么是React？React是一个开源的前端JavaScript库，用于构建用户界面，尤其是单页面的应用。它用与处理网页和移动应用程序的试图层.React是由Facebook的软件工程师jordan walke创建，在2011年React应用首次被部署到Facebook的信息流中，之后与2012年被应用到instagram上 2.React的主要特点是什么？React的主要特性有：  考虑到真">
+<meta property="og:type" content="article">
+<meta property="og:title" content="React面试题">
+<meta property="og:url" content="https://peilei6026.github.io/2020/05/12/React%E9%9D%A2%E8%AF%95%E9%A2%98/index.html">
 <meta property="og:site_name" content="裴雷de博客">
+<meta property="og:description" content="1.什么是React？React是一个开源的前端JavaScript库，用于构建用户界面，尤其是单页面的应用。它用与处理网页和移动应用程序的试图层.React是由Facebook的软件工程师jordan walke创建，在2011年React应用首次被部署到Facebook的信息流中，之后与2012年被应用到instagram上 2.React的主要特点是什么？React的主要特性有：  考虑到真">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-05-12T14:49:12.000Z">
+<meta property="article:modified_time" content="2020-05-13T14:43:38.630Z">
 <meta property="article:author" content="裴雷">
+<meta property="article:tag" content="React">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="裴雷de博客" type="application/atom+xml">
@@ -158,36 +163,50 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-React面试题" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      React面试题
+    </h1>
+  
+
+        
+        <a href="/2020/05/12/React%E9%9D%A2%E8%AF%95%E9%A2%98/" class="archive-article-date">
+  	<time datetime="2020-05-12T14:49:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-12</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="1-什么是React？"><a href="#1-什么是React？" class="headerlink" title="1.什么是React？"></a>1.什么是React？</h1><p>React是一个开源的前端JavaScript库，用于构建用户界面，尤其是单页面的应用。它用与处理网页和移动应用程序的试图层.React是由Facebook的软件工程师jordan walke创建，在2011年React应用首次被部署到Facebook的信息流中，之后与2012年被应用到instagram上</p>
+<h1 id="2-React的主要特点是什么？"><a href="#2-React的主要特点是什么？" class="headerlink" title="2.React的主要特点是什么？"></a>2.React的主要特点是什么？</h1><p>React的主要特性有：</p>
+<ul>
+<li>考虑到真实的DOM操作成本很高，它使用VirtualDOM不是真实的DOM.</li>
+<li>支持服务段渲染</li>
+<li>遵循单项数据流或者数据绑定</li>
+<li>使用可重复/可组合的UI组件开发视图<h1 id="3-什么是JSX"><a href="#3-什么是JSX" class="headerlink" title="3.什么是JSX?"></a>3.什么是JSX?</h1>JSX是ECMAScript一个类似ML的语法扩展。基本上，他只是为了React.createElement()函数提供语法糖，从而让在我们在JavaSctipy中，使用类HTML模板的语法，进行页面描述。<br>在下面的示例中，<h1>内的文本标签会作为JavaSctipt函数返回给渲染函数。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">class App extends React.Component&#123;</span><br><span class="line">    return()&#123;</span><br><span class="line">        &lt;div&gt;</span><br><span class="line">            &lt;h1&gt;&#123;&#39;Welcome to React world!&#39;&#125;&lt;&#x2F;h1&gt;</span><br><span class="line">        &lt;&#x2F;div&gt;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+以上示例render方法中的jsx将会被转换为一下内容：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">React.createElement(&quot;div&quot;, null, React.createElement(&quot;h1&quot;,null,&quot;Welcome to React world!&#39;));</span><br></pre></td></tr></table></figure>
+<h1 id="4-元素和组件有什么区别？"><a href="#4-元素和组件有什么区别？" class="headerlink" title="4.元素和组件有什么区别？"></a>4.元素和组件有什么区别？</h1>一个Element是一个简单的对象，它描述了你希望在屏幕上以DOM节点或其他组件的形式呈现的内容。Elements在他们的属性中可以包含其他的Elements。创建一个React元素是很轻量的，一旦元素被创建后，它将不会被修改。<br>React Element的对象表示如下:<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">const element &#x3D; React.createElement(</span><br><span class="line">    &#39;div&#39;,</span><br><span class="line">    &#123;id: &#39;login-btn&#39;&#125;,</span><br><span class="line">    &#39;Login&#39;</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+上面的 React.createElement() 函数会返回一个对象。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id&#x3D;&quot;login-btn&#39;&gt;Login&lt;&#x2F;div&gt;</span><br></pre></td></tr></table></figure>
+而一个组件可以用多种不同方式声明。它可以是一个含有render()方法的类，或者，在简单的情况中，它可以定义为函数。无论哪种情况，它都将props作为输入，并返回一个JSX树作为输出。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">const Button &#x3D; (&#123; onLogin &#125;) &#x3D;&gt;</span><br><span class="line">    &lt;div id&#x3D;&#123;&#39;login-btn&#39;&#125; onClick&#x3D;&#123;onLogin&#125; &#x2F;&gt;</span><br></pre></td></tr></table></figure>
+然后JSX被转换成React.createElement()函数：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">const Button &#x3D; (&#123; onLogin &#125;) &#x3D;&gt; React.createElement(</span><br><span class="line">    &#39;div&#39;,</span><br><span class="line">    &#123;id: &#39;login-btn&#39;, onClick: onLogin &#125;,</span><br><span class="line">    &#39;Login&#39;</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<h1 id="5-如何在React中创建组件？"><a href="#5-如何在React中创建组件？" class="headerlink" title="5.如何在React中创建组件？"></a>5.如何在React中创建组件？</h1>有两种可行的方法来创建一个组件：<br>i.Function Components:这是创建组件的最简单的方法，这些是纯JavaScript函数，接受props对象作为第一个参数并返回React元素：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">function Greetion(&#123; message &#125;)&#123;</span><br><span class="line">    return &lt;h1&gt;&#123;&#39;Hello, $&#123;message&#125;&#39;&#125;&lt;&#x2F;h1&gt;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+ii.Class Components:你还可以使用ES6类来定义组件，上面的函数组件若使用ES6的类可改写为：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">class Greetion extends React.Component&#123;</span><br><span class="line">    render()&#123;</span><br><span class="line">        return &lt;h1&gt;&#123;&#39;Hello, $&#123;this.props.message&#125;&#39;&#125;&lt;&#x2F;h1&gt;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="6-如何使用类组件和函数组件？"><a href="#6-如何使用类组件和函数组件？" class="headerlink" title="6.如何使用类组件和函数组件？"></a>6.如何使用类组件和函数组件？</h1>如果组件需要使用状态或生命周期方法，那么使用类组件，否则使用函数组件。<h1 id="7-什么是Pure-Components"><a href="#7-什么是Pure-Components" class="headerlink" title="7.什么是Pure Components?"></a>7.什么是Pure Components?</h1>React.PureComponent完全相同，只是它为你处理了shouldComponetUpdate()方法。当属性或者状态发生变化时，PureComponent将对属性和状态进行浅比较。另一方面，普通组件不会将当前的属性和状态与新的属性和状态进行比较，因此，在默认情况下，每当调用shouldComponetUpdate时，组件将重新渲染。</li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/04/13/React-JSX/" class="archive-article-date">
-  	<time datetime="2020-04-13T15:19:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-13</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/04/13/React-JSX/">React JSX</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -199,296 +218,54 @@
 		</ul>
 	</div>
 
-          
+      
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/04/13/React%E5%85%83%E7%B4%A0%E6%B8%B2%E6%9F%93/" class="archive-article-date">
-  	<time datetime="2020-04-13T14:21:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-13</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2020/05/11/React-Refs/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">React Refs</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/04/13/React%E5%85%83%E7%B4%A0%E6%B8%B2%E6%9F%93/">React元素渲染</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">React</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/04/12/React-%E5%AE%89%E8%A3%85/" class="archive-article-date">
-  	<time datetime="2020-04-11T17:11:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-12</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/04/12/React-%E5%AE%89%E8%A3%85/">React 安装</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">React</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/04/11/%E9%9A%8F%E7%AC%94/" class="archive-article-date">
-  	<time datetime="2020-04-11T03:28:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-11</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/04/11/%E9%9A%8F%E7%AC%94/">随笔</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/04/11/hexo%E5%BC%95%E5%85%A5%E9%9F%B3%E4%B9%90/" class="archive-article-date">
-  	<time datetime="2020-04-11T03:21:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-11</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/04/11/hexo%E5%BC%95%E5%85%A5%E9%9F%B3%E4%B9%90/">hexo引入音乐</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">hexo个人博客</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/04/11/%E5%8D%9A%E5%AE%A2%E7%BC%96%E5%86%99%E6%96%87%E7%AB%A0%E6%8C%87%E5%8D%97/" class="archive-article-date">
-  	<time datetime="2020-04-11T02:32:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-11</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/04/11/%E5%8D%9A%E5%AE%A2%E7%BC%96%E5%86%99%E6%96%87%E7%AB%A0%E6%8C%87%E5%8D%97/">博客编写文章指南</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">hexo个人博客</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">编写规范</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/04/11/HTML%E6%A0%87%E7%AD%BE/" class="archive-article-date">
-  	<time datetime="2020-04-11T02:21:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-11</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/04/11/HTML%E6%A0%87%E7%AD%BE/">HTML标签</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">HTML</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/04/11/HEXO%E7%9B%B8%E5%85%B3%E7%9A%84%E5%91%BD%E4%BB%A4/" class="archive-article-date">
-  	<time datetime="2020-04-10T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-11</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/04/11/HEXO%E7%9B%B8%E5%85%B3%E7%9A%84%E5%91%BD%E4%BB%A4/">HEXO相关的命令</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/2020/page/2/">&amp;laquo; Prev</a><a class="page-number" href="/archives/2020/">1</a><a class="page-number" href="/archives/2020/page/2/">2</a><span class="page-number current">3</span>
-    </nav>
   
 
 
@@ -512,8 +289,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
