@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://peilei6026.github.io/"/>
-  <updated>2020-05-13T14:43:38.630Z</updated>
+  <updated>2020-05-14T16:05:12.915Z</updated>
   <id>https://peilei6026.github.io/</id>
   
   <author>
@@ -15,6 +15,56 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>CSS字体</title>
+    <link href="https://peilei6026.github.io/2020/05/14/CSS%E5%AD%97%E4%BD%93/"/>
+    <id>https://peilei6026.github.io/2020/05/14/CSS%E5%AD%97%E4%BD%93/</id>
+    <published>2020-05-14T15:19:00.000Z</published>
+    <updated>2020-05-14T16:05:12.915Z</updated>
+    
+    <content type="html"><![CDATA[<p>CSS字体属性定义字体，加粗，大小，文字样式。</p><h2 id="CSS字型"><a href="#CSS字型" class="headerlink" title="CSS字型"></a>CSS字型</h2><p>在CSS中，有两种的类型的字体系列名称：</p><ul><li>通用字体系列-拥有相似外观的字体系统组合（如 “Serif” 或 “Monospace”）</li><li>特定字体系列-一个特定的字体系列（如 “Times” 或 “Courier”）</li></ul><table><thead><tr><th>Generic family</th><th align="center">字体系列</th><th align="right">说明</th></tr></thead><tbody><tr><td>Serif</td><td align="center">Times New Roman/Georgia</td><td align="right">Serif字体中字符在行的末端拥有额外的装饰</td></tr><tr><td>Sans-serif</td><td align="center">Arial/Verdana</td><td align="right">“Sans”是指无 - 这些字体在末端没有额外的装饰</td></tr><tr><td>Monospace</td><td align="center">Courier New/Lucida Console</td><td align="right">所有的等宽字符具有相同的宽度</td></tr></tbody></table><h2 id="字体系列"><a href="#字体系列" class="headerlink" title="字体系列"></a>字体系列</h2><p>font-family属性设置字体的字体系列<br>font-family属性应该设置几个字体名称作为一种“后备”机制，如果浏览器不支持第一种字体，他将尝试一种字体。<br>注意：如果字体系列的名称超过一个字，它必须用引号，如Font Family:”宋体”</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">p&#123;font-family:&quot;Times New Roman&quot;,Times,serif;&#125;</span><br></pre></td></tr></table></figure><p>对于较常用的字体组合，我们<a href="https://www.runoob.com/cssref/css-websafe-fonts.html" target="_blank" rel="noopener">https://www.runoob.com/cssref/css-websafe-fonts.html</a> web安全字体组合</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;CSS字体属性定义字体，加粗，大小，文字样式。&lt;/p&gt;
+&lt;h2 id=&quot;CSS字型&quot;&gt;&lt;a href=&quot;#CSS字型&quot; class=&quot;headerlink&quot; title=&quot;CSS字型&quot;&gt;&lt;/a&gt;CSS字型&lt;/h2&gt;&lt;p&gt;在CSS中，有两种的类型的字体系列名称：&lt;/p&gt;
+&lt;u
+      
+    
+    </summary>
+    
+    
+    
+      <category term="CSS" scheme="https://peilei6026.github.io/tags/CSS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>ES6标准入门-阮一峰</title>
+    <link href="https://peilei6026.github.io/2020/05/13/ES6%E6%A0%87%E5%87%86%E5%85%A5%E9%97%A8-%E9%98%AE%E4%B8%80%E5%B3%B0/"/>
+    <id>https://peilei6026.github.io/2020/05/13/ES6%E6%A0%87%E5%87%86%E5%85%A5%E9%97%A8-%E9%98%AE%E4%B8%80%E5%B3%B0/</id>
+    <published>2020-05-13T14:49:38.000Z</published>
+    <updated>2020-05-13T15:05:51.028Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="1-let和const"><a href="#1-let和const" class="headerlink" title="1.let和const"></a>1.let和const</h1><p>暂时性死区（Temporal Dead Zone)<br>let和const命令声明的变量吴变量提升，且都会被锁定在声明的代码块中，在let和const命令行前，使用该变量都将报错，这一部分称为”暂时性死区”.</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var tmp &#x3D; 123;</span><br><span class="line"></span><br><span class="line">if(true)&#123;</span><br><span class="line">    tmp &#x3D; &#39;abc&#39;; &#x2F;&#x2F;ReferenceError</span><br><span class="line">    let tmp;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>let tmp 将tmp变量绑定在 {}代码块之内，外部的tmp声明无效，tmp=’abc’就处在死去，所以报错。同理在以前没有let和const命令的时候，typeof是一个安全的运算符，即使变量没有被声明，也会正常返回undefined,但如果typeof处在死区中，处理了在后文被let和const的变量，将会报错。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">typeof undeclared_variable;&#x2F;&#x2F;undefined 未被let和const声明反而没事</span><br><span class="line">if(true)&#123;</span><br><span class="line">    &#x2F;&#x2F;TDZ开始 (Temporal Dead Zone: 暂时性死区)</span><br><span class="line">    typeof tmp &#x2F;&#x2F;ReferenceError</span><br><span class="line">    let tmp;&#x2F;&#x2F;TDZ结束</span><br><span class="line">    console.log(tmp);&#x2F;&#x2F;undefined</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>顶层对象<br>var和function的全局声明会自动绑定到window或者global对象，</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;1-let和const&quot;&gt;&lt;a href=&quot;#1-let和const&quot; class=&quot;headerlink&quot; title=&quot;1.let和const&quot;&gt;&lt;/a&gt;1.let和const&lt;/h1&gt;&lt;p&gt;暂时性死区（Temporal Dead Zone)&lt;br&gt;let和c
+      
+    
+    </summary>
+    
+    
+    
+      <category term="ES6" scheme="https://peilei6026.github.io/tags/ES6/"/>
+    
+  </entry>
   
   <entry>
     <title>React面试题</title>
@@ -175,9 +225,9 @@
     <link href="https://peilei6026.github.io/2020/04/29/CSS%E6%96%87%E6%9C%AC%E6%A0%BC%E5%BC%8F/"/>
     <id>https://peilei6026.github.io/2020/04/29/CSS%E6%96%87%E6%9C%AC%E6%A0%BC%E5%BC%8F/</id>
     <published>2020-04-29T15:12:35.000Z</published>
-    <updated>2020-04-29T15:33:17.267Z</updated>
+    <updated>2020-05-14T15:17:54.430Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="文本颜色"><a href="#文本颜色" class="headerlink" title="文本颜色"></a>文本颜色</h1><p>颜色属性被用来设置文字的颜色<br>颜色是通过CSS最经常的指定；</p><ul><li>十六进制值-如：#FF0000</li><li>一个RGB值-如:RGB(255,0,0)</li><li>颜色的名称-如：red<br>一个网页的背景颜色是指在主体内的选择：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">body &#123;color:red;&#125;</span><br><span class="line">h1 &#123;color:#00ff00;&#125;</span><br><span class="line">h2 &#123;color:rgb(255,0,0);&#125;</span><br></pre></td></tr></table></figure>对于W3C标准的CSS:如果你定义了颜色属性，你还必须定义背景色属性。<h1 id="文本的对齐方式"><a href="#文本的对齐方式" class="headerlink" title="文本的对齐方式"></a>文本的对齐方式</h1>文本排列属性是用于设置文本的水平对齐方式。<br>文本可居中或对齐到左或右，两端对齐。<br>当text-align设置为”justify”,每一行被展开宽度相等，左，右外边距是对齐（如杂志和报纸）。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">h1 &#123;text-align:center;&#125;</span><br><span class="line">p.date &#123;text-align:right;&#125;</span><br><span class="line">p.main &#123;text-align:justify;&#125;</span><br></pre></td></tr></table></figure><h2 id="文本修饰"><a href="#文本修饰" class="headerlink" title="文本修饰"></a>文本修饰</h2>text-decoration属性用来设置或删除文本的装饰。<br>从设计的角度看text-decoration属性主要是用来删除链接的下滑线：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a &#123;text-decoration:none;&#125;</span><br></pre></td></tr></table></figure>也可以这样装饰文字：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">h1 &#123;text-decoration:overline;&#125;</span><br><span class="line">h2 &#123;text-decoration:line-through;&#125;</span><br><span class="line">h3 &#123;text-decoration:underline;&#125;</span><br></pre></td></tr></table></figure>我们不建议强调指出不是链接的文本，因为这常常混淆用户。<h1 id="文本转换"><a href="#文本转换" class="headerlink" title="文本转换"></a>文本转换</h1>文本转换属性是用来指定在一个文本中的大写和小写字母。<br>可用于所有字句变成大写或小写字母，或每个单词的首字母大写。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">p.uppercase &#123;text-transform:uppercase;&#125;</span><br><span class="line">p.lowercase &#123;text-transform:lowercase;&#125;</span><br><span class="line">p.capitalize &#123;text-transform:capitalize;&#125;</span><br></pre></td></tr></table></figure><h1 id="文本缩进"><a href="#文本缩进" class="headerlink" title="文本缩进"></a>文本缩进</h1>文本缩进属性是用来指定文本的第一行的缩进。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">p &#123;text-indent:50px;&#125;</span><br></pre></td></tr></table></figure></li></ul>]]></content>
+    <content type="html"><![CDATA[<h1 id="文本颜色"><a href="#文本颜色" class="headerlink" title="文本颜色"></a>文本颜色</h1><p>颜色属性被用来设置文字的颜色<br>颜色是通过CSS最经常的指定；</p><ul><li>十六进制值-如：#FF0000</li><li>一个RGB值-如:RGB(255,0,0)</li><li>颜色的名称-如：red<br>一个网页的背景颜色是指在主体内的选择：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">body &#123;color:red;&#125;</span><br><span class="line">h1 &#123;color:#00ff00;&#125;</span><br><span class="line">h2 &#123;color:rgb(255,0,0);&#125;</span><br></pre></td></tr></table></figure>对于W3C标准的CSS:如果你定义了颜色属性，你还必须定义背景色属性。<h1 id="文本的对齐方式"><a href="#文本的对齐方式" class="headerlink" title="文本的对齐方式"></a>文本的对齐方式</h1>文本排列属性是用于设置文本的水平对齐方式。<br>文本可居中或对齐到左或右，两端对齐。<br>当text-align设置为”justify”,每一行被展开宽度相等，左，右外边距是对齐（如杂志和报纸）。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">h1 &#123;text-align:center;&#125;</span><br><span class="line">p.date &#123;text-align:right;&#125;</span><br><span class="line">p.main &#123;text-align:justify;&#125;</span><br></pre></td></tr></table></figure><h2 id="文本修饰"><a href="#文本修饰" class="headerlink" title="文本修饰"></a>文本修饰</h2>text-decoration属性用来设置或删除文本的装饰。<br>从设计的角度看text-decoration属性主要是用来删除链接的下滑线：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a &#123;text-decoration:none;&#125;</span><br></pre></td></tr></table></figure>也可以这样装饰文字：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">h1 &#123;text-decoration:overline;&#125;</span><br><span class="line">h2 &#123;text-decoration:line-through;&#125;</span><br><span class="line">h3 &#123;text-decoration:underline;&#125;</span><br></pre></td></tr></table></figure>我们不建议强调指出不是链接的文本，因为这常常混淆用户。<h1 id="文本转换"><a href="#文本转换" class="headerlink" title="文本转换"></a>文本转换</h1>文本转换属性是用来指定在一个文本中的大写和小写字母。<br>可用于所有字句变成大写或小写字母，或每个单词的首字母大写。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">p.uppercase &#123;text-transform:uppercase;&#125;</span><br><span class="line">p.lowercase &#123;text-transform:lowercase;&#125;</span><br><span class="line">p.capitalize &#123;text-transform:capitalize;&#125;</span><br></pre></td></tr></table></figure><h1 id="文本缩进"><a href="#文本缩进" class="headerlink" title="文本缩进"></a>文本缩进</h1>文本缩进属性是用来指定文本的第一行的缩进。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">p &#123;text-indent:50px;&#125;</span><br></pre></td></tr></table></figure>属性|描述</li></ul><p>–|–:<br>color|设置文本颜色<br>direction|设置文本方向<br>letter-spacing|设置字符间距<br>line-height|设置行高<br>text-align|对齐元素中的文本<br>text-decoration|向文本添加修饰<br>text-indent|缩进元素中文本的首行<br>text-shadow|设置文本阴影<br>text-transform|控制元素中的字母<br>unicode-bidi|设置或返回文本是否被重写<br>vertical-align|设置元素的垂直对齐<br>white-space|设置元素中空白的处理方式<br>world-spacing|设置字间距</p>]]></content>
     
     <summary type="html">
     
@@ -470,47 +520,6 @@
     
     
       <category term="React" scheme="https://peilei6026.github.io/tags/React/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>React组件</title>
-    <link href="https://peilei6026.github.io/2020/04/14/React%E7%BB%84%E4%BB%B6/"/>
-    <id>https://peilei6026.github.io/2020/04/14/React%E7%BB%84%E4%BB%B6/</id>
-    <published>2020-04-14T14:07:14.000Z</published>
-    <updated>2020-04-15T15:41:31.179Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="React组件"><a href="#React组件" class="headerlink" title="React组件"></a>React组件</h2><p>我们将讨论如何使用组件来使得我们的应用更容易来管理<br>接下来我们封装一个输出”Hello World!”的组件，组件名为HelloMessage;</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">function HelloMessage(props)&#123;</span><br><span class="line">    return &lt;h1&gt;Hello World!&lt;&#x2F;h1&gt;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">const element &#x3D; &lt;HelloMessage &#x2F;&gt;;</span><br><span class="line"></span><br><span class="line">ReactDOM.render(</span><br><span class="line">    element,</span><br><span class="line">    document.getElementById(&#39;example&#39;)</span><br><span class="line">);</span><br></pre></td></tr></table></figure><p><strong>实例解析</strong><br>1,我们可以使用函数定义了一个组件:</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">function HelloMessage(props)&#123;</span><br><span class="line">    return &lt;h1&gt;Hello World!&lt;&#x2F;h1&gt;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>你也可以使用ES6 class来定义一个组件：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">class Welcome extends React.Component &#123;</span><br><span class="line">    render()&#123;</span><br><span class="line">        return &lt;h1&gt;Hello World!&lt;&#x2F;h1&gt;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>2,const element = <HelloMessage />为用户自定义的组件。<br>注意，原生HTML元素名以小写字母开头，而自定义的React类名以大写字母开头，比如HelloMessage不能写成helloMessage.除此之外还需要注意组件类只能包含一个顶层标签，否则也会报错。<br>如果我们需要向组件传递参数，可以使用this.props对象,实例如下：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">function HelloMessage(props)&#123;</span><br><span class="line">    return &lt;h1&gt;Hello &#123;props.name&#125;!&lt;&#x2F;h1&gt;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">const element &#x3D; &lt;HelloMessage name&#x3D;&quot;Runoob&quot; &#x2F;&gt;;</span><br><span class="line"></span><br><span class="line">ReactDOM.render(</span><br><span class="line">    element,</span><br><span class="line">    document.getElementById(&#39;example&#39;)</span><br><span class="line">);</span><br></pre></td></tr></table></figure><p>以上实例中<em>name</em>属性通过<code>props.name</code>来获取。<br>注意,在添加属性时,class属性需要写成className,for属性需要写成htmlFor,这是因为class和for是JavaScript的保留字。</p><h2 id="复合组件"><a href="#复合组件" class="headerlink" title="复合组件"></a>复合组件</h2><p>我们可以通过创建多个组件来合成一个组件，即把组件的不同功能点进行分离。<br>以下实例我们实现了输出网站的名称和网址的组件。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">function Name(props)&#123;</span><br><span class="line">    return &lt;h1&gt;网站名称：&#123;props.name&#125;&lt;&#x2F;h1&gt;;</span><br><span class="line">&#125;</span><br><span class="line">function Url(props)&#123;</span><br><span class="line">    return &lt;h1&gt;网站地址：&#123;props.url&#125;&lt;&#x2F;h1&gt;;</span><br><span class="line">&#125;</span><br><span class="line">function Nickname(props)&#123;</span><br><span class="line">    return &lt;h1&gt;网站小名：&#123;props.nickname&#125;&lt;&#x2F;h1&gt;;</span><br><span class="line">&#125;</span><br><span class="line">function App()&#123;</span><br><span class="line">    return (</span><br><span class="line">        &lt;div&gt;</span><br><span class="line">            &lt;Name name&#x3D;&quot;菜鸟教程&quot; &#x2F;&gt;</span><br><span class="line">            &lt;Url url&#x3D;&quot;http:&#x2F;&#x2F;www.runoob.com&quot; &#x2F;&gt;</span><br><span class="line">            &lt;Nickname nickname&#x3D;&quot;Runoob&quot; &#x2F;&gt;</span><br><span class="line">        &lt;&#x2F;div&gt;</span><br><span class="line">    );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">ReactDOM.render(</span><br><span class="line">    &lt;APP &#x2F;&gt;,</span><br><span class="line">    document.getElementById(&#39;example&#39;)</span><br><span class="line">);</span><br></pre></td></tr></table></figure><p>实例中App组件使用了Name,Url和Nickname组件来输出对应的信息。</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;React组件&quot;&gt;&lt;a href=&quot;#React组件&quot; class=&quot;headerlink&quot; title=&quot;React组件&quot;&gt;&lt;/a&gt;React组件&lt;/h2&gt;&lt;p&gt;我们将讨论如何使用组件来使得我们的应用更容易来管理&lt;br&gt;接下来我们封装一个输出”Hello Wor
-      
-    
-    </summary>
-    
-    
-    
-      <category term="React" scheme="https://peilei6026.github.io/tags/React/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>调酒</title>
-    <link href="https://peilei6026.github.io/2020/04/14/%E8%B0%83%E9%85%92/"/>
-    <id>https://peilei6026.github.io/2020/04/14/%E8%B0%83%E9%85%92/</id>
-    <published>2020-04-14T06:26:49.000Z</published>
-    <updated>2020-04-14T06:29:31.652Z</updated>
-    
-    <summary type="html">
-    
-    </summary>
-    
-    
-    
-      <category term="调酒" scheme="https://peilei6026.github.io/tags/%E8%B0%83%E9%85%92/"/>
     
   </entry>
   
