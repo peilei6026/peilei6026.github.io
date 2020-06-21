@@ -8,15 +8,15 @@
   <link rel="dns-prefetch" href="https://peilei6026.github.io">
   <title>laravel性能优化 | 裴雷de博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="查看laravel版本php artisan">
+  <meta name="description" content="查看laravel版本php artisan 开启OPcache说明OPcache是由PHP官方公司Zend开发的一款免费使用的PHP优化加速拓展,他可以PHP脚本编译后的bytecode缓存在共享内存中供以后反复使用，从而避免了从磁盘读取代码再次编译的消耗，同时，它还应用了一些代码优化模式，使得代码执行更快，从而加速PHP应用响应。php自从5.5以来，就已经内置了OPcache扩展，不过默认是">
 <meta property="og:type" content="article">
 <meta property="og:title" content="laravel性能优化">
 <meta property="og:url" content="https://peilei6026.github.io/2020/06/19/laravel%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/index.html">
 <meta property="og:site_name" content="裴雷de博客">
-<meta property="og:description" content="查看laravel版本php artisan">
+<meta property="og:description" content="查看laravel版本php artisan 开启OPcache说明OPcache是由PHP官方公司Zend开发的一款免费使用的PHP优化加速拓展,他可以PHP脚本编译后的bytecode缓存在共享内存中供以后反复使用，从而避免了从磁盘读取代码再次编译的消耗，同时，它还应用了一些代码优化模式，使得代码执行更快，从而加速PHP应用响应。php自从5.5以来，就已经内置了OPcache扩展，不过默认是">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-06-19T09:58:06.000Z">
-<meta property="article:modified_time" content="2020-06-21T02:32:51.800Z">
+<meta property="article:modified_time" content="2020-06-21T14:20:21.962Z">
 <meta property="article:author" content="裴雷">
 <meta property="article:tag" content="Laravel">
 <meta property="article:tag" content="优化">
@@ -185,6 +185,23 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h1 id="查看laravel版本"><a href="#查看laravel版本" class="headerlink" title="查看laravel版本"></a>查看laravel版本</h1><p>php artisan</p>
+<h1 id="开启OPcache"><a href="#开启OPcache" class="headerlink" title="开启OPcache"></a>开启OPcache</h1><p>说明<br>OPcache是由PHP官方公司Zend开发的一款免费使用的PHP优化加速拓展,他可以PHP脚本编译后的bytecode缓存在共享内存中供以后反复使用，从而避免了从磁盘读取代码再次编译的消耗，同时，它还应用了一些代码优化模式，使得代码执行更快，从而加速PHP应用响应。<br>php自从5.5以来，就已经内置了OPcache扩展，不过默认是关闭的状态的，本文讲介绍如何开启OPcache以及在laravel中使用的正确方式。<br>PHP7。2FPM的配置信息位于：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;etc&#x2F;php&#x2F;7.2&#x2F;fpm&#x2F;php.ini</span><br></pre></td></tr></table></figure>
+<p>编辑以上文件，搜索<code>opcache.enable</code>将值设为1即为开机:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">opcache.enable&#x3D;1</span><br></pre></td></tr></table></figure>
+<p>php.ini 里相关的配置以下，注释里面包括说明和设定的值，请详细阅读：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">; 是否在命令行开启，这里默认设置为 0 ，暂且关闭</span><br><span class="line">;opcache.enable_cli&#x3D;0</span><br><span class="line"></span><br><span class="line">; 这个内存是用来存储编译后的字节码的，视你的程序</span><br><span class="line">; 代码量而定，Laravel 应用一般建议设置为 256，单位 MB，</span><br><span class="line">; 默认是 128</span><br><span class="line">opcache.memory_consumption&#x3D;256</span><br><span class="line"></span><br><span class="line">; 会对程序所有的字符串进行统一存储以加快存取速度，</span><br><span class="line">; 默认是 8m，建议 32 或者不超过 64。</span><br><span class="line">opcache.interned_strings_buffer&#x3D;32</span><br><span class="line"></span><br><span class="line">; 最大加速多少个脚本文件，视项目脚本文件数而定，</span><br><span class="line">; 合理区间 200~1000000 ，默认是 10000 ，建议 500000</span><br><span class="line">opcache.max_accelerated_files&#x3D;1000000</span><br><span class="line"></span><br><span class="line">; 最大作废比例百分比，到达这个比例会重启，默认是 5 ，建议 10</span><br><span class="line">opcache.max_wasted_percentage&#x3D;10</span><br><span class="line"></span><br><span class="line">; 开启情况下会在脚本名称前加上当前目录信息做为缓存的 Key，关闭可以</span><br><span class="line">; 提高性能，但是会面临出错的风险（文件名一致时），建议开启，关闭使用 0</span><br><span class="line">opcache.use_cwd&#x3D;1</span><br><span class="line"></span><br><span class="line">; 开启的话，会按照 opcache.revalidate_freq 设置的频率去检查文件</span><br><span class="line">; 是否修改以便重新缓存，默认开启，生产环境下请设置为关闭，然后</span><br><span class="line">; 写自动化脚本，在每次更新代码后自动重启 OPcache</span><br><span class="line">opcache.validate_timestamps&#x3D;0</span><br><span class="line"></span><br><span class="line">; 文件更新检测频率，单位秒，只有在 opcache.validate_timestamps </span><br><span class="line">; 开启时才有效。默认为 2，意味着 2 秒钟检查一次，会对文件系统造</span><br><span class="line">; 成负担，如果是在开发环境中请酌情使用，生产环境随意设置，因为</span><br><span class="line">; 我们会设置 validate_timestamps 为关闭。</span><br><span class="line">opcache.revalidate_freq&#x3D;2200</span><br><span class="line"></span><br><span class="line">; 文件加载的逻辑，默认关闭，无需修改</span><br><span class="line">;opcache.revalidate_path&#x3D;0</span><br><span class="line"></span><br><span class="line">; 开启的话会把代码注释一起缓存，关闭可减低内存使用，但是</span><br><span class="line">; 如果有一些代码依赖于注释里的指令，例如 Doctrine, </span><br><span class="line">; Zend Framework 2 和 PHPUnit，将会出现问题。建议开启</span><br><span class="line">opcache.save_comments&#x3D;1</span><br></pre></td></tr></table></figure>
+<p>修改完成后，需要重启FPM生效:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$sudo service php7.2-fpm restart</span><br></pre></td></tr></table></figure>
+<h1 id="性能测试"><a href="#性能测试" class="headerlink" title="性能测试"></a>性能测试</h1><p>接下来我们使用课程里面安装的ab压测工具试下性能:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ab -n 100 -c 2 http:&#x2F;&#x2F;larabbs.test&#x2F;topics</span><br></pre></td></tr></table></figure>
+<p>以上命令以并发数为2的情况发送100请求，得到的结果是:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Requests per second:    11.20 [#&#x2F;sec] (mean) </span><br><span class="line">Time per request:       178.643 [ms] (mean)</span><br><span class="line">Time per request:       89.322 [ms] (mean, across all concurrent requests)</span><br></pre></td></tr></table></figure>
+<p>解释如下:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># 并发数，每秒能处理多少个请求，越多越好</span><br><span class="line">Requests per second:    11.20 [#&#x2F;sec] (mean)</span><br><span class="line"></span><br><span class="line"># 一个并发（这里是 2）处理的时间，单位毫秒，越小越好</span><br><span class="line">Time per request:       178.643 [ms] (mean) </span><br><span class="line"></span><br><span class="line"># 平均每个请求的响应时间，单位毫秒，越小越好</span><br><span class="line">Time per request:       89.322 [ms] (mean, across all concurrent requests)</span><br></pre></td></tr></table></figure>
+<p>接下来尝试OPcache关闭的情况，打开Php.ini将opcache.enable设置为0，然后重启FPM，接着重复上面的ab命令，得到的结果:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Requests per second:    8.80 [#&#x2F;sec] (mean)</span><br><span class="line">Time per request:       227.230 [ms] (mean)</span><br><span class="line">Time per request:       113.615 [ms] (mean, across all concurrent requests)</span><br></pre></td></tr></table></figure>
+<p>可以看到性能有非常显著的提高。</p>
 
       
 
@@ -370,19 +387,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">HTML</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">React</a>
+                <a href="javascript:void(0)" class="js-tag color5">HTML</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Web前端开发修炼指南</a>
+                <a href="javascript:void(0)" class="js-tag color1">React</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -402,11 +415,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">项目</a>
+                <a href="javascript:void(0)" class="js-tag color2">Web前端开发修炼指南</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">56项目</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">项目</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -415,10 +436,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">调酒</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
             
             <div class="clearfix"></div>
