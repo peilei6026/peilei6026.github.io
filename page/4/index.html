@@ -160,6 +160,173 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-随笔" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/04/11/%E9%9A%8F%E7%AC%94/">随笔</a>
+    </h1>
+  
+
+        
+        <a href="/2020/04/11/%E9%9A%8F%E7%AC%94/" class="archive-article-date">
+  	<time datetime="2020-04-11T03:28:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-11</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="windows10自带unbutu16-4-LTS忘记root密码"><a href="#windows10自带unbutu16-4-LTS忘记root密码" class="headerlink" title="windows10自带unbutu16.4 LTS忘记root密码"></a>windows10自带unbutu16.4 LTS忘记root密码</h2><p>1、进入Ubuntu，打开一个终端<br>2、sudo passwd root<br>3、输入新密码，确认密码。<br>4、修改密码成功，切换至管理员账号su root,输入新密码，成功</p>
+<h2 id="Ubuntu更改其他用户密码（如user）步骤："><a href="#Ubuntu更改其他用户密码（如user）步骤：" class="headerlink" title="Ubuntu更改其他用户密码（如user）步骤："></a>Ubuntu更改其他用户密码（如user）步骤：</h2><p>1、进入Ubuntu，打开一个终端，输入 sudo su转为root用户。 注意，必须先转为root用户！！！<br>2、sudo passwd user(user 是对应的用户名)<br>3、输入新密码，确认密码。<br>4、修改密码成功，重启，输入新密码进入Ubuntu</p>
+<h2 id="windows10自带unbutu16-4-LTS安装界面"><a href="#windows10自带unbutu16-4-LTS安装界面" class="headerlink" title="windows10自带unbutu16.4 LTS安装界面"></a>windows10自带unbutu16.4 LTS安装界面</h2><h3 id="切换清华源"><a href="#切换清华源" class="headerlink" title="切换清华源"></a>切换清华源</h3><p>备份源文件并更改源</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo cp &#x2F;etc&#x2F;apt&#x2F;sources.list &#x2F;etc&#x2F;apt&#x2F;sources.list.bak</span><br><span class="line">sudo vim &#x2F;etc&#x2F;apt&#x2F;sources.list</span><br></pre></td></tr></table></figure>
+<p>把里面的都注释，然后直接把完整源放在文件后面</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">deb https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;ubuntu&#x2F; bionic main restricted universe multiverse</span><br><span class="line">deb-src https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;ubuntu&#x2F; bionic main restricted universe multiverse</span><br><span class="line">deb https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;ubuntu&#x2F; bionic-updates main restricted universe multiverse</span><br><span class="line">deb-src https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;ubuntu&#x2F; bionic-updates main restricted universe multiverse</span><br><span class="line">deb https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;ubuntu&#x2F; bionic-backports main restricted universe multiverse</span><br><span class="line">deb-src https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;ubuntu&#x2F; bionic-backports main restricted universe multiverse</span><br><span class="line">deb https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;ubuntu&#x2F; bionic-security main restricted universe multiverse</span><br><span class="line">deb-src https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;ubuntu&#x2F; bionic-security main restricted universe multiverse</span><br><span class="line">deb https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;ubuntu&#x2F; bionic-proposed main restricted universe multiverse</span><br><span class="line">deb-src https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;ubuntu&#x2F; bionic-proposed main restricted universe multiverse</span><br></pre></td></tr></table></figure>
+<p>执行</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br></pre></td></tr></table></figure>
+<h3 id="安装三个软件-xorg-xfce-xrdp"><a href="#安装三个软件-xorg-xfce-xrdp" class="headerlink" title="安装三个软件,xorg,xfce,xrdp"></a>安装三个软件,xorg,xfce,xrdp</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install xorg</span><br><span class="line">sudo apt-get install xfce4</span><br><span class="line">sudo apt-get install xrdp</span><br></pre></td></tr></table></figure>
+
+<h2 id="升级node-版本-linux"><a href="#升级node-版本-linux" class="headerlink" title="升级node 版本(linux)"></a>升级node 版本(linux)</h2><p>npm install -g n<br>报错</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm ERR! notsup Unsupported platform for n@2.1.8: wanted</span><br><span class="line">&#123;“os”:”!win32”,”arch”:”any”&#125; (current: &#123;“os”:”win32”,”arch”:”x64”&#125;)</span><br></pre></td></tr></table></figure>
+<p>解决方案</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g n -force</span><br></pre></td></tr></table></figure>
+<h2 id="创建react项目出错"><a href="#创建react项目出错" class="headerlink" title="创建react项目出错"></a>创建react项目出错</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">internal&#x2F;modules&#x2F;cjs&#x2F;loader.js:584</span><br></pre></td></tr></table></figure>
+<p>结局方案：删除npm系统文件夹内的node_modules中的create-react-app文件夹<br>然后执行命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cnpm install -g create-react-app</span><br><span class="line">create-react-app my-app</span><br></pre></td></tr></table></figure>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/04/11/%E9%9A%8F%E7%AC%94/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-hexo引入音乐" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/04/11/hexo%E5%BC%95%E5%85%A5%E9%9F%B3%E4%B9%90/">hexo引入音乐</a>
+    </h1>
+  
+
+        
+        <a href="/2020/04/11/hexo%E5%BC%95%E5%85%A5%E9%9F%B3%E4%B9%90/" class="archive-article-date">
+  	<time datetime="2020-04-11T03:21:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-11</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="引入音乐"><a href="#引入音乐" class="headerlink" title="引入音乐"></a>引入音乐</h1><h2 id="通过网易云插件"><a href="#通过网易云插件" class="headerlink" title="通过网易云插件"></a>通过网易云插件</h2><p>通过<code>https://music.163.com/</code>网站搜索音乐<br><img width=200 src="/assets/blogImg/网易云音乐插件.png" > </br></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;iframe frameborder&#x3D;&quot;no&quot; border&#x3D;&quot;0&quot; marginwidth&#x3D;&quot;0&quot; marginheight&#x3D;&quot;0&quot; width&#x3D;330 height&#x3D;86 src&#x3D;&quot;&#x2F;&#x2F;music.163.com&#x2F;outchain&#x2F;player?type&#x3D;2&amp;id&#x3D;448184048&amp;auto&#x3D;1&amp;height&#x3D;66&quot;&gt;&lt;&#x2F;iframe&gt;</span><br></pre></td></tr></table></figure>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">hexo个人博客</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/04/11/hexo%E5%BC%95%E5%85%A5%E9%9F%B3%E4%B9%90/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-博客编写文章指南" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -193,7 +360,9 @@
 <ul>
 <li>有一个就行，为了对齐，多加了几个<br>文字默认居左</li>
 <li>两边加：表示文字居中</li>
-<li>右边加：表示文字居右<br>注：原生的语法两边都要用 | 包起来。此处省略</li>
+<li>右边加：表示文字居右<br>注：原生的语法两边都要用 | 包起来。此处省略<h2 id="加密"><a href="#加密" class="headerlink" title="加密"></a>加密</h2>安裝<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save hexo-blog-encrypt</span><br></pre></td></tr></table></figure>
+更改站點目錄的config.yml 新增<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># Security</span><br><span class="line">##</span><br><span class="line">encrypt:</span><br><span class="line">    enable: true</span><br></pre></td></tr></table></figure>
+password: 加密的密碼<br>abstract: 是該部落格的摘要，會顯示在部落格的列表頁，與description相同，可省略<br>message: 密碼輸入框上面的描述文字</li>
 </ul>
 
       
@@ -208,11 +377,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">编写规范</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">hexo个人博客</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">hexo个人博客</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">编写规范</a>
         		</li>
       		
 		</ul>
@@ -497,11 +666,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
+                <a href="javascript:void(0)" class="js-tag color4">ES6</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -509,15 +682,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">React</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ES6</a>
+                <a href="javascript:void(0)" class="js-tag color1">React</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Laravel</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">优化</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">hexo个人博客</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -529,15 +710,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">hexo个人博客</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">项目</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">调酒</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -545,7 +718,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">56项目</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">调酒</a>
               </li>
             
             <div class="clearfix"></div>

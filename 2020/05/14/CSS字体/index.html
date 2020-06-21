@@ -16,7 +16,7 @@
 <meta property="og:description" content="CSS字体属性定义字体，加粗，大小，文字样式。 CSS字型在CSS中，有两种的类型的字体系列名称：  通用字体系列-拥有相似外观的字体系统组合（如 “Serif” 或 “Monospace”） 特定字体系列-一个特定的字体系列（如 “Times” 或 “Courier”）     Generic family 字体系列 说明    Serif Times New Roman&#x2F;Georgia Ser">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-05-14T15:19:00.000Z">
-<meta property="article:modified_time" content="2020-05-14T16:05:12.915Z">
+<meta property="article:modified_time" content="2020-06-14T15:24:54.209Z">
 <meta property="article:author" content="裴雷">
 <meta property="article:tag" content="CSS">
 <meta name="twitter:card" content="summary">
@@ -216,6 +216,12 @@
 <h2 id="字体系列"><a href="#字体系列" class="headerlink" title="字体系列"></a>字体系列</h2><p>font-family属性设置字体的字体系列<br>font-family属性应该设置几个字体名称作为一种“后备”机制，如果浏览器不支持第一种字体，他将尝试一种字体。<br>注意：如果字体系列的名称超过一个字，它必须用引号，如Font Family:”宋体”</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">p&#123;font-family:&quot;Times New Roman&quot;,Times,serif;&#125;</span><br></pre></td></tr></table></figure>
 <p>对于较常用的字体组合，我们<a href="https://www.runoob.com/cssref/css-websafe-fonts.html" target="_blank" rel="noopener">https://www.runoob.com/cssref/css-websafe-fonts.html</a> web安全字体组合</p>
+<h2 id="字体样式"><a href="#字体样式" class="headerlink" title="字体样式"></a>字体样式</h2><p>主要是用于指定斜体文字的字体样式属性。<br>这个属性有三个值：</p>
+<ul>
+<li>正常 - 正常显示文本</li>
+<li>斜体 - 以斜体字显示的文字</li>
+<li>倾斜的文字 - 文字向一边倾斜（和斜体非常类似，但不太支持）<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">p.normal &#123;font-style:normal;&#125;</span><br><span class="line">p.italic &#123;font-style:italic;&#125;</span><br><span class="line">p.oblique &#123;font-style:oblique;&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
 
       
 
@@ -385,11 +391,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
+                <a href="javascript:void(0)" class="js-tag color4">ES6</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -397,15 +407,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">React</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ES6</a>
+                <a href="javascript:void(0)" class="js-tag color1">React</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Laravel</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">优化</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">hexo个人博客</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -417,15 +435,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">hexo个人博客</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">项目</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">调酒</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -433,7 +443,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">56项目</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">调酒</a>
               </li>
             
             <div class="clearfix"></div>

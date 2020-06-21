@@ -160,6 +160,169 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-React-AJAX" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/05/09/React-AJAX/">React AJAX</a>
+    </h1>
+  
+
+        
+        <a href="/2020/05/09/React-AJAX/" class="archive-article-date">
+  	<time datetime="2020-05-09T12:44:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-09</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>React组件的数据可以通过componentDidMount方法中的Ajax来获取,当从服务段获取数据时可以将数据存储在state中,再用this.setState方法重新渲染UI.<br>当使用异步加载数据时,再组件卸载前使用componentWillUnmount来取消未完成的请求。<br>以下实例演示了获取Github用户最新gist共享描述。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">class UserGist extends React.Component &#123;</span><br><span class="line">    constructor(props)&#123;</span><br><span class="line">        super(props);</span><br><span class="line">        this.stat&#123;username: &#39;&#39;,lastGistUrl:&#39;&#39;&#125;;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    componentDidMount()&#123;</span><br><span class="line">        this.serverRequest &#x3D; $.get(this.props.source, function(result)&#123;</span><br><span class="line">            var lastGist &#x3D; resule[0];</span><br><span class="line">            this.setState(&#123;</span><br><span class="line">                username: lastGist.owner.login,</span><br><span class="line">                lastGistUrl: lastGist.html_url</span><br><span class="line">            &#125;);</span><br><span class="line">        &#125;.bind(this));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    componentWillUnmount()&#123;</span><br><span class="line">        this.serverRequest.abort();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    render()&#123;</span><br><span class="line">        return(</span><br><span class="line">            &lt;div&gt;</span><br><span class="line">                &#123;this.state.username&#125;用户最新的Gist共享地址：</span><br><span class="line">                &lt;a href&#x3D;&#123;this.state.lastGistUrl&#125;&gt;&#123;this.state.lastGistUrl&#125;&lt;&#x2F;a&gt;</span><br><span class="line">            &lt;&#x2F;div&gt;</span><br><span class="line">        );</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">ReactDOM.render(</span><br><span class="line">    &lt;UserGist soure&#x3D;&quot;https:&#x2F;&#x2F;api.github.com&#x2F;users&#x2F;octocat&#x2F;gists&quot;&#x2F;&gt;,</span><br><span class="line">    document.getElementBtId(&#39;example&#39;)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<p>以上代码使用jQuery完成Ajax请求。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">React</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/05/09/React-AJAX/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-React组件生命周期" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/05/08/React%E7%BB%84%E4%BB%B6%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/">React组件生命周期</a>
+    </h1>
+  
+
+        
+        <a href="/2020/05/08/React%E7%BB%84%E4%BB%B6%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/" class="archive-article-date">
+  	<time datetime="2020-05-08T15:49:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-08</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在本章节我们将讨论React组件的生命周期。<br>组件的生命周期可分成三个状态：</p>
+<ul>
+<li>Mounting:已插入真实DOM</li>
+<li>Updating:正在被重新渲染</li>
+<li>Unmounting:已移出真实DOM<br>生命周期的方法有：</li>
+<li>componentWillMount在渲染前调用，在客户端也在服务端。</li>
+<li>componentDidMOunt:在第一次渲染后调用，只在客户端，之后组件已经生成了对应的DOM结构，可以通过this.getDOMNode()来进行访问。如果你想和其他的JavaScript框架一起使用，可以在这个方法中调用setTimeout,setlnterval或者发送AJAX请求等操作（防止异步操作阻塞UI)</li>
+<li>componentWillReceiveProps在组件接受到一个新的prop(更新后)时被调用，这个方法在初始话render时不会被调用。</li>
+<li>shouldComponentUpdate返回一个布尔值，在组件接受到新的props或者state时被调用，在初始化时或者使用forceUpdate时不被调用。<br>可以在你确认不需要更新组件时使用。</li>
+<li>componentWillUpdate在组件接受到新的props或者state但还没有render时被调用。在初始化时不会被调用。</li>
+<li>componentDidUpdate在组件完成更新后立即调用。在初始化时不会被调用。</li>
+<li>componentWillUnmount在组件从DOM中移除之前立即被调用。<br>以下实例在Hello组件加载以后，通过componentDidMount方法设置一个定时器，每隔100毫秒重新设置组建的透明度，并重新渲染：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">class Hello extends React.Component &#123;</span><br><span class="line"> </span><br><span class="line">  constructor(props) &#123;</span><br><span class="line">      super(props);</span><br><span class="line">      this.state &#x3D; &#123;opacity: 1.0&#125;;</span><br><span class="line">  &#125;</span><br><span class="line"> </span><br><span class="line">  componentDidMount() &#123;</span><br><span class="line">    this.timer &#x3D; setInterval(function () &#123;</span><br><span class="line">      var opacity &#x3D; this.state.opacity;</span><br><span class="line">      opacity -&#x3D; .05;</span><br><span class="line">      if (opacity &lt; 0.1) &#123;</span><br><span class="line">        opacity &#x3D; 1.0;</span><br><span class="line">      &#125;</span><br><span class="line">      this.setState(&#123;</span><br><span class="line">        opacity: opacity</span><br><span class="line">      &#125;);</span><br><span class="line">    &#125;.bind(this), 100);</span><br><span class="line">  &#125;</span><br><span class="line"> </span><br><span class="line">  render () &#123;</span><br><span class="line">    return (</span><br><span class="line">      &lt;div style&#x3D;&#123;&#123;opacity: this.state.opacity&#125;&#125;&gt;</span><br><span class="line">        Hello &#123;this.props.name&#125;</span><br><span class="line">      &lt;&#x2F;div&gt;</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">ReactDOM.render(</span><br><span class="line">  &lt;Hello name&#x3D;&quot;world&quot;&#x2F;&gt;,</span><br><span class="line">  document.body</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+以下实例初始化state,setNuwnumber用于更新state.所有生命周期在Content组件中。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line">class Button extends React.Component&#123;</span><br><span class="line">    constructor(props)&#123;</span><br><span class="line">        super(props);</span><br><span class="line">        this.state&#x3D;&#123;data:0&#125;;</span><br><span class="line">        this.setNewNumer&#x3D;this.setNewNumber.bing(this);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    setNewNumber()&#123;</span><br><span class="line">        this.serState(&#123;data: this.state.date +1&#125;)</span><br><span class="line">    &#125;</span><br><span class="line">    render()&#123;</span><br><span class="line">        return(</span><br><span class="line">            &lt;div&gt;</span><br><span class="line">                &lt;button onClick&#x3D;&#123;this.setNewNumber&#125;&gt;INCREMENT&lt;&#x2F;button&gt;</span><br><span class="line">                &lt;Content myNumber&#x3D;&#123;this.state.data&#125;&gt;&lt;&#x2F;Content&gt;</span><br><span class="line">            &lt;&#x2F;div&gt;</span><br><span class="line">        );</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class Content extends React.Component&#123;</span><br><span class="line">    componentWillMount()&#123;</span><br><span class="line">        console.log(&#39;Component WILL MOUNT!&#39;)</span><br><span class="line">    &#125;</span><br><span class="line">    componentDidMount()&#123;</span><br><span class="line">        console.log(&#39;Component DID MOUNT!&#39;)</span><br><span class="line">    &#125;</span><br><span class="line">    componentWillReceiveProps(newProps)&#123;</span><br><span class="line">        console.log(&#39;Component WILL RECEIVE PROPS!&#39;)</span><br><span class="line">    &#125;</span><br><span class="line">    shouldComponentUpdate(newProps, newState)&#123;</span><br><span class="line">        return true;</span><br><span class="line">    &#125;</span><br><span class="line">    componentWillUpdate(nextProps,nextState)&#123;</span><br><span class="line">        console.log(&#39;Component WILL UPDATE!&#39;)</span><br><span class="line">    &#125;</span><br><span class="line">    componentDidUpdate(prevProps, prevState)&#123;</span><br><span class="line">        console.log(&#39;Component DID UPDATE!&#39;)</span><br><span class="line">    &#125;</span><br><span class="line">    componentWillUnmount()&#123;</span><br><span class="line">        console.log(&#39;Component WILL NUMOUNT!&#39;)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    render()&#123;</span><br><span class="line">        return(</span><br><span class="line">            &lt;div&gt;</span><br><span class="line">                &lt;h2&gt;&#123;this.props.myNumber&#125;&lt;&#x2F;h2&gt;</span><br><span class="line">            &lt;&#x2F;div&gt;</span><br><span class="line">        );</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">ReactDOM.render(</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">        &lt;Button &#x2F;&gt;</span><br><span class="line">    &lt;&#x2F;div&gt;,</span><br><span class="line">    document.getElementById(&#39;example&#39;)</span><br><span class="line">);</span><br></pre></td></tr></table></figure></li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">React</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/05/08/React%E7%BB%84%E4%BB%B6%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-React组件API" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -930,170 +1093,6 @@ git commit -m &quot;初始化项目(备注)&quot;</code><br>稍等片刻，eject
 
 
   
-    <article id="post-React条件渲染" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/19/React%E6%9D%A1%E4%BB%B6%E6%B8%B2%E6%9F%93/">React条件渲染</a>
-    </h1>
-  
-
-        
-        <a href="/2020/04/19/React%E6%9D%A1%E4%BB%B6%E6%B8%B2%E6%9F%93/" class="archive-article-date">
-  	<time datetime="2020-04-19T14:35:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-19</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>在React中,你可以创建不同的组件来封装各种你需要的行为。然后还可以根据应用的状态变化只渲染其中的一部分。<br>React中的条件渲染和JavaScript中的一致，使用JavaScript操作符if或者条件运算符来创建表示当前状态的元素，然后让React根据它们来更新UI<br>先看两个组件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">function UserGreting(props)&#123;</span><br><span class="line">    return &lt;h1&gt;欢迎回来！&lt;?h1&gt;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function GuestGreetion(props)&#123;</span><br><span class="line">    return &lt;h1&gt;请先注册。&lt;&#x2F;h1&gt;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>我们将创建一个Greetin组件，它会根据用户是否来 登录来显示其中之一。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">function Greeting(props)&#123;</span><br><span class="line">    const isLoggedIn &#x3D; props.isLoggedIn;</span><br><span class="line">    if(isLoggedIn)&#123;</span><br><span class="line">        return &lt;UserGreeting &#x2F;&gt;;</span><br><span class="line">    &#125;</span><br><span class="line">    return &lt;GuestGreeting &#x2F;&gt;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">ReactDOM.render(</span><br><span class="line">    &#x2F;&#x2F;尝试修改isLoggedIn&#x3D;&#123;true&#125;:</span><br><span class="line">    &lt;Greeting isLoggedIn&#x3D;&#123;false&#125; &#x2F;&gt;,</span><br><span class="line">    document.getElementById(&#39;example&#39;)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
-<h2 id="元素变量"><a href="#元素变量" class="headerlink" title="元素变量"></a>元素变量</h2><p>你可以使用变量来存储元素，它可以帮你有条件的渲染组件的一部分，而输出的其他部分不会更改，在下面的例子中，我们将要创建一个名为LoginControl的有状态的组件。<br>他会根据当前的状态来渲染<code>&lt;LoginButton /&gt;</code>或<code>&lt;LogoutButton&gt;</code>，它也将渲染前面例子中的<code>&lt;Greeting /&gt;</code>.</p>
-<h2 id="与运算符-amp-amp"><a href="#与运算符-amp-amp" class="headerlink" title="与运算符&amp;&amp;"></a>与运算符&amp;&amp;</h2><p>你可以通过用花括号包裹代码在JSX中嵌入任何表达式，也包括JavaScript的逻辑与&amp;&amp;,它可以方便低条件渲染一个元素。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">function Mailbox(props)&#123;</span><br><span class="line">    const unredMessages &#x3D; props.unreadMessage;</span><br><span class="line">    return(</span><br><span class="line">        &lt;div&gt;</span><br><span class="line">           &lt;h1&gt;Hello!&lt;&#x2F;h1&gt;</span><br><span class="line">           &#123;unreadMessages.length &gt; 0 &amp;&amp;</span><br><span class="line">                &lt;h2&gt;</span><br><span class="line">                    您有&#123;unreadMessages.length&#125;条消息</span><br><span class="line">                &lt;&#x2F;h2&gt;</span><br><span class="line">           &#125;</span><br><span class="line">        &lt;&#x2F;div&gt;</span><br><span class="line">    );</span><br><span class="line">&#125;</span><br><span class="line">const messages &#x3D; [&#39;React&#39;,&#39;Re:React&#39;,&#39;Re:Re：React&#39;];</span><br><span class="line">ReactDOM.render(</span><br><span class="line">    &lt;Mailbox unreadMessages&#x3D;&#123;messages&#125; &#x2F;&gt;,</span><br><span class="line">    document.getElementById(&#39;example&#39;)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
-<p>在JavaScript中，<code>true&amp;&amp;expression</code>总是返回false.因此，如果条件是true,<code>&amp;&amp;</code>右侧的元素就会被渲染，如果是false，React会忽略并跳过它。</p>
-<h2 id="三目运算符"><a href="#三目运算符" class="headerlink" title="三目运算符"></a>三目运算符</h2><p>条件渲染的另一种方法是使用JavaScript的条件运算符：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">condition ? true : false</span><br></pre></td></tr></table></figure>
-<p>下面例子中，我们用它来有条件的渲染一小段文本。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">render()&#123;</span><br><span class="line">    const isLoggedln &#x3D; this.state.isLoggedin;</span><br><span class="line">    return(</span><br><span class="line">        The user is&#123;</span><br><span class="line">            isLoggedln ? &#39;currently&#39;:&#39;not&#39;</span><br><span class="line">        &#125;</span><br><span class="line">        logged in.</span><br><span class="line">    );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>同样它也可以用在较大得表达式中，虽然不太直观：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">render()&#123;</span><br><span class="line">    const isLoggedIn&#x3D; this.state.isLoggedIn;</span><br><span class="line">    return (</span><br><span class="line">        &#123;isLoggedIn ?(</span><br><span class="line">            &lt;LogoutButton onClick&#x3D;&#123;this.handleLoginClick&#125;&gt;</span><br><span class="line">        ):(</span><br><span class="line">            &lt;LogoutButton onClick&#x3D;&#123;this.handleLoginClick&#125;&gt;</span><br><span class="line">        )&#125;</span><br><span class="line">    );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="阻止组件渲染"><a href="#阻止组件渲染" class="headerlink" title="阻止组件渲染"></a>阻止组件渲染</h2><p>在极少数得情况下，你希望隐藏组件，即使它被其他组件渲染，让render方法返回null而不是它得渲染结果即可实现。<br>在下面得例子中，<code>&lt;WarningBanner&gt;</code>根据属性warn得条件渲染，如果warn得值是false，则组件不会渲染。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">function WarningBanner(props)&#123;</span><br><span class="line">    if(!props.warn)&#123;</span><br><span class="line">        return null;</span><br><span class="line">    &#125;</span><br><span class="line">    return (</span><br><span class="line">        &lt;div className&#x3D;&quot;warning&quot;&gt;</span><br><span class="line">        警告！</span><br><span class="line">        &lt;&#x2F;div&gt;</span><br><span class="line">    );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class Page extends React.Component&#123;</span><br><span class="line">    constructor(props)&#123;</span><br><span class="line">        super(props)&#123;</span><br><span class="line">            this.state&#x3D;&#123;showWarning: true&#125;</span><br><span class="line">            this.handleToggleClick&#x3D;this.handleToggleClick.bing(this);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    handleToggleClick()&#123;</span><br><span class="line">        this.setState(prevState &#x3D;&gt; (&#123;</span><br><span class="line">            showWarning: !prevState.showWarning</span><br><span class="line">        &#125;));</span><br><span class="line">    &#125;</span><br><span class="line">    render()&#123;</span><br><span class="line">        return(</span><br><span class="line">            &lt;div&gt;</span><br><span class="line">                &lt;WarningBanner warn&#x3D;&#123;this.state.showWarning&#125; &#x2F;&gt;</span><br><span class="line">                &lt;button onClick&#x3D;&#123;this.handleToggleClick&#125;&gt;</span><br><span class="line">                    &#123;this.state.showWarning ? &#39;隐藏&#39; : &#39;显示&#39;&#125; </span><br><span class="line">                &lt;&#x2F;button&gt;</span><br><span class="line">            &lt;&#x2F;div&gt;</span><br><span class="line">        );</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">ReactDOM.render(</span><br><span class="line">    &lt;Page &#x2F;&gt;,</span><br><span class="line">    document.getElementById(&#39;example&#39;)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
-<p>组件得render方法返回null并不会影响该组件生命周期方法得回调，例如，componentWillUpdate和cmponentDidUpdate依然可以被调用。</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">React</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/19/React%E6%9D%A1%E4%BB%B6%E6%B8%B2%E6%9F%93/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-经验" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/18/%E7%BB%8F%E9%AA%8C/">经验</a>
-    </h1>
-  
-
-        
-        <a href="/2020/04/18/%E7%BB%8F%E9%AA%8C/" class="archive-article-date">
-  	<time datetime="2020-04-18T15:39:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-18</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>写项目前一定明确需求</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">项目</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/18/%E7%BB%8F%E9%AA%8C/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/">Next &amp;raquo;</a>
@@ -1191,11 +1190,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
+                <a href="javascript:void(0)" class="js-tag color4">ES6</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1203,15 +1206,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">React</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ES6</a>
+                <a href="javascript:void(0)" class="js-tag color1">React</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Laravel</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">优化</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">hexo个人博客</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1223,15 +1234,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">hexo个人博客</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">项目</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">调酒</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1239,7 +1242,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">56项目</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">调酒</a>
               </li>
             
             <div class="clearfix"></div>
