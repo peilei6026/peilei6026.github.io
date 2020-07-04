@@ -59,9 +59,9 @@
 	        
 				<li><a href="/tags/%E9%9A%8F%E7%AC%94/">随笔</a></li>
 	        
-				<li><a href="/tags/%E8%B0%83%E9%85%92/">调酒</a></li>
+				<li><a href="/tags/%E6%9D%82%E8%B0%88/">杂谈</a></li>
 	        
-				<li><a href="/tags/React/">React</a></li>
+				<li><a href="/tags/%E5%AD%A6%E4%B9%A0/">学习</a></li>
 	        
 			</ul>
 		</nav>
@@ -141,9 +141,9 @@
 		        
 					<li style="width: 25%"><a href="/tags/%E9%9A%8F%E7%AC%94/">随笔</a></li>
 		        
-					<li style="width: 25%"><a href="/tags/%E8%B0%83%E9%85%92/">调酒</a></li>
+					<li style="width: 25%"><a href="/tags/%E6%9D%82%E8%B0%88/">杂谈</a></li>
 		        
-					<li style="width: 25%"><a href="/tags/React/">React</a></li>
+					<li style="width: 25%"><a href="/tags/%E5%AD%A6%E4%B9%A0/">学习</a></li>
 		        
 				</ul>
 			</nav>
@@ -159,6 +159,339 @@
           </div>
           <div id="js-content" class="content-ll">
             
+  
+    <article id="post-ES6标准入门-阮一峰" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/05/13/ES6%E6%A0%87%E5%87%86%E5%85%A5%E9%97%A8-%E9%98%AE%E4%B8%80%E5%B3%B0/">ES6标准入门-阮一峰</a>
+    </h1>
+  
+
+        
+        <a href="/2020/05/13/ES6%E6%A0%87%E5%87%86%E5%85%A5%E9%97%A8-%E9%98%AE%E4%B8%80%E5%B3%B0/" class="archive-article-date">
+  	<time datetime="2020-05-13T14:49:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-13</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="1-let和const"><a href="#1-let和const" class="headerlink" title="1.let和const"></a>1.let和const</h1><p>暂时性死区（Temporal Dead Zone)<br>let和const命令声明的变量吴变量提升，且都会被锁定在声明的代码块中，在let和const命令行前，使用该变量都将报错，这一部分称为”暂时性死区”.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var tmp &#x3D; 123;</span><br><span class="line"></span><br><span class="line">if(true)&#123;</span><br><span class="line">    tmp &#x3D; &#39;abc&#39;; &#x2F;&#x2F;ReferenceError</span><br><span class="line">    let tmp;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>let tmp 将tmp变量绑定在 {}代码块之内，外部的tmp声明无效，tmp=’abc’就处在死去，所以报错。同理在以前没有let和const命令的时候，typeof是一个安全的运算符，即使变量没有被声明，也会正常返回undefined,但如果typeof处在死区中，处理了在后文被let和const的变量，将会报错。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">typeof undeclared_variable;&#x2F;&#x2F;undefined 未被let和const声明反而没事</span><br><span class="line">if(true)&#123;</span><br><span class="line">    &#x2F;&#x2F;TDZ开始 (Temporal Dead Zone: 暂时性死区)</span><br><span class="line">    typeof tmp &#x2F;&#x2F;ReferenceError</span><br><span class="line">    let tmp;&#x2F;&#x2F;TDZ结束</span><br><span class="line">    console.log(tmp);&#x2F;&#x2F;undefined</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>顶层对象<br>var和function的全局声明会自动绑定到window或者global对象，</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ES6</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/05/13/ES6%E6%A0%87%E5%87%86%E5%85%A5%E9%97%A8-%E9%98%AE%E4%B8%80%E5%B3%B0/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-React面试题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/05/12/React%E9%9D%A2%E8%AF%95%E9%A2%98/">React面试题</a>
+    </h1>
+  
+
+        
+        <a href="/2020/05/12/React%E9%9D%A2%E8%AF%95%E9%A2%98/" class="archive-article-date">
+  	<time datetime="2020-05-12T14:49:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-12</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="1-什么是React？"><a href="#1-什么是React？" class="headerlink" title="1.什么是React？"></a>1.什么是React？</h1><p>React是一个开源的前端JavaScript库，用于构建用户界面，尤其是单页面的应用。它用与处理网页和移动应用程序的试图层.React是由Facebook的软件工程师jordan walke创建，在2011年React应用首次被部署到Facebook的信息流中，之后与2012年被应用到instagram上</p>
+<h1 id="2-React的主要特点是什么？"><a href="#2-React的主要特点是什么？" class="headerlink" title="2.React的主要特点是什么？"></a>2.React的主要特点是什么？</h1><p>React的主要特性有：</p>
+<ul>
+<li>考虑到真实的DOM操作成本很高，它使用VirtualDOM不是真实的DOM.</li>
+<li>支持服务段渲染</li>
+<li>遵循单项数据流或者数据绑定</li>
+<li>使用可重复/可组合的UI组件开发视图<h1 id="3-什么是JSX"><a href="#3-什么是JSX" class="headerlink" title="3.什么是JSX?"></a>3.什么是JSX?</h1>JSX是ECMAScript一个类似ML的语法扩展。基本上，他只是为了React.createElement()函数提供语法糖，从而让在我们在JavaSctipy中，使用类HTML模板的语法，进行页面描述。<br>在下面的示例中，<h1>内的文本标签会作为JavaSctipt函数返回给渲染函数。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">class App extends React.Component&#123;</span><br><span class="line">    return()&#123;</span><br><span class="line">        &lt;div&gt;</span><br><span class="line">            &lt;h1&gt;&#123;&#39;Welcome to React world!&#39;&#125;&lt;&#x2F;h1&gt;</span><br><span class="line">        &lt;&#x2F;div&gt;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+以上示例render方法中的jsx将会被转换为一下内容：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">React.createElement(&quot;div&quot;, null, React.createElement(&quot;h1&quot;,null,&quot;Welcome to React world!&#39;));</span><br></pre></td></tr></table></figure>
+<h1 id="4-元素和组件有什么区别？"><a href="#4-元素和组件有什么区别？" class="headerlink" title="4.元素和组件有什么区别？"></a>4.元素和组件有什么区别？</h1>一个Element是一个简单的对象，它描述了你希望在屏幕上以DOM节点或其他组件的形式呈现的内容。Elements在他们的属性中可以包含其他的Elements。创建一个React元素是很轻量的，一旦元素被创建后，它将不会被修改。<br>React Element的对象表示如下:<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">const element &#x3D; React.createElement(</span><br><span class="line">    &#39;div&#39;,</span><br><span class="line">    &#123;id: &#39;login-btn&#39;&#125;,</span><br><span class="line">    &#39;Login&#39;</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+上面的 React.createElement() 函数会返回一个对象。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id&#x3D;&quot;login-btn&#39;&gt;Login&lt;&#x2F;div&gt;</span><br></pre></td></tr></table></figure>
+而一个组件可以用多种不同方式声明。它可以是一个含有render()方法的类，或者，在简单的情况中，它可以定义为函数。无论哪种情况，它都将props作为输入，并返回一个JSX树作为输出。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">const Button &#x3D; (&#123; onLogin &#125;) &#x3D;&gt;</span><br><span class="line">    &lt;div id&#x3D;&#123;&#39;login-btn&#39;&#125; onClick&#x3D;&#123;onLogin&#125; &#x2F;&gt;</span><br></pre></td></tr></table></figure>
+然后JSX被转换成React.createElement()函数：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">const Button &#x3D; (&#123; onLogin &#125;) &#x3D;&gt; React.createElement(</span><br><span class="line">    &#39;div&#39;,</span><br><span class="line">    &#123;id: &#39;login-btn&#39;, onClick: onLogin &#125;,</span><br><span class="line">    &#39;Login&#39;</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<h1 id="5-如何在React中创建组件？"><a href="#5-如何在React中创建组件？" class="headerlink" title="5.如何在React中创建组件？"></a>5.如何在React中创建组件？</h1>有两种可行的方法来创建一个组件：<br>i.Function Components:这是创建组件的最简单的方法，这些是纯JavaScript函数，接受props对象作为第一个参数并返回React元素：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">function Greetion(&#123; message &#125;)&#123;</span><br><span class="line">    return &lt;h1&gt;&#123;&#39;Hello, $&#123;message&#125;&#39;&#125;&lt;&#x2F;h1&gt;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+ii.Class Components:你还可以使用ES6类来定义组件，上面的函数组件若使用ES6的类可改写为：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">class Greetion extends React.Component&#123;</span><br><span class="line">    render()&#123;</span><br><span class="line">        return &lt;h1&gt;&#123;&#39;Hello, $&#123;this.props.message&#125;&#39;&#125;&lt;&#x2F;h1&gt;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="6-如何使用类组件和函数组件？"><a href="#6-如何使用类组件和函数组件？" class="headerlink" title="6.如何使用类组件和函数组件？"></a>6.如何使用类组件和函数组件？</h1>如果组件需要使用状态或生命周期方法，那么使用类组件，否则使用函数组件。<h1 id="7-什么是Pure-Components"><a href="#7-什么是Pure-Components" class="headerlink" title="7.什么是Pure Components?"></a>7.什么是Pure Components?</h1>React.PureComponent完全相同，只是它为你处理了shouldComponetUpdate()方法。当属性或者状态发生变化时，PureComponent将对属性和状态进行浅比较。另一方面，普通组件不会将当前的属性和状态与新的属性和状态进行比较，因此，在默认情况下，每当调用shouldComponetUpdate时，组件将重新渲染。</li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">React</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/05/12/React%E9%9D%A2%E8%AF%95%E9%A2%98/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-React-Refs" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/05/11/React-Refs/">React Refs</a>
+    </h1>
+  
+
+        
+        <a href="/2020/05/11/React-Refs/" class="archive-article-date">
+  	<time datetime="2020-05-11T14:54:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-11</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>React支持一种非常特殊的属性Ref,你可以用来绑定到render()输出的任何组件上。<br>这个特殊的属性允许你引用render()返回的相应的支撑实例(backing instance).这样就可以确保在任何事件总是拿到正确的实例。</p>
+<h2 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h2><p>绑定一个ref属性到render的返回值上：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;input ref&#x3D;&quot;myInput&quot; &#x2F;&gt;</span><br></pre></td></tr></table></figure>
+<p>在其他代码中，通过this.refs获取支撑实例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var input &#x3D; this.refs.myInput;</span><br><span class="line">var inputValue &#x3D; input.value;</span><br><span class="line">var inputRect &#x3D; input.getBoundingClientRect();</span><br></pre></td></tr></table></figure>
+<p>你可以通过使用this来获取当前React组件，或使用ref来获取组件的引用，实例如下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">class MyComponent extends React.Component &#123;</span><br><span class="line">  handleClick() &#123;</span><br><span class="line">    &#x2F;&#x2F; 使用原生的 DOM API 获取焦点</span><br><span class="line">    this.refs.myInput.focus();</span><br><span class="line">  &#125;</span><br><span class="line">  render() &#123;</span><br><span class="line">    &#x2F;&#x2F;  当组件插入到 DOM 后，ref 属性添加一个组件的引用于到 this.refs</span><br><span class="line">    return (</span><br><span class="line">      &lt;div&gt;</span><br><span class="line">        &lt;input type&#x3D;&quot;text&quot; ref&#x3D;&quot;myInput&quot; &#x2F;&gt;</span><br><span class="line">        &lt;input</span><br><span class="line">          type&#x3D;&quot;button&quot;</span><br><span class="line">          value&#x3D;&quot;点我输入框获取焦点&quot;</span><br><span class="line">          onClick&#x3D;&#123;this.handleClick.bind(this)&#125;</span><br><span class="line">        &#x2F;&gt;</span><br><span class="line">      &lt;&#x2F;div&gt;</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">ReactDOM.render(</span><br><span class="line">  &lt;MyComponent &#x2F;&gt;,</span><br><span class="line">  document.getElementById(&#39;example&#39;)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<p>实例中，我们获取了输入框的支撑实例的引用，子点击按钮后输入框获取焦点。<br>我们也可以使用getDOMNode()方法获取DOM元素</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">React</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/05/11/React-Refs/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-React表单与事件" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/05/09/React%E8%A1%A8%E5%8D%95%E4%B8%8E%E4%BA%8B%E4%BB%B6/">React表单与事件</a>
+    </h1>
+  
+
+        
+        <a href="/2020/05/09/React%E8%A1%A8%E5%8D%95%E4%B8%8E%E4%BA%8B%E4%BB%B6/" class="archive-article-date">
+  	<time datetime="2020-05-09T12:59:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-09</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>HTML表单元素与React中的其他DOM元素有所不同，因为表单元素生来就保留一些内部状态。<br>在HTML当中，想<input>,<textarea>,和<select>这类表单元素会维持自身状态,并根据用户输入进行更新,但在React中,可变的状态通常保存在组件的状态属性中，并且只能用setState()方法进行更新。</p>
+<h2 id="一个简单的实例"><a href="#一个简单的实例" class="headerlink" title="一个简单的实例"></a>一个简单的实例</h2><p>在实例中我们设置了输入框input值value={this.state.data}。在输入框发生变化时我们可以更新state.我们可以使用onChange事件来监听input的变化,并修改state.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">class HelloMessage extends React.Component&#123;</span><br><span class="line">    constructor(props)&#123;</span><br><span class="line">        super(props);</span><br><span class="line">        this.state&#x3D;&#123;value: &#39;Hello Runoob!&#39;&#125;;</span><br><span class="line">        this.handleChange&#x3D;this.handleChange.bind(this);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    handleChange(event)&#123;</span><br><span class="line">        this.setState(&#123;value:event.target.value&#125;);</span><br><span class="line">    &#125;</span><br><span class="line">    render()&#123;</span><br><span class="line">        var value &#x3D; this.state.value;</span><br><span class="line">        return &lt;div&gt;</span><br><span class="line">        &lt;input type&#x3D;&quot;text&quot; value&#x3D;&#123;value&#125; onChange&#x3D;&#123;this.handleChange&#125; &#x2F;&gt;</span><br><span class="line">                &lt;&#x2F;div&gt;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">ReactDOM.render(</span><br><span class="line">    &lt;HelloMessage &#x2F;&gt;,</span><br><span class="line">    document.getElementById(&#39;example&#39;)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<p>上面代码将要渲染出一个值为Hello Runoob!的input元素，并且通过onChange事件响应更新用户输入的值。</p>
+<h2 id="实例2"><a href="#实例2" class="headerlink" title="实例2"></a>实例2</h2><p>在以下实例中我们将为大家演示如何在子组件上使用表单，onChange方法将触发state的更新并将更新的值传递到子组件的输入框的value上来重新渲染界面。<br>你需要在父组件通过创建事件句柄(handleChange)，并作为prop(updateStateProp)传递到你的子组件上。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">  &lt;head&gt;</span><br><span class="line">    &lt;meta charset&#x3D;&quot;UTF-8&quot; &#x2F;&gt;</span><br><span class="line">    &lt;title&gt;菜鸟教程 React 实例&lt;&#x2F;title&gt;</span><br><span class="line">    &lt;script src&#x3D;&quot;https:&#x2F;&#x2F;cdn.staticfile.org&#x2F;react&#x2F;15.4.2&#x2F;react.min.js&quot;&gt;&lt;&#x2F;script&gt;</span><br><span class="line">	&lt;script src&#x3D;&quot;https:&#x2F;&#x2F;cdn.staticfile.org&#x2F;react&#x2F;15.4.2&#x2F;react-dom.min.js&quot;&gt;&lt;&#x2F;script&gt;</span><br><span class="line">	&lt;script src&#x3D;&quot;https:&#x2F;&#x2F;cdn.staticfile.org&#x2F;babel-standalone&#x2F;6.22.1&#x2F;babel.min.js&quot;&gt;&lt;&#x2F;script&gt;</span><br><span class="line">  &lt;&#x2F;head&gt;</span><br><span class="line">  &lt;body&gt;</span><br><span class="line">    &lt;div id&#x3D;&quot;example&quot;&gt;&lt;&#x2F;div&gt;</span><br><span class="line">    &lt;script type&#x3D;&quot;text&#x2F;babel&quot;&gt;</span><br><span class="line">    var Content &#x3D; React.createClass(&#123;</span><br><span class="line">      render: function() &#123;</span><br><span class="line">        return  &lt;div&gt;</span><br><span class="line">                &lt;input type&#x3D;&quot;text&quot; value&#x3D;&#123;this.props.myDataProp&#125; onChange&#x3D;&#123;this.props.updateStateProp&#125; &#x2F;&gt; </span><br><span class="line">                &lt;h4&gt;&#123;this.props.myDataProp&#125;&lt;&#x2F;h4&gt;</span><br><span class="line">                &lt;&#x2F;div&gt;;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">    var HelloMessage &#x3D; React.createClass(&#123;</span><br><span class="line">      getInitialState: function() &#123;</span><br><span class="line">        return &#123;value: &#39;Hello Runoob!&#39;&#125;;</span><br><span class="line">      &#125;,</span><br><span class="line">      handleChange: function(event) &#123;</span><br><span class="line">        this.setState(&#123;value: event.target.value&#125;);</span><br><span class="line">      &#125;,</span><br><span class="line">      render: function() &#123;</span><br><span class="line">        var value &#x3D; this.state.value;</span><br><span class="line">        return &lt;div&gt;</span><br><span class="line">                &lt;Content myDataProp &#x3D; &#123;value&#125; </span><br><span class="line">                  updateStateProp &#x3D; &#123;this.handleChange&#125;&gt;&lt;&#x2F;Content&gt;</span><br><span class="line">               &lt;&#x2F;div&gt;;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">    ReactDOM.render(</span><br><span class="line">      &lt;HelloMessage &#x2F;&gt;,</span><br><span class="line">      document.getElementById(&#39;example&#39;)</span><br><span class="line">    );</span><br><span class="line">    &lt;&#x2F;script&gt;</span><br><span class="line">  &lt;&#x2F;body&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="Select下拉菜单"><a href="#Select下拉菜单" class="headerlink" title="Select下拉菜单"></a>Select下拉菜单</h2><p>在React中，不适用selected属性，而在根select标签上用value属性来表示选中项。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">class FlavorForm extends React.Component&#123;</span><br><span class="line">  constructor(props)&#123;</span><br><span class="line">    super(props);</span><br><span class="line">    this.state &#x3D; &#123;value: &#39;coconut&#39;&#125;;</span><br><span class="line"></span><br><span class="line">    this.handleChange&#x3D;this.handleChange.bind(this);</span><br><span class="line">    this.handleSubmit&#x3D;this.handleSumit.bind(this);</span><br><span class="line">  &#125;</span><br><span class="line">  handleChange(event)&#123;</span><br><span class="line">    alert(&#39;Yout facorite flavor is:&#39; +this.state.value);</span><br><span class="line">    event.preventDefault();</span><br><span class="line">  &#125;</span><br><span class="line">   render() &#123;</span><br><span class="line">    return (</span><br><span class="line">      &lt;form onSubmit&#x3D;&#123;this.handleSubmit&#125;&gt;</span><br><span class="line">        &lt;label&gt;</span><br><span class="line">          选择您最喜欢的网站</span><br><span class="line">          &lt;select value&#x3D;&#123;this.state.value&#125; onChange&#x3D;&#123;this.handleChange&#125;&gt;</span><br><span class="line">            &lt;option value&#x3D;&quot;gg&quot;&gt;Google&lt;&#x2F;option&gt;</span><br><span class="line">            &lt;option value&#x3D;&quot;rn&quot;&gt;Runoob&lt;&#x2F;option&gt;</span><br><span class="line">            &lt;option value&#x3D;&quot;tb&quot;&gt;Taobao&lt;&#x2F;option&gt;</span><br><span class="line">            &lt;option value&#x3D;&quot;fb&quot;&gt;Facebook&lt;&#x2F;option&gt;</span><br><span class="line">          &lt;&#x2F;select&gt;</span><br><span class="line">        &lt;&#x2F;label&gt;</span><br><span class="line">        &lt;input type&#x3D;&quot;submit&quot; value&#x3D;&quot;提交&quot; &#x2F;&gt;</span><br><span class="line">      &lt;&#x2F;form&gt;</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">ReactDOM.render(</span><br><span class="line">  &lt;FlavorForm &#x2F;&gt;,</span><br><span class="line">  document.getElementById(&#39;example&#39;)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<h2 id="多个表单"><a href="#多个表单" class="headerlink" title="多个表单"></a>多个表单</h2><p>当你有处理多个 input 元素时，你可以通过给每个元素添加一个 name 属性，来让处理函数根据 event.target.name 的值来选择做什么。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">class Reservation extends React.Component &#123;</span><br><span class="line">  constructor(props) &#123;</span><br><span class="line">    super(props);</span><br><span class="line">    this.state &#x3D; &#123;</span><br><span class="line">      isGoing: true,</span><br><span class="line">      numberOfGuests: 2</span><br><span class="line">    &#125;;</span><br><span class="line"> </span><br><span class="line">    this.handleInputChange &#x3D; this.handleInputChange.bind(this);</span><br><span class="line">  &#125;</span><br><span class="line"> </span><br><span class="line">  handleInputChange(event) &#123;</span><br><span class="line">    const target &#x3D; event.target;</span><br><span class="line">    const value &#x3D; target.type &#x3D;&#x3D;&#x3D; &#39;checkbox&#39; ? target.checked : target.value;</span><br><span class="line">    const name &#x3D; target.name;</span><br><span class="line"> </span><br><span class="line">    this.setState(&#123;</span><br><span class="line">      [name]: value</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;</span><br><span class="line"> </span><br><span class="line">  render() &#123;</span><br><span class="line">    return (</span><br><span class="line">      &lt;form&gt;</span><br><span class="line">        &lt;label&gt;</span><br><span class="line">          是否离开:</span><br><span class="line">          &lt;input</span><br><span class="line">            name&#x3D;&quot;isGoing&quot;</span><br><span class="line">            type&#x3D;&quot;checkbox&quot;</span><br><span class="line">            checked&#x3D;&#123;this.state.isGoing&#125;</span><br><span class="line">            onChange&#x3D;&#123;this.handleInputChange&#125; &#x2F;&gt;</span><br><span class="line">        &lt;&#x2F;label&gt;</span><br><span class="line">        &lt;br &#x2F;&gt;</span><br><span class="line">        &lt;label&gt;</span><br><span class="line">          访客数:</span><br><span class="line">          &lt;input</span><br><span class="line">            name&#x3D;&quot;numberOfGuests&quot;</span><br><span class="line">            type&#x3D;&quot;number&quot;</span><br><span class="line">            value&#x3D;&#123;this.state.numberOfGuests&#125;</span><br><span class="line">            onChange&#x3D;&#123;this.handleInputChange&#125; &#x2F;&gt;</span><br><span class="line">        &lt;&#x2F;label&gt;</span><br><span class="line">      &lt;&#x2F;form&gt;</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="React-事件"><a href="#React-事件" class="headerlink" title="React 事件"></a>React 事件</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">class HelloMessage extends React.Component &#123;</span><br><span class="line">  constructor(props) &#123;</span><br><span class="line">      super(props);</span><br><span class="line">      this.state &#x3D; &#123;value: &#39;Hello Runoob!&#39;&#125;;</span><br><span class="line">      this.handleChange &#x3D; this.handleChange.bind(this);</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  handleChange(event) &#123;</span><br><span class="line">    this.setState(&#123;value: &#39;菜鸟教程&#39;&#125;)</span><br><span class="line">  &#125;</span><br><span class="line">  render() &#123;</span><br><span class="line">    var value &#x3D; this.state.value;</span><br><span class="line">    return &lt;div&gt;</span><br><span class="line">            &lt;button onClick&#x3D;&#123;this.handleChange&#125;&gt;点我&lt;&#x2F;button&gt;</span><br><span class="line">            &lt;h4&gt;&#123;value&#125;&lt;&#x2F;h4&gt;</span><br><span class="line">           &lt;&#x2F;div&gt;;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">ReactDOM.render(</span><br><span class="line">  &lt;HelloMessage &#x2F;&gt;,</span><br><span class="line">  document.getElementById(&#39;example&#39;)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<p>当你需要从子组件中更新父组件的 state 时，你需要在父组件通过创建事件句柄 (handleChange) ，并作为 prop (updateStateProp) 传递到你的子组件上。实例如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">class Content extends React.Component &#123;</span><br><span class="line">  render() &#123;</span><br><span class="line">    return  &lt;div&gt;</span><br><span class="line">              &lt;button onClick &#x3D; &#123;this.props.updateStateProp&#125;&gt;点我&lt;&#x2F;button&gt;</span><br><span class="line">              &lt;h4&gt;&#123;this.props.myDataProp&#125;&lt;&#x2F;h4&gt;</span><br><span class="line">           &lt;&#x2F;div&gt;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">class HelloMessage extends React.Component &#123;</span><br><span class="line">  constructor(props) &#123;</span><br><span class="line">      super(props);</span><br><span class="line">      this.state &#x3D; &#123;value: &#39;Hello Runoob!&#39;&#125;;</span><br><span class="line">      this.handleChange &#x3D; this.handleChange.bind(this);</span><br><span class="line">  &#125;</span><br><span class="line">  handleChange(event) &#123;</span><br><span class="line">    this.setState(&#123;value: &#39;菜鸟教程&#39;&#125;)</span><br><span class="line">  &#125;</span><br><span class="line">  render() &#123;</span><br><span class="line">    var value &#x3D; this.state.value;</span><br><span class="line">    return &lt;div&gt;</span><br><span class="line">            &lt;Content myDataProp &#x3D; &#123;value&#125; </span><br><span class="line">              updateStateProp &#x3D; &#123;this.handleChange&#125;&gt;&lt;&#x2F;Content&gt;</span><br><span class="line">           &lt;&#x2F;div&gt;;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">ReactDOM.render(</span><br><span class="line">  &lt;HelloMessage &#x2F;&gt;,</span><br><span class="line">  document.getElementById(&#39;example&#39;)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">React</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/05/09/React%E8%A1%A8%E5%8D%95%E4%B8%8E%E4%BA%8B%E4%BB%B6/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
   
     <article id="post-React-AJAX" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -714,385 +1047,6 @@ CSS中，颜色值通常以以下方式定义</li>
 
 
   
-    <article id="post-CSS创建" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/26/CSS%E5%88%9B%E5%BB%BA/">CSS创建</a>
-    </h1>
-  
-
-        
-        <a href="/2020/04/26/CSS%E5%88%9B%E5%BB%BA/" class="archive-article-date">
-  	<time datetime="2020-04-26T14:53:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-26</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="CSS创建"><a href="#CSS创建" class="headerlink" title="CSS创建"></a>CSS创建</h1><p>当读到一个样式表时，浏览器会根据它来格式化HTML文档。</p>
-<h2 id="如何插入样式表"><a href="#如何插入样式表" class="headerlink" title="如何插入样式表"></a>如何插入样式表</h2><p>插入样式表的方法有三种：</p>
-<ul>
-<li>外部样式表(External style sheet)</li>
-<li>内部样式表(Internal style sheet)</li>
-<li>内联样式(Inline style)<h2 id="外部样式表"><a href="#外部样式表" class="headerlink" title="外部样式表"></a>外部样式表</h2>当样式需要应用于很多页面时，外部样式表将是理想的选择。在使用外部样式表的情况下，你可以通过改变一个文件来改变整个站点的外观。每个页面使用<link>标签链接到样式表。<link>标签在（文档的）<br>头部：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;head&gt;</span><br><span class="line">&lt;link rel&#x3D;&quot;stylesheet&quot; type&#x3D;&quot;text&#x2F;css&quot; href&#x3D;&quot;mystyle.css&quot;&gt;</span><br><span class="line">&lt;&#x2F;head&gt;</span><br></pre></td></tr></table></figure>
-浏览器会从文件mystyle.css中读到样式声明，并根据它来格式文档。<br>外部样式表可以在任何文本编辑器中继续编辑。文件不能包含任何的html标签。样式表应该以.css扩展名进行保存。下面是一个样式表文件的例子：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hr &#123;color:sienna;&#125;</span><br><span class="line">p &#123;margin-left:20px;&#125;</span><br><span class="line">body &#123;background-image:url(&quot;&#x2F;images&#x2F;back40.gif);&#125;</span><br></pre></td></tr></table></figure>
-不要在属性值与单位之间留有空格(如:’margin-left:10px’),正确的写法是“margin-left:20px”.<h1 id="内部样式表"><a href="#内部样式表" class="headerlink" title="内部样式表"></a>内部样式表</h1>当单个文件需要特殊的样式时，就应该使用内部样式表。你可以使用<style>标签在文档头部定义内部样式表，就像这样：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;style&gt;</span><br><span class="line">        hr &#123;color:sienna;&#125;</span><br><span class="line">        p &#123;margin-left:20px;&#125;</span><br><span class="line">        body &#123;</span><br><span class="line">            background-image:url(&quot;images&#x2F;back40.gif&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">    &lt;&#x2F;style&gt;</span><br><span class="line">&lt;&#x2F;head&gt;</span><br></pre></td></tr></table></figure>
-<h2 id="内联样式"><a href="#内联样式" class="headerlink" title="内联样式"></a>内联样式</h2>由于将要表现和内容混在在一起，内联样式会损失掉样式表得许多优势，请慎用这种方法，例如当样式仅需要在一个元素应用一次时。<br>需使用内联样式，你需要在相关的标签内使用样式(style)属性，Style属性可以包含CSS属性。本例展示如何改变段落的颜色和外边边距：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;p style&#x3D;&quot;color:sienna;margin-left:20px&quot;&gt;这是一个段落。&lt;&#x2F;p&gt;</span><br></pre></td></tr></table></figure>
-<h2 id="多重样式"><a href="#多重样式" class="headerlink" title="多重样式"></a>多重样式</h2>如果某些属性在不同的样式表中被同样的选择器定义，那么属性值将从更具体的样式表中被继承过来。<br>例如，外部样式表拥有针对h3选择器的三个属性：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">h3</span><br><span class="line">&#123;</span><br><span class="line">    color:red;</span><br><span class="line">    text-align:left;</span><br><span class="line">    font-size:8pt;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-而内部样式表拥有针对h3选择器的两个属性<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">h3</span><br><span class="line">&#123;</span><br><span class="line">    text-align:right;</span><br><span class="line">    font-size:20px;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-假如拥有内部样式表的这个页面同时与外部样式表链接，那么h3的最后的样式是：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">color:red;</span><br><span class="line">text-align:right;</span><br><span class="line">font-size:20px;</span><br></pre></td></tr></table></figure>
-即颜色属性将继承于外部样式表，而文字排列和字体尺寸会被内部样式表中的规则取代。<h2 id="多重样式优先级"><a href="#多重样式优先级" class="headerlink" title="多重样式优先级"></a>多重样式优先级</h2>样式表允许以多种方式规定样式信息，样式可以规定在单个HTML元素中，在HTML页的头元素中，或者在一个外部的CSS文件中，甚至可以在同一个HTML文档内部引用多个样式表。<br>一般情况下，优先级</li>
-<li>内联样式Inline Style&gt;内部样式Internal style sheet&gt;外部样式External style sheet&gt;浏览器默认样式*<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;head&gt;</span><br><span class="line">     &lt;link rel&#x3D;&quot;stylesheet&quot; type&#x3D;&quot;text&#x2F;css&quot; href&#x3D;&quot;style.css&quot;&#x2F;&gt;</span><br><span class="line">     &lt;style type&#x3D;&quot;text&#x2F;css&quot;&gt;</span><br><span class="line">            h3&#123;color:green;&#125;</span><br><span class="line">     &lt;&#x2F;style&gt;</span><br><span class="line">&lt;&#x2F;head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;h3&gt;测试！&lt;&#x2F;h3&gt;</span><br><span class="line">&lt;&#x2F;body&gt;</span><br></pre></td></tr></table></figure>
-注意：如果外部样式放在内部样式的后面，则外部样式将覆盖内部样式。</li>
-</ul>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">CSS</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/26/CSS%E5%88%9B%E5%BB%BA/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-CSS-Id和Class" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/26/CSS-Id%E5%92%8CClass/">CSS Id和Class</a>
-    </h1>
-  
-
-        
-        <a href="/2020/04/26/CSS-Id%E5%92%8CClass/" class="archive-article-date">
-  	<time datetime="2020-04-26T14:38:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-26</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="id和class选择器"><a href="#id和class选择器" class="headerlink" title="id和class选择器"></a>id和class选择器</h1><p>如果你要在html元素中设置CSS样式，你需要在元素中设置’id’和’class’选择器</p>
-<h1 id="id选择器"><a href="#id选择器" class="headerlink" title="id选择器"></a>id选择器</h1><p>id选择器可以为标有特定id的HTML元素指定特定的样式。 HTML元素以id属性来设置id选择器,CSS中id选择器以”#”来定义。<br>以下的样式规则应用于元素属性id=”para1”;</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#para1</span><br><span class="line">&#123;</span><br><span class="line">    text-align:center;</span><br><span class="line">    color:red;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>ID属性不要以数字开头，数字开头的ID在Mozilla/Firefox浏览器中不起作用。</p>
-<h1 id="class选择器"><a href="#class选择器" class="headerlink" title="class选择器"></a>class选择器</h1><p>class选择器用于描述一组元素的样式，class选择器有别于id选择器，class可以在多个元素中使用。<br>class选择器在HTML中以class属性表示，在CSS中，类选择器以一个点”.”号显示：<br>在以下的例子中，所有拥有的center类的HTML元素均为居中。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.center &#123;text-align:center;&#125;</span><br></pre></td></tr></table></figure>
-<p>你也可以指定特定的HTML元素使用class.<br>在以下实例中，所有的P元素使用class=”center”让该元素的文本居中；</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">p.center&#123;text-align:center;&#125;</span><br></pre></td></tr></table></figure>
-<p>类名额第一个字符不能使用数字！它无法在Mozilla或者Firefox中起作用</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">CSS</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/26/CSS-Id%E5%92%8CClass/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-React列表-Keys" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/22/React%E5%88%97%E8%A1%A8-Keys/">React列表&amp;Keys</a>
-    </h1>
-  
-
-        
-        <a href="/2020/04/22/React%E5%88%97%E8%A1%A8-Keys/" class="archive-article-date">
-  	<time datetime="2020-04-22T02:20:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-22</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>我们可以使用JavaScript中的map()方法来创建列表。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">const numbers &#x3D; [1,2,3,4,5];</span><br><span class="line">const listItems&#x3D;number.map((numbers)&#x3D;&gt;</span><br><span class="line">    &lt;li&gt;&#123;numbers&#125;&lt;&#x2F;li&gt;</span><br><span class="line">);</span><br><span class="line">ReactDOM.render(</span><br><span class="line">    &lt;ul&gt;&#123;listItems&#125;&lt;&#x2F;ul&gt;,</span><br><span class="line">    document.getElementById(&#39;example&#39;)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
-<p>我们可以将以上实例重构一个组件，组件接收参数，每个列表元素分配一个key,不然会出现警告<code>a key should be provided for list items</code>,意思就是key：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">function NumberList(props)&#123;</span><br><span class="line">    const numbers &#x3D; props.numbers;</span><br><span class="line">    const listItems &#x3D; numbers.map((number)&#x3D;&gt;&lt;li key&#x3D;&#123;number.toString()&#125;&gt;</span><br><span class="line">        &#123;number&#125;</span><br><span class="line">    &lt;&#x2F;li&gt;</span><br><span class="line">    );</span><br><span class="line">    return (</span><br><span class="line">        &lt;ul&gt;&#123;listItems&#125;&lt;&#x2F;ul&gt;</span><br><span class="line">    );</span><br><span class="line">&#125;</span><br><span class="line">const numbers &#x3D; [1,2,3,4,5];</span><br><span class="line">ReactDOM.render(</span><br><span class="line">    &lt;NumberList numbers&#x3D;&#123;numbers&#125; &#x2F;&gt;,</span><br><span class="line">    document.getElementById(&#39;example&#39;)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
-<h2 id="Keys"><a href="#Keys" class="headerlink" title="Keys"></a>Keys</h2><p>keys可以在DOM中的某些元素被增加或者删除的时候帮助React识别哪些元素发生了变化，因此你应当给数组中的每一个元素赋予一个确定的标识。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">const numbers &#x3D;[1,2,3,4,5];</span><br><span class="line">const listItems &#x3D; numbsers.map((number)&#x3D;&gt;</span><br><span class="line">    &lt;li key&#x3D;&#123;number.toString()&#125;&gt;</span><br><span class="line">        &#123;number&#125;</span><br><span class="line">    &lt;&#x2F;li&gt;</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
-<p>一个元素的key最好是这个元素在列表中拥有的一个独一无二的字符串。通常，我们使用来自数据的Id作为元素的key;</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">const todoItems&#x3D;todos.map((todo)&#x3D;&gt;</span><br><span class="line">    &lt;li key&#x3D;&#123;todo.id&#125;&gt;</span><br><span class="line">        &#123;todo.text&#125;</span><br><span class="line">    &lt;&#x2F;li&gt;</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
-<p>当元素没有确定的id时,你可以使用他的序列号索引index作为key;</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">const todoItems&#x3D;todos.map((todo,index)&#x3D;&gt;</span><br><span class="line">&#x2F;&#x2F;只有在没有确定的id使用</span><br><span class="line">&lt;li key&#x3D;&#123;index&#125;&gt;</span><br><span class="line">    &#123;todo.text&#125;</span><br><span class="line">&lt;&#x2F;li&gt;</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
-<p>如果列表可以重新排序，我们不建议使用索引进行排序，因此这回导致渲染变非常慢</p>
-<h2 id="用keys提取组件"><a href="#用keys提取组件" class="headerlink" title="用keys提取组件"></a>用keys提取组件</h2><p>元素的key只有在它和它的兄弟节点对比时才有意义。<br>比方说，如果你提取出一个Listltem组件，你应该把key保存在数组中的这个<code>&lt;ListItem /&gt;</code>元素上，而不是放在Listltem组件中的<li>元素上。</p>
-<h2 id="错误的示范"><a href="#错误的示范" class="headerlink" title="错误的示范"></a>错误的示范</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">function ListItem(props)&#123;</span><br><span class="line">    const value &#x3D; props.value;</span><br><span class="line">    return(</span><br><span class="line">        &#x2F;&#x2F;错啦！你不需要在这里指定key;</span><br><span class="line">        &lt;li key&#x3D;&#123;value.toString()&#125;&gt;</span><br><span class="line">            &#123;value&#125;</span><br><span class="line">        &lt;&#x2F;li&gt;</span><br><span class="line">    );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function NumberList(props)&#123;</span><br><span class="line">    const numbers &#x3D; props.numbers;</span><br><span class="line">    const listItems &#x3D; numbers.map((number)&#x3D;&gt;</span><br><span class="line">    &#x2F;&#x2F;错啦！元素的key应该在这里指定；</span><br><span class="line">    &lt;ListItem value&#x3D;&#123;number&#125; &#x2F;&gt;</span><br><span class="line">    );</span><br><span class="line">    return (</span><br><span class="line">        &lt;ul&gt;</span><br><span class="line">            &#123;listItems&#125;</span><br><span class="line">        &lt;&#x2F;ul&gt;</span><br><span class="line">    );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">const numbers&#x3D;[1,2,3,4,5];</span><br><span class="line">ReactDOM.render(</span><br><span class="line">    &lt;NumberList numbers&#x3D;&#123;numbsers&#125; &#x2F;&gt;</span><br><span class="line">    document.getElementById(&#39;example&#39;)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
-<h2 id="key的正确的使用方式"><a href="#key的正确的使用方式" class="headerlink" title="key的正确的使用方式"></a>key的正确的使用方式</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">function ListItem(props)&#123;</span><br><span class="line">    &#x2F;&#x2F;对啦！这里不需要指定key;</span><br><span class="line">    return &lt;li&gt;&#123;props.value&#125;&lt;&#x2F;li&gt;;</span><br><span class="line">&#125;</span><br><span class="line">function NumbserList(props)&#123;</span><br><span class="line">    const numbers &#x3D; props.numbers;</span><br><span class="line">    const listItems &#x3D; numbsers.map((number) &#x3D;&gt; </span><br><span class="line">    &#x2F;&#x2F;又对啦，key应该是在数组的上下文中被指定</span><br><span class="line">    &lt;ListItem key&#x3D;&#123;number.toString()&#125; value&#x3D;&#123;number&#125; &#x2F;&gt;</span><br><span class="line">    );</span><br><span class="line">    return(</span><br><span class="line">        &lt;ul&gt;</span><br><span class="line">            &#123;listItems&#125;</span><br><span class="line">        &lt;&#x2F;ul&gt;</span><br><span class="line">    );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">const numbers &#x3D; [1,2,3,4,5];</span><br><span class="line">ReactDOM.render(</span><br><span class="line">    &lt;NumberList numbers&#x3D;&#123;numbser&#125; &#x2F;&gt;,</span><br><span class="line">    document.getElementById(&#39;example&#39;)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
-<p>当你在map()方法的内部调用元素时，你最好随时记得为每一个元素加上一个独一无二的key.</p>
-<h2 id="元素的key在他的兄弟元素之间应该唯一"><a href="#元素的key在他的兄弟元素之间应该唯一" class="headerlink" title="元素的key在他的兄弟元素之间应该唯一"></a>元素的key在他的兄弟元素之间应该唯一</h2><p>数组元素中使用的key在其兄弟之间应该是独一无二的，然而，他们不需要是全局唯一的，当我们生成两个不同的数组的时候，我们可以使用相同的键。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">function Blog(props) &#123;</span><br><span class="line">  const sidebar &#x3D; (</span><br><span class="line">    &lt;ul&gt;</span><br><span class="line">      &#123;props.posts.map((post) &#x3D;&gt;</span><br><span class="line">        &lt;li key&#x3D;&#123;post.id&#125;&gt;</span><br><span class="line">          &#123;post.title&#125;</span><br><span class="line">        &lt;&#x2F;li&gt;</span><br><span class="line">      )&#125;</span><br><span class="line">    &lt;&#x2F;ul&gt;</span><br><span class="line">  );</span><br><span class="line">  const content &#x3D; props.posts.map((post) &#x3D;&gt;</span><br><span class="line">    &lt;div key&#x3D;&#123;post.id&#125;&gt;</span><br><span class="line">      &lt;h3&gt;&#123;post.title&#125;&lt;&#x2F;h3&gt;</span><br><span class="line">      &lt;p&gt;&#123;post.content&#125;&lt;&#x2F;p&gt;</span><br><span class="line">    &lt;&#x2F;div&gt;</span><br><span class="line">  );</span><br><span class="line">  return (</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">      &#123;sidebar&#125;</span><br><span class="line">      &lt;hr &#x2F;&gt;</span><br><span class="line">      &#123;content&#125;</span><br><span class="line">    &lt;&#x2F;div&gt;</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">const posts &#x3D; [</span><br><span class="line">  &#123;id: 1, title: &#39;Hello World&#39;, content: &#39;Welcome to learning React!&#39;&#125;,</span><br><span class="line">  &#123;id: 2, title: &#39;Installation&#39;, content: &#39;You can install React from npm.&#39;&#125;</span><br><span class="line">];</span><br><span class="line">ReactDOM.render(</span><br><span class="line">  &lt;Blog posts&#x3D;&#123;posts&#125; &#x2F;&gt;,</span><br><span class="line">  document.getElementById(&#39;example&#39;)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
-<p>key 会作为给 React 的提示，但不会传递给你的组件。如果您的组件中需要使用和 key 相同的值，请将其作为属性传递：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">const content &#x3D; posts.map((post) &#x3D;&gt;</span><br><span class="line">  &lt;Post</span><br><span class="line">    key&#x3D;&#123;post.id&#125;</span><br><span class="line">    id&#x3D;&#123;post.id&#125;</span><br><span class="line">    title&#x3D;&#123;post.title&#125; &#x2F;&gt;</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
-<p>上面例子中，Post 组件可以读出 props.id，但是不能读出 props.key。</p>
-<h2 id="在-jsx-中嵌入-map"><a href="#在-jsx-中嵌入-map" class="headerlink" title="在 jsx 中嵌入 map()"></a>在 jsx 中嵌入 map()</h2><p>在上面的例子中，我们声明了一个单独的 listItems 变量并将其包含在 JSX 中:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">function NumberList(props) &#123;</span><br><span class="line">  const numbers &#x3D; props.numbers;</span><br><span class="line">  const listItems &#x3D; numbers.map((number) &#x3D;&gt;</span><br><span class="line">    &lt;ListItem key&#x3D;&#123;number.toString()&#125;</span><br><span class="line">              value&#x3D;&#123;number&#125; &#x2F;&gt;</span><br><span class="line"></span><br><span class="line">  );</span><br><span class="line">  return (</span><br><span class="line">    &lt;ul&gt;</span><br><span class="line">      &#123;listItems&#125;</span><br><span class="line">    &lt;&#x2F;ul&gt;</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>JSX 允许在大括号中嵌入任何表达式，所以我们可以在 map() 中这样使用：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">function NumberList(props) &#123;</span><br><span class="line">  const numbers &#x3D; props.numbers;</span><br><span class="line">  return (</span><br><span class="line">    &lt;ul&gt;</span><br><span class="line">      &#123;numbers.map((number) &#x3D;&gt;</span><br><span class="line">        &lt;ListItem key&#x3D;&#123;number.toString()&#125;</span><br><span class="line">                  value&#x3D;&#123;number&#125; &#x2F;&gt;</span><br><span class="line"> </span><br><span class="line">      )&#125;</span><br><span class="line">    &lt;&#x2F;ul&gt;</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>这么做有时可以使你的代码更清晰，但有时这种风格也会被滥用。就像在 JavaScript 中一样，何时需要为了可读性提取出一个变量，这完全取决于你。但请记住，如果一个 map() 嵌套了太多层级，那你就可以提取出组件。</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">React</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/22/React%E5%88%97%E8%A1%A8-Keys/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-从零搭建React项目全家桶" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/20/%E4%BB%8E%E9%9B%B6%E6%90%AD%E5%BB%BAReact%E9%A1%B9%E7%9B%AE%E5%85%A8%E5%AE%B6%E6%A1%B6/">从零搭建React项目全家桶</a>
-    </h1>
-  
-
-        
-        <a href="/2020/04/20/%E4%BB%8E%E9%9B%B6%E6%90%AD%E5%BB%BAReact%E9%A1%B9%E7%9B%AE%E5%85%A8%E5%AE%B6%E6%A1%B6/" class="archive-article-date">
-  	<time datetime="2020-04-20T15:17:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-20</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="创建React-APP"><a href="#创建React-APP" class="headerlink" title="创建React-APP"></a>创建React-APP</h1><p>设置npm为淘宝镜像源</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm config set registry http:&#x2F;&#x2F;registry.npm.taobao.org&#x2F;</span><br></pre></td></tr></table></figure>
-<p>通过官方的create-react-app，找个喜欢的目录，执行</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npx create-react-app react-app</span><br></pre></td></tr></table></figure>
-<p>进入项目目录，并启动项目</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd react-app</span><br><span class="line">yarn start</span><br></pre></td></tr></table></figure>
-<p>启动后，通过一下地址访问项目：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http:&#x2F;&#x2F;localhost:3000&#x2F;</span><br></pre></td></tr></table></figure>
-<h1 id="精简项目"><a href="#精简项目" class="headerlink" title="精简项目"></a>精简项目</h1><h2 id="删除文件"><a href="#删除文件" class="headerlink" title="删除文件"></a>删除文件</h2><p>删除一般项目中不需要用到得文件，最简化项目<br><img width=200 src="/assets/blogImg/React2.png" > </br></p>
-<h2 id="简化代码"><a href="#简化代码" class="headerlink" title="简化代码"></a>简化代码</h2><p>src/App.js代码精简如下</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">import React from &#39;react&#39;</span><br><span class="line"></span><br><span class="line">function App()&#123;</span><br><span class="line">    return(</span><br><span class="line">        &lt;div className&#x3D;&#39;App&#39;&gt;</span><br><span class="line">            &lt;h1&gt;This is React App.&lt;&#x2F;h1&gt;</span><br><span class="line">        &lt;&#x2F;div&gt;</span><br><span class="line">    )</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">export default App</span><br></pre></td></tr></table></figure>
-<p>src/index.js代码简化如下</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">import React from &#39;react&#39;</span><br><span class="line">import ReactDOM from &#39;react-dom&#39;</span><br><span class="line">import App from &#39;.&#x2F;App&#39;</span><br><span class="line"></span><br><span class="line">ReactDOM.render(&lt;App &#x2F;&gt;,document.getElementById(&#39;root&#39;))</span><br></pre></td></tr></table></figure>
-<p>public/index.html</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang&#x3D;&quot;en&quot;&gt;</span><br><span class="line">  &lt;head&gt;</span><br><span class="line">    &lt;meta charset&#x3D;&quot;utf-8&quot; &#x2F;&gt;</span><br><span class="line">    &lt;link rel&#x3D;&quot;icon&quot; href&#x3D;&quot;%PUBLIC_URL%&#x2F;favicon.ico&quot; &#x2F;&gt;</span><br><span class="line">    &lt;meta name&#x3D;&quot;viewport&quot; content&#x3D;&quot;width&#x3D;device-width, initial-scale&#x3D;1&quot; &#x2F;&gt;</span><br><span class="line">    &lt;title&gt;React App&lt;&#x2F;title&gt;</span><br><span class="line">  &lt;&#x2F;head&gt;</span><br><span class="line">  &lt;body&gt;</span><br><span class="line">    &lt;noscript&gt;You need to enable JavaScript to run this app.&lt;&#x2F;noscript&gt;</span><br><span class="line">    &lt;div id&#x3D;&quot;root&quot;&gt;&lt;&#x2F;div&gt;</span><br><span class="line">  &lt;&#x2F;body&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure>
-<h2 id="使用Fragment去掉组件外部标签"><a href="#使用Fragment去掉组件外部标签" class="headerlink" title="使用Fragment去掉组件外部标签"></a>使用Fragment去掉组件外部标签</h2><p>react要求每个组件html的最外层都必须是由一个标签包裹，且不能存在并列的标签。例如，在src/App.js中，如果是这样就会报错</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 以下代码将会报错，最外层不能存在并列的标签。</span><br><span class="line"> function App() &#123;</span><br><span class="line">  return (</span><br><span class="line">    &lt;div className&#x3D;&quot;App&quot;&gt;</span><br><span class="line">      &lt;h1&gt;This is React App.&lt;&#x2F;h1&gt;</span><br><span class="line">    &lt;&#x2F;div&gt;</span><br><span class="line">    &lt;div className&#x3D;&quot;App-other&quot;&gt;</span><br><span class="line">      &lt;h1&gt;This is React App-other.&lt;&#x2F;h1&gt;</span><br><span class="line">    &lt;&#x2F;div&gt;</span><br><span class="line">  )</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>如果确定需要这样的html,并且不想添加一个父级标签，可以使用Fragment作为最外层。代码修改如下</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">import React, &#123; Fragment &#125; from &#39;react&#39;</span><br><span class="line"></span><br><span class="line">    function App() &#123;</span><br><span class="line">        return (</span><br><span class="line">           &lt;Fragment&gt;</span><br><span class="line">                &lt;div className&#x3D;&quot;App&quot;&gt;</span><br><span class="line">                    &lt;h1&gt;This is React App.&lt;&#x2F;h1&gt;</span><br><span class="line">                &lt;&#x2F;div&gt;</span><br><span class="line">                &lt;div className&#x3D;&quot;App-other&quot;&gt;</span><br><span class="line">                    &lt;h1&gt;This is React App-ohter.&lt;&#x2F;h1&gt;</span><br><span class="line">                &lt;&#x2F;div&gt;</span><br><span class="line">          &lt;&#x2F;Fragment&gt;</span><br><span class="line">        )</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    export default App</span><br></pre></td></tr></table></figure>
-<p>以上仅仅为了说明Fragment的使用效果，在某些组件嵌套的使用场景下，非常适合使用Fragment,例如父组件是<code>&lt;table&gt;</code>，而子组件可以使用<code>&lt;Fragment&gt;</code>包裹多个<code>&lt;tr&gt;</code></p>
-<h2 id="项目目录结构"><a href="#项目目录结构" class="headerlink" title="项目目录结构"></a>项目目录结构</h2><p><img width=200 src="/assets/blogImg/目录结构.png" > </br></p>
-<h3 id="引入全局公用样式"><a href="#引入全局公用样式" class="headerlink" title="引入全局公用样式"></a>引入全局公用样式</h3><p>在frame.css里引入其他公同样式：src/common/style/frame.css</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">@import &#39;.&#x2F;reset.css&#39;;</span><br><span class="line">@import &#39;.&#x2F;global.css&#39;;</span><br></pre></td></tr></table></figure>
-<p>然后在src/index.js里引入frame.css</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">import React from &#39;react&#39;</span><br><span class="line">import ReactDOM from &#39;react-dom&#39;</span><br><span class="line">import App from &#39;.&#x2F;App&#39;</span><br><span class="line">import &#39;.&#x2F;common&#x2F;style&#x2F;frame.css&#39;</span><br><span class="line"></span><br><span class="line">ReactDOM.render(&lt;App &#x2F;&gt;,document.getElementById(&#39;root&#39;))</span><br></pre></td></tr></table></figure>
-<h3 id="支持Sass-Less-Stylus"><a href="#支持Sass-Less-Stylus" class="headerlink" title="支持Sass/Less/Stylus"></a>支持Sass/Less/Stylus</h3><p>create-react-app默认情况下为暴露配置文件，要更灵活的配置项目，需要将配置文件暴露出来。<br>执行一下命令暴露配置文件。<br>执行以下命令，暴露配置文件：</p>
-<p>※注意：暴露配置的文件的操作不可逆！<br><code>npm run eject</code><br>如果之前没有提及git的话，可能会报以下错误：</p>
-<p>Remove untracked files, stash or commit any changes, and try again<br>需要先在项目根目录下执行：<br><code>git add .
-git commit -m &quot;初始化项目(备注)&quot;</code><br>稍等片刻，eject成功，目录变化如下：<br><img width=200 src="/assets/blogImg/23230603.png" > </br></p>
-<h4 id="支持Sass-Scss"><a href="#支持Sass-Scss" class="headerlink" title="支持Sass/Scss"></a>支持Sass/Scss</h4><p>eject后，虽然package.json以及webpack.config.js里有了sass相关代码，但是要正确使用Sass/Scss，还要再安装node-sass。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install node-sass --save-dev</span><br></pre></td></tr></table></figure>
-<p>报错采用</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save node-sass --registry&#x3D;https:&#x2F;&#x2F;registry.npm.taobao.org --disturl&#x3D;https:&#x2F;&#x2F;npm.taobao.org&#x2F;dist --sass-binary-site&#x3D;http:&#x2F;&#x2F;npm.taobao.org&#x2F;mirrors&#x2F;node-sass</span><br></pre></td></tr></table></figure>
-<p>安装完成后，项目已支持Sass/Scss，可以将原css文件后缀名修改为sacc/scss，别忘了把src/index.js中引入的frame.css后缀名修改为sacc/scss。</p>
-<h4 id="支持Less"><a href="#支持Less" class="headerlink" title="支持Less"></a>支持Less</h4><p>支持Less稍微多一点步骤，首先安装less和less-loader：</p>
-<h2 id="运行-Git-Bash-提示错误信息"><a href="#运行-Git-Bash-提示错误信息" class="headerlink" title="运行 Git Bash 提示错误信息"></a>运行 Git Bash 提示错误信息</h2><p>运行 Git Bash 提示错误信息</p>
-<p>Failed to fork child process: No such file or directory.<br>1<br>解决<br>重启电脑。</p>
-<h2 id="创建react项目报错"><a href="#创建react项目报错" class="headerlink" title="创建react项目报错"></a>创建react项目报错</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">internal&#x2F;models&#x2F;cjs&#x2F;loader.js:584</span><br></pre></td></tr></table></figure>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">React</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/20/%E4%BB%8E%E9%9B%B6%E6%90%AD%E5%BB%BAReact%E9%A1%B9%E7%9B%AE%E5%85%A8%E5%AE%B6%E6%A1%B6/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/">Next &amp;raquo;</a>
@@ -1194,15 +1148,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">ES6</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1211,6 +1161,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">React</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">学习</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1226,15 +1184,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">编写规范</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Web前端开发修炼指南</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">56项目</a>
+                <a href="javascript:void(0)" class="js-tag color3">杂谈</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1242,7 +1196,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+                <a href="javascript:void(0)" class="js-tag color5">编写规范</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">调酒</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">56项目</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1250,7 +1212,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">调酒</a>
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
             
             <div class="clearfix"></div>
