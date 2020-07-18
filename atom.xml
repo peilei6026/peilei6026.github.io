@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://peilei6026.github.io/"/>
-  <updated>2020-07-03T13:17:47.857Z</updated>
+  <updated>2020-07-18T14:51:53.683Z</updated>
   <id>https://peilei6026.github.io/</id>
   
   <author>
@@ -15,6 +15,137 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>输入n个数，找出其中最小的K个数</title>
+    <link href="https://peilei6026.github.io/2020/07/18/%E8%BE%93%E5%85%A5n%E4%B8%AA%E6%95%B0%EF%BC%8C%E6%89%BE%E5%87%BA%E5%85%B6%E4%B8%AD%E6%9C%80%E5%B0%8F%E7%9A%84K%E4%B8%AA%E6%95%B0/"/>
+    <id>https://peilei6026.github.io/2020/07/18/%E8%BE%93%E5%85%A5n%E4%B8%AA%E6%95%B0%EF%BC%8C%E6%89%BE%E5%87%BA%E5%85%B6%E4%B8%AD%E6%9C%80%E5%B0%8F%E7%9A%84K%E4%B8%AA%E6%95%B0/</id>
+    <published>2020-07-18T14:45:51.000Z</published>
+    <updated>2020-07-18T14:51:53.683Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="问题：输入4，5，1，6，2，7，3，8这8个数，则最小的4个数是1，2，3，4"><a href="#问题：输入4，5，1，6，2，7，3，8这8个数，则最小的4个数是1，2，3，4" class="headerlink" title="问题：输入4，5，1，6，2，7，3，8这8个数，则最小的4个数是1，2，3，4"></a>问题：输入4，5，1，6，2，7，3，8这8个数，则最小的4个数是1，2，3，4</h1><h1 id="解题思路：这道题我们仍然可以用快速排序的思路来解决，基于数组的第k个数来调整，比第k个数小的数字都移到数组左边，比第k个数大的数字都移到数组的右边，这样一来，位于数组左边的k个数就是最小的k个数字（不一定需要全部排序）。在-PHP-中，只需要调用-sort-函数，取前k个数字就可以得到结果了，并且其时间复杂度是O-nlogn-，符合我们的预期。当然，快排也好，归并也好，都只适合小规模的数据，并不适用于海量数据的处理，比如上百万、上千万的数据集，使用数组函数-sort-显然不合适了，使用自行实现的快排也不合适，这个时候，我们可以考虑使用前面算法和数据结构中介绍的堆排序。堆排序的时间复杂度也是-O-nlogn-，这里我们需要通过大顶堆来实现，即维护一个大小为k的大顶堆，如果待处理数据集的长度大于k，则当数字容量超过k时，比较后续数字与堆顶数字值（堆中最大），大于则跳过，小于则重新堆化大顶堆，依次类推，直到整个数据集遍历一遍，最后保留下来的大顶堆就是最小的k个数。"><a href="#解题思路：这道题我们仍然可以用快速排序的思路来解决，基于数组的第k个数来调整，比第k个数小的数字都移到数组左边，比第k个数大的数字都移到数组的右边，这样一来，位于数组左边的k个数就是最小的k个数字（不一定需要全部排序）。在-PHP-中，只需要调用-sort-函数，取前k个数字就可以得到结果了，并且其时间复杂度是O-nlogn-，符合我们的预期。当然，快排也好，归并也好，都只适合小规模的数据，并不适用于海量数据的处理，比如上百万、上千万的数据集，使用数组函数-sort-显然不合适了，使用自行实现的快排也不合适，这个时候，我们可以考虑使用前面算法和数据结构中介绍的堆排序。堆排序的时间复杂度也是-O-nlogn-，这里我们需要通过大顶堆来实现，即维护一个大小为k的大顶堆，如果待处理数据集的长度大于k，则当数字容量超过k时，比较后续数字与堆顶数字值（堆中最大），大于则跳过，小于则重新堆化大顶堆，依次类推，直到整个数据集遍历一遍，最后保留下来的大顶堆就是最小的k个数。" class="headerlink" title="解题思路：这道题我们仍然可以用快速排序的思路来解决，基于数组的第k个数来调整，比第k个数小的数字都移到数组左边，比第k个数大的数字都移到数组的右边，这样一来，位于数组左边的k个数就是最小的k个数字（不一定需要全部排序）。在 PHP 中，只需要调用 sort 函数，取前k个数字就可以得到结果了，并且其时间复杂度是O(nlogn)，符合我们的预期。当然，快排也好，归并也好，都只适合小规模的数据，并不适用于海量数据的处理，比如上百万、上千万的数据集，使用数组函数 sort 显然不合适了，使用自行实现的快排也不合适，这个时候，我们可以考虑使用前面算法和数据结构中介绍的堆排序。堆排序的时间复杂度也是 O(nlogn)，这里我们需要通过大顶堆来实现，即维护一个大小为k的大顶堆，如果待处理数据集的长度大于k，则当数字容量超过k时，比较后续数字与堆顶数字值（堆中最大），大于则跳过，小于则重新堆化大顶堆，依次类推，直到整个数据集遍历一遍，最后保留下来的大顶堆就是最小的k个数。"></a>解题思路：这道题我们仍然可以用快速排序的思路来解决，基于数组的第k个数来调整，比第k个数小的数字都移到数组左边，比第k个数大的数字都移到数组的右边，这样一来，位于数组左边的k个数就是最小的k个数字（不一定需要全部排序）。在 PHP 中，只需要调用 sort 函数，取前k个数字就可以得到结果了，并且其时间复杂度是O(nlogn)，符合我们的预期。当然，快排也好，归并也好，都只适合小规模的数据，并不适用于海量数据的处理，比如上百万、上千万的数据集，使用数组函数 sort 显然不合适了，使用自行实现的快排也不合适，这个时候，我们可以考虑使用前面算法和数据结构中介绍的堆排序。堆排序的时间复杂度也是 O(nlogn)，这里我们需要通过大顶堆来实现，即维护一个大小为k的大顶堆，如果待处理数据集的长度大于k，则当数字容量超过k时，比较后续数字与堆顶数字值（堆中最大），大于则跳过，小于则重新堆化大顶堆，依次类推，直到整个数据集遍历一遍，最后保留下来的大顶堆就是最小的k个数。</h1>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;问题：输入4，5，1，6，2，7，3，8这8个数，则最小的4个数是1，2，3，4&quot;&gt;&lt;a href=&quot;#问题：输入4，5，1，6，2，7，3，8这8个数，则最小的4个数是1，2，3，4&quot; class=&quot;headerlink&quot; title=&quot;问题：输入4，5，1，6
+      
+    
+    </summary>
+    
+    
+    
+      <category term="笔试题" scheme="https://peilei6026.github.io/tags/%E7%AC%94%E8%AF%95%E9%A2%98/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>数组中有一个数字出现的次数超过数组长度的一半，请找出这个数字</title>
+    <link href="https://peilei6026.github.io/2020/07/17/%E6%95%B0%E7%BB%84%E4%B8%AD%E6%9C%89%E4%B8%80%E4%B8%AA%E6%95%B0%E5%AD%97%E5%87%BA%E7%8E%B0%E7%9A%84%E6%AC%A1%E6%95%B0%E8%B6%85%E8%BF%87%E6%95%B0%E7%BB%84%E9%95%BF%E5%BA%A6%E7%9A%84%E4%B8%80%E5%8D%8A%EF%BC%8C%E8%AF%B7%E6%89%BE%E5%87%BA%E8%BF%99%E4%B8%AA%E6%95%B0%E5%AD%97/"/>
+    <id>https://peilei6026.github.io/2020/07/17/%E6%95%B0%E7%BB%84%E4%B8%AD%E6%9C%89%E4%B8%80%E4%B8%AA%E6%95%B0%E5%AD%97%E5%87%BA%E7%8E%B0%E7%9A%84%E6%AC%A1%E6%95%B0%E8%B6%85%E8%BF%87%E6%95%B0%E7%BB%84%E9%95%BF%E5%BA%A6%E7%9A%84%E4%B8%80%E5%8D%8A%EF%BC%8C%E8%AF%B7%E6%89%BE%E5%87%BA%E8%BF%99%E4%B8%AA%E6%95%B0%E5%AD%97/</id>
+    <published>2020-07-17T15:15:00.000Z</published>
+    <updated>2020-07-17T15:38:58.424Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="题目：例如输入一个长度为9的数组-1-2-3-2-2-2-5-4-2-由于2的数组中出现了5次-超过数组长度的一半，因此输出2"><a href="#题目：例如输入一个长度为9的数组-1-2-3-2-2-2-5-4-2-由于2的数组中出现了5次-超过数组长度的一半，因此输出2" class="headerlink" title="题目：例如输入一个长度为9的数组[1,2,3,2,2,2,5,4,2],由于2的数组中出现了5次,超过数组长度的一半，因此输出2."></a>题目：例如输入一个长度为9的数组[1,2,3,2,2,2,5,4,2],由于2的数组中出现了5次,超过数组长度的一半，因此输出2.</h1><h1 id="结题思路：对数组做排序-位于数组中间的数字就是我们要找的数字-次数超过一半-非php语言可能需要自己做快排，PHP数组不需要自己排序，调用数组自带得排序函数sort即可，因为它底层应用了快排和归并算法；"><a href="#结题思路：对数组做排序-位于数组中间的数字就是我们要找的数字-次数超过一半-非php语言可能需要自己做快排，PHP数组不需要自己排序，调用数组自带得排序函数sort即可，因为它底层应用了快排和归并算法；" class="headerlink" title="结题思路：对数组做排序,位于数组中间的数字就是我们要找的数字(次数超过一半),非php语言可能需要自己做快排，PHP数组不需要自己排序，调用数组自带得排序函数sort即可，因为它底层应用了快排和归并算法；"></a>结题思路：对数组做排序,位于数组中间的数字就是我们要找的数字(次数超过一半),非php语言可能需要自己做快排，PHP数组不需要自己排序，调用数组自带得排序函数sort即可，因为它底层应用了快排和归并算法；</h1><h1 id="思路二：遍历的时候通过额外的数组统计每个值出现的次数，这个额外的数组的建就是遍历数组的值。"><a href="#思路二：遍历的时候通过额外的数组统计每个值出现的次数，这个额外的数组的建就是遍历数组的值。" class="headerlink" title="思路二：遍历的时候通过额外的数组统计每个值出现的次数，这个额外的数组的建就是遍历数组的值。"></a>思路二：遍历的时候通过额外的数组统计每个值出现的次数，这个额外的数组的建就是遍历数组的值。</h1><h1 id="答案-php版"><a href="#答案-php版" class="headerlink" title="答案(php版)"></a>答案(php版)</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;方法1：排序法</span><br><span class="line">function method1(array $arr)</span><br><span class="line">&#123;</span><br><span class="line">    sort($arr);</span><br><span class="line">    return $arr[celi(count($arr)&#x2F;2)];</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;&#x2F;方法2：统计法</span><br><span class="line">function method2(array $arr)</span><br><span class="line">&#123;</span><br><span class="line">    $temp&#x3D;[];</span><br><span class="line">    $max &#x3D; count($arr) &#x2F; 2;</span><br><span class="line">    foreach ($arr as $val)&#123;</span><br><span class="line">        if(empty($temp[$val]))&#123;</span><br><span class="line">            $temp[$val] &#x3D; 1;</span><br><span class="line">        &#125;else&#123;</span><br><span class="line">            $temp[$val]++;</span><br><span class="line">        &#125;</span><br><span class="line">        if($temp[$val]&gt;&#x3D;ceil($max))&#123;</span><br><span class="line">            return $val;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;&#x2F;测试代码</span><br><span class="line">$arr &#x3D; [1,2,3,2,2,2,5,4,2];</span><br><span class="line">var_dump(method1($arr));&#x2F;&#x2F;int(2)</span><br><span class="line">var_dump(method2($arr));&#x2F;&#x2F;int(2s)</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;题目：例如输入一个长度为9的数组-1-2-3-2-2-2-5-4-2-由于2的数组中出现了5次-超过数组长度的一半，因此输出2&quot;&gt;&lt;a href=&quot;#题目：例如输入一个长度为9的数组-1-2-3-2-2-2-5-4-2-由于2的数组中出现了5次-超过数组长度的一半
+      
+    
+    </summary>
+    
+    
+    
+      <category term="笔试题" scheme="https://peilei6026.github.io/tags/%E7%AC%94%E8%AF%95%E9%A2%98/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>对公司员工年龄进行排序(快速排序)</title>
+    <link href="https://peilei6026.github.io/2020/07/16/%E5%AF%B9%E5%85%AC%E5%8F%B8%E5%91%98%E5%B7%A5%E5%B9%B4%E9%BE%84%E8%BF%9B%E8%A1%8C%E6%8E%92%E5%BA%8F-%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/"/>
+    <id>https://peilei6026.github.io/2020/07/16/%E5%AF%B9%E5%85%AC%E5%8F%B8%E5%91%98%E5%B7%A5%E5%B9%B4%E9%BE%84%E8%BF%9B%E8%A1%8C%E6%8E%92%E5%BA%8F-%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/</id>
+    <published>2020-07-16T13:48:08.000Z</published>
+    <updated>2020-07-17T14:56:41.333Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="问题：假设xxx公司有几万名员工-大厂标配-现在想要对所有员工的年龄进行排序-请实现一个排序算法，要求时间复杂度为O-nlogn-。"><a href="#问题：假设xxx公司有几万名员工-大厂标配-现在想要对所有员工的年龄进行排序-请实现一个排序算法，要求时间复杂度为O-nlogn-。" class="headerlink" title="问题：假设xxx公司有几万名员工(大厂标配),现在想要对所有员工的年龄进行排序,请实现一个排序算法，要求时间复杂度为O(nlogn)。"></a>问题：假设xxx公司有几万名员工(大厂标配),现在想要对所有员工的年龄进行排序,请实现一个排序算法，要求时间复杂度为O(nlogn)。</h1><h1 id="解题思路-时间复杂度O-nlogn-那么选择冒泡就不合适了，如果给定的数据初始排序大部分都已经排序好只是后半段部分需要调整，那应该可以直接用插入排序，取决于初始排序的情况，最好的情况是可以在O-n-剩下的归并，快速，堆排序都行，这里用快速实现"><a href="#解题思路-时间复杂度O-nlogn-那么选择冒泡就不合适了，如果给定的数据初始排序大部分都已经排序好只是后半段部分需要调整，那应该可以直接用插入排序，取决于初始排序的情况，最好的情况是可以在O-n-剩下的归并，快速，堆排序都行，这里用快速实现" class="headerlink" title="解题思路:时间复杂度O(nlogn),那么选择冒泡就不合适了，如果给定的数据初始排序大部分都已经排序好只是后半段部分需要调整，那应该可以直接用插入排序，取决于初始排序的情况，最好的情况是可以在O(n),剩下的归并，快速，堆排序都行，这里用快速实现"></a>解题思路:时间复杂度O(nlogn),那么选择冒泡就不合适了，如果给定的数据初始排序大部分都已经排序好只是后半段部分需要调整，那应该可以直接用插入排序，取决于初始排序的情况，最好的情况是可以在O(n),剩下的归并，快速，堆排序都行，这里用快速实现</h1><h1 id="代码运行"><a href="#代码运行" class="headerlink" title="代码运行"></a>代码运行</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">function quick_sort($nums)&#123;</span><br><span class="line">    if(count($nums)&lt;&#x3D;1)&#123;</span><br><span class="line">        return $nums;</span><br><span class="line">    &#125;</span><br><span class="line">    quick_sort_c($nums,0,count($nums)-1);</span><br><span class="line">    return $nums;</span><br><span class="line">&#125;</span><br><span class="line">function quick_sort_c($nums,$p,$r)&#123;</span><br><span class="line">    if($p&gt;&#x3D;$r)&#123;</span><br><span class="line">        return;</span><br><span class="line">    &#125;</span><br><span class="line">    $provit&#x3D;is_point($nums,$p,$s);</span><br><span class="line">    quick_sork_c($nums,$p,$provit-1);</span><br><span class="line">    quick_sork_c($nums,$provit+1,$r);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function is_point(&amp;$nums,$p,$r)</span><br><span class="line">&#123;</span><br><span class="line">    $provit&#x3D;$nums[$r];</span><br><span class="line">    $i&#x3D;$p;</span><br><span class="line">    fot($j&#x3D;$p;$j&lt;$r;$j++)&#123;</span><br><span class="line">        &#x2F;&#x2F;每次把比$provit小的放在[$p-$i-1]中，剩下的放在[$i-$j]都是比$provit大的。</span><br><span class="line">        if($nums[$j]&lt;$provit)&#123;</span><br><span class="line">            $temp&#x3D;$nums[$i];</span><br><span class="line">            $nums[$i]&#x3D;$nums[$j];</span><br><span class="line">            $nums[$j]&#x3D;$temp;</span><br><span class="line">            $i++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    &#x2F;&#x2F;最后把$provit放在中间返回</span><br><span class="line">    $temp&#x3D;$nums[$i];</span><br><span class="line">    $nums[$i]&#x3D;$provit;</span><br><span class="line">    $nums[$r]&#x3D;$temp;</span><br><span class="line">    return $i;</span><br><span class="line">&#125;</span><br><span class="line">$nums&#x3D;[4,5,6,3,2,1,7,9,6,9,33];</span><br><span class="line">var_dump(quick_sort($nums));</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;问题：假设xxx公司有几万名员工-大厂标配-现在想要对所有员工的年龄进行排序-请实现一个排序算法，要求时间复杂度为O-nlogn-。&quot;&gt;&lt;a href=&quot;#问题：假设xxx公司有几万名员工-大厂标配-现在想要对所有员工的年龄进行排序-请实现一个排序算法，要求时间复
+      
+    
+    </summary>
+    
+    
+    
+      <category term="笔试题" scheme="https://peilei6026.github.io/tags/%E7%AC%94%E8%AF%95%E9%A2%98/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>关于成功或者生活的若干意见</title>
+    <link href="https://peilei6026.github.io/2020/07/11/%E5%85%B3%E4%BA%8E%E6%88%90%E5%8A%9F%E6%88%96%E8%80%85%E7%94%9F%E6%B4%BB%E7%9A%84%E8%8B%A5%E5%B9%B2%E6%84%8F%E8%A7%81/"/>
+    <id>https://peilei6026.github.io/2020/07/11/%E5%85%B3%E4%BA%8E%E6%88%90%E5%8A%9F%E6%88%96%E8%80%85%E7%94%9F%E6%B4%BB%E7%9A%84%E8%8B%A5%E5%B9%B2%E6%84%8F%E8%A7%81/</id>
+    <published>2020-07-11T15:56:39.000Z</published>
+    <updated>2020-07-11T16:02:34.658Z</updated>
+    
+    <content type="html"><![CDATA[<p>I can’t stop breathing because tomorrow, when the sun rises, who knows what the tide can bring?<br>我不能停止呼吸，因为明天，当太阳升起，谁知道潮水能带来什么？</p><p>如果把不断的奋斗，挑战自己作为定义，你会不会更加成功？<br>只要你还在努力，还在越走越近，你就是一个成功人士。<br>你会一直享受这种越走越近的快乐。</p><p>当你把成功的定义放在外界，你会把自己陷入一种不可控的焦虑，一种获得前的恐惧，获得后空虚的生活当中。你的天花板是别人的地板，而你总在往上看，从来没有留意过窗边的风景。<br>只有当你把成功定义放在内心，你才能真正获得可以掌控的幸福，获得那种贯彻始终的幸福生活。你可以安心的靠在窗口看看风景，然后更快上楼。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;I can’t stop breathing because tomorrow, when the sun rises, who knows what the tide can bring?&lt;br&gt;我不能停止呼吸，因为明天，当太阳升起，谁知道潮水能带来什么？&lt;/p&gt;
+&lt;p&gt;
+      
+    
+    </summary>
+    
+    
+    
+      <category term="随笔" scheme="https://peilei6026.github.io/tags/%E9%9A%8F%E7%AC%94/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>PropTypes与DefaultProps的应用</title>
+    <link href="https://peilei6026.github.io/2020/07/06/PropTypes%E4%B8%8EDefaultProps%E7%9A%84%E5%BA%94%E7%94%A8/"/>
+    <id>https://peilei6026.github.io/2020/07/06/PropTypes%E4%B8%8EDefaultProps%E7%9A%84%E5%BA%94%E7%94%A8/</id>
+    <published>2020-07-06T11:32:53.000Z</published>
+    <updated>2020-07-06T11:33:07.078Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+    
+      <category term="React" scheme="https://peilei6026.github.io/tags/React/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>梵净山</title>
+    <link href="https://peilei6026.github.io/2020/07/05/%E6%A2%B5%E5%87%80%E5%B1%B1/"/>
+    <id>https://peilei6026.github.io/2020/07/05/%E6%A2%B5%E5%87%80%E5%B1%B1/</id>
+    <published>2020-07-04T16:34:01.000Z</published>
+    <updated>2020-07-04T16:34:49.107Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+    
+      <category term="杂谈" scheme="https://peilei6026.github.io/tags/%E6%9D%82%E8%B0%88/"/>
+    
+  </entry>
   
   <entry>
     <title>免死金牌？不存在的</title>
@@ -120,7 +251,7 @@
     <published>2020-06-21T02:44:49.000Z</published>
     <updated>2020-06-22T05:18:50.516Z</updated>
     
-    <content type="html"><![CDATA[<div id="hbe-security">  <div class="hbe-input-container">  <input type="password" class="hbe-form-control" id="pass" placeholder="56同学请联系刘哥" />    <label for="pass">56同学请联系刘哥</label>    <div class="bottom-line"></div>  </div></div><div id="decryptionError" style="display: none;">Incorrect Password!</div><div id="noContentError" style="display: none;">No content to display!</div><div id="encrypt-blog" style="display:none">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</div><script src="/lib/crypto-js.js"></script><script src="/lib/blog-encrypt.js"></script><link href="/css/blog-encrypt.css" rel="stylesheet" type="text/css">]]></content>
+    <content type="html"><![CDATA[<div id="hbe-security">  <div class="hbe-input-container">  <input type="password" class="hbe-form-control" id="pass" placeholder="56同学请联系刘哥" />    <label for="pass">56同学请联系刘哥</label>    <div class="bottom-line"></div>  </div></div><div id="decryptionError" style="display: none;">Incorrect Password!</div><div id="noContentError" style="display: none;">No content to display!</div><div id="encrypt-blog" style="display:none">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</div><script src="/lib/crypto-js.js"></script><script src="/lib/blog-encrypt.js"></script><link href="/css/blog-encrypt.css" rel="stylesheet" type="text/css">]]></content>
     
     <summary type="html">
     
@@ -359,166 +490,6 @@
     
     
       <category term="React" scheme="https://peilei6026.github.io/tags/React/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>React AJAX</title>
-    <link href="https://peilei6026.github.io/2020/05/09/React-AJAX/"/>
-    <id>https://peilei6026.github.io/2020/05/09/React-AJAX/</id>
-    <published>2020-05-09T12:44:25.000Z</published>
-    <updated>2020-05-09T12:58:58.686Z</updated>
-    
-    <content type="html"><![CDATA[<p>React组件的数据可以通过componentDidMount方法中的Ajax来获取,当从服务段获取数据时可以将数据存储在state中,再用this.setState方法重新渲染UI.<br>当使用异步加载数据时,再组件卸载前使用componentWillUnmount来取消未完成的请求。<br>以下实例演示了获取Github用户最新gist共享描述。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">class UserGist extends React.Component &#123;</span><br><span class="line">    constructor(props)&#123;</span><br><span class="line">        super(props);</span><br><span class="line">        this.stat&#123;username: &#39;&#39;,lastGistUrl:&#39;&#39;&#125;;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    componentDidMount()&#123;</span><br><span class="line">        this.serverRequest &#x3D; $.get(this.props.source, function(result)&#123;</span><br><span class="line">            var lastGist &#x3D; resule[0];</span><br><span class="line">            this.setState(&#123;</span><br><span class="line">                username: lastGist.owner.login,</span><br><span class="line">                lastGistUrl: lastGist.html_url</span><br><span class="line">            &#125;);</span><br><span class="line">        &#125;.bind(this));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    componentWillUnmount()&#123;</span><br><span class="line">        this.serverRequest.abort();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    render()&#123;</span><br><span class="line">        return(</span><br><span class="line">            &lt;div&gt;</span><br><span class="line">                &#123;this.state.username&#125;用户最新的Gist共享地址：</span><br><span class="line">                &lt;a href&#x3D;&#123;this.state.lastGistUrl&#125;&gt;&#123;this.state.lastGistUrl&#125;&lt;&#x2F;a&gt;</span><br><span class="line">            &lt;&#x2F;div&gt;</span><br><span class="line">        );</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">ReactDOM.render(</span><br><span class="line">    &lt;UserGist soure&#x3D;&quot;https:&#x2F;&#x2F;api.github.com&#x2F;users&#x2F;octocat&#x2F;gists&quot;&#x2F;&gt;,</span><br><span class="line">    document.getElementBtId(&#39;example&#39;)</span><br><span class="line">);</span><br></pre></td></tr></table></figure><p>以上代码使用jQuery完成Ajax请求。</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;React组件的数据可以通过componentDidMount方法中的Ajax来获取,当从服务段获取数据时可以将数据存储在state中,再用this.setState方法重新渲染UI.&lt;br&gt;当使用异步加载数据时,再组件卸载前使用componentWillUnmount来取
-      
-    
-    </summary>
-    
-    
-    
-      <category term="React" scheme="https://peilei6026.github.io/tags/React/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>React组件生命周期</title>
-    <link href="https://peilei6026.github.io/2020/05/08/React%E7%BB%84%E4%BB%B6%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/"/>
-    <id>https://peilei6026.github.io/2020/05/08/React%E7%BB%84%E4%BB%B6%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/</id>
-    <published>2020-05-08T15:49:45.000Z</published>
-    <updated>2020-05-08T16:25:39.061Z</updated>
-    
-    <content type="html"><![CDATA[<p>在本章节我们将讨论React组件的生命周期。<br>组件的生命周期可分成三个状态：</p><ul><li>Mounting:已插入真实DOM</li><li>Updating:正在被重新渲染</li><li>Unmounting:已移出真实DOM<br>生命周期的方法有：</li><li>componentWillMount在渲染前调用，在客户端也在服务端。</li><li>componentDidMOunt:在第一次渲染后调用，只在客户端，之后组件已经生成了对应的DOM结构，可以通过this.getDOMNode()来进行访问。如果你想和其他的JavaScript框架一起使用，可以在这个方法中调用setTimeout,setlnterval或者发送AJAX请求等操作（防止异步操作阻塞UI)</li><li>componentWillReceiveProps在组件接受到一个新的prop(更新后)时被调用，这个方法在初始话render时不会被调用。</li><li>shouldComponentUpdate返回一个布尔值，在组件接受到新的props或者state时被调用，在初始化时或者使用forceUpdate时不被调用。<br>可以在你确认不需要更新组件时使用。</li><li>componentWillUpdate在组件接受到新的props或者state但还没有render时被调用。在初始化时不会被调用。</li><li>componentDidUpdate在组件完成更新后立即调用。在初始化时不会被调用。</li><li>componentWillUnmount在组件从DOM中移除之前立即被调用。<br>以下实例在Hello组件加载以后，通过componentDidMount方法设置一个定时器，每隔100毫秒重新设置组建的透明度，并重新渲染：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">class Hello extends React.Component &#123;</span><br><span class="line"> </span><br><span class="line">  constructor(props) &#123;</span><br><span class="line">      super(props);</span><br><span class="line">      this.state &#x3D; &#123;opacity: 1.0&#125;;</span><br><span class="line">  &#125;</span><br><span class="line"> </span><br><span class="line">  componentDidMount() &#123;</span><br><span class="line">    this.timer &#x3D; setInterval(function () &#123;</span><br><span class="line">      var opacity &#x3D; this.state.opacity;</span><br><span class="line">      opacity -&#x3D; .05;</span><br><span class="line">      if (opacity &lt; 0.1) &#123;</span><br><span class="line">        opacity &#x3D; 1.0;</span><br><span class="line">      &#125;</span><br><span class="line">      this.setState(&#123;</span><br><span class="line">        opacity: opacity</span><br><span class="line">      &#125;);</span><br><span class="line">    &#125;.bind(this), 100);</span><br><span class="line">  &#125;</span><br><span class="line"> </span><br><span class="line">  render () &#123;</span><br><span class="line">    return (</span><br><span class="line">      &lt;div style&#x3D;&#123;&#123;opacity: this.state.opacity&#125;&#125;&gt;</span><br><span class="line">        Hello &#123;this.props.name&#125;</span><br><span class="line">      &lt;&#x2F;div&gt;</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">ReactDOM.render(</span><br><span class="line">  &lt;Hello name&#x3D;&quot;world&quot;&#x2F;&gt;,</span><br><span class="line">  document.body</span><br><span class="line">);</span><br></pre></td></tr></table></figure>以下实例初始化state,setNuwnumber用于更新state.所有生命周期在Content组件中。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line">class Button extends React.Component&#123;</span><br><span class="line">    constructor(props)&#123;</span><br><span class="line">        super(props);</span><br><span class="line">        this.state&#x3D;&#123;data:0&#125;;</span><br><span class="line">        this.setNewNumer&#x3D;this.setNewNumber.bing(this);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    setNewNumber()&#123;</span><br><span class="line">        this.serState(&#123;data: this.state.date +1&#125;)</span><br><span class="line">    &#125;</span><br><span class="line">    render()&#123;</span><br><span class="line">        return(</span><br><span class="line">            &lt;div&gt;</span><br><span class="line">                &lt;button onClick&#x3D;&#123;this.setNewNumber&#125;&gt;INCREMENT&lt;&#x2F;button&gt;</span><br><span class="line">                &lt;Content myNumber&#x3D;&#123;this.state.data&#125;&gt;&lt;&#x2F;Content&gt;</span><br><span class="line">            &lt;&#x2F;div&gt;</span><br><span class="line">        );</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class Content extends React.Component&#123;</span><br><span class="line">    componentWillMount()&#123;</span><br><span class="line">        console.log(&#39;Component WILL MOUNT!&#39;)</span><br><span class="line">    &#125;</span><br><span class="line">    componentDidMount()&#123;</span><br><span class="line">        console.log(&#39;Component DID MOUNT!&#39;)</span><br><span class="line">    &#125;</span><br><span class="line">    componentWillReceiveProps(newProps)&#123;</span><br><span class="line">        console.log(&#39;Component WILL RECEIVE PROPS!&#39;)</span><br><span class="line">    &#125;</span><br><span class="line">    shouldComponentUpdate(newProps, newState)&#123;</span><br><span class="line">        return true;</span><br><span class="line">    &#125;</span><br><span class="line">    componentWillUpdate(nextProps,nextState)&#123;</span><br><span class="line">        console.log(&#39;Component WILL UPDATE!&#39;)</span><br><span class="line">    &#125;</span><br><span class="line">    componentDidUpdate(prevProps, prevState)&#123;</span><br><span class="line">        console.log(&#39;Component DID UPDATE!&#39;)</span><br><span class="line">    &#125;</span><br><span class="line">    componentWillUnmount()&#123;</span><br><span class="line">        console.log(&#39;Component WILL NUMOUNT!&#39;)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    render()&#123;</span><br><span class="line">        return(</span><br><span class="line">            &lt;div&gt;</span><br><span class="line">                &lt;h2&gt;&#123;this.props.myNumber&#125;&lt;&#x2F;h2&gt;</span><br><span class="line">            &lt;&#x2F;div&gt;</span><br><span class="line">        );</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">ReactDOM.render(</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">        &lt;Button &#x2F;&gt;</span><br><span class="line">    &lt;&#x2F;div&gt;,</span><br><span class="line">    document.getElementById(&#39;example&#39;)</span><br><span class="line">);</span><br></pre></td></tr></table></figure></li></ul>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;在本章节我们将讨论React组件的生命周期。&lt;br&gt;组件的生命周期可分成三个状态：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Mounting:已插入真实DOM&lt;/li&gt;
-&lt;li&gt;Updating:正在被重新渲染&lt;/li&gt;
-&lt;li&gt;Unmounting:已移出真实DOM&lt;br&gt;生命周期的方
-      
-    
-    </summary>
-    
-    
-    
-      <category term="React" scheme="https://peilei6026.github.io/tags/React/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>React组件API</title>
-    <link href="https://peilei6026.github.io/2020/05/07/React%E7%BB%84%E4%BB%B6API/"/>
-    <id>https://peilei6026.github.io/2020/05/07/React%E7%BB%84%E4%BB%B6API/</id>
-    <published>2020-05-07T13:59:10.000Z</published>
-    <updated>2020-05-08T15:48:40.490Z</updated>
-    
-    <content type="html"><![CDATA[<p>在本章节中我们将讨论React组件API.我们将讲解一下7个方法：</p><ul><li>设置状态:setState</li><li>替换状态:replaceState</li><li>设置属性:setProps</li><li>替换属性:replaceProps</li><li>强制更新:forceUpdate</li><li>获取DOM节点:findDOMNode</li><li>判断组件挂载状态:isMounted<h2 id="设置状态setState"><a href="#设置状态setState" class="headerlink" title="设置状态setState"></a>设置状态setState</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">setState(object nextState[, function callback])</span><br></pre></td></tr></table></figure><h3 id="参数说明"><a href="#参数说明" class="headerlink" title="参数说明"></a>参数说明</h3></li><li>nextState,将要设置得新状态，该状态会和当前得state合并</li><li>callback，可选参数，回调函数。该函数会在setState设置成功，且组件重新渲染后调用。<br>合并nextState和当前state,并重新渲染组件。setState是React事件处理函数中和请求回调函数中触发UI更新得主要方法。<h3 id="关于setState"><a href="#关于setState" class="headerlink" title="关于setState"></a>关于setState</h3>不能再组件内部通过this.state修改状态，因为该状态会在调用setState()后被替换。<br>setState()并不会立即改变this.state,而是创建一个即将处理的state.setState()并不一定是同步得，为了提升性能React会批量执行state和DOM渲染。<br>setState()总是会出发一次组件重绘，除非在shouldComponentUpdate()中实现了一些条件渲染逻辑。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">class Counter extends React.Component&#123;</span><br><span class="line">    constructor(props)&#123;</span><br><span class="line">        super(props);</span><br><span class="line">        this.state &#x3D; &#123;clickCount: 0&#125;;</span><br><span class="line">        this.handleClick &#x3D; this.handleClick.bind(this);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    handleClick()&#123;</span><br><span class="line">        this.setState(function(state)&#123;</span><br><span class="line">            return &#123;clickCount: state.clickCount + 1&#125;;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">    render()&#123;</span><br><span class="line">        return (&lt;h2 onClick&#x3D;&#123;this.handleClick&#125;&gt;点我！点击次数为:&#123;this.state.clickCount&#125;&lt;&#x2F;h2&gt;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">ReactDOM.render(</span><br><span class="line">    &lt;Counter &#x2F;&gt;,</span><br><span class="line">    document.getElementById(&#39;example&#39;)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>实例中通过点击h2标签来使得点击计数器加1<h2 id="替换状态：replaceState"><a href="#替换状态：replaceState" class="headerlink" title="替换状态：replaceState"></a>替换状态：replaceState</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">replaceState(object nextState[, function call back])</span><br></pre></td></tr></table></figure></li><li>nextState,将要设置的新状态，该状态会替换当前的state.</li><li>callback,可选参数，回调函数，该函数会在replaceState设置成功，且组件重新渲染后调用。<br>设置组件属性，并重新渲染组件。<br>props相当于组件的数据量，它总会从父组件向下传递至所有的子组件中，当和一个外部的JavaScript应用集成时，我们可能会需要想组件传递数据或者通知React.render()组件需要重新渲染，可以使用setProps().<br>更新组件，我可以在节点上再次调用React.render(),也可以通过setProps()方法改变组件属性，出发组件重新渲染。<h2 id="替换属性-replaceProps"><a href="#替换属性-replaceProps" class="headerlink" title="替换属性:replaceProps"></a>替换属性:replaceProps</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">replaceProps(object nextProps[, function callback])</span><br></pre></td></tr></table></figure></li><li>nextProps,将要设置的新属性，该属性会替换当前的props.</li><li>callback,可选参数，回调函数，该函数会在replaceProps设置成功，且组件重新渲染后调用。<br>replaceProps()方法与setProps类似，但它会删除原有的props.<h2 id="强制更新-forceUpdate"><a href="#强制更新-forceUpdate" class="headerlink" title="强制更新:forceUpdate"></a>强制更新:forceUpdate</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">forceUpdate([function callback])</span><br></pre></td></tr></table></figure>参数说明</li><li>callback,可选参数，回调函数，该函数会在组件render()方法调用后调用。<br>forceUpdate()方法会使组件调用自身的render()方法重新渲染组件，组件的子组件也会调用自己的render(),但是，组件重新渲染时，依然会读取this.props和this.state，如果状态没有改变，那么React只会更新DOM。<br>forceUpdate()方法适用于this.props和this.state之外的组件重绘（如:修改了this.state后),通过该方法通知React需要调用render()<br>一般来说，应该尽量避免使用forceUpdate(),而仅从this.props和this.state中读取状态并由React触发render()调用<h2 id="获取DOM节点-findDOMNode"><a href="#获取DOM节点-findDOMNode" class="headerlink" title="获取DOM节点:findDOMNode"></a>获取DOM节点:findDOMNode</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DOMElement fundDOMNode()</span><br></pre></td></tr></table></figure></li><li>返回值：DOM元素DOMElement<br>如果组件已经挂载到DOM中，该方法返回对应的本地浏览器DOM元素。当render返回null或false时，this.findDOMNode()也会返回null，从DOM中读取值得时候，该方法很有用，如：获取表单字段的值和做一些DOM操作。<h2 id="判断组件挂载状态-isMounted"><a href="#判断组件挂载状态-isMounted" class="headerlink" title="判断组件挂载状态:isMounted"></a>判断组件挂载状态:isMounted</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bool isMounted()</span><br></pre></td></tr></table></figure></li><li>返回值：true或false,表示组件是否已挂载到DOM中<br>isMounted()方法用于判断组件是否已挂载DOM中，可以使用该方法保证了setState()和forceUpdate()在异步场景下的调用不会出错</li></ul><h2 id="关于setState-有三件事情要知道"><a href="#关于setState-有三件事情要知道" class="headerlink" title="关于setState()有三件事情要知道"></a>关于setState()有三件事情要知道</h2><h3 id="1、不要直接更新状态"><a href="#1、不要直接更新状态" class="headerlink" title="1、不要直接更新状态"></a>1、不要直接更新状态</h3><p>例如，此代码不会重新渲染组件</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;wrong</span><br><span class="line">this.state.comment &#x3D; &#39;Hello&#39;;</span><br></pre></td></tr></table></figure><p>应当使用setState();</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;corect</span><br><span class="line">this.setState(&#123;comment:&#39;Hello&#39;&#125;);</span><br></pre></td></tr></table></figure><p>构造函数是唯一能够初始化this.state的地方</p><h3 id="2-状态更新可能是异步的"><a href="#2-状态更新可能是异步的" class="headerlink" title="2,状态更新可能是异步的"></a>2,状态更新可能是异步的</h3><p>React可以将多个setState()调用合成并一个调用来提高性能。<br>因为this.props和this.state可能是异步更新的，你不应该依靠他们的值来计算下一个状态。<br>例如，此代码无法更新计数器；</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;wrong</span><br><span class="line">this.setState(&#123;</span><br><span class="line">    counter: this.state.counter + this.props.increment,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure><p>要修复它，请使用第二种形式的setState()来接受一个函数而不是一个对象。该函数将接受先前的状态作为第一个参数，将此次更新被应用时的props作为第二个参数：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;Correct</span><br><span class="line">this.setState((prevState, props)&#x3D;&gt;(&#123;</span><br><span class="line">    counter: prevState.counter + props.increment</span><br><span class="line">&#125;));</span><br></pre></td></tr></table></figure><p>上方代码使用了箭头函数，但它也使用于常规函数：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;Correct</span><br><span class="line">this.setState(function(prevState, props)&#123;</span><br><span class="line">    return &#123;</span><br><span class="line">        counter: prevState.counter + props.increment</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure><h3 id="3-状态更新合并"><a href="#3-状态更新合并" class="headerlink" title="3,状态更新合并"></a>3,状态更新合并</h3><p>当你调用setState()时，React将你提供的对象合并到当前状态。例如，你的状态可能包含一些独立的变量：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">constructor(props)&#123;</span><br><span class="line">    super(props);</span><br><span class="line">    this.state&#x3D;&#123;</span><br><span class="line">        posts:[],</span><br><span class="line">        comments:[]</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>你可以调用setState()独立地更新他们：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">componentDidMount()&#123;</span><br><span class="line">    fetchPosts().then(response &#x3D;&gt;&#123;</span><br><span class="line">        this.setState(&#123;</span><br><span class="line">            posts: response.posts</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    fetchComments().then(response &#x3D;&gt; &#123;</span><br><span class="line">        this.setState(&#123;</span><br><span class="line">            comments: response.comments</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>这里的合并时浅合并，也就是说this.setState({comments})完整保留了this.state.posts,但完全替换了this.state.comments.<br>isMounted的方法在ES6中已经废除了。主要的原因是它经过实际与测试可能不足以检测组件是否挂载，尤其是对于有一些异步的程序情况，以及逻辑上造成混乱。现在用以下方法替代；</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">componentDidMount()&#123;</span><br><span class="line">    this.mounted&#x3D;true;</span><br><span class="line">&#125;</span><br><span class="line">componentWillUnmount()&#123;</span><br><span class="line">    this.mounted&#x3D;false;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;在本章节中我们将讨论React组件API.我们将讲解一下7个方法：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;设置状态:setState&lt;/li&gt;
-&lt;li&gt;替换状态:replaceState&lt;/li&gt;
-&lt;li&gt;设置属性:setProps&lt;/li&gt;
-&lt;li&gt;替换属性:replaceProps
-      
-    
-    </summary>
-    
-    
-    
-      <category term="React" scheme="https://peilei6026.github.io/tags/React/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>CSS文本格式</title>
-    <link href="https://peilei6026.github.io/2020/04/29/CSS%E6%96%87%E6%9C%AC%E6%A0%BC%E5%BC%8F/"/>
-    <id>https://peilei6026.github.io/2020/04/29/CSS%E6%96%87%E6%9C%AC%E6%A0%BC%E5%BC%8F/</id>
-    <published>2020-04-29T15:12:35.000Z</published>
-    <updated>2020-05-14T15:17:54.430Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="文本颜色"><a href="#文本颜色" class="headerlink" title="文本颜色"></a>文本颜色</h1><p>颜色属性被用来设置文字的颜色<br>颜色是通过CSS最经常的指定；</p><ul><li>十六进制值-如：#FF0000</li><li>一个RGB值-如:RGB(255,0,0)</li><li>颜色的名称-如：red<br>一个网页的背景颜色是指在主体内的选择：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">body &#123;color:red;&#125;</span><br><span class="line">h1 &#123;color:#00ff00;&#125;</span><br><span class="line">h2 &#123;color:rgb(255,0,0);&#125;</span><br></pre></td></tr></table></figure>对于W3C标准的CSS:如果你定义了颜色属性，你还必须定义背景色属性。<h1 id="文本的对齐方式"><a href="#文本的对齐方式" class="headerlink" title="文本的对齐方式"></a>文本的对齐方式</h1>文本排列属性是用于设置文本的水平对齐方式。<br>文本可居中或对齐到左或右，两端对齐。<br>当text-align设置为”justify”,每一行被展开宽度相等，左，右外边距是对齐（如杂志和报纸）。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">h1 &#123;text-align:center;&#125;</span><br><span class="line">p.date &#123;text-align:right;&#125;</span><br><span class="line">p.main &#123;text-align:justify;&#125;</span><br></pre></td></tr></table></figure><h2 id="文本修饰"><a href="#文本修饰" class="headerlink" title="文本修饰"></a>文本修饰</h2>text-decoration属性用来设置或删除文本的装饰。<br>从设计的角度看text-decoration属性主要是用来删除链接的下滑线：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a &#123;text-decoration:none;&#125;</span><br></pre></td></tr></table></figure>也可以这样装饰文字：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">h1 &#123;text-decoration:overline;&#125;</span><br><span class="line">h2 &#123;text-decoration:line-through;&#125;</span><br><span class="line">h3 &#123;text-decoration:underline;&#125;</span><br></pre></td></tr></table></figure>我们不建议强调指出不是链接的文本，因为这常常混淆用户。<h1 id="文本转换"><a href="#文本转换" class="headerlink" title="文本转换"></a>文本转换</h1>文本转换属性是用来指定在一个文本中的大写和小写字母。<br>可用于所有字句变成大写或小写字母，或每个单词的首字母大写。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">p.uppercase &#123;text-transform:uppercase;&#125;</span><br><span class="line">p.lowercase &#123;text-transform:lowercase;&#125;</span><br><span class="line">p.capitalize &#123;text-transform:capitalize;&#125;</span><br></pre></td></tr></table></figure><h1 id="文本缩进"><a href="#文本缩进" class="headerlink" title="文本缩进"></a>文本缩进</h1>文本缩进属性是用来指定文本的第一行的缩进。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">p &#123;text-indent:50px;&#125;</span><br></pre></td></tr></table></figure>属性|描述</li></ul><p>–|–:<br>color|设置文本颜色<br>direction|设置文本方向<br>letter-spacing|设置字符间距<br>line-height|设置行高<br>text-align|对齐元素中的文本<br>text-decoration|向文本添加修饰<br>text-indent|缩进元素中文本的首行<br>text-shadow|设置文本阴影<br>text-transform|控制元素中的字母<br>unicode-bidi|设置或返回文本是否被重写<br>vertical-align|设置元素的垂直对齐<br>white-space|设置元素中空白的处理方式<br>world-spacing|设置字间距</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;文本颜色&quot;&gt;&lt;a href=&quot;#文本颜色&quot; class=&quot;headerlink&quot; title=&quot;文本颜色&quot;&gt;&lt;/a&gt;文本颜色&lt;/h1&gt;&lt;p&gt;颜色属性被用来设置文字的颜色&lt;br&gt;颜色是通过CSS最经常的指定；&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;十六进制值-如：#FF0000
-      
-    
-    </summary>
-    
-    
-    
-      <category term="CSS" scheme="https://peilei6026.github.io/tags/CSS/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>CSS背景</title>
-    <link href="https://peilei6026.github.io/2020/04/29/CSS%E8%83%8C%E6%99%AF/"/>
-    <id>https://peilei6026.github.io/2020/04/29/CSS%E8%83%8C%E6%99%AF/</id>
-    <published>2020-04-29T09:10:23.000Z</published>
-    <updated>2020-04-29T14:56:12.401Z</updated>
-    
-    <content type="html"><![CDATA[<p>CSS背景属性用于定义HTML元素的背景。<br>CSS属性定义背景效果：</p><ul><li>background 简写属性，作用是将背景属性设置在一个声明中。</li><li>background-color 设置元素的背景颜色。</li><li>background-image 把图像设置为背景。</li><li>background-repeat 设置背景图像是否及如何重复</li><li>background-attachment 背景图像是否固定或者随着页面的其余部分滚动。</li><li>background-position 设置背景图像的起始位置。<h2 id="背景颜色"><a href="#背景颜色" class="headerlink" title="背景颜色"></a>背景颜色</h2>background-color属性定义了元素的背景颜色<br>页面的背景颜色使用在body的选择器中<br>实例<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">body &#123;background-color:#b0c4de;&#125;</span><br></pre></td></tr></table></figure>CSS中，颜色值通常以以下方式定义</li><li>十六进制-如”#ff0000”</li><li>RGB-如：”rgb(255,0,0)”</li><li>颜色名称-如：”red”<br>以下实例中，h1,p,和div元素拥有不同的背景颜色<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">h1 &#123;background-color:#6495ed;&#125;</span><br><span class="line">p &#123;background-color:#e0ffff;&#125;</span><br><span class="line">div &#123;background-color:#b0c4de;&#125;</span><br></pre></td></tr></table></figure><h2 id="背景图像"><a href="#背景图像" class="headerlink" title="背景图像"></a>背景图像</h2>background-image属性描述了元素的背景图像。<br>默认情况下，背景图像进行平铺重复显示，以覆盖整个元素实体。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">body&#123;background-image:url(&#39;paper.gif&#39;);&#125;</span><br></pre></td></tr></table></figure>下面时一个例子是一个糟糕的文字和背景图选组合。文本可读性差；<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">body &#123;background-image:url(&#39;bgdesert.jpg&#39;);&#125;</span><br></pre></td></tr></table></figure><h2 id="背景图像-水平或者垂直平铺"><a href="#背景图像-水平或者垂直平铺" class="headerlink" title="背景图像-水平或者垂直平铺"></a>背景图像-水平或者垂直平铺</h2>默认情况下background-image属性会在页面的水平或者垂直方向平铺。<br>一些图像如果在水平方向与垂直反向平铺，这样看起来很不协调，如下所示：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">body&#123;</span><br><span class="line">    background-image:url(&#39;gradient2.png&#39;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>如果图像只在水平方向平铺(repeat-x),页面背景会更好些；<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">body</span><br><span class="line">&#123;</span><br><span class="line">    background-image:url(&#39;gradient2.png&#39;);</span><br><span class="line">    background-repeat:repeat-x;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="背景图像-设置定位与不平铺"><a href="#背景图像-设置定位与不平铺" class="headerlink" title="背景图像-设置定位与不平铺"></a>背景图像-设置定位与不平铺</h2>让背景图片不影响文本的排版<br>如果你不想让图像平铺，你可以使用background-repeat属性：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">body&#123;</span><br><span class="line">    background-image:url(&#39;img_tree.png&#39;);</span><br><span class="line">    background-repeat:no-repeat;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>以上实例中，背景图片与文本显示在同一个位置，为了让页面排版更加合理，不影响文本的阅读，我们可以改变图像的位置。<br>可以利用background-position属性改变图片在背景中的位置：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">body</span><br><span class="line">&#123;</span><br><span class="line">background-image:url(&#39;img_tree.png&#39;);</span><br><span class="line">background-repeat:no-repeat;</span><br><span class="line">background-position:right top;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="背景-简写属性"><a href="#背景-简写属性" class="headerlink" title="背景-简写属性"></a>背景-简写属性</h2>在以上实例中我们可以看到页面的背景颜色通过了很多的属性来控制。为了简化这些属性的代码，我们可以将这些属性合并在同一属性中，<br>背景颜色的简写属性为’background”;<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">body &#123;background:#ffffff url(&#39;img_tree.png&#39;) no-repeat right top;&#125;</span><br></pre></td></tr></table></figure>当使用简写属性时，属性值的顺序为：</li><li>background-color</li><li>background-image</li><li>background-repeat</li><li>background-attachment</li><li>background-position<br>以上属性无需全部使用，你可以按照页面的实际需要使用</li></ul>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;CSS背景属性用于定义HTML元素的背景。&lt;br&gt;CSS属性定义背景效果：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;background 简写属性，作用是将背景属性设置在一个声明中。&lt;/li&gt;
-&lt;li&gt;background-color 设置元素的背景颜色。&lt;/li&gt;
-&lt;li&gt;backgr
-      
-    
-    </summary>
-    
-    
-    
-      <category term="CSS" scheme="https://peilei6026.github.io/tags/CSS/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>CSS多重样式优先级深入概念</title>
-    <link href="https://peilei6026.github.io/2020/04/29/CSS%E5%A4%9A%E9%87%8D%E6%A0%B7%E5%BC%8F%E4%BC%98%E5%85%88%E7%BA%A7%E6%B7%B1%E5%85%A5%E6%A6%82%E5%BF%B5/"/>
-    <id>https://peilei6026.github.io/2020/04/29/CSS%E5%A4%9A%E9%87%8D%E6%A0%B7%E5%BC%8F%E4%BC%98%E5%85%88%E7%BA%A7%E6%B7%B1%E5%85%A5%E6%A6%82%E5%BF%B5/</id>
-    <published>2020-04-29T08:41:34.000Z</published>
-    <updated>2020-04-29T09:10:10.694Z</updated>
-    
-    <content type="html"><![CDATA[<p>优先级是浏览器通过判断哪些元素值与元素最相关以决定并应用到该元素上的。优先级仅由选择器组成的匹配规则决定的。<br>优先级就是分配给指定的CSS声明的一个权重，它由匹配的选择器中的每一种选择器类型的数值决定。</p><h2 id="优先级顺序"><a href="#优先级顺序" class="headerlink" title="优先级顺序"></a>优先级顺序</h2><p>优先级逐级增加的选择器列表</p><ul><li>通用选择器（*）</li><li>元素(类型)选择器</li><li>类选择器</li><li>属性选择器</li><li>伪类</li><li>ID选择器</li><li>内联样式<h2 id="！important规则例外"><a href="#！important规则例外" class="headerlink" title="！important规则例外"></a>！important规则例外</h2>当！important规则被应用在一个样式声明中的时候，该样式声明会覆盖CSS中任何其他的声明，无论它处在声明列表中的哪里，尽管如此，!important规则还是与优先级毫无关系，使用!important不是一个好习惯，因为它改变了你样式表本来的级联规则，从而使其难以调试。<br>一些经验规则：</li><li>Always 要优化考虑使用样式规则的优先级来解决问题而不是!important</li><li>Only只在需要覆盖全站或者外部CSS（例如引用的ExtJs或者YUI）的特定页面中使用!important</li><li>Never永远不要在全站范围的CSS上使用!important</li><li>Never 永远不要在你的插件中使用!important<br>权重计算<br>内联样式1000+id选择器100+类选择器10+元素选择器1</li></ul><h2 id="CSS优先级法则："><a href="#CSS优先级法则：" class="headerlink" title="CSS优先级法则："></a>CSS优先级法则：</h2><ul><li>A选择器都有一个权值，权值越大越优先；</li><li>B当权值相等时，后出现的样式表设置要优于先出现的样式表设置；</li><li>C创作者的规则高于浏览者，即网页编写者设置的css样式的优先权高于浏览器所设置的样式；</li><li>D继承的CSS样式不如后面指定的CSS样式；</li><li>E在同一组属性设置中标有!important规则的优先级最大</li></ul>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;优先级是浏览器通过判断哪些元素值与元素最相关以决定并应用到该元素上的。优先级仅由选择器组成的匹配规则决定的。&lt;br&gt;优先级就是分配给指定的CSS声明的一个权重，它由匹配的选择器中的每一种选择器类型的数值决定。&lt;/p&gt;
-&lt;h2 id=&quot;优先级顺序&quot;&gt;&lt;a href=&quot;#优先级
-      
-    
-    </summary>
-    
-    
-    
-      <category term="CSS" scheme="https://peilei6026.github.io/tags/CSS/"/>
     
   </entry>
   

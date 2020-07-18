@@ -160,6 +160,449 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-输入n个数，找出其中最小的K个数" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/07/18/%E8%BE%93%E5%85%A5n%E4%B8%AA%E6%95%B0%EF%BC%8C%E6%89%BE%E5%87%BA%E5%85%B6%E4%B8%AD%E6%9C%80%E5%B0%8F%E7%9A%84K%E4%B8%AA%E6%95%B0/">输入n个数，找出其中最小的K个数</a>
+    </h1>
+  
+
+        
+        <a href="/2020/07/18/%E8%BE%93%E5%85%A5n%E4%B8%AA%E6%95%B0%EF%BC%8C%E6%89%BE%E5%87%BA%E5%85%B6%E4%B8%AD%E6%9C%80%E5%B0%8F%E7%9A%84K%E4%B8%AA%E6%95%B0/" class="archive-article-date">
+  	<time datetime="2020-07-18T14:45:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-18</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="问题：输入4，5，1，6，2，7，3，8这8个数，则最小的4个数是1，2，3，4"><a href="#问题：输入4，5，1，6，2，7，3，8这8个数，则最小的4个数是1，2，3，4" class="headerlink" title="问题：输入4，5，1，6，2，7，3，8这8个数，则最小的4个数是1，2，3，4"></a>问题：输入4，5，1，6，2，7，3，8这8个数，则最小的4个数是1，2，3，4</h1><h1 id="解题思路：这道题我们仍然可以用快速排序的思路来解决，基于数组的第k个数来调整，比第k个数小的数字都移到数组左边，比第k个数大的数字都移到数组的右边，这样一来，位于数组左边的k个数就是最小的k个数字（不一定需要全部排序）。在-PHP-中，只需要调用-sort-函数，取前k个数字就可以得到结果了，并且其时间复杂度是O-nlogn-，符合我们的预期。当然，快排也好，归并也好，都只适合小规模的数据，并不适用于海量数据的处理，比如上百万、上千万的数据集，使用数组函数-sort-显然不合适了，使用自行实现的快排也不合适，这个时候，我们可以考虑使用前面算法和数据结构中介绍的堆排序。堆排序的时间复杂度也是-O-nlogn-，这里我们需要通过大顶堆来实现，即维护一个大小为k的大顶堆，如果待处理数据集的长度大于k，则当数字容量超过k时，比较后续数字与堆顶数字值（堆中最大），大于则跳过，小于则重新堆化大顶堆，依次类推，直到整个数据集遍历一遍，最后保留下来的大顶堆就是最小的k个数。"><a href="#解题思路：这道题我们仍然可以用快速排序的思路来解决，基于数组的第k个数来调整，比第k个数小的数字都移到数组左边，比第k个数大的数字都移到数组的右边，这样一来，位于数组左边的k个数就是最小的k个数字（不一定需要全部排序）。在-PHP-中，只需要调用-sort-函数，取前k个数字就可以得到结果了，并且其时间复杂度是O-nlogn-，符合我们的预期。当然，快排也好，归并也好，都只适合小规模的数据，并不适用于海量数据的处理，比如上百万、上千万的数据集，使用数组函数-sort-显然不合适了，使用自行实现的快排也不合适，这个时候，我们可以考虑使用前面算法和数据结构中介绍的堆排序。堆排序的时间复杂度也是-O-nlogn-，这里我们需要通过大顶堆来实现，即维护一个大小为k的大顶堆，如果待处理数据集的长度大于k，则当数字容量超过k时，比较后续数字与堆顶数字值（堆中最大），大于则跳过，小于则重新堆化大顶堆，依次类推，直到整个数据集遍历一遍，最后保留下来的大顶堆就是最小的k个数。" class="headerlink" title="解题思路：这道题我们仍然可以用快速排序的思路来解决，基于数组的第k个数来调整，比第k个数小的数字都移到数组左边，比第k个数大的数字都移到数组的右边，这样一来，位于数组左边的k个数就是最小的k个数字（不一定需要全部排序）。在 PHP 中，只需要调用 sort 函数，取前k个数字就可以得到结果了，并且其时间复杂度是O(nlogn)，符合我们的预期。当然，快排也好，归并也好，都只适合小规模的数据，并不适用于海量数据的处理，比如上百万、上千万的数据集，使用数组函数 sort 显然不合适了，使用自行实现的快排也不合适，这个时候，我们可以考虑使用前面算法和数据结构中介绍的堆排序。堆排序的时间复杂度也是 O(nlogn)，这里我们需要通过大顶堆来实现，即维护一个大小为k的大顶堆，如果待处理数据集的长度大于k，则当数字容量超过k时，比较后续数字与堆顶数字值（堆中最大），大于则跳过，小于则重新堆化大顶堆，依次类推，直到整个数据集遍历一遍，最后保留下来的大顶堆就是最小的k个数。"></a>解题思路：这道题我们仍然可以用快速排序的思路来解决，基于数组的第k个数来调整，比第k个数小的数字都移到数组左边，比第k个数大的数字都移到数组的右边，这样一来，位于数组左边的k个数就是最小的k个数字（不一定需要全部排序）。在 PHP 中，只需要调用 sort 函数，取前k个数字就可以得到结果了，并且其时间复杂度是O(nlogn)，符合我们的预期。当然，快排也好，归并也好，都只适合小规模的数据，并不适用于海量数据的处理，比如上百万、上千万的数据集，使用数组函数 sort 显然不合适了，使用自行实现的快排也不合适，这个时候，我们可以考虑使用前面算法和数据结构中介绍的堆排序。堆排序的时间复杂度也是 O(nlogn)，这里我们需要通过大顶堆来实现，即维护一个大小为k的大顶堆，如果待处理数据集的长度大于k，则当数字容量超过k时，比较后续数字与堆顶数字值（堆中最大），大于则跳过，小于则重新堆化大顶堆，依次类推，直到整个数据集遍历一遍，最后保留下来的大顶堆就是最小的k个数。</h1>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">笔试题</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/07/18/%E8%BE%93%E5%85%A5n%E4%B8%AA%E6%95%B0%EF%BC%8C%E6%89%BE%E5%87%BA%E5%85%B6%E4%B8%AD%E6%9C%80%E5%B0%8F%E7%9A%84K%E4%B8%AA%E6%95%B0/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-数组中有一个数字出现的次数超过数组长度的一半，请找出这个数字" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/07/17/%E6%95%B0%E7%BB%84%E4%B8%AD%E6%9C%89%E4%B8%80%E4%B8%AA%E6%95%B0%E5%AD%97%E5%87%BA%E7%8E%B0%E7%9A%84%E6%AC%A1%E6%95%B0%E8%B6%85%E8%BF%87%E6%95%B0%E7%BB%84%E9%95%BF%E5%BA%A6%E7%9A%84%E4%B8%80%E5%8D%8A%EF%BC%8C%E8%AF%B7%E6%89%BE%E5%87%BA%E8%BF%99%E4%B8%AA%E6%95%B0%E5%AD%97/">数组中有一个数字出现的次数超过数组长度的一半，请找出这个数字</a>
+    </h1>
+  
+
+        
+        <a href="/2020/07/17/%E6%95%B0%E7%BB%84%E4%B8%AD%E6%9C%89%E4%B8%80%E4%B8%AA%E6%95%B0%E5%AD%97%E5%87%BA%E7%8E%B0%E7%9A%84%E6%AC%A1%E6%95%B0%E8%B6%85%E8%BF%87%E6%95%B0%E7%BB%84%E9%95%BF%E5%BA%A6%E7%9A%84%E4%B8%80%E5%8D%8A%EF%BC%8C%E8%AF%B7%E6%89%BE%E5%87%BA%E8%BF%99%E4%B8%AA%E6%95%B0%E5%AD%97/" class="archive-article-date">
+  	<time datetime="2020-07-17T15:15:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-17</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="题目：例如输入一个长度为9的数组-1-2-3-2-2-2-5-4-2-由于2的数组中出现了5次-超过数组长度的一半，因此输出2"><a href="#题目：例如输入一个长度为9的数组-1-2-3-2-2-2-5-4-2-由于2的数组中出现了5次-超过数组长度的一半，因此输出2" class="headerlink" title="题目：例如输入一个长度为9的数组[1,2,3,2,2,2,5,4,2],由于2的数组中出现了5次,超过数组长度的一半，因此输出2."></a>题目：例如输入一个长度为9的数组[1,2,3,2,2,2,5,4,2],由于2的数组中出现了5次,超过数组长度的一半，因此输出2.</h1><h1 id="结题思路：对数组做排序-位于数组中间的数字就是我们要找的数字-次数超过一半-非php语言可能需要自己做快排，PHP数组不需要自己排序，调用数组自带得排序函数sort即可，因为它底层应用了快排和归并算法；"><a href="#结题思路：对数组做排序-位于数组中间的数字就是我们要找的数字-次数超过一半-非php语言可能需要自己做快排，PHP数组不需要自己排序，调用数组自带得排序函数sort即可，因为它底层应用了快排和归并算法；" class="headerlink" title="结题思路：对数组做排序,位于数组中间的数字就是我们要找的数字(次数超过一半),非php语言可能需要自己做快排，PHP数组不需要自己排序，调用数组自带得排序函数sort即可，因为它底层应用了快排和归并算法；"></a>结题思路：对数组做排序,位于数组中间的数字就是我们要找的数字(次数超过一半),非php语言可能需要自己做快排，PHP数组不需要自己排序，调用数组自带得排序函数sort即可，因为它底层应用了快排和归并算法；</h1><h1 id="思路二：遍历的时候通过额外的数组统计每个值出现的次数，这个额外的数组的建就是遍历数组的值。"><a href="#思路二：遍历的时候通过额外的数组统计每个值出现的次数，这个额外的数组的建就是遍历数组的值。" class="headerlink" title="思路二：遍历的时候通过额外的数组统计每个值出现的次数，这个额外的数组的建就是遍历数组的值。"></a>思路二：遍历的时候通过额外的数组统计每个值出现的次数，这个额外的数组的建就是遍历数组的值。</h1><h1 id="答案-php版"><a href="#答案-php版" class="headerlink" title="答案(php版)"></a>答案(php版)</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;方法1：排序法</span><br><span class="line">function method1(array $arr)</span><br><span class="line">&#123;</span><br><span class="line">    sort($arr);</span><br><span class="line">    return $arr[celi(count($arr)&#x2F;2)];</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;&#x2F;方法2：统计法</span><br><span class="line">function method2(array $arr)</span><br><span class="line">&#123;</span><br><span class="line">    $temp&#x3D;[];</span><br><span class="line">    $max &#x3D; count($arr) &#x2F; 2;</span><br><span class="line">    foreach ($arr as $val)&#123;</span><br><span class="line">        if(empty($temp[$val]))&#123;</span><br><span class="line">            $temp[$val] &#x3D; 1;</span><br><span class="line">        &#125;else&#123;</span><br><span class="line">            $temp[$val]++;</span><br><span class="line">        &#125;</span><br><span class="line">        if($temp[$val]&gt;&#x3D;ceil($max))&#123;</span><br><span class="line">            return $val;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;&#x2F;测试代码</span><br><span class="line">$arr &#x3D; [1,2,3,2,2,2,5,4,2];</span><br><span class="line">var_dump(method1($arr));&#x2F;&#x2F;int(2)</span><br><span class="line">var_dump(method2($arr));&#x2F;&#x2F;int(2s)</span><br></pre></td></tr></table></figure>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">笔试题</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/07/17/%E6%95%B0%E7%BB%84%E4%B8%AD%E6%9C%89%E4%B8%80%E4%B8%AA%E6%95%B0%E5%AD%97%E5%87%BA%E7%8E%B0%E7%9A%84%E6%AC%A1%E6%95%B0%E8%B6%85%E8%BF%87%E6%95%B0%E7%BB%84%E9%95%BF%E5%BA%A6%E7%9A%84%E4%B8%80%E5%8D%8A%EF%BC%8C%E8%AF%B7%E6%89%BE%E5%87%BA%E8%BF%99%E4%B8%AA%E6%95%B0%E5%AD%97/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-对公司员工年龄进行排序-快速排序" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/07/16/%E5%AF%B9%E5%85%AC%E5%8F%B8%E5%91%98%E5%B7%A5%E5%B9%B4%E9%BE%84%E8%BF%9B%E8%A1%8C%E6%8E%92%E5%BA%8F-%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/">对公司员工年龄进行排序(快速排序)</a>
+    </h1>
+  
+
+        
+        <a href="/2020/07/16/%E5%AF%B9%E5%85%AC%E5%8F%B8%E5%91%98%E5%B7%A5%E5%B9%B4%E9%BE%84%E8%BF%9B%E8%A1%8C%E6%8E%92%E5%BA%8F-%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/" class="archive-article-date">
+  	<time datetime="2020-07-16T13:48:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-16</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="问题：假设xxx公司有几万名员工-大厂标配-现在想要对所有员工的年龄进行排序-请实现一个排序算法，要求时间复杂度为O-nlogn-。"><a href="#问题：假设xxx公司有几万名员工-大厂标配-现在想要对所有员工的年龄进行排序-请实现一个排序算法，要求时间复杂度为O-nlogn-。" class="headerlink" title="问题：假设xxx公司有几万名员工(大厂标配),现在想要对所有员工的年龄进行排序,请实现一个排序算法，要求时间复杂度为O(nlogn)。"></a>问题：假设xxx公司有几万名员工(大厂标配),现在想要对所有员工的年龄进行排序,请实现一个排序算法，要求时间复杂度为O(nlogn)。</h1><h1 id="解题思路-时间复杂度O-nlogn-那么选择冒泡就不合适了，如果给定的数据初始排序大部分都已经排序好只是后半段部分需要调整，那应该可以直接用插入排序，取决于初始排序的情况，最好的情况是可以在O-n-剩下的归并，快速，堆排序都行，这里用快速实现"><a href="#解题思路-时间复杂度O-nlogn-那么选择冒泡就不合适了，如果给定的数据初始排序大部分都已经排序好只是后半段部分需要调整，那应该可以直接用插入排序，取决于初始排序的情况，最好的情况是可以在O-n-剩下的归并，快速，堆排序都行，这里用快速实现" class="headerlink" title="解题思路:时间复杂度O(nlogn),那么选择冒泡就不合适了，如果给定的数据初始排序大部分都已经排序好只是后半段部分需要调整，那应该可以直接用插入排序，取决于初始排序的情况，最好的情况是可以在O(n),剩下的归并，快速，堆排序都行，这里用快速实现"></a>解题思路:时间复杂度O(nlogn),那么选择冒泡就不合适了，如果给定的数据初始排序大部分都已经排序好只是后半段部分需要调整，那应该可以直接用插入排序，取决于初始排序的情况，最好的情况是可以在O(n),剩下的归并，快速，堆排序都行，这里用快速实现</h1><h1 id="代码运行"><a href="#代码运行" class="headerlink" title="代码运行"></a>代码运行</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">function quick_sort($nums)&#123;</span><br><span class="line">    if(count($nums)&lt;&#x3D;1)&#123;</span><br><span class="line">        return $nums;</span><br><span class="line">    &#125;</span><br><span class="line">    quick_sort_c($nums,0,count($nums)-1);</span><br><span class="line">    return $nums;</span><br><span class="line">&#125;</span><br><span class="line">function quick_sort_c($nums,$p,$r)&#123;</span><br><span class="line">    if($p&gt;&#x3D;$r)&#123;</span><br><span class="line">        return;</span><br><span class="line">    &#125;</span><br><span class="line">    $provit&#x3D;is_point($nums,$p,$s);</span><br><span class="line">    quick_sork_c($nums,$p,$provit-1);</span><br><span class="line">    quick_sork_c($nums,$provit+1,$r);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function is_point(&amp;$nums,$p,$r)</span><br><span class="line">&#123;</span><br><span class="line">    $provit&#x3D;$nums[$r];</span><br><span class="line">    $i&#x3D;$p;</span><br><span class="line">    fot($j&#x3D;$p;$j&lt;$r;$j++)&#123;</span><br><span class="line">        &#x2F;&#x2F;每次把比$provit小的放在[$p-$i-1]中，剩下的放在[$i-$j]都是比$provit大的。</span><br><span class="line">        if($nums[$j]&lt;$provit)&#123;</span><br><span class="line">            $temp&#x3D;$nums[$i];</span><br><span class="line">            $nums[$i]&#x3D;$nums[$j];</span><br><span class="line">            $nums[$j]&#x3D;$temp;</span><br><span class="line">            $i++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    &#x2F;&#x2F;最后把$provit放在中间返回</span><br><span class="line">    $temp&#x3D;$nums[$i];</span><br><span class="line">    $nums[$i]&#x3D;$provit;</span><br><span class="line">    $nums[$r]&#x3D;$temp;</span><br><span class="line">    return $i;</span><br><span class="line">&#125;</span><br><span class="line">$nums&#x3D;[4,5,6,3,2,1,7,9,6,9,33];</span><br><span class="line">var_dump(quick_sort($nums));</span><br></pre></td></tr></table></figure>
+
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">笔试题</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/07/16/%E5%AF%B9%E5%85%AC%E5%8F%B8%E5%91%98%E5%B7%A5%E5%B9%B4%E9%BE%84%E8%BF%9B%E8%A1%8C%E6%8E%92%E5%BA%8F-%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-关于成功或者生活的若干意见" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/07/11/%E5%85%B3%E4%BA%8E%E6%88%90%E5%8A%9F%E6%88%96%E8%80%85%E7%94%9F%E6%B4%BB%E7%9A%84%E8%8B%A5%E5%B9%B2%E6%84%8F%E8%A7%81/">关于成功或者生活的若干意见</a>
+    </h1>
+  
+
+        
+        <a href="/2020/07/11/%E5%85%B3%E4%BA%8E%E6%88%90%E5%8A%9F%E6%88%96%E8%80%85%E7%94%9F%E6%B4%BB%E7%9A%84%E8%8B%A5%E5%B9%B2%E6%84%8F%E8%A7%81/" class="archive-article-date">
+  	<time datetime="2020-07-11T15:56:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-11</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>I can’t stop breathing because tomorrow, when the sun rises, who knows what the tide can bring?<br>我不能停止呼吸，因为明天，当太阳升起，谁知道潮水能带来什么？</p>
+<p>如果把不断的奋斗，挑战自己作为定义，你会不会更加成功？<br>只要你还在努力，还在越走越近，你就是一个成功人士。<br>你会一直享受这种越走越近的快乐。</p>
+<p>当你把成功的定义放在外界，你会把自己陷入一种不可控的焦虑，一种获得前的恐惧，获得后空虚的生活当中。你的天花板是别人的地板，而你总在往上看，从来没有留意过窗边的风景。<br>只有当你把成功定义放在内心，你才能真正获得可以掌控的幸福，获得那种贯彻始终的幸福生活。你可以安心的靠在窗口看看风景，然后更快上楼。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/07/11/%E5%85%B3%E4%BA%8E%E6%88%90%E5%8A%9F%E6%88%96%E8%80%85%E7%94%9F%E6%B4%BB%E7%9A%84%E8%8B%A5%E5%B9%B2%E6%84%8F%E8%A7%81/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-PropTypes与DefaultProps的应用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/07/06/PropTypes%E4%B8%8EDefaultProps%E7%9A%84%E5%BA%94%E7%94%A8/">PropTypes与DefaultProps的应用</a>
+    </h1>
+  
+
+        
+        <a href="/2020/07/06/PropTypes%E4%B8%8EDefaultProps%E7%9A%84%E5%BA%94%E7%94%A8/" class="archive-article-date">
+  	<time datetime="2020-07-06T11:32:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-06</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">React</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/07/06/PropTypes%E4%B8%8EDefaultProps%E7%9A%84%E5%BA%94%E7%94%A8/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-梵净山" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/07/05/%E6%A2%B5%E5%87%80%E5%B1%B1/">梵净山</a>
+    </h1>
+  
+
+        
+        <a href="/2020/07/05/%E6%A2%B5%E5%87%80%E5%B1%B1/" class="archive-article-date">
+  	<time datetime="2020-07-04T16:34:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-05</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">杂谈</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/07/05/%E6%A2%B5%E5%87%80%E5%B1%B1/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-免死金牌？不存在的" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -484,610 +927,9 @@
 
 
   
-    <article id="post-离校循环单" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/06/21/%E7%A6%BB%E6%A0%A1%E5%BE%AA%E7%8E%AF%E5%8D%95/">离校循环单</a>
-    </h1>
-  
-
-        
-        <a href="/2020/06/21/%E7%A6%BB%E6%A0%A1%E5%BE%AA%E7%8E%AF%E5%8D%95/" class="archive-article-date">
-  	<time datetime="2020-06-21T02:44:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-21</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        项目过程文档暂不公开，请见谅。
-        
-          <a class="article-more-a" href="/2020/06/21/%E7%A6%BB%E6%A0%A1%E5%BE%AA%E7%8E%AF%E5%8D%95/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">56项目</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/06/21/%E7%A6%BB%E6%A0%A1%E5%BE%AA%E7%8E%AF%E5%8D%95/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-laravel性能优化" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/06/19/laravel%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/">laravel性能优化</a>
-    </h1>
-  
-
-        
-        <a href="/2020/06/19/laravel%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/" class="archive-article-date">
-  	<time datetime="2020-06-19T09:58:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-19</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="查看laravel版本"><a href="#查看laravel版本" class="headerlink" title="查看laravel版本"></a>查看laravel版本</h1><p>php artisan</p>
-<h1 id="开启OPcache"><a href="#开启OPcache" class="headerlink" title="开启OPcache"></a>开启OPcache</h1><p>说明<br>OPcache是由PHP官方公司Zend开发的一款免费使用的PHP优化加速拓展,他可以PHP脚本编译后的bytecode缓存在共享内存中供以后反复使用，从而避免了从磁盘读取代码再次编译的消耗，同时，它还应用了一些代码优化模式，使得代码执行更快，从而加速PHP应用响应。<br>php自从5.5以来，就已经内置了OPcache扩展，不过默认是关闭的状态的，本文讲介绍如何开启OPcache以及在laravel中使用的正确方式。<br>PHP7。2FPM的配置信息位于：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;etc&#x2F;php&#x2F;7.2&#x2F;fpm&#x2F;php.ini</span><br></pre></td></tr></table></figure>
-<p>编辑以上文件，搜索<code>opcache.enable</code>将值设为1即为开机:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">opcache.enable&#x3D;1</span><br></pre></td></tr></table></figure>
-<p>php.ini 里相关的配置以下，注释里面包括说明和设定的值，请详细阅读：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">; 是否在命令行开启，这里默认设置为 0 ，暂且关闭</span><br><span class="line">;opcache.enable_cli&#x3D;0</span><br><span class="line"></span><br><span class="line">; 这个内存是用来存储编译后的字节码的，视你的程序</span><br><span class="line">; 代码量而定，Laravel 应用一般建议设置为 256，单位 MB，</span><br><span class="line">; 默认是 128</span><br><span class="line">opcache.memory_consumption&#x3D;256</span><br><span class="line"></span><br><span class="line">; 会对程序所有的字符串进行统一存储以加快存取速度，</span><br><span class="line">; 默认是 8m，建议 32 或者不超过 64。</span><br><span class="line">opcache.interned_strings_buffer&#x3D;32</span><br><span class="line"></span><br><span class="line">; 最大加速多少个脚本文件，视项目脚本文件数而定，</span><br><span class="line">; 合理区间 200~1000000 ，默认是 10000 ，建议 500000</span><br><span class="line">opcache.max_accelerated_files&#x3D;1000000</span><br><span class="line"></span><br><span class="line">; 最大作废比例百分比，到达这个比例会重启，默认是 5 ，建议 10</span><br><span class="line">opcache.max_wasted_percentage&#x3D;10</span><br><span class="line"></span><br><span class="line">; 开启情况下会在脚本名称前加上当前目录信息做为缓存的 Key，关闭可以</span><br><span class="line">; 提高性能，但是会面临出错的风险（文件名一致时），建议开启，关闭使用 0</span><br><span class="line">opcache.use_cwd&#x3D;1</span><br><span class="line"></span><br><span class="line">; 开启的话，会按照 opcache.revalidate_freq 设置的频率去检查文件</span><br><span class="line">; 是否修改以便重新缓存，默认开启，生产环境下请设置为关闭，然后</span><br><span class="line">; 写自动化脚本，在每次更新代码后自动重启 OPcache</span><br><span class="line">opcache.validate_timestamps&#x3D;0</span><br><span class="line"></span><br><span class="line">; 文件更新检测频率，单位秒，只有在 opcache.validate_timestamps </span><br><span class="line">; 开启时才有效。默认为 2，意味着 2 秒钟检查一次，会对文件系统造</span><br><span class="line">; 成负担，如果是在开发环境中请酌情使用，生产环境随意设置，因为</span><br><span class="line">; 我们会设置 validate_timestamps 为关闭。</span><br><span class="line">opcache.revalidate_freq&#x3D;2200</span><br><span class="line"></span><br><span class="line">; 文件加载的逻辑，默认关闭，无需修改</span><br><span class="line">;opcache.revalidate_path&#x3D;0</span><br><span class="line"></span><br><span class="line">; 开启的话会把代码注释一起缓存，关闭可减低内存使用，但是</span><br><span class="line">; 如果有一些代码依赖于注释里的指令，例如 Doctrine, </span><br><span class="line">; Zend Framework 2 和 PHPUnit，将会出现问题。建议开启</span><br><span class="line">opcache.save_comments&#x3D;1</span><br></pre></td></tr></table></figure>
-<p>修改完成后，需要重启FPM生效:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$sudo service php7.2-fpm restart</span><br></pre></td></tr></table></figure>
-<h1 id="性能测试"><a href="#性能测试" class="headerlink" title="性能测试"></a>性能测试</h1><p>接下来我们使用课程里面安装的ab压测工具试下性能:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ab -n 100 -c 2 http:&#x2F;&#x2F;larabbs.test&#x2F;topics</span><br></pre></td></tr></table></figure>
-<p>以上命令以并发数为2的情况发送100请求，得到的结果是:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Requests per second:    11.20 [#&#x2F;sec] (mean) </span><br><span class="line">Time per request:       178.643 [ms] (mean)</span><br><span class="line">Time per request:       89.322 [ms] (mean, across all concurrent requests)</span><br></pre></td></tr></table></figure>
-<p>解释如下:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># 并发数，每秒能处理多少个请求，越多越好</span><br><span class="line">Requests per second:    11.20 [#&#x2F;sec] (mean)</span><br><span class="line"></span><br><span class="line"># 一个并发（这里是 2）处理的时间，单位毫秒，越小越好</span><br><span class="line">Time per request:       178.643 [ms] (mean) </span><br><span class="line"></span><br><span class="line"># 平均每个请求的响应时间，单位毫秒，越小越好</span><br><span class="line">Time per request:       89.322 [ms] (mean, across all concurrent requests)</span><br></pre></td></tr></table></figure>
-<p>接下来尝试OPcache关闭的情况，打开Php.ini将opcache.enable设置为0，然后重启FPM，接着重复上面的ab命令，得到的结果:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Requests per second:    8.80 [#&#x2F;sec] (mean)</span><br><span class="line">Time per request:       227.230 [ms] (mean)</span><br><span class="line">Time per request:       113.615 [ms] (mean, across all concurrent requests)</span><br></pre></td></tr></table></figure>
-<p>可以看到性能有非常显著的提高。</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Laravel</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">优化</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/06/19/laravel%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-解决html中-nbsp-在不同浏览器中占位大小不统一的问题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/06/11/%E8%A7%A3%E5%86%B3html%E4%B8%AD-nbsp-%E5%9C%A8%E4%B8%8D%E5%90%8C%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%AD%E5%8D%A0%E4%BD%8D%E5%A4%A7%E5%B0%8F%E4%B8%8D%E7%BB%9F%E4%B8%80%E7%9A%84%E9%97%AE%E9%A2%98/">解决html中&amp;nbsp;在不同浏览器中占位大小不统一的问题</a>
-    </h1>
-  
-
-        
-        <a href="/2020/06/11/%E8%A7%A3%E5%86%B3html%E4%B8%AD-nbsp-%E5%9C%A8%E4%B8%8D%E5%90%8C%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%AD%E5%8D%A0%E4%BD%8D%E5%A4%A7%E5%B0%8F%E4%B8%8D%E7%BB%9F%E4%B8%80%E7%9A%84%E9%97%AE%E9%A2%98/" class="archive-article-date">
-  	<time datetime="2020-06-10T16:59:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-11</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>直接在html文档中使用&nbsp;来表示空格，在不同浏览器中的占位大小是不一样的.</p>
-<p>为什么呢，因为不同浏览器默认的字体是不一样的，不同字体下的空格表示&nbsp;占位大小不一致.</p>
-<p>这就好办了嘛，我们对&nbsp;指定使用同样的字体就能让&nbsp;显示同样的占位了.</p>
-<p>经过测试，当指定 Times New Roman字体时，各浏览器都支持良好，每4个&nbsp;显示的占位是一个汉字字符，而使用宋体或黑体则不能达到目的.</p>
-<p>即：</p>
-<p><span style="font-family:'Times New Roman';">&nbsp;&nbsp;&nbsp;&nbsp;</span></p>
-<p>表示一个汉字字符的占位.</p>
-<p>ps:此方法不对html文档造成其他影响，不需修改编码方式，缺点就是要嵌套标签，匿.</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">复盘</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/06/11/%E8%A7%A3%E5%86%B3html%E4%B8%AD-nbsp-%E5%9C%A8%E4%B8%8D%E5%90%8C%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%AD%E5%8D%A0%E4%BD%8D%E5%A4%A7%E5%B0%8F%E4%B8%8D%E7%BB%9F%E4%B8%80%E7%9A%84%E9%97%AE%E9%A2%98/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-万事开头难-如何起一个好的变量名" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/05/21/%E4%B8%87%E4%BA%8B%E5%BC%80%E5%A4%B4%E9%9A%BE-%E5%A6%82%E4%BD%95%E8%B5%B7%E4%B8%80%E4%B8%AA%E5%A5%BD%E7%9A%84%E5%8F%98%E9%87%8F%E5%90%8D/">万事开头难:如何起一个好的变量名</a>
-    </h1>
-  
-
-        
-        <a href="/2020/05/21/%E4%B8%87%E4%BA%8B%E5%BC%80%E5%A4%B4%E9%9A%BE-%E5%A6%82%E4%BD%95%E8%B5%B7%E4%B8%80%E4%B8%AA%E5%A5%BD%E7%9A%84%E5%8F%98%E9%87%8F%E5%90%8D/" class="archive-article-date">
-  	<time datetime="2020-05-20T16:12:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-21</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>学习要注意到细节,不是粗枝大叶得,这样可以逐步学习,摸索,找到客观规律.—徐特立</p>
-<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>名字是一个人在社会中必不可少的符号雨表示，也是信息表达,交流,传播得一种工具.每当提起一个人得名字,我们总是能联想打对应得人,这就是名字得作用.<br>详细每个人都应该看过小说把,在小说中重要人物名都是很有讲究的,尤其是在好的小说中往往从一个人的名字就能联想到此人的性格和命运.<br>例如：李寻欢,表面有寻欢作乐之意，而他也的确是个放荡不羁又多情的剑客;[君子剑]岳不群,孔子曰:君子矜而不争，群而不党。不群不群,暗示他是个伪君子。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">let 李寻欢;&#x2F;&#x2F;想必此人是个浪子</span><br><span class="line">let 岳不群;&#x2F;&#x2F;很明显是个伪君子</span><br><span class="line">let 张三;&#x2F;&#x2F;为什么叫张三？长了三只眼？三只手？家里排行老三？</span><br></pre></td></tr></table></figure>
-<p>我扯了这么多小说中的人物名,这和我们今天的主题是不是有关系呢？没错,如果在程序中能有一个好的变量名,对于可维护性和可读性都会有很大的提升。</p>
-<h1 id="命名规范"><a href="#命名规范" class="headerlink" title="命名规范"></a>命名规范</h1><p>由于JS中没有强制规定变量命名规范,比如:匈牙利命名法(数据类型+描述),大驼峰命名法(FirstName),小驼峰命名法(firstName),下划线命名法(first_name).<br>在这篇文章中,我们统一规定一下对类和构造函数应当使用大驼峰命名法,对其他的变量和函数都是用小驼峰命名法.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">let FirstName;&#x2F;&#x2F;bad</span><br><span class="line">let first_name;&#x2F;&#x2F;bad</span><br><span class="line">let firstName;&#x2F;&#x2F;good</span><br></pre></td></tr></table></figure>
-
-<h1 id="避免抽象词"><a href="#避免抽象词" class="headerlink" title="避免抽象词"></a>避免抽象词</h1><p>在为变量命名时，要尽量避免抽象的变量名。<br>例如下面这段代码,一眼看上去就摸不着头脑。x,y,xx是什么？谁能知道这段代码是计算净收入的呢？</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;bad</span><br><span class="line">let x &#x3D; averlncome * months;</span><br><span class="line">let y &#x3D; averExpense * months;</span><br><span class="line">let xx&#x3D;x - y;</span><br></pre></td></tr></table></figure>
-<p>好的变量名应当易记,能够准确地表达出变量的意义,通常对变量的描述就是最好的变量名。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;good</span><br><span class="line">let incomeTotal &#x3D; averlncome * months;</span><br><span class="line">let expenseTotal &#x3D; averExpense * months;</span><br><span class="line">let incomeNet &#x3D; incomeTotal - expenseTotal;</span><br></pre></td></tr></table></figure>
-<h1 id="以问题为导向"><a href="#以问题为导向" class="headerlink" title="以问题为导向"></a>以问题为导向</h1><p>变量命名应该以问题为导向,变量名反应的应该是问题,而不是结果.<br>比如我们计算某几个月的总收入,那么total就比result更好。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">function calcSalary(averSalary,months)&#123;</span><br><span class="line">    let result &#x3D; averSalary * months;&#x2F;&#x2F;bad</span><br><span class="line">    let total &#x3D; averSalary * months;&#x2F;&#x2F;good</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="更准确的变量名"><a href="#更准确的变量名" class="headerlink" title="更准确的变量名"></a>更准确的变量名</h1><p>在确定了变量的大致意思后,应当结合语义选择更专业,准确的词,我们可以给名字附带更多的信息.比如下面这个get用的就很不好。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">function getPageDate()&#123;&#125;&#x2F;&#x2F;bad</span><br><span class="line">function fetchPageDate()&#123;&#125;&#x2F;&#x2F;good</span><br></pre></td></tr></table></figure>
-<p>get表达了什么意思呢？是从本地缓存数据还是从网络中请求数据呢？这就是表达意思含糊不清,应当使用更准确的fetch来代替.<br>再比如这里有个保存颜色的变量,如果能加上对应的格式,那就更容易理解了.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">let color &#x3D; &#39;#FFB6C1&#39;;&#x2F;&#x2F;bad</span><br><span class="line">let hexColor &#x3D; &#39;#FFB6C1&quot;;&#x2F;&#x2F;good</span><br><span class="line">let rgbColor &#x3D; &quot;255,182,193&quot;;&#x2F;&#x2F;good</span><br></pre></td></tr></table></figure>
-<h1 id="控制变量名的长度"><a href="#控制变量名的长度" class="headerlink" title="控制变量名的长度"></a>控制变量名的长度</h1><p>假设有一个将字符串转换为数字类型的函数,也许你会命名为convertStringToNumber,这名字的确是很准确的表达出了意思，但还是不够简练。<br>一般来说,变量名应该尽量不超过三个单词,我们可以使用一些众所周知的缩写词,例如:<br>单词|缩写<br>—|:–:<br>document|doc<br>evaluation|eval<br>current|cur<br>array|arr<br>length|len<br>string|str<br>number|num<br>但千万要注意,不应该使用自己创造的缩写词,免得给人造成困扰,比如：<br>单词|缩写<br>—|:–:<br>password|pw<br>comment|comt<br>distribute|dist<br>extract|ext<br>component|cpt<br>这样能在可读性和长度之间找到一个更好的平衡,比如上面的例子我们完全可以把它写成str2Num.更加简洁。</p>
-<h1 id="作用域的影响"><a href="#作用域的影响" class="headerlink" title="作用域的影响"></a>作用域的影响</h1><p>一个信息量丰富的变量名总是最好的么？当然不是,变量名和作用域也是息息相关的.<br>我们都知道全局变量会污染全局环境,过多的全局变量经常会导致多人协作变量名冲突的问题,但泛泛的变量名也是全局变量带来的问题之一.<br>在ES6之前，如果我们想要避免全局变量的污染，只能将变量挂载到一个对象中，将这个对象暴露到全局中。这样做的好处就是将多个全局变量按功能进行了划分，不管是可读性还是扩展性都有不错的表现。<br>例如:在全局中有find和remove两个方法，我们可能不知道这是干什么的。但是在我们用的jQuery中，我们就很容易知道这是查询和删除DOM节点的。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;bad</span><br><span class="line">let find &#x3D; () &#x3D;&gt; &#123;&#125;;</span><br><span class="line">let remove &#x3D; () &#x3D;&gt;&#123;&#125;;</span><br><span class="line">&#x2F;&#x2F;good</span><br><span class="line">$.fn.find&#x3D;()&#x3D;&gt;&#123;&#125;;</span><br><span class="line">$.fn.remove&#x3D;()&#x3D;&gt;&#123;&#125;;</span><br><span class="line">&#x2F;&#x2F;good</span><br><span class="line">(function($)&#123;</span><br><span class="line">    let find&#x3D;()&#x3D;&gt;&#123;&#125;;</span><br><span class="line">    let remove &#x3D;()&#x3D;&gt;&#123;&#125;;</span><br><span class="line">    $.fn.find&#x3D;find;</span><br><span class="line">    $.fn.remove&#x3D;remove;</span><br><span class="line">&#125;(jQuery))</span><br></pre></td></tr></table></figure>
-<p>在ES6有了模块化规范之后，管理变量就更加容易了。一个文件就可以是一个模块，这个文件中定义的变量也不会污染全局。又因为模块都是定义好的，所以模型名也可以起到限制的作用，在模块中的变量我们都知道是和这个模块功能息息相关的。</p>
-<p>就像上面说的一样，在局部作用域中，作用域已经起到了一部分描述的作用，那么变量名也可以适当的缩短一些。</p>
-<p>比如有一个calcSalary的方法，在这个方法里面有一个叫total的变量，我们就很容易知道这个变量保存了计算的结果。</p>
-<p>但如果在全局变量中有个total变量，恐怕我们就很难知道它所表达的意思了,salaryTotal也许会更加合适，这也是为什么建议大家少用全局变量。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">let total;&#x2F;&#x2F;bad</span><br><span class="line">let salaryTotal;&#x2F;&#x2F;good</span><br><span class="line"></span><br><span class="line">let calcSalary&#x3D;()&#x3D;&gt;&#123;</span><br><span class="line">    let total;&#x2F;&#x2F;good</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>我们应该都很喜欢在for forEach等循环中用，i,j,k都是下标值，一不小心就搞混淆了。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">for (let i &#x3D; 0; i &lt; countries.length; i++) &#123;</span><br><span class="line">    const provinces &#x3D; countries[i].provinces;</span><br><span class="line">    for (let j &#x3D; 0; j &lt; provinces.length; j++) &#123;</span><br><span class="line">        const cities &#x3D; provinces[j].cities;</span><br><span class="line">        for (let k &#x3D; 0; k &lt; cities.length; k++) &#123;</span><br><span class="line">            &#x2F;&#x2F; i、j、k的意义表达不够明确，很容易造成混淆。</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Web前端开发修炼指南</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/05/21/%E4%B8%87%E4%BA%8B%E5%BC%80%E5%A4%B4%E9%9A%BE-%E5%A6%82%E4%BD%95%E8%B5%B7%E4%B8%80%E4%B8%AA%E5%A5%BD%E7%9A%84%E5%8F%98%E9%87%8F%E5%90%8D/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Linux相关命令" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/05/15/Linux%E7%9B%B8%E5%85%B3%E5%91%BD%E4%BB%A4/">Linux相关命令</a>
-    </h1>
-  
-
-        
-        <a href="/2020/05/15/Linux%E7%9B%B8%E5%85%B3%E5%91%BD%E4%BB%A4/" class="archive-article-date">
-  	<time datetime="2020-05-15T01:50:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-15</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="cat"><a href="#cat" class="headerlink" title="cat"></a>cat</h1><p>将文件从第一行开始连续将文本内容输出到屏幕上</p>
-<h1 id="sudo-crontab-e设置定时任务"><a href="#sudo-crontab-e设置定时任务" class="headerlink" title="sudo crontab -e设置定时任务"></a>sudo crontab -e设置定时任务</h1><p>定时任务的守护进程，精确到分，设计秒的我们一般写脚本–&gt;相当于闹钟<br>日志文件：|| /var/log/cron*<br>编辑文件： vim /etc/crontab<br>进程:  ps -ef | grep crond ==&gt; /etc/init.d/crond restart<br>作用：定时备份，定时备份</p>
-<h2 id="常见命令参数"><a href="#常见命令参数" class="headerlink" title="常见命令参数"></a>常见命令参数</h2><p>usage:  crontab [-u user] file<br>        crontab [-u user] [ -e | -l | -r ]<br>                (default operation is replace, per 1003.2)<br>        -e      (edit user’s crontab)<br>        -l      (list user’s crontab)<br>        -r      (delete user’s crontab)<br>        -i      (prompt before deleting user’s crontab)<br>        -s      (selinux context)</p>
-<p>定时任务分类</p>
-<p>Linux下的任务调度分为两类，系统任务调度和用户任务调度。<br>    系统任务调度：系统周期性所要执行的工作，比如写缓存数据到硬盘、日志清理等。<br>        在/etc/crontab文件，这个就是系统任务调度的配置文件。<br>    用户任务调度：用户定期要执行的工作，比如用户数据备份、定时邮件提醒等。<br>        用户可以使用 crontab 工具来定制自己的计划任务。<br>        在crontab 文件都被保存在/var/spool/cron目录中。其文件名与用户名一致</p>
-<p>1.系统定时任务：例如清理系统日志，清理系统缓存   –&gt;不过多的关注<br>    查询系统定时处理任务的路径：<br>        路径1：<br>            cd /etc/logrotate.d/        –&gt;可以写定时任务<br>            less syslog<br>        路径2：<br>            cat /etc/crontab   –&gt;不推荐使用，但是可以看格式<br>        路径3：<br>             ls /etc/ | grep cron*<br>                 anacrontab<br>                 cron.d                 –&gt;同路径2 ，可以写定时任务<br>                 cron.daily<br>                 cron.deny              –&gt;控制普通用户使用定时任务crontab<br>                 cron.hourly<br>                 cron.monthly<br>                 crontab<br>                 cron.weekly<br>2.用户的定时任务      –&gt;关注重点<br>crontab文件内容分析<br>cat /etc/crontab</p>
-<p>image</p>
-<p>前四行是用来配置crond任务运行的环境变量</p>
-<p>第一行SHELL变量指定了系统要使用哪个shell，这里是bash</p>
-<p>第二行PATH变量指定了系统执行命令的路径</p>
-<p>第三行MAILTO变量指定了crond的任务执行信息将通过电子邮件发送给root用户</p>
-<p>如果MAILTO变量的值为空，则表示不发送任务执行信息给用户</p>
-<p>第四行的HOME变量指定了在执行命令或者脚本时使用的主目录。</p>
-<p>星号（*）：代表所有可能的值，如month字段为星号，则表示在满足其它字段的制约条件后每月都执行该命令操作。</p>
-<p>逗号（,）：可以用逗号隔开的值指定一个列表范围，例如，“1,2,5,7,8,9”</p>
-<p>中杠（-）：可以用整数之间的中杠表示一个整数范围，例如“2-6”表示“2,3,4,5,6”</p>
-<p>正斜线（/）：可以用正斜线指定时间的间隔频率，例如“0-23/2”表示每两小时执行一次。</p>
-<p>小 结：<br>    数字的表示最好用2为阿拉伯数字显示<br>    周和日最好不要同时用<br>    定时任务要加注解<br>    可以定向到日志文件或者空文件<br>    定时任务一定是绝对路径，且目录必须存在才能出结果<br>    crontab 服务一定要开启运行</p>
-<p>crontab日志路径</p>
-<h1 id="【日志是按照天排列的】"><a href="#【日志是按照天排列的】" class="headerlink" title="【日志是按照天排列的】"></a>【日志是按照天排列的】</h1><p>ll /var/log/cron*<br>    /var/log/cron只会记录是否执行了某些计划的脚本，但是具体执行是否正确以及脚本执行过程中的一些信息则linux会每次都发邮件到该用户下。</p>
-<p>less /var/spool/mail/root</p>
-<p>常用的命令展示<br>安装crontab：</p>
-<p>yum install crontabs<br>crontab服务操作说明：</p>
-<p>/sbin/service crond start //启动服务</p>
-<p>/sbin/service crond stop //关闭服务</p>
-<p>/sbin/service crond restart //重启服务</p>
-<p>/sbin/service crond reload //重新载入配置<br>查看crontab服务状态：</p>
-<p>service crond status<br>手动启动crontab服务：</p>
-<p>service crond status<br>查看crontab服务是否已设置为开机启动，执行命令：</p>
-<p>方法一： 界面启动      ntsysv<br>方法二： 加入开机自动启动：   chkconfig –level 35 crond on<br>crontab -l查看定时任务列表</p>
-<p>编辑定时任务</p>
-<p>crontab –e</p>
-<p>==》vim /var/spool/cron/root<br>每隔2分钟输出时间到文件</p>
-<p>*/2 * * * * echo <code>date</code> &gt;&gt; $HOME&gt;test.txt<br>crontab -r 删除定时任务</p>
-<p>==&gt; 从/var/spool/cron目录中删除用户的crontab文件<br>==&gt; 如果不指定用户，则默认删除当前用户的crontab文件<br> crontab –i  在删除用户的crontab文件时给确认提示<br>备份crontab文件</p>
-<p>crontab -l &gt; $HOME/mycron</p>
-<p>恢复丢失的crontab文件</p>
-<p>如果不小心误删了crontab文件，假设你在自己的$ H O M E目录下还有一个备份，那么可以将其拷贝到/var/spool/cron/<username>，其中<username>是用户名。如果由于权限问题无法完成拷贝，可以用：<br>crontab <filename> 其中，<filename>是你在$ H O M E目录中副本的文件名。<br>有些crontab的变体有些怪异，所以在使用crontab命令时要格外小心。如果遗漏了任何选项，crontab可能会打开一个空文件，或者看起来像是个空文件。这时敲delete键退出，不要按<Ctrl-D>，否则你将丢失crontab文件。<br>每小时执行/etc/cron.hourly目录内的脚本</p>
-<p>1<br>0 * * * * root run-parts /etc/cron.hourly<br>每隔2分钟同步一次互联网时间</p>
-<p>1<br>echo “*/2 * * * * /usr/bin/ntpstat time.windows.com &gt;/dev/null 2&gt;&amp;1” &gt;&gt; /var/spool/cron/root</p>
-<p>每天3-5,17-20每隔30分钟执行一次脚本</p>
-<p>1<br>echo “*/30 [3-5],[17-20] * * * /bin/sh /home/omc/h.sh &gt;/dev/null 2&gt;&amp;1” &gt;&gt; /var/spool/cron/root</p>
-<p>当天23点，第二天0点到凌晨7点 每隔1分钟执行一次脚本</p>
-<p>1</p>
-<ul>
-<li>23,00-07/1 * * * /bin/sh /home/omc.h.sh</li>
-</ul>
-<p>每年的4月份每周的周一到周三的11点执行脚本   </p>
-<p>1<br>00 11 *  4 1-3 /bin/sh /home/omc/h.sh<br>crontab的注意事项</p>
-<ol>
-<li>注意环境变量问题</li>
-</ol>
-<p>在crontab文件中定义多个调度任务时，需要特别注意的一个问题就是环境变量的设置</p>
-<p>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10</p>
-<h1 id="脚本中涉及文件路径时写全局路径；"><a href="#脚本中涉及文件路径时写全局路径；" class="headerlink" title="脚本中涉及文件路径时写全局路径；"></a>脚本中涉及文件路径时写全局路径；</h1><h1 id="脚本执行要用到java或其他环境变量时，通过source命令引入环境变量，如："><a href="#脚本执行要用到java或其他环境变量时，通过source命令引入环境变量，如：" class="headerlink" title="脚本执行要用到java或其他环境变量时，通过source命令引入环境变量，如："></a>脚本执行要用到java或其他环境变量时，通过source命令引入环境变量，如：</h1><p>cat start_cbp.sh<br>#!/bin/sh<br>source /etc/profile<br>export RUN_CONF=/home/d139/conf/platform/cbp/cbp_jboss.conf<br>/usr/local/jboss-4.0.5/bin/run.sh -c mev &amp;</p>
-<h1 id="当手动执行脚本OK，但是crontab死活不执行时。可以尝试在crontab中直接引入环境变量解决问题。"><a href="#当手动执行脚本OK，但是crontab死活不执行时。可以尝试在crontab中直接引入环境变量解决问题。" class="headerlink" title="当手动执行脚本OK，但是crontab死活不执行时。可以尝试在crontab中直接引入环境变量解决问题。"></a>当手动执行脚本OK，但是crontab死活不执行时。可以尝试在crontab中直接引入环境变量解决问题。</h1><p>0 * * * * . /etc/profile;/bin/sh /var/www/java/audit_no_count/bin/restart_audit.sh<br>2. 系统级任务调度与用户级任务调度</p>
-<p>1<br>root用户的任务调度操作可以通过“crontab –uroot –e”来设置，也可以将调度任务直接写入/etc/crontab文件，需要注意的是，如果要定义一个定时重启系统的任务，就必须将任务放到/etc/crontab文件，即使在root用户下创建一个定时重启系统的任务也是无效的。<br>3.其他注意事项</p>
-<p>1<br>2<br>3<br>当crontab突然失效时，可以尝试/etc/init.d/crond restart解决问题。或者查看日志看某个job有没有执行/报错tail -f /var/log/cron。<br>千万别乱运行crontab -r。它从Crontab目录（/var/spool/cron）中删除用户的Crontab文件。删除了该用户的所有crontab都没了。<br>在crontab中%是有特殊含义的，表示换行的意思。如果要用的话必须进行转义%，如经常用的date ‘+%Y%m%d’在crontab里是不会执行的，应该换成date ‘+%Y%m%d’<br>4. 生产调试定时任务</p>
-<p>1.增加执行任务的频率调试<br>2.调整系统时间调试任务，提前5分钟   –&gt;不用于生产环境<br>3.通过脚本日志输出调试定时 任务<br>4.注意一些任务命令带来的问题        –&gt;确保命令的正确性<br>5.crontab箴言</p>
-<p>1.环境变量问题，例如crontab不能识别Java的环境变量<br>    crontab执行shell时，只能识别为数不多的环境变量，普通的环境变量是无法识别的，所以在编写shell时，最好使用export重新声明变量，确保脚本执行。<br>2.命令的执行最好用脚本<br>3.脚本权限加/bin/sh，规范路径/server/scripts<br>4.时间变量用反斜线转义，最好用脚本<br>5.定时任务添加注释<br>6.&gt;/dev/null 2&gt;&amp;1   ==&gt;&amp;&gt;/dev/null,别随意打印日志文件<br>7.定时任务里面的程序脚本尽量用全路径<br>8.避免不必要的程序以及命令输出<br>9.定时任务之前添加注释<br>10.打包到文件目录的上一级</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">学习</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/05/15/Linux%E7%9B%B8%E5%85%B3%E5%91%BD%E4%BB%A4/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-CSS字体" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/05/14/CSS%E5%AD%97%E4%BD%93/">CSS字体</a>
-    </h1>
-  
-
-        
-        <a href="/2020/05/14/CSS%E5%AD%97%E4%BD%93/" class="archive-article-date">
-  	<time datetime="2020-05-14T15:19:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-14</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>CSS字体属性定义字体，加粗，大小，文字样式。</p>
-<h2 id="CSS字型"><a href="#CSS字型" class="headerlink" title="CSS字型"></a>CSS字型</h2><p>在CSS中，有两种的类型的字体系列名称：</p>
-<ul>
-<li>通用字体系列-拥有相似外观的字体系统组合（如 “Serif” 或 “Monospace”）</li>
-<li>特定字体系列-一个特定的字体系列（如 “Times” 或 “Courier”）</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th>Generic family</th>
-<th align="center">字体系列</th>
-<th align="right">说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>Serif</td>
-<td align="center">Times New Roman/Georgia</td>
-<td align="right">Serif字体中字符在行的末端拥有额外的装饰</td>
-</tr>
-<tr>
-<td>Sans-serif</td>
-<td align="center">Arial/Verdana</td>
-<td align="right">“Sans”是指无 - 这些字体在末端没有额外的装饰</td>
-</tr>
-<tr>
-<td>Monospace</td>
-<td align="center">Courier New/Lucida Console</td>
-<td align="right">所有的等宽字符具有相同的宽度</td>
-</tr>
-</tbody></table>
-<h2 id="字体系列"><a href="#字体系列" class="headerlink" title="字体系列"></a>字体系列</h2><p>font-family属性设置字体的字体系列<br>font-family属性应该设置几个字体名称作为一种“后备”机制，如果浏览器不支持第一种字体，他将尝试一种字体。<br>注意：如果字体系列的名称超过一个字，它必须用引号，如Font Family:”宋体”</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">p&#123;font-family:&quot;Times New Roman&quot;,Times,serif;&#125;</span><br></pre></td></tr></table></figure>
-<p>对于较常用的字体组合，我们<a href="https://www.runoob.com/cssref/css-websafe-fonts.html" target="_blank" rel="noopener">https://www.runoob.com/cssref/css-websafe-fonts.html</a> web安全字体组合</p>
-<h2 id="字体样式"><a href="#字体样式" class="headerlink" title="字体样式"></a>字体样式</h2><p>主要是用于指定斜体文字的字体样式属性。<br>这个属性有三个值：</p>
-<ul>
-<li>正常 - 正常显示文本</li>
-<li>斜体 - 以斜体字显示的文字</li>
-<li>倾斜的文字 - 文字向一边倾斜（和斜体非常类似，但不太支持）<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">p.normal &#123;font-style:normal;&#125;</span><br><span class="line">p.italic &#123;font-style:italic;&#125;</span><br><span class="line">p.oblique &#123;font-style:oblique;&#125;</span><br></pre></td></tr></table></figure></li>
-</ul>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">CSS</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/05/14/CSS%E5%AD%97%E4%BD%93/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
     </nav>
   
 
@@ -1186,7 +1028,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ES6</a>
+                <a href="javascript:void(0)" class="js-tag color5">HTML</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1194,19 +1036,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">HTML</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">React</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">学习</a>
+                <a href="javascript:void(0)" class="js-tag color4">ES6</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1230,15 +1064,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">项目</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">编写规范</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">调酒</a>
+                <a href="javascript:void(0)" class="js-tag color4">笔试题</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1246,11 +1076,27 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">复盘</a>
+                <a href="javascript:void(0)" class="js-tag color3">项目</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">调酒</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">学习</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">复盘</a>
               </li>
             
             <div class="clearfix"></div>
