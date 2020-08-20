@@ -160,6 +160,333 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Linux相关命令" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/05/15/Linux%E7%9B%B8%E5%85%B3%E5%91%BD%E4%BB%A4/">Linux相关命令</a>
+    </h1>
+  
+
+        
+        <a href="/2020/05/15/Linux%E7%9B%B8%E5%85%B3%E5%91%BD%E4%BB%A4/" class="archive-article-date">
+  	<time datetime="2020-05-15T01:50:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-15</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="cat"><a href="#cat" class="headerlink" title="cat"></a>cat</h1><p>将文件从第一行开始连续将文本内容输出到屏幕上</p>
+<h1 id="sudo-crontab-e设置定时任务"><a href="#sudo-crontab-e设置定时任务" class="headerlink" title="sudo crontab -e设置定时任务"></a>sudo crontab -e设置定时任务</h1><p>定时任务的守护进程，精确到分，设计秒的我们一般写脚本–&gt;相当于闹钟<br>日志文件：|| /var/log/cron*<br>编辑文件： vim /etc/crontab<br>进程:  ps -ef | grep crond ==&gt; /etc/init.d/crond restart<br>作用：定时备份，定时备份</p>
+<h2 id="常见命令参数"><a href="#常见命令参数" class="headerlink" title="常见命令参数"></a>常见命令参数</h2><p>usage:  crontab [-u user] file<br>        crontab [-u user] [ -e | -l | -r ]<br>                (default operation is replace, per 1003.2)<br>        -e      (edit user’s crontab)<br>        -l      (list user’s crontab)<br>        -r      (delete user’s crontab)<br>        -i      (prompt before deleting user’s crontab)<br>        -s      (selinux context)</p>
+<p>定时任务分类</p>
+<p>Linux下的任务调度分为两类，系统任务调度和用户任务调度。<br>    系统任务调度：系统周期性所要执行的工作，比如写缓存数据到硬盘、日志清理等。<br>        在/etc/crontab文件，这个就是系统任务调度的配置文件。<br>    用户任务调度：用户定期要执行的工作，比如用户数据备份、定时邮件提醒等。<br>        用户可以使用 crontab 工具来定制自己的计划任务。<br>        在crontab 文件都被保存在/var/spool/cron目录中。其文件名与用户名一致</p>
+<p>1.系统定时任务：例如清理系统日志，清理系统缓存   –&gt;不过多的关注<br>    查询系统定时处理任务的路径：<br>        路径1：<br>            cd /etc/logrotate.d/        –&gt;可以写定时任务<br>            less syslog<br>        路径2：<br>            cat /etc/crontab   –&gt;不推荐使用，但是可以看格式<br>        路径3：<br>             ls /etc/ | grep cron*<br>                 anacrontab<br>                 cron.d                 –&gt;同路径2 ，可以写定时任务<br>                 cron.daily<br>                 cron.deny              –&gt;控制普通用户使用定时任务crontab<br>                 cron.hourly<br>                 cron.monthly<br>                 crontab<br>                 cron.weekly<br>2.用户的定时任务      –&gt;关注重点<br>crontab文件内容分析<br>cat /etc/crontab</p>
+<p>image</p>
+<p>前四行是用来配置crond任务运行的环境变量</p>
+<p>第一行SHELL变量指定了系统要使用哪个shell，这里是bash</p>
+<p>第二行PATH变量指定了系统执行命令的路径</p>
+<p>第三行MAILTO变量指定了crond的任务执行信息将通过电子邮件发送给root用户</p>
+<p>如果MAILTO变量的值为空，则表示不发送任务执行信息给用户</p>
+<p>第四行的HOME变量指定了在执行命令或者脚本时使用的主目录。</p>
+<p>星号（*）：代表所有可能的值，如month字段为星号，则表示在满足其它字段的制约条件后每月都执行该命令操作。</p>
+<p>逗号（,）：可以用逗号隔开的值指定一个列表范围，例如，“1,2,5,7,8,9”</p>
+<p>中杠（-）：可以用整数之间的中杠表示一个整数范围，例如“2-6”表示“2,3,4,5,6”</p>
+<p>正斜线（/）：可以用正斜线指定时间的间隔频率，例如“0-23/2”表示每两小时执行一次。</p>
+<p>小 结：<br>    数字的表示最好用2为阿拉伯数字显示<br>    周和日最好不要同时用<br>    定时任务要加注解<br>    可以定向到日志文件或者空文件<br>    定时任务一定是绝对路径，且目录必须存在才能出结果<br>    crontab 服务一定要开启运行</p>
+<p>crontab日志路径</p>
+<h1 id="【日志是按照天排列的】"><a href="#【日志是按照天排列的】" class="headerlink" title="【日志是按照天排列的】"></a>【日志是按照天排列的】</h1><p>ll /var/log/cron*<br>    /var/log/cron只会记录是否执行了某些计划的脚本，但是具体执行是否正确以及脚本执行过程中的一些信息则linux会每次都发邮件到该用户下。</p>
+<p>less /var/spool/mail/root</p>
+<p>常用的命令展示<br>安装crontab：</p>
+<p>yum install crontabs<br>crontab服务操作说明：</p>
+<p>/sbin/service crond start //启动服务</p>
+<p>/sbin/service crond stop //关闭服务</p>
+<p>/sbin/service crond restart //重启服务</p>
+<p>/sbin/service crond reload //重新载入配置<br>查看crontab服务状态：</p>
+<p>service crond status<br>手动启动crontab服务：</p>
+<p>service crond status<br>查看crontab服务是否已设置为开机启动，执行命令：</p>
+<p>方法一： 界面启动      ntsysv<br>方法二： 加入开机自动启动：   chkconfig –level 35 crond on<br>crontab -l查看定时任务列表</p>
+<p>编辑定时任务</p>
+<p>crontab –e</p>
+<p>==》vim /var/spool/cron/root<br>每隔2分钟输出时间到文件</p>
+<p>*/2 * * * * echo <code>date</code> &gt;&gt; $HOME&gt;test.txt<br>crontab -r 删除定时任务</p>
+<p>==&gt; 从/var/spool/cron目录中删除用户的crontab文件<br>==&gt; 如果不指定用户，则默认删除当前用户的crontab文件<br> crontab –i  在删除用户的crontab文件时给确认提示<br>备份crontab文件</p>
+<p>crontab -l &gt; $HOME/mycron</p>
+<p>恢复丢失的crontab文件</p>
+<p>如果不小心误删了crontab文件，假设你在自己的$ H O M E目录下还有一个备份，那么可以将其拷贝到/var/spool/cron/<username>，其中<username>是用户名。如果由于权限问题无法完成拷贝，可以用：<br>crontab <filename> 其中，<filename>是你在$ H O M E目录中副本的文件名。<br>有些crontab的变体有些怪异，所以在使用crontab命令时要格外小心。如果遗漏了任何选项，crontab可能会打开一个空文件，或者看起来像是个空文件。这时敲delete键退出，不要按<Ctrl-D>，否则你将丢失crontab文件。<br>每小时执行/etc/cron.hourly目录内的脚本</p>
+<p>1<br>0 * * * * root run-parts /etc/cron.hourly<br>每隔2分钟同步一次互联网时间</p>
+<p>1<br>echo “*/2 * * * * /usr/bin/ntpstat time.windows.com &gt;/dev/null 2&gt;&amp;1” &gt;&gt; /var/spool/cron/root</p>
+<p>每天3-5,17-20每隔30分钟执行一次脚本</p>
+<p>1<br>echo “*/30 [3-5],[17-20] * * * /bin/sh /home/omc/h.sh &gt;/dev/null 2&gt;&amp;1” &gt;&gt; /var/spool/cron/root</p>
+<p>当天23点，第二天0点到凌晨7点 每隔1分钟执行一次脚本</p>
+<p>1</p>
+<ul>
+<li>23,00-07/1 * * * /bin/sh /home/omc.h.sh</li>
+</ul>
+<p>每年的4月份每周的周一到周三的11点执行脚本   </p>
+<p>1<br>00 11 *  4 1-3 /bin/sh /home/omc/h.sh<br>crontab的注意事项</p>
+<ol>
+<li>注意环境变量问题</li>
+</ol>
+<p>在crontab文件中定义多个调度任务时，需要特别注意的一个问题就是环境变量的设置</p>
+<p>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10</p>
+<h1 id="脚本中涉及文件路径时写全局路径；"><a href="#脚本中涉及文件路径时写全局路径；" class="headerlink" title="脚本中涉及文件路径时写全局路径；"></a>脚本中涉及文件路径时写全局路径；</h1><h1 id="脚本执行要用到java或其他环境变量时，通过source命令引入环境变量，如："><a href="#脚本执行要用到java或其他环境变量时，通过source命令引入环境变量，如：" class="headerlink" title="脚本执行要用到java或其他环境变量时，通过source命令引入环境变量，如："></a>脚本执行要用到java或其他环境变量时，通过source命令引入环境变量，如：</h1><p>cat start_cbp.sh<br>#!/bin/sh<br>source /etc/profile<br>export RUN_CONF=/home/d139/conf/platform/cbp/cbp_jboss.conf<br>/usr/local/jboss-4.0.5/bin/run.sh -c mev &amp;</p>
+<h1 id="当手动执行脚本OK，但是crontab死活不执行时。可以尝试在crontab中直接引入环境变量解决问题。"><a href="#当手动执行脚本OK，但是crontab死活不执行时。可以尝试在crontab中直接引入环境变量解决问题。" class="headerlink" title="当手动执行脚本OK，但是crontab死活不执行时。可以尝试在crontab中直接引入环境变量解决问题。"></a>当手动执行脚本OK，但是crontab死活不执行时。可以尝试在crontab中直接引入环境变量解决问题。</h1><p>0 * * * * . /etc/profile;/bin/sh /var/www/java/audit_no_count/bin/restart_audit.sh<br>2. 系统级任务调度与用户级任务调度</p>
+<p>1<br>root用户的任务调度操作可以通过“crontab –uroot –e”来设置，也可以将调度任务直接写入/etc/crontab文件，需要注意的是，如果要定义一个定时重启系统的任务，就必须将任务放到/etc/crontab文件，即使在root用户下创建一个定时重启系统的任务也是无效的。<br>3.其他注意事项</p>
+<p>1<br>2<br>3<br>当crontab突然失效时，可以尝试/etc/init.d/crond restart解决问题。或者查看日志看某个job有没有执行/报错tail -f /var/log/cron。<br>千万别乱运行crontab -r。它从Crontab目录（/var/spool/cron）中删除用户的Crontab文件。删除了该用户的所有crontab都没了。<br>在crontab中%是有特殊含义的，表示换行的意思。如果要用的话必须进行转义%，如经常用的date ‘+%Y%m%d’在crontab里是不会执行的，应该换成date ‘+%Y%m%d’<br>4. 生产调试定时任务</p>
+<p>1.增加执行任务的频率调试<br>2.调整系统时间调试任务，提前5分钟   –&gt;不用于生产环境<br>3.通过脚本日志输出调试定时 任务<br>4.注意一些任务命令带来的问题        –&gt;确保命令的正确性<br>5.crontab箴言</p>
+<p>1.环境变量问题，例如crontab不能识别Java的环境变量<br>    crontab执行shell时，只能识别为数不多的环境变量，普通的环境变量是无法识别的，所以在编写shell时，最好使用export重新声明变量，确保脚本执行。<br>2.命令的执行最好用脚本<br>3.脚本权限加/bin/sh，规范路径/server/scripts<br>4.时间变量用反斜线转义，最好用脚本<br>5.定时任务添加注释<br>6.&gt;/dev/null 2&gt;&amp;1   ==&gt;&amp;&gt;/dev/null,别随意打印日志文件<br>7.定时任务里面的程序脚本尽量用全路径<br>8.避免不必要的程序以及命令输出<br>9.定时任务之前添加注释<br>10.打包到文件目录的上一级</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">学习</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/05/15/Linux%E7%9B%B8%E5%85%B3%E5%91%BD%E4%BB%A4/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-CSS字体" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/05/14/CSS%E5%AD%97%E4%BD%93/">CSS字体</a>
+    </h1>
+  
+
+        
+        <a href="/2020/05/14/CSS%E5%AD%97%E4%BD%93/" class="archive-article-date">
+  	<time datetime="2020-05-14T15:19:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-14</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>CSS字体属性定义字体，加粗，大小，文字样式。</p>
+<h2 id="CSS字型"><a href="#CSS字型" class="headerlink" title="CSS字型"></a>CSS字型</h2><p>在CSS中，有两种的类型的字体系列名称：</p>
+<ul>
+<li>通用字体系列-拥有相似外观的字体系统组合（如 “Serif” 或 “Monospace”）</li>
+<li>特定字体系列-一个特定的字体系列（如 “Times” 或 “Courier”）</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Generic family</th>
+<th align="center">字体系列</th>
+<th align="right">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Serif</td>
+<td align="center">Times New Roman/Georgia</td>
+<td align="right">Serif字体中字符在行的末端拥有额外的装饰</td>
+</tr>
+<tr>
+<td>Sans-serif</td>
+<td align="center">Arial/Verdana</td>
+<td align="right">“Sans”是指无 - 这些字体在末端没有额外的装饰</td>
+</tr>
+<tr>
+<td>Monospace</td>
+<td align="center">Courier New/Lucida Console</td>
+<td align="right">所有的等宽字符具有相同的宽度</td>
+</tr>
+</tbody></table>
+<h2 id="字体系列"><a href="#字体系列" class="headerlink" title="字体系列"></a>字体系列</h2><p>font-family属性设置字体的字体系列<br>font-family属性应该设置几个字体名称作为一种“后备”机制，如果浏览器不支持第一种字体，他将尝试一种字体。<br>注意：如果字体系列的名称超过一个字，它必须用引号，如Font Family:”宋体”</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">p&#123;font-family:&quot;Times New Roman&quot;,Times,serif;&#125;</span><br></pre></td></tr></table></figure>
+<p>对于较常用的字体组合，我们<a href="https://www.runoob.com/cssref/css-websafe-fonts.html" target="_blank" rel="noopener">https://www.runoob.com/cssref/css-websafe-fonts.html</a> web安全字体组合</p>
+<h2 id="字体样式"><a href="#字体样式" class="headerlink" title="字体样式"></a>字体样式</h2><p>主要是用于指定斜体文字的字体样式属性。<br>这个属性有三个值：</p>
+<ul>
+<li>正常 - 正常显示文本</li>
+<li>斜体 - 以斜体字显示的文字</li>
+<li>倾斜的文字 - 文字向一边倾斜（和斜体非常类似，但不太支持）<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">p.normal &#123;font-style:normal;&#125;</span><br><span class="line">p.italic &#123;font-style:italic;&#125;</span><br><span class="line">p.oblique &#123;font-style:oblique;&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">CSS</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/05/14/CSS%E5%AD%97%E4%BD%93/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-ES6标准入门-阮一峰" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/05/13/ES6%E6%A0%87%E5%87%86%E5%85%A5%E9%97%A8-%E9%98%AE%E4%B8%80%E5%B3%B0/">ES6标准入门-阮一峰</a>
+    </h1>
+  
+
+        
+        <a href="/2020/05/13/ES6%E6%A0%87%E5%87%86%E5%85%A5%E9%97%A8-%E9%98%AE%E4%B8%80%E5%B3%B0/" class="archive-article-date">
+  	<time datetime="2020-05-13T14:49:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-13</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="1-let和const"><a href="#1-let和const" class="headerlink" title="1.let和const"></a>1.let和const</h1><p>暂时性死区（Temporal Dead Zone)<br>let和const命令声明的变量吴变量提升，且都会被锁定在声明的代码块中，在let和const命令行前，使用该变量都将报错，这一部分称为”暂时性死区”.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var tmp &#x3D; 123;</span><br><span class="line"></span><br><span class="line">if(true)&#123;</span><br><span class="line">    tmp &#x3D; &#39;abc&#39;; &#x2F;&#x2F;ReferenceError</span><br><span class="line">    let tmp;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>let tmp 将tmp变量绑定在 {}代码块之内，外部的tmp声明无效，tmp=’abc’就处在死去，所以报错。同理在以前没有let和const命令的时候，typeof是一个安全的运算符，即使变量没有被声明，也会正常返回undefined,但如果typeof处在死区中，处理了在后文被let和const的变量，将会报错。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">typeof undeclared_variable;&#x2F;&#x2F;undefined 未被let和const声明反而没事</span><br><span class="line">if(true)&#123;</span><br><span class="line">    &#x2F;&#x2F;TDZ开始 (Temporal Dead Zone: 暂时性死区)</span><br><span class="line">    typeof tmp &#x2F;&#x2F;ReferenceError</span><br><span class="line">    let tmp;&#x2F;&#x2F;TDZ结束</span><br><span class="line">    console.log(tmp);&#x2F;&#x2F;undefined</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>顶层对象<br>var和function的全局声明会自动绑定到window或者global对象，</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ES6</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/05/13/ES6%E6%A0%87%E5%87%86%E5%85%A5%E9%97%A8-%E9%98%AE%E4%B8%80%E5%B3%B0/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-React面试题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -775,292 +1102,9 @@ ii.Class Components:你还可以使用ES6类来定义组件，上面的函数组
 
 
   
-    <article id="post-CSS背景" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/29/CSS%E8%83%8C%E6%99%AF/">CSS背景</a>
-    </h1>
-  
-
-        
-        <a href="/2020/04/29/CSS%E8%83%8C%E6%99%AF/" class="archive-article-date">
-  	<time datetime="2020-04-29T09:10:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-29</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>CSS背景属性用于定义HTML元素的背景。<br>CSS属性定义背景效果：</p>
-<ul>
-<li>background 简写属性，作用是将背景属性设置在一个声明中。</li>
-<li>background-color 设置元素的背景颜色。</li>
-<li>background-image 把图像设置为背景。</li>
-<li>background-repeat 设置背景图像是否及如何重复</li>
-<li>background-attachment 背景图像是否固定或者随着页面的其余部分滚动。</li>
-<li>background-position 设置背景图像的起始位置。<h2 id="背景颜色"><a href="#背景颜色" class="headerlink" title="背景颜色"></a>背景颜色</h2>background-color属性定义了元素的背景颜色<br>页面的背景颜色使用在body的选择器中<br>实例<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">body &#123;background-color:#b0c4de;&#125;</span><br></pre></td></tr></table></figure>
-CSS中，颜色值通常以以下方式定义</li>
-<li>十六进制-如”#ff0000”</li>
-<li>RGB-如：”rgb(255,0,0)”</li>
-<li>颜色名称-如：”red”<br>以下实例中，h1,p,和div元素拥有不同的背景颜色<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">h1 &#123;background-color:#6495ed;&#125;</span><br><span class="line">p &#123;background-color:#e0ffff;&#125;</span><br><span class="line">div &#123;background-color:#b0c4de;&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="背景图像"><a href="#背景图像" class="headerlink" title="背景图像"></a>背景图像</h2>background-image属性描述了元素的背景图像。<br>默认情况下，背景图像进行平铺重复显示，以覆盖整个元素实体。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">body&#123;background-image:url(&#39;paper.gif&#39;);&#125;</span><br></pre></td></tr></table></figure>
-下面时一个例子是一个糟糕的文字和背景图选组合。文本可读性差；<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">body &#123;background-image:url(&#39;bgdesert.jpg&#39;);&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="背景图像-水平或者垂直平铺"><a href="#背景图像-水平或者垂直平铺" class="headerlink" title="背景图像-水平或者垂直平铺"></a>背景图像-水平或者垂直平铺</h2>默认情况下background-image属性会在页面的水平或者垂直方向平铺。<br>一些图像如果在水平方向与垂直反向平铺，这样看起来很不协调，如下所示：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">body&#123;</span><br><span class="line">    background-image:url(&#39;gradient2.png&#39;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-如果图像只在水平方向平铺(repeat-x),页面背景会更好些；<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">body</span><br><span class="line">&#123;</span><br><span class="line">    background-image:url(&#39;gradient2.png&#39;);</span><br><span class="line">    background-repeat:repeat-x;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="背景图像-设置定位与不平铺"><a href="#背景图像-设置定位与不平铺" class="headerlink" title="背景图像-设置定位与不平铺"></a>背景图像-设置定位与不平铺</h2>让背景图片不影响文本的排版<br>如果你不想让图像平铺，你可以使用background-repeat属性：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">body&#123;</span><br><span class="line">    background-image:url(&#39;img_tree.png&#39;);</span><br><span class="line">    background-repeat:no-repeat;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-以上实例中，背景图片与文本显示在同一个位置，为了让页面排版更加合理，不影响文本的阅读，我们可以改变图像的位置。<br>可以利用background-position属性改变图片在背景中的位置：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">body</span><br><span class="line">&#123;</span><br><span class="line">background-image:url(&#39;img_tree.png&#39;);</span><br><span class="line">background-repeat:no-repeat;</span><br><span class="line">background-position:right top;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="背景-简写属性"><a href="#背景-简写属性" class="headerlink" title="背景-简写属性"></a>背景-简写属性</h2>在以上实例中我们可以看到页面的背景颜色通过了很多的属性来控制。为了简化这些属性的代码，我们可以将这些属性合并在同一属性中，<br>背景颜色的简写属性为’background”;<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">body &#123;background:#ffffff url(&#39;img_tree.png&#39;) no-repeat right top;&#125;</span><br></pre></td></tr></table></figure>
-当使用简写属性时，属性值的顺序为：</li>
-<li>background-color</li>
-<li>background-image</li>
-<li>background-repeat</li>
-<li>background-attachment</li>
-<li>background-position<br>以上属性无需全部使用，你可以按照页面的实际需要使用</li>
-</ul>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">CSS</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/29/CSS%E8%83%8C%E6%99%AF/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-CSS多重样式优先级深入概念" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/29/CSS%E5%A4%9A%E9%87%8D%E6%A0%B7%E5%BC%8F%E4%BC%98%E5%85%88%E7%BA%A7%E6%B7%B1%E5%85%A5%E6%A6%82%E5%BF%B5/">CSS多重样式优先级深入概念</a>
-    </h1>
-  
-
-        
-        <a href="/2020/04/29/CSS%E5%A4%9A%E9%87%8D%E6%A0%B7%E5%BC%8F%E4%BC%98%E5%85%88%E7%BA%A7%E6%B7%B1%E5%85%A5%E6%A6%82%E5%BF%B5/" class="archive-article-date">
-  	<time datetime="2020-04-29T08:41:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-29</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>优先级是浏览器通过判断哪些元素值与元素最相关以决定并应用到该元素上的。优先级仅由选择器组成的匹配规则决定的。<br>优先级就是分配给指定的CSS声明的一个权重，它由匹配的选择器中的每一种选择器类型的数值决定。</p>
-<h2 id="优先级顺序"><a href="#优先级顺序" class="headerlink" title="优先级顺序"></a>优先级顺序</h2><p>优先级逐级增加的选择器列表</p>
-<ul>
-<li>通用选择器（*）</li>
-<li>元素(类型)选择器</li>
-<li>类选择器</li>
-<li>属性选择器</li>
-<li>伪类</li>
-<li>ID选择器</li>
-<li>内联样式<h2 id="！important规则例外"><a href="#！important规则例外" class="headerlink" title="！important规则例外"></a>！important规则例外</h2>当！important规则被应用在一个样式声明中的时候，该样式声明会覆盖CSS中任何其他的声明，无论它处在声明列表中的哪里，尽管如此，!important规则还是与优先级毫无关系，使用!important不是一个好习惯，因为它改变了你样式表本来的级联规则，从而使其难以调试。<br>一些经验规则：</li>
-<li>Always 要优化考虑使用样式规则的优先级来解决问题而不是!important</li>
-<li>Only只在需要覆盖全站或者外部CSS（例如引用的ExtJs或者YUI）的特定页面中使用!important</li>
-<li>Never永远不要在全站范围的CSS上使用!important</li>
-<li>Never 永远不要在你的插件中使用!important<br>权重计算<br>内联样式1000+id选择器100+类选择器10+元素选择器1</li>
-</ul>
-<h2 id="CSS优先级法则："><a href="#CSS优先级法则：" class="headerlink" title="CSS优先级法则："></a>CSS优先级法则：</h2><ul>
-<li>A选择器都有一个权值，权值越大越优先；</li>
-<li>B当权值相等时，后出现的样式表设置要优于先出现的样式表设置；</li>
-<li>C创作者的规则高于浏览者，即网页编写者设置的css样式的优先权高于浏览器所设置的样式；</li>
-<li>D继承的CSS样式不如后面指定的CSS样式；</li>
-<li>E在同一组属性设置中标有!important规则的优先级最大</li>
-</ul>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">CSS</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/29/CSS%E5%A4%9A%E9%87%8D%E6%A0%B7%E5%BC%8F%E4%BC%98%E5%85%88%E7%BA%A7%E6%B7%B1%E5%85%A5%E6%A6%82%E5%BF%B5/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-CSS创建" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/26/CSS%E5%88%9B%E5%BB%BA/">CSS创建</a>
-    </h1>
-  
-
-        
-        <a href="/2020/04/26/CSS%E5%88%9B%E5%BB%BA/" class="archive-article-date">
-  	<time datetime="2020-04-26T14:53:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-26</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="CSS创建"><a href="#CSS创建" class="headerlink" title="CSS创建"></a>CSS创建</h1><p>当读到一个样式表时，浏览器会根据它来格式化HTML文档。</p>
-<h2 id="如何插入样式表"><a href="#如何插入样式表" class="headerlink" title="如何插入样式表"></a>如何插入样式表</h2><p>插入样式表的方法有三种：</p>
-<ul>
-<li>外部样式表(External style sheet)</li>
-<li>内部样式表(Internal style sheet)</li>
-<li>内联样式(Inline style)<h2 id="外部样式表"><a href="#外部样式表" class="headerlink" title="外部样式表"></a>外部样式表</h2>当样式需要应用于很多页面时，外部样式表将是理想的选择。在使用外部样式表的情况下，你可以通过改变一个文件来改变整个站点的外观。每个页面使用<link>标签链接到样式表。<link>标签在（文档的）<br>头部：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;head&gt;</span><br><span class="line">&lt;link rel&#x3D;&quot;stylesheet&quot; type&#x3D;&quot;text&#x2F;css&quot; href&#x3D;&quot;mystyle.css&quot;&gt;</span><br><span class="line">&lt;&#x2F;head&gt;</span><br></pre></td></tr></table></figure>
-浏览器会从文件mystyle.css中读到样式声明，并根据它来格式文档。<br>外部样式表可以在任何文本编辑器中继续编辑。文件不能包含任何的html标签。样式表应该以.css扩展名进行保存。下面是一个样式表文件的例子：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hr &#123;color:sienna;&#125;</span><br><span class="line">p &#123;margin-left:20px;&#125;</span><br><span class="line">body &#123;background-image:url(&quot;&#x2F;images&#x2F;back40.gif);&#125;</span><br></pre></td></tr></table></figure>
-不要在属性值与单位之间留有空格(如:’margin-left:10px’),正确的写法是“margin-left:20px”.<h1 id="内部样式表"><a href="#内部样式表" class="headerlink" title="内部样式表"></a>内部样式表</h1>当单个文件需要特殊的样式时，就应该使用内部样式表。你可以使用<style>标签在文档头部定义内部样式表，就像这样：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;style&gt;</span><br><span class="line">        hr &#123;color:sienna;&#125;</span><br><span class="line">        p &#123;margin-left:20px;&#125;</span><br><span class="line">        body &#123;</span><br><span class="line">            background-image:url(&quot;images&#x2F;back40.gif&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">    &lt;&#x2F;style&gt;</span><br><span class="line">&lt;&#x2F;head&gt;</span><br></pre></td></tr></table></figure>
-<h2 id="内联样式"><a href="#内联样式" class="headerlink" title="内联样式"></a>内联样式</h2>由于将要表现和内容混在在一起，内联样式会损失掉样式表得许多优势，请慎用这种方法，例如当样式仅需要在一个元素应用一次时。<br>需使用内联样式，你需要在相关的标签内使用样式(style)属性，Style属性可以包含CSS属性。本例展示如何改变段落的颜色和外边边距：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;p style&#x3D;&quot;color:sienna;margin-left:20px&quot;&gt;这是一个段落。&lt;&#x2F;p&gt;</span><br></pre></td></tr></table></figure>
-<h2 id="多重样式"><a href="#多重样式" class="headerlink" title="多重样式"></a>多重样式</h2>如果某些属性在不同的样式表中被同样的选择器定义，那么属性值将从更具体的样式表中被继承过来。<br>例如，外部样式表拥有针对h3选择器的三个属性：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">h3</span><br><span class="line">&#123;</span><br><span class="line">    color:red;</span><br><span class="line">    text-align:left;</span><br><span class="line">    font-size:8pt;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-而内部样式表拥有针对h3选择器的两个属性<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">h3</span><br><span class="line">&#123;</span><br><span class="line">    text-align:right;</span><br><span class="line">    font-size:20px;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-假如拥有内部样式表的这个页面同时与外部样式表链接，那么h3的最后的样式是：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">color:red;</span><br><span class="line">text-align:right;</span><br><span class="line">font-size:20px;</span><br></pre></td></tr></table></figure>
-即颜色属性将继承于外部样式表，而文字排列和字体尺寸会被内部样式表中的规则取代。<h2 id="多重样式优先级"><a href="#多重样式优先级" class="headerlink" title="多重样式优先级"></a>多重样式优先级</h2>样式表允许以多种方式规定样式信息，样式可以规定在单个HTML元素中，在HTML页的头元素中，或者在一个外部的CSS文件中，甚至可以在同一个HTML文档内部引用多个样式表。<br>一般情况下，优先级</li>
-<li>内联样式Inline Style&gt;内部样式Internal style sheet&gt;外部样式External style sheet&gt;浏览器默认样式*<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;head&gt;</span><br><span class="line">     &lt;link rel&#x3D;&quot;stylesheet&quot; type&#x3D;&quot;text&#x2F;css&quot; href&#x3D;&quot;style.css&quot;&#x2F;&gt;</span><br><span class="line">     &lt;style type&#x3D;&quot;text&#x2F;css&quot;&gt;</span><br><span class="line">            h3&#123;color:green;&#125;</span><br><span class="line">     &lt;&#x2F;style&gt;</span><br><span class="line">&lt;&#x2F;head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;h3&gt;测试！&lt;&#x2F;h3&gt;</span><br><span class="line">&lt;&#x2F;body&gt;</span><br></pre></td></tr></table></figure>
-注意：如果外部样式放在内部样式的后面，则外部样式将覆盖内部样式。</li>
-</ul>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">CSS</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/26/CSS%E5%88%9B%E5%BB%BA/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/3/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/5/">Next &amp;raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/3/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/5/">Next &amp;raquo;</a>
     </nav>
   
 
@@ -1159,11 +1203,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+                <a href="javascript:void(0)" class="js-tag color4">ES6</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ES6</a>
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1187,15 +1231,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Web</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">js</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">培训</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Web</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1203,7 +1243,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+                <a href="javascript:void(0)" class="js-tag color3">js</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1215,7 +1255,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Web前端开发修炼指南</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">杂谈</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1224,10 +1272,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">前端</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">杂谈</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1251,11 +1295,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">随笔    - 随笔</a>
+                <a href="javascript:void(0)" class="js-tag color3">调酒</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">调酒</a>
+                <a href="javascript:void(0)" class="js-tag color1">随笔    - 随笔</a>
               </li>
             
             <div class="clearfix"></div>

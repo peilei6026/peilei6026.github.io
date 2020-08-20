@@ -160,6 +160,289 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-CSS背景" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/04/29/CSS%E8%83%8C%E6%99%AF/">CSS背景</a>
+    </h1>
+  
+
+        
+        <a href="/2020/04/29/CSS%E8%83%8C%E6%99%AF/" class="archive-article-date">
+  	<time datetime="2020-04-29T09:10:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-29</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>CSS背景属性用于定义HTML元素的背景。<br>CSS属性定义背景效果：</p>
+<ul>
+<li>background 简写属性，作用是将背景属性设置在一个声明中。</li>
+<li>background-color 设置元素的背景颜色。</li>
+<li>background-image 把图像设置为背景。</li>
+<li>background-repeat 设置背景图像是否及如何重复</li>
+<li>background-attachment 背景图像是否固定或者随着页面的其余部分滚动。</li>
+<li>background-position 设置背景图像的起始位置。<h2 id="背景颜色"><a href="#背景颜色" class="headerlink" title="背景颜色"></a>背景颜色</h2>background-color属性定义了元素的背景颜色<br>页面的背景颜色使用在body的选择器中<br>实例<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">body &#123;background-color:#b0c4de;&#125;</span><br></pre></td></tr></table></figure>
+CSS中，颜色值通常以以下方式定义</li>
+<li>十六进制-如”#ff0000”</li>
+<li>RGB-如：”rgb(255,0,0)”</li>
+<li>颜色名称-如：”red”<br>以下实例中，h1,p,和div元素拥有不同的背景颜色<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">h1 &#123;background-color:#6495ed;&#125;</span><br><span class="line">p &#123;background-color:#e0ffff;&#125;</span><br><span class="line">div &#123;background-color:#b0c4de;&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="背景图像"><a href="#背景图像" class="headerlink" title="背景图像"></a>背景图像</h2>background-image属性描述了元素的背景图像。<br>默认情况下，背景图像进行平铺重复显示，以覆盖整个元素实体。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">body&#123;background-image:url(&#39;paper.gif&#39;);&#125;</span><br></pre></td></tr></table></figure>
+下面时一个例子是一个糟糕的文字和背景图选组合。文本可读性差；<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">body &#123;background-image:url(&#39;bgdesert.jpg&#39;);&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="背景图像-水平或者垂直平铺"><a href="#背景图像-水平或者垂直平铺" class="headerlink" title="背景图像-水平或者垂直平铺"></a>背景图像-水平或者垂直平铺</h2>默认情况下background-image属性会在页面的水平或者垂直方向平铺。<br>一些图像如果在水平方向与垂直反向平铺，这样看起来很不协调，如下所示：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">body&#123;</span><br><span class="line">    background-image:url(&#39;gradient2.png&#39;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+如果图像只在水平方向平铺(repeat-x),页面背景会更好些；<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">body</span><br><span class="line">&#123;</span><br><span class="line">    background-image:url(&#39;gradient2.png&#39;);</span><br><span class="line">    background-repeat:repeat-x;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="背景图像-设置定位与不平铺"><a href="#背景图像-设置定位与不平铺" class="headerlink" title="背景图像-设置定位与不平铺"></a>背景图像-设置定位与不平铺</h2>让背景图片不影响文本的排版<br>如果你不想让图像平铺，你可以使用background-repeat属性：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">body&#123;</span><br><span class="line">    background-image:url(&#39;img_tree.png&#39;);</span><br><span class="line">    background-repeat:no-repeat;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+以上实例中，背景图片与文本显示在同一个位置，为了让页面排版更加合理，不影响文本的阅读，我们可以改变图像的位置。<br>可以利用background-position属性改变图片在背景中的位置：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">body</span><br><span class="line">&#123;</span><br><span class="line">background-image:url(&#39;img_tree.png&#39;);</span><br><span class="line">background-repeat:no-repeat;</span><br><span class="line">background-position:right top;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="背景-简写属性"><a href="#背景-简写属性" class="headerlink" title="背景-简写属性"></a>背景-简写属性</h2>在以上实例中我们可以看到页面的背景颜色通过了很多的属性来控制。为了简化这些属性的代码，我们可以将这些属性合并在同一属性中，<br>背景颜色的简写属性为’background”;<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">body &#123;background:#ffffff url(&#39;img_tree.png&#39;) no-repeat right top;&#125;</span><br></pre></td></tr></table></figure>
+当使用简写属性时，属性值的顺序为：</li>
+<li>background-color</li>
+<li>background-image</li>
+<li>background-repeat</li>
+<li>background-attachment</li>
+<li>background-position<br>以上属性无需全部使用，你可以按照页面的实际需要使用</li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">CSS</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/04/29/CSS%E8%83%8C%E6%99%AF/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-CSS多重样式优先级深入概念" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/04/29/CSS%E5%A4%9A%E9%87%8D%E6%A0%B7%E5%BC%8F%E4%BC%98%E5%85%88%E7%BA%A7%E6%B7%B1%E5%85%A5%E6%A6%82%E5%BF%B5/">CSS多重样式优先级深入概念</a>
+    </h1>
+  
+
+        
+        <a href="/2020/04/29/CSS%E5%A4%9A%E9%87%8D%E6%A0%B7%E5%BC%8F%E4%BC%98%E5%85%88%E7%BA%A7%E6%B7%B1%E5%85%A5%E6%A6%82%E5%BF%B5/" class="archive-article-date">
+  	<time datetime="2020-04-29T08:41:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-29</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>优先级是浏览器通过判断哪些元素值与元素最相关以决定并应用到该元素上的。优先级仅由选择器组成的匹配规则决定的。<br>优先级就是分配给指定的CSS声明的一个权重，它由匹配的选择器中的每一种选择器类型的数值决定。</p>
+<h2 id="优先级顺序"><a href="#优先级顺序" class="headerlink" title="优先级顺序"></a>优先级顺序</h2><p>优先级逐级增加的选择器列表</p>
+<ul>
+<li>通用选择器（*）</li>
+<li>元素(类型)选择器</li>
+<li>类选择器</li>
+<li>属性选择器</li>
+<li>伪类</li>
+<li>ID选择器</li>
+<li>内联样式<h2 id="！important规则例外"><a href="#！important规则例外" class="headerlink" title="！important规则例外"></a>！important规则例外</h2>当！important规则被应用在一个样式声明中的时候，该样式声明会覆盖CSS中任何其他的声明，无论它处在声明列表中的哪里，尽管如此，!important规则还是与优先级毫无关系，使用!important不是一个好习惯，因为它改变了你样式表本来的级联规则，从而使其难以调试。<br>一些经验规则：</li>
+<li>Always 要优化考虑使用样式规则的优先级来解决问题而不是!important</li>
+<li>Only只在需要覆盖全站或者外部CSS（例如引用的ExtJs或者YUI）的特定页面中使用!important</li>
+<li>Never永远不要在全站范围的CSS上使用!important</li>
+<li>Never 永远不要在你的插件中使用!important<br>权重计算<br>内联样式1000+id选择器100+类选择器10+元素选择器1</li>
+</ul>
+<h2 id="CSS优先级法则："><a href="#CSS优先级法则：" class="headerlink" title="CSS优先级法则："></a>CSS优先级法则：</h2><ul>
+<li>A选择器都有一个权值，权值越大越优先；</li>
+<li>B当权值相等时，后出现的样式表设置要优于先出现的样式表设置；</li>
+<li>C创作者的规则高于浏览者，即网页编写者设置的css样式的优先权高于浏览器所设置的样式；</li>
+<li>D继承的CSS样式不如后面指定的CSS样式；</li>
+<li>E在同一组属性设置中标有!important规则的优先级最大</li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">CSS</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/04/29/CSS%E5%A4%9A%E9%87%8D%E6%A0%B7%E5%BC%8F%E4%BC%98%E5%85%88%E7%BA%A7%E6%B7%B1%E5%85%A5%E6%A6%82%E5%BF%B5/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-CSS创建" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/04/26/CSS%E5%88%9B%E5%BB%BA/">CSS创建</a>
+    </h1>
+  
+
+        
+        <a href="/2020/04/26/CSS%E5%88%9B%E5%BB%BA/" class="archive-article-date">
+  	<time datetime="2020-04-26T14:53:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-26</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="CSS创建"><a href="#CSS创建" class="headerlink" title="CSS创建"></a>CSS创建</h1><p>当读到一个样式表时，浏览器会根据它来格式化HTML文档。</p>
+<h2 id="如何插入样式表"><a href="#如何插入样式表" class="headerlink" title="如何插入样式表"></a>如何插入样式表</h2><p>插入样式表的方法有三种：</p>
+<ul>
+<li>外部样式表(External style sheet)</li>
+<li>内部样式表(Internal style sheet)</li>
+<li>内联样式(Inline style)<h2 id="外部样式表"><a href="#外部样式表" class="headerlink" title="外部样式表"></a>外部样式表</h2>当样式需要应用于很多页面时，外部样式表将是理想的选择。在使用外部样式表的情况下，你可以通过改变一个文件来改变整个站点的外观。每个页面使用<link>标签链接到样式表。<link>标签在（文档的）<br>头部：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;head&gt;</span><br><span class="line">&lt;link rel&#x3D;&quot;stylesheet&quot; type&#x3D;&quot;text&#x2F;css&quot; href&#x3D;&quot;mystyle.css&quot;&gt;</span><br><span class="line">&lt;&#x2F;head&gt;</span><br></pre></td></tr></table></figure>
+浏览器会从文件mystyle.css中读到样式声明，并根据它来格式文档。<br>外部样式表可以在任何文本编辑器中继续编辑。文件不能包含任何的html标签。样式表应该以.css扩展名进行保存。下面是一个样式表文件的例子：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hr &#123;color:sienna;&#125;</span><br><span class="line">p &#123;margin-left:20px;&#125;</span><br><span class="line">body &#123;background-image:url(&quot;&#x2F;images&#x2F;back40.gif);&#125;</span><br></pre></td></tr></table></figure>
+不要在属性值与单位之间留有空格(如:’margin-left:10px’),正确的写法是“margin-left:20px”.<h1 id="内部样式表"><a href="#内部样式表" class="headerlink" title="内部样式表"></a>内部样式表</h1>当单个文件需要特殊的样式时，就应该使用内部样式表。你可以使用<style>标签在文档头部定义内部样式表，就像这样：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;style&gt;</span><br><span class="line">        hr &#123;color:sienna;&#125;</span><br><span class="line">        p &#123;margin-left:20px;&#125;</span><br><span class="line">        body &#123;</span><br><span class="line">            background-image:url(&quot;images&#x2F;back40.gif&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">    &lt;&#x2F;style&gt;</span><br><span class="line">&lt;&#x2F;head&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="内联样式"><a href="#内联样式" class="headerlink" title="内联样式"></a>内联样式</h2>由于将要表现和内容混在在一起，内联样式会损失掉样式表得许多优势，请慎用这种方法，例如当样式仅需要在一个元素应用一次时。<br>需使用内联样式，你需要在相关的标签内使用样式(style)属性，Style属性可以包含CSS属性。本例展示如何改变段落的颜色和外边边距：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;p style&#x3D;&quot;color:sienna;margin-left:20px&quot;&gt;这是一个段落。&lt;&#x2F;p&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="多重样式"><a href="#多重样式" class="headerlink" title="多重样式"></a>多重样式</h2>如果某些属性在不同的样式表中被同样的选择器定义，那么属性值将从更具体的样式表中被继承过来。<br>例如，外部样式表拥有针对h3选择器的三个属性：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">h3</span><br><span class="line">&#123;</span><br><span class="line">    color:red;</span><br><span class="line">    text-align:left;</span><br><span class="line">    font-size:8pt;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+而内部样式表拥有针对h3选择器的两个属性<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">h3</span><br><span class="line">&#123;</span><br><span class="line">    text-align:right;</span><br><span class="line">    font-size:20px;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+假如拥有内部样式表的这个页面同时与外部样式表链接，那么h3的最后的样式是：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">color:red;</span><br><span class="line">text-align:right;</span><br><span class="line">font-size:20px;</span><br></pre></td></tr></table></figure>
+即颜色属性将继承于外部样式表，而文字排列和字体尺寸会被内部样式表中的规则取代。<h2 id="多重样式优先级"><a href="#多重样式优先级" class="headerlink" title="多重样式优先级"></a>多重样式优先级</h2>样式表允许以多种方式规定样式信息，样式可以规定在单个HTML元素中，在HTML页的头元素中，或者在一个外部的CSS文件中，甚至可以在同一个HTML文档内部引用多个样式表。<br>一般情况下，优先级</li>
+<li>内联样式Inline Style&gt;内部样式Internal style sheet&gt;外部样式External style sheet&gt;浏览器默认样式*<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;head&gt;</span><br><span class="line">     &lt;link rel&#x3D;&quot;stylesheet&quot; type&#x3D;&quot;text&#x2F;css&quot; href&#x3D;&quot;style.css&quot;&#x2F;&gt;</span><br><span class="line">     &lt;style type&#x3D;&quot;text&#x2F;css&quot;&gt;</span><br><span class="line">            h3&#123;color:green;&#125;</span><br><span class="line">     &lt;&#x2F;style&gt;</span><br><span class="line">&lt;&#x2F;head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;h3&gt;测试！&lt;&#x2F;h3&gt;</span><br><span class="line">&lt;&#x2F;body&gt;</span><br></pre></td></tr></table></figure>
+注意：如果外部样式放在内部样式的后面，则外部样式将覆盖内部样式。</li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">CSS</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/04/26/CSS%E5%88%9B%E5%BB%BA/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-CSS-Id和Class" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -788,260 +1071,9 @@ React中的写法为<figure class="highlight plain"><table><tr><td class="gutter
 
 
   
-    <article id="post-React-State-状态" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/16/React-State-%E7%8A%B6%E6%80%81/">React State(状态)</a>
-    </h1>
-  
-
-        
-        <a href="/2020/04/16/React-State-%E7%8A%B6%E6%80%81/" class="archive-article-date">
-  	<time datetime="2020-04-15T23:21:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-16</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>React把组件看成一个状态机(State Machines).通过与用户的交互,实现不同状态,然后渲染UI,让用户界面和数据保持一致。<br>React里,只需要更新组件的state,然后根据新的state重新渲染用户界面(不要操作DOM)。<br>以下实例创建一个名称扩展为React.Component的ES6类，在render()方法中使用this.state来修饰当前的时间。<br>添加一个类构造函数来初始化状态this.state,类组件始终使用props调用基础构造函数.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">class Clock extends React.Component&#123;</span><br><span class="line">    constructor(props)&#123;</span><br><span class="line">        super(props);</span><br><span class="line">        this.state&#x3D;&#123;date: new Date()&#125;;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    render()&#123;</span><br><span class="line">        return(</span><br><span class="line">            &lt;div&gt;</span><br><span class="line">                &lt;h1&gt;Hello,World!&lt;&#x2F;h1&gt;</span><br><span class="line">                &lt;h2&gt;现在是&#123;this.state.date.toLocaleTimeString()&#125;.&lt;&#x2F;h2&gt;</span><br><span class="line">            &lt;&#x2F;div&gt;</span><br><span class="line">        );</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">ReactDOM.render(</span><br><span class="line">    &lt;Clock &#x2F;&gt;,</span><br><span class="line">    document.getElementById(&#39;example&#39;)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
-<p>接下来，我们将使Clock设置自己的计时器并每秒更新一次。</p>
-<h2 id="将生命周期方法添加到类中"><a href="#将生命周期方法添加到类中" class="headerlink" title="将生命周期方法添加到类中"></a>将生命周期方法添加到类中</h2><p>在具有许多组件的应用程序中,在销毁时释放组件所占用的资源非常重要。<br>每当Clock组件第一次加载到DOM中的时候,我们都想生成定时器,这在React中被称为<em>挂载</em>。<br>同样，每当Clock生成的这个DOM被移除的时候,我们也会想要清除定时器，这在React中被称为<em>卸载</em>。<br>我们可以在组件类上声明特殊的方法，当组件挂载或卸载时，来运行一些代码：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">class Clock extends React.Component&#123;</span><br><span class="line">    constructor(props)&#123;</span><br><span class="line">        super(props);</span><br><span class="line">        this.state &#x3D; &#123;date: new Date()&#125;;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    componentDidMount()&#123;</span><br><span class="line">        this.timerID&#x3D;setInterval(</span><br><span class="line">            ()&#x3D;&gt;this.tick(),</span><br><span class="line">            1000</span><br><span class="line">        );</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    componentWillUnmount()&#123;</span><br><span class="line">        clearInterval(this.timerID);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    tick()&#123;</span><br><span class="line">        this.setState(&#123;</span><br><span class="line">            date: new Date()</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    render()&#123;</span><br><span class="line">        return (</span><br><span class="line">            &lt;div&gt;</span><br><span class="line">                &lt;h1&gt;Hello,World!&lt;&#x2F;h1&gt;</span><br><span class="line">                &lt;h2&gt;现在是&#123;this.state.date.toLocaleTimeString()&#125;.&lt;&#x2F;h2&gt;</span><br><span class="line">            &lt;&#x2F;div&gt;</span><br><span class="line">        );</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">ReactDOM.render(</span><br><span class="line">    &lt;Clock &#x2F;&gt;,</span><br><span class="line">    document.getElementById(&#39;example&#39;)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
-<p><em>实例解析：</em><br><code>componentDidMount()</code>与<code>compoentWillUnmount()</code>方法被成为生命周期钩子。在组件输出到DOM后会执行<code>componentDidMount()</code>钩子，我们就可以在这个钩子上设置一个定时器。this.timerID为定时器的ID,我们可以在<code>componentWillUnmount()</code>钩子中卸载定时器。<br><em>代码执行顺序:</em><br>1.当<Clock />被传递给ReactDOM.render()时，React调用Clock组件的构造函数。由于Clock需要显示当前的时间，所有使用包含当前时间的对象来初始化this.state。我们稍后会更新此状态。<br>2.React然后调用Cl组件的render()方法。这是React了解屏幕上应该显示什么内容，然后React更新DOM以匹配Clock的渲染输出。<br>3.当Clock的输出插入到DOM中时，React调用comonentDidMount()生命周期钩子。在其中,Clock组件要求浏览器设置一个定时器，每秒钟调用一次tick().<br>4.浏览器每秒钟调用tick()方法，在其中，Clock组件使用包含当前时间的对象调用setState()来调用UI更新，通过调用setState(),React知道状态已经改变，并再次调用render()方法来确定屏幕上应当显示什么。这一次，render()方法中this.state.date将不同，所以渲染输出将包含更新的时间，并相应地更新DOM.<br>5.一旦Clock组件被从DOM中移除，React会调用componentWillUnmount()这个钩子函数，定时器也就会被清除。</p>
-<h2 id="数据自顶向下流动"><a href="#数据自顶向下流动" class="headerlink" title="数据自顶向下流动"></a>数据自顶向下流动</h2><p>父组件或子组件都不能知道某个组件是有状态和无状态，并且他们不应该关心某组件是被定义为一个函数还是一个类。<br>这就是为什么状态通常被成为局部或封装。除了拥有并设置它的组件外，其他组件不可访问。<br>以下实例中FormattedDate组件将在其属性中接受到date值，并且不知道它是来自Clock状态，还是来自Clock的属性，亦或手工输入：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">function FormattedDate(props)&#123;</span><br><span class="line">    return &lt;h2&gt;现在是&#123;props.date.toLocaleTimeString()&#125;.&lt;&#x2F;h2&gt;;</span><br><span class="line">&#125;</span><br><span class="line">class Clock extends React.Component&#123;</span><br><span class="line">    constructor(props)&#123;</span><br><span class="line">        super(props);</span><br><span class="line">        this.state&#x3D;&#123;date: new Date()&#125;;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    componentDidMount()&#123;</span><br><span class="line">        this.timerID&#x3D;setInterval(</span><br><span class="line">            ()&#x3D;&gt;this.tick(),</span><br><span class="line">            1000</span><br><span class="line">        );</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    componentWillUnmount()&#123;</span><br><span class="line">        clearInterval(this.timerID);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    tick()&#123;</span><br><span class="line">        this.setState(</span><br><span class="line">            date: new Date()</span><br><span class="line">        );</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    render()&#123;</span><br><span class="line">        return (</span><br><span class="line">            &lt;div&gt;</span><br><span class="line">                &lt;h1&gt;Hello,World!&lt;&#x2F;h1&gt;</span><br><span class="line">                &lt;FormattedDate date&#x3D;&#123;this.state.date&#125; &#x2F;&gt;</span><br><span class="line">            &lt;&#x2F;div&gt;</span><br><span class="line">        );</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">ReactDOM.render(</span><br><span class="line">    &lt;Clock &#x2F;&gt;,</span><br><span class="line">    document.getElementById(&#39;example&#39;)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
-<p>通常被成为自顶向下或单向数据流，任何状态始终由某些特定组件所有，并且从该状态导出的任何数据或UI只能影响树中下方的组件。<br>如果你想象一个组件树作为属性的瀑布，每个组件的状态就像一个额外的水源，它连接在一个任意点，但也流下来。<br>为了表明所有组件都是真正隔离的，我们可以创建一个App组件，它渲染三个Clock;</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">function FormattedDate(props)&#123;</span><br><span class="line">    return &lt;h2&gt;现在是&#123;props.date.toLocaleTimeString()&#125;.&lt;&#x2F;h2&gt;;</span><br><span class="line">&#125;</span><br><span class="line">class Clock extends React.Component&#123;</span><br><span class="line">    constructor(props)&#123;</span><br><span class="line">        super(props);</span><br><span class="line">        this.state&#x3D;&#123;date: new Date()&#125;;</span><br><span class="line">    &#125;</span><br><span class="line">    componentDidMount()&#123;</span><br><span class="line">        this.timerID &#x3D; setInterval(</span><br><span class="line">            ()&#x3D;&gt;this.tick(),</span><br><span class="line">            1000</span><br><span class="line">        );</span><br><span class="line">    &#125;</span><br><span class="line">    componentWillUnmount()&#123;</span><br><span class="line">        clearInterval(this.timerID);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    tick()&#123;</span><br><span class="line">        this.setState(&#123;</span><br><span class="line">                date:new Date()</span><br><span class="line">            &#125;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    render()&#123;</span><br><span class="line">        return (</span><br><span class="line">            &lt;div&gt;</span><br><span class="line">                &lt;h1&gt;Hello,world!&lt;&#x2F;h1&gt;</span><br><span class="line">                &lt;FormattedDate date&#x3D;&#123;this.state.date&#125; &#x2F;&gt;</span><br><span class="line">            &lt;&#x2F;div&gt;</span><br><span class="line">        );</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function App()&#123;</span><br><span class="line">    return(</span><br><span class="line">        &lt;div&gt;</span><br><span class="line">            &lt;Clock &#x2F;&gt;</span><br><span class="line">            &lt;Clock &#x2F;&gt;</span><br><span class="line">            &lt;Clock &#x2F;&gt;</span><br><span class="line">        &lt;&#x2F;div&gt;</span><br><span class="line">    );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">ReactDOM.render(&lt;App &#x2F;&gt;,dpcument.getElementById(&#39;example&#39;));</span><br></pre></td></tr></table></figure>
-<p>以上实例中每个Clock组件都建立了自己的定时器并且独立更新。<br>在React应用程序中，组件是有状态还是无状态被认为是可能随时间而变化的组件的实现细节。<br>我们可以在有状态组件中使用无状态组件，也可以在无状态组件中使用有状态组件。</p>
-<h2 id="笔记"><a href="#笔记" class="headerlink" title="笔记"></a>笔记</h2><p>关于挂载时的setlnterval中调用tick()的方式()=&gt;this.tick();<br>1.()=&gt;this.tick()<br><code>()=&gt;this.tick()</code>是ES6中声明函数的一种方式，叫做箭头函数表达式，引入箭头函数有两个方面的作用：更简短的函数并且不绑定this.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var f&#x3D;([参数])&#x3D;&gt;表达式(单一)</span><br><span class="line">&#x2F;&#x2F;等价于以下写法</span><br><span class="line">var f &#x3D; function([参数])&#123;</span><br><span class="line">    return 表达式;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>箭头函数的基本语法如下:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">(参数1,参数2,....,参数N) &#x3D;&gt; &#123;函数声明&#125;</span><br><span class="line">(参数1,参数2,....,参数N) &#x3D;&gt; 表达式(单一)</span><br><span class="line">&#x2F;&#x2F;相当于:(参数1,参数2,....,参数N) &#x3D;&gt; &#123; return 表达式;&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;当只有一个参数时，圆括号时可选的;</span><br><span class="line">(单一参数) &#x3D;&gt; &#123;函数声明&#125;</span><br><span class="line">单一参数 &#x3D;&gt; &#123;函数声明&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;没有参数的函数应该写成一对圆括号。</span><br><span class="line">()&#x3D;&gt;&#123;函数声明&#125;</span><br></pre></td></tr></table></figure>
-<p>根据以上概念，尝试将setlnterval中调用tick()的方式改成通常声明方式:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">this.timerID &#x3D; setInterval(function()&#123;</span><br><span class="line">    return this.tick();</span><br><span class="line">    &#125;,1000</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
-<p>但是会报错，tick()不是一个方法<br>2.this.tick()<br>this.tick()中的this指代的时function,而不是我们想要的指代所在的组件类Clock,所以我们要想办法让this能被正常指代。我们这里采用围魏救赵的办法;</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">let that &#x3D; this;</span><br><span class="line">this.timerID&#x3D;setInterval(function()&#123;</span><br><span class="line">    return that.tick();</span><br><span class="line">&#125;,1000);</span><br></pre></td></tr></table></figure>
-<p>在闭包函数的外部先用that引用组件Clock中挂载组件方法componentDidMount()中this的值，然后再setlnterval中闭包函数中使用that,that无法找到声明，就会根据作用域链去上级(上次层)中继承that,也就是我们引用的组件类Clock中的this.<br>到此为止，将()=&gt;this.tick()等价代换为了我们熟悉的形式。</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">React</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/16/React-State-%E7%8A%B6%E6%80%81/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-React组件" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/14/React%E7%BB%84%E4%BB%B6/">React组件</a>
-    </h1>
-  
-
-        
-        <a href="/2020/04/14/React%E7%BB%84%E4%BB%B6/" class="archive-article-date">
-  	<time datetime="2020-04-14T14:07:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-14</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="React组件"><a href="#React组件" class="headerlink" title="React组件"></a>React组件</h2><p>我们将讨论如何使用组件来使得我们的应用更容易来管理<br>接下来我们封装一个输出”Hello World!”的组件，组件名为HelloMessage;</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">function HelloMessage(props)&#123;</span><br><span class="line">    return &lt;h1&gt;Hello World!&lt;&#x2F;h1&gt;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">const element &#x3D; &lt;HelloMessage &#x2F;&gt;;</span><br><span class="line"></span><br><span class="line">ReactDOM.render(</span><br><span class="line">    element,</span><br><span class="line">    document.getElementById(&#39;example&#39;)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
-<p><strong>实例解析</strong><br>1,我们可以使用函数定义了一个组件:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">function HelloMessage(props)&#123;</span><br><span class="line">    return &lt;h1&gt;Hello World!&lt;&#x2F;h1&gt;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>你也可以使用ES6 class来定义一个组件：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">class Welcome extends React.Component &#123;</span><br><span class="line">    render()&#123;</span><br><span class="line">        return &lt;h1&gt;Hello World!&lt;&#x2F;h1&gt;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>2,const element = <HelloMessage />为用户自定义的组件。<br>注意，原生HTML元素名以小写字母开头，而自定义的React类名以大写字母开头，比如HelloMessage不能写成helloMessage.除此之外还需要注意组件类只能包含一个顶层标签，否则也会报错。<br>如果我们需要向组件传递参数，可以使用this.props对象,实例如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">function HelloMessage(props)&#123;</span><br><span class="line">    return &lt;h1&gt;Hello &#123;props.name&#125;!&lt;&#x2F;h1&gt;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">const element &#x3D; &lt;HelloMessage name&#x3D;&quot;Runoob&quot; &#x2F;&gt;;</span><br><span class="line"></span><br><span class="line">ReactDOM.render(</span><br><span class="line">    element,</span><br><span class="line">    document.getElementById(&#39;example&#39;)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
-<p>以上实例中<em>name</em>属性通过<code>props.name</code>来获取。<br>注意,在添加属性时,class属性需要写成className,for属性需要写成htmlFor,这是因为class和for是JavaScript的保留字。</p>
-<h2 id="复合组件"><a href="#复合组件" class="headerlink" title="复合组件"></a>复合组件</h2><p>我们可以通过创建多个组件来合成一个组件，即把组件的不同功能点进行分离。<br>以下实例我们实现了输出网站的名称和网址的组件。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">function Name(props)&#123;</span><br><span class="line">    return &lt;h1&gt;网站名称：&#123;props.name&#125;&lt;&#x2F;h1&gt;;</span><br><span class="line">&#125;</span><br><span class="line">function Url(props)&#123;</span><br><span class="line">    return &lt;h1&gt;网站地址：&#123;props.url&#125;&lt;&#x2F;h1&gt;;</span><br><span class="line">&#125;</span><br><span class="line">function Nickname(props)&#123;</span><br><span class="line">    return &lt;h1&gt;网站小名：&#123;props.nickname&#125;&lt;&#x2F;h1&gt;;</span><br><span class="line">&#125;</span><br><span class="line">function App()&#123;</span><br><span class="line">    return (</span><br><span class="line">        &lt;div&gt;</span><br><span class="line">            &lt;Name name&#x3D;&quot;菜鸟教程&quot; &#x2F;&gt;</span><br><span class="line">            &lt;Url url&#x3D;&quot;http:&#x2F;&#x2F;www.runoob.com&quot; &#x2F;&gt;</span><br><span class="line">            &lt;Nickname nickname&#x3D;&quot;Runoob&quot; &#x2F;&gt;</span><br><span class="line">        &lt;&#x2F;div&gt;</span><br><span class="line">    );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">ReactDOM.render(</span><br><span class="line">    &lt;APP &#x2F;&gt;,</span><br><span class="line">    document.getElementById(&#39;example&#39;)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
-<p>实例中App组件使用了Name,Url和Nickname组件来输出对应的信息。</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">React</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/14/React%E7%BB%84%E4%BB%B6/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-调酒" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/14/%E8%B0%83%E9%85%92/">调酒</a>
-    </h1>
-  
-
-        
-        <a href="/2020/04/14/%E8%B0%83%E9%85%92/" class="archive-article-date">
-  	<time datetime="2020-04-14T06:26:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-14</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">调酒</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/14/%E8%B0%83%E9%85%92/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/4/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/6/">Next &amp;raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/4/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/6/">Next &amp;raquo;</a>
     </nav>
   
 
@@ -1140,11 +1172,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+                <a href="javascript:void(0)" class="js-tag color4">ES6</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ES6</a>
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1168,15 +1200,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Web</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">js</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">培训</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Web</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1184,7 +1212,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+                <a href="javascript:void(0)" class="js-tag color3">js</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1196,7 +1224,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Web前端开发修炼指南</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">杂谈</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1205,10 +1241,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">前端</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">杂谈</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1232,11 +1264,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">随笔    - 随笔</a>
+                <a href="javascript:void(0)" class="js-tag color3">调酒</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">调酒</a>
+                <a href="javascript:void(0)" class="js-tag color1">随笔    - 随笔</a>
               </li>
             
             <div class="clearfix"></div>

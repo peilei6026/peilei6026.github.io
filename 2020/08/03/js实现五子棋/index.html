@@ -8,15 +8,15 @@
   <link rel="dns-prefetch" href="https://peilei6026.github.io">
   <title>js实现五子棋 | 裴雷de博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="五子棋              canvas {             display: block;             margin: 50px auto;             box-shadow: -2px -2px 2px #efefef, 5px 5px 5px #b9b9b9;         }">
+  <meta name="description" content="五子棋 	 		canvas { 			display: block; 			margin: 50px auto; 			box-shadow: -2px -2px 2px #efefef, 5px 5px 5px #b9b9b9; 		} 	    	 	 		var chessBoard &#x3D; [] 		var over &#x3D; false  		&#x2F;&#x2F; 赢法数组 		var wins">
 <meta property="og:type" content="article">
 <meta property="og:title" content="js实现五子棋">
 <meta property="og:url" content="https://peilei6026.github.io/2020/08/03/js%E5%AE%9E%E7%8E%B0%E4%BA%94%E5%AD%90%E6%A3%8B/index.html">
 <meta property="og:site_name" content="裴雷de博客">
-<meta property="og:description" content="五子棋              canvas {             display: block;             margin: 50px auto;             box-shadow: -2px -2px 2px #efefef, 5px 5px 5px #b9b9b9;         }">
+<meta property="og:description" content="五子棋 	 		canvas { 			display: block; 			margin: 50px auto; 			box-shadow: -2px -2px 2px #efefef, 5px 5px 5px #b9b9b9; 		} 	    	 	 		var chessBoard &#x3D; [] 		var over &#x3D; false  		&#x2F;&#x2F; 赢法数组 		var wins">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-08-03T07:22:17.000Z">
-<meta property="article:modified_time" content="2020-08-20T08:13:35.003Z">
+<meta property="article:modified_time" content="2020-08-20T08:39:52.805Z">
 <meta property="article:author" content="裴雷">
 <meta property="article:tag" content="学习">
 <meta property="article:tag" content="js">
@@ -184,242 +184,245 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <!DOCTYPE html>
+        
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>五子棋</title>
-    <style>
-        canvas {
-            display: block;
-            margin: 50px auto;
-            box-shadow: -2px -2px 2px #efefef, 5px 5px 5px #b9b9b9;
-        }
-    </style>
+	<meta charset="UTF-8">
+	<title>五子棋</title>
+	<style>
+		canvas {
+			display: block;
+			margin: 50px auto;
+			box-shadow: -2px -2px 2px #efefef, 5px 5px 5px #b9b9b9;
+		}
+	</style>
 <meta name="generator" content="Hexo 4.2.0"><link rel="alternate" href="/atom.xml" title="裴雷de博客" type="application/atom+xml">
 </head>
 <body>
-    <canvas id="chess" width="450px" height="450px"></canvas>
-    <script>
-        var chessBoard = []
-        var over = false
+	<canvas id="chess" width="450px" height="450px"></canvas>
+	<script>
+		var chessBoard = []
+		var over = false
 
-<pre><code>    // 赢法数组
-    var wins = []
+		// 赢法数组
+		var wins = []
 
-    // 赢法的统计数组
-    var myWin = []
-    var computerWin = []
+		// 赢法的统计数组
+		var myWin = []
+		var computerWin = []
 
-    for (var i = 0; i &lt; 15; i++) {
-        chessBoard[i] = []
-        for(var j = 0; j &lt; 15; j++) {
-            chessBoard[i][j] = 0
-        }
-    }
+		for (var i = 0; i < 15; i++) {
+			chessBoard[i] = []
+			for(var j = 0; j < 15; j++) {
+				chessBoard[i][j] = 0
+			}
+		}
 
-    for (var i = 0; i &lt; 15; i++) {
-        wins[i] = []
-        for(var j = 0; j &lt; 15; j++) {
-            wins[i][j] = []
-        }
-    }
+		for (var i = 0; i < 15; i++) {
+			wins[i] = []
+			for(var j = 0; j < 15; j++) {
+				wins[i][j] = []
+			}
+		}
 
-    var count = 0
-    for(var i = 0; i &lt; 15; i++) {
-        for(var j = 0; j&lt;11; j++) {
-            for(var k = 0; k &lt; 5; k++) {
-                wins[i][j+k][count] = true
-            }
-            count++
-        }
-    }
+		var count = 0
+		for(var i = 0; i < 15; i++) {
+			for(var j = 0; j<11; j++) {
+				for(var k = 0; k < 5; k++) {
+					wins[i][j+k][count] = true
+				}
+				count++
+			}
+		}
 
-    for(var i = 0; i &lt; 15; i++) {
-        for(var j = 0; j&lt;11; j++) {
-            for(var k = 0; k &lt; 5; k++) {
-                wins[j+k][i][count] = true
-            }
-            count++
-        }
-    }
+		for(var i = 0; i < 15; i++) {
+			for(var j = 0; j<11; j++) {
+				for(var k = 0; k < 5; k++) {
+					wins[j+k][i][count] = true
+				}
+				count++
+			}
+		}
 
-    for(var i = 0; i &lt; 11; i++) {
-        for(var j = 0; j&lt;11; j++) {
-            for(var k = 0; k &lt; 5; k++) {
-                wins[i+k][j+k][count] = true
-            }
-            count++
-        }
-    }        
+		for(var i = 0; i < 11; i++) {
+			for(var j = 0; j<11; j++) {
+				for(var k = 0; k < 5; k++) {
+					wins[i+k][j+k][count] = true
+				}
+				count++
+			}
+		}		
 
-    for(var i = 0; i &lt; 11; i++) {
-        for(var j = 14; j&gt;3; j--) {
-            for(var k = 0; k &lt; 5; k++) {
-                wins[i+k][j-k][count] = true
-            }
-            count++
-        }
-    }
+		for(var i = 0; i < 11; i++) {
+			for(var j = 14; j>3; j--) {
+				for(var k = 0; k < 5; k++) {
+					wins[i+k][j-k][count] = true
+				}
+				count++
+			}
+		}
 
-    for(var i = 0; i &lt; count; i++) {
-        myWin[i] = 0
-        computerWin[i] = 0
-    }
+		for(var i = 0; i < count; i++) {
+			myWin[i] = 0
+			computerWin[i] = 0
+		}
 
-    var me = true
-    var chess = document.getElementById(&apos;chess&apos;)
-    var context = chess.getContext(&apos;2d&apos;)
+		var me = true
+		var chess = document.getElementById('chess')
+		var context = chess.getContext('2d')
 
-    context.strokeStyle = &apos;#bfbfbf&apos;
+		context.strokeStyle = '#bfbfbf'
 
-    // var logo = new Image()
-    // logo.src = &apos;images/logo.png&apos;
-    // logo.onload = function () {
-    //     context.drawImage(logo, 0, 0, 450, 450)
-    // }
+		// var logo = new Image()
+		// logo.src = 'images/logo.png'
+		// logo.onload = function () {
+		// 	context.drawImage(logo, 0, 0, 450, 450)
+		// }
 
-    for(var i = 0; i &lt; 15; i++) {
-        context.moveTo(15 + i * 30, 15)
-        context.lineTo(15 + i * 30, 435)
-        context.stroke()
-        context.moveTo(15, 15 + i * 30)
-        context.lineTo(435, 15 + i * 30)
-        context.stroke()
-    }
+		for(var i = 0; i < 15; i++) {
+			context.moveTo(15 + i * 30, 15)
+			context.lineTo(15 + i * 30, 435)
+			context.stroke()
+			context.moveTo(15, 15 + i * 30)
+			context.lineTo(435, 15 + i * 30)
+			context.stroke()
+		}
 
+		
 
+		var oneStep = function (i, j, me) {
+			context.beginPath()
+			context.arc(15 + i * 30, 15 + j * 30, 13, 0, 2 * Math.PI)
+			context.closePath()
+			var gradient = context.createRadialGradient(15 + i * 30 + 2, 15 + j * 30 - 2, 15, 15 + i * 30 + 2, 15 + j * 30 - 2, 0)
+			if (me) {
+				gradient.addColorStop(0, '#0a0a0a')
+				gradient.addColorStop(1, '#636766')
+			} else {
+				gradient.addColorStop(0, '#d1d1d1')
+				gradient.addColorStop(1, '#f9f9f9')
+			}
+			context.fillStyle = gradient
+			context.fill()
+		}
 
-    var oneStep = function (i, j, me) {
-        context.beginPath()
-        context.arc(15 + i * 30, 15 + j * 30, 13, 0, 2 * Math.PI)
-        context.closePath()
-        var gradient = context.createRadialGradient(15 + i * 30 + 2, 15 + j * 30 - 2, 15, 15 + i * 30 + 2, 15 + j * 30 - 2, 0)
-        if (me) {
-            gradient.addColorStop(0, &apos;#0a0a0a&apos;)
-            gradient.addColorStop(1, &apos;#636766&apos;)
-        } else {
-            gradient.addColorStop(0, &apos;#d1d1d1&apos;)
-            gradient.addColorStop(1, &apos;#f9f9f9&apos;)
-        }
-        context.fillStyle = gradient
-        context.fill()
-    }
+		chess.onclick = function (e) {
+			if (over || !me) {return}
+			var x = e.offsetX
+			var y = e.offsetY
+			var i = Math.floor(x / 30)
+			var j = Math.floor(y / 30)
+			if (chessBoard[i][j] === 0) {
+				oneStep(i, j, me)
+				chessBoard[i][j] = 1
+				for(var k = 0; k < count; k++) {
+					if (wins[i][j][k]) {
+						myWin[k]++
+						computerWin[k] = 6
+						if (myWin[k] == 5) {
+							window.alert('你赢了')
+							over = true
+						}
+					}
+				}
 
-    chess.onclick = function (e) {
-        if (over || !me) {return}
-        var x = e.offsetX
-        var y = e.offsetY
-        var i = Math.floor(x / 30)
-        var j = Math.floor(y / 30)
-        if (chessBoard[i][j] === 0) {
-            oneStep(i, j, me)
-            chessBoard[i][j] = 1
-            for(var k = 0; k &lt; count; k++) {
-                if (wins[i][j][k]) {
-                    myWin[k]++
-                    computerWin[k] = 6
-                    if (myWin[k] == 5) {
-                        window.alert(&apos;你赢了&apos;)
-                        over = true
-                    }
-                }
-            }
+				if (!over) {
+					me = !me
+					computerAI()
+				}
+			}
+		}
 
-            if (!over) {
-                me = !me
-                computerAI()
-            }
-        }
-    }
+		var computerAI = function () {
+			var myScore = []
+			var computerScore = []
+			var max = 0
+			var u = 0, v = 0
 
-    var computerAI = function () {
-        var myScore = []
-        var computerScore = []
-        var max = 0
-        var u = 0, v = 0
+			for(var i = 0; i < 15; i++) {
+				myScore[i] = []
+				computerScore[i] = []
+				for(var j = 0; j< 15; j++) {
+					myScore[i][j] = 0
+					computerScore[i][j] = 0
+				}
+			}
 
-        for(var i = 0; i &lt; 15; i++) {
-            myScore[i] = []
-            computerScore[i] = []
-            for(var j = 0; j&lt; 15; j++) {
-                myScore[i][j] = 0
-                computerScore[i][j] = 0
-            }
-        }
+			for(var i = 0; i < 15; i++) {
+				for(var j = 0; j< 15;j++) {
+					if (chessBoard[i][j] == 0) {
+						for (var k = 0; k < count; k++) {
+							if (wins[i][j][k]) {
+								if (myWin[k] == 1) {
+									myScore[i][j] += 200
+								} else if(myWin[k] == 2) {
+									myScore[i][j] += 400
+								} else if(myWin[k] == 3) {
+									myScore[i][j] += 2000
+								} else if(myWin[k] == 4) {
+									myScore[i][j] += 10000
+								}
 
-        for(var i = 0; i &lt; 15; i++) {
-            for(var j = 0; j&lt; 15;j++) {
-                if (chessBoard[i][j] == 0) {
-                    for (var k = 0; k &lt; count; k++) {
-                        if (wins[i][j][k]) {
-                            if (myWin[k] == 1) {
-                                myScore[i][j] += 200
-                            } else if(myWin[k] == 2) {
-                                myScore[i][j] += 400
-                            } else if(myWin[k] == 3) {
-                                myScore[i][j] += 2000
-                            } else if(myWin[k] == 4) {
-                                myScore[i][j] += 10000
-                            }
+								if (computerWin[k] == 1) {
+									computerScore[i][j] += 220
+								} else if(computerWin[k] == 2) {
+									computerScore[i][j] += 420
+								} else if(computerWin[k] == 3) {
+									computerScore[i][j] += 2100
+								} else if(computerWin[k] == 4) {
+									computerScore[i][j] += 20000
+								}
+							}
+						}
 
-                            if (computerWin[k] == 1) {
-                                computerScore[i][j] += 220
-                            } else if(computerWin[k] == 2) {
-                                computerScore[i][j] += 420
-                            } else if(computerWin[k] == 3) {
-                                computerScore[i][j] += 2100
-                            } else if(computerWin[k] == 4) {
-                                computerScore[i][j] += 20000
-                            }
-                        }
-                    }
+						if (myScore[i][j] > max) {
+							max = myScore[i][j]
+							u = i
+							v = j
+						} else if(myScore[i][j] == max) {
+							if (computerScore[i][j] > computerScore[u][v]) {
+								u = i
+								v = j
+							}
+						}
 
-                    if (myScore[i][j] &gt; max) {
-                        max = myScore[i][j]
-                        u = i
-                        v = j
-                    } else if(myScore[i][j] == max) {
-                        if (computerScore[i][j] &gt; computerScore[u][v]) {
-                            u = i
-                            v = j
-                        }
-                    }
+						if (computerScore[i][j] > max) {
+							max = computerScore[i][j]
+							u = i
+							v = j
+						} else if(computerScore[i][j] == max) {
+							if (myScore[i][j] > myScore[u][v]) {
+								u = i
+								v = j
+							}
+						}
+					}
+				}
+			}
 
-                    if (computerScore[i][j] &gt; max) {
-                        max = computerScore[i][j]
-                        u = i
-                        v = j
-                    } else if(computerScore[i][j] == max) {
-                        if (myScore[i][j] &gt; myScore[u][v]) {
-                            u = i
-                            v = j
-                        }
-                    }
-                }
-            }
-        }
+			oneStep(u, v, false)
+			chessBoard[u][v] = 2
 
-        oneStep(u, v, false)
-        chessBoard[u][v] = 2
+			for(var k = 0; k < count; k++) {
+				if (wins[u][v][k]) {
+					computerWin[k]++
+					myWin[k] = 6
+					if (computerWin[k] == 5) {
+						window.alert('你输了')
+						over = true
+					}
+				}
+			}
 
-        for(var k = 0; k &lt; count; k++) {
-            if (wins[u][v][k]) {
-                computerWin[k]++
-                myWin[k] = 6
-                if (computerWin[k] == 5) {
-                    window.alert(&apos;你输了&apos;)
-                    over = true
-                }
-            }
-        }
-
-        if (!over) {
-            me = !me
-        }
-    }
-&lt;/script&gt;</code></pre></body>
+			if (!over) {
+				me = !me
+			}
+		}
+	</script>
+</body>
 </html>
+
       
 
       
@@ -596,11 +599,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+                <a href="javascript:void(0)" class="js-tag color4">ES6</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ES6</a>
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -624,15 +627,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Web</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">js</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">培训</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Web</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -640,7 +639,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+                <a href="javascript:void(0)" class="js-tag color3">js</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -652,7 +651,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Web前端开发修炼指南</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">杂谈</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -661,10 +668,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">前端</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">杂谈</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -688,11 +691,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">随笔    - 随笔</a>
+                <a href="javascript:void(0)" class="js-tag color3">调酒</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">调酒</a>
+                <a href="javascript:void(0)" class="js-tag color1">随笔    - 随笔</a>
               </li>
             
             <div class="clearfix"></div>
