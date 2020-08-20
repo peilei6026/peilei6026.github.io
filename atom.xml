@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://peilei6026.github.io/"/>
-  <updated>2020-08-20T08:05:24.708Z</updated>
+  <updated>2020-08-20T08:13:58.544Z</updated>
   <id>https://peilei6026.github.io/</id>
   
   <author>
@@ -21,13 +21,15 @@
     <link href="https://peilei6026.github.io/2020/08/20/js%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%8F%8A%E7%AE%97%E6%B3%95/"/>
     <id>https://peilei6026.github.io/2020/08/20/js%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%8F%8A%E7%AE%97%E6%B3%95/</id>
     <published>2020-08-20T07:50:41.000Z</published>
-    <updated>2020-08-20T08:05:24.708Z</updated>
+    <updated>2020-08-20T08:13:58.544Z</updated>
     
     <summary type="html">
     
     </summary>
     
     
+    
+      <category term="学习" scheme="https://peilei6026.github.io/tags/%E5%AD%A6%E4%B9%A0/"/>
     
       <category term="js" scheme="https://peilei6026.github.io/tags/js/"/>
     
@@ -62,7 +64,7 @@
     <link href="https://peilei6026.github.io/2020/08/14/js%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B8%8E%E5%BC%80%E5%8F%91%E5%AE%9E%E8%B7%B5/"/>
     <id>https://peilei6026.github.io/2020/08/14/js%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B8%8E%E5%BC%80%E5%8F%91%E5%AE%9E%E8%B7%B5/</id>
     <published>2020-08-14T09:14:36.000Z</published>
-    <updated>2020-08-14T10:16:50.939Z</updated>
+    <updated>2020-08-20T08:13:44.448Z</updated>
     
     <content type="html"><![CDATA[<h1 id="第一部分基础"><a href="#第一部分基础" class="headerlink" title="第一部分基础"></a>第一部分基础</h1><h1 id="1-面向对象得js"><a href="#1-面向对象得js" class="headerlink" title="1. 面向对象得js"></a>1. 面向对象得js</h1><h1 id="1-1-动态类型语言和鸭子类型"><a href="#1-1-动态类型语言和鸭子类型" class="headerlink" title="1.1 动态类型语言和鸭子类型"></a>1.1 动态类型语言和鸭子类型</h1><p>编程语言分为<br><em>静态类型语言*，<br>在编译时便已经确定变量得类型的<br>优点：<br>编译时能发现不匹配的错误，编辑器可以帮助我们提前避免程序在运行期间有可能发生的一些错误。<br>其次如果在程序中明确地规定了数据类型，编辑器还可以针对这些信息对程序进行一些优化工作，提高程序执行速度。<br>缺点：<br>*动态类型语言</em><br>和在程序运行得时候，待变量被赋值后，才会具有某种类型得 </p><h1 id="第二部分核心"><a href="#第二部分核心" class="headerlink" title="第二部分核心"></a>第二部分核心</h1><h1 id="第三部分技巧"><a href="#第三部分技巧" class="headerlink" title="第三部分技巧"></a>第三部分技巧</h1>]]></content>
     
@@ -76,6 +78,8 @@
     </summary>
     
     
+    
+      <category term="学习" scheme="https://peilei6026.github.io/tags/%E5%AD%A6%E4%B9%A0/"/>
     
       <category term="js" scheme="https://peilei6026.github.io/tags/js/"/>
     
@@ -134,7 +138,7 @@
     <link href="https://peilei6026.github.io/2020/08/08/Web%E5%AE%89%E5%85%A8/"/>
     <id>https://peilei6026.github.io/2020/08/08/Web%E5%AE%89%E5%85%A8/</id>
     <published>2020-08-08T01:07:57.000Z</published>
-    <updated>2020-08-08T01:40:15.247Z</updated>
+    <updated>2020-08-20T08:14:18.691Z</updated>
     
     <content type="html"><![CDATA[<h1 id="同源策略"><a href="#同源策略" class="headerlink" title="同源策略"></a>同源策略</h1><p>域名(子域名)相同，端口相同，协议相同<br>公司的Nginx前端配置保证了其 web应用处于一个同源状态中<br>web应用中有请求数据的部分建议开启session验证或者自己携带token验证</p><h1 id="跨站脚本攻击-XSS"><a href="#跨站脚本攻击-XSS" class="headerlink" title="跨站脚本攻击(XSS)"></a>跨站脚本攻击(XSS)</h1><p>XSS通常值的时候，黑客通过HTML注入来篡改网页，主要分为</p><h2 id="反射性XSS"><a href="#反射性XSS" class="headerlink" title="反射性XSS"></a>反射性XSS</h2><h2 id="存储性XSS"><a href="#存储性XSS" class="headerlink" title="存储性XSS"></a>存储性XSS</h2><p>钓鱼网站等在浏览过程中执行恶意代码</p><h2 id="基于DOM的XSS"><a href="#基于DOM的XSS" class="headerlink" title="基于DOM的XSS"></a>基于DOM的XSS</h2><h2 id="Demo"><a href="#Demo" class="headerlink" title="Demo"></a>Demo</h2><p>输入testurl后输入’onclick=alert(/xss/)//</p><h2 id="例用字符串编码"><a href="#例用字符串编码" class="headerlink" title="例用字符串编码"></a>例用字符串编码</h2><h2 id="绕过长度限制"><a href="#绕过长度限制" class="headerlink" title="绕过长度限制"></a>绕过长度限制</h2><h2 id="使用标签"><a href="#使用标签" class="headerlink" title="使用标签"></a>使用<base>标签</h2><h2 id="window-name"><a href="#window-name" class="headerlink" title="window.name"></a>window.name</h2><p>窃取管理员帐号或Cookie，冒充管理员操纵后台数据。  </p><p>窃取用户的个人信息或者登录帐号，对网站的用户安全产生巨大的威胁。 </p><p>网站挂马，利用嵌入到Web应用程序中的代码，在用户的计算机植入木马。 </p><p>发送广告或者垃圾信息，严重影响到用户的正常使用。</p>]]></content>
     
@@ -148,6 +152,8 @@
     </summary>
     
     
+    
+      <category term="学习" scheme="https://peilei6026.github.io/tags/%E5%AD%A6%E4%B9%A0/"/>
     
       <category term="Web" scheme="https://peilei6026.github.io/tags/Web/"/>
     
@@ -184,7 +190,7 @@
     <link href="https://peilei6026.github.io/2020/08/06/JS%E6%9D%83%E5%A8%81%E6%8C%87%E5%8D%97/"/>
     <id>https://peilei6026.github.io/2020/08/06/JS%E6%9D%83%E5%A8%81%E6%8C%87%E5%8D%97/</id>
     <published>2020-08-06T00:59:17.000Z</published>
-    <updated>2020-08-06T01:14:03.477Z</updated>
+    <updated>2020-08-20T08:13:54.320Z</updated>
     
     <content type="html"><![CDATA[<h1 id="基础知识"><a href="#基础知识" class="headerlink" title="基础知识"></a>基础知识</h1><p>脚本语言，弱类型，轻量级，性能卓越。<br>轻量级：语言简练，实用性广</p>]]></content>
     
@@ -200,7 +206,9 @@
     
     
     
-      <category term="React" scheme="https://peilei6026.github.io/tags/React/"/>
+      <category term="react" scheme="https://peilei6026.github.io/tags/react/"/>
+    
+      <category term="学习" scheme="https://peilei6026.github.io/tags/%E5%AD%A6%E4%B9%A0/"/>
     
   </entry>
   
@@ -233,7 +241,7 @@
     <link href="https://peilei6026.github.io/2020/08/04/WEB%E7%BC%96%E7%A0%81%E8%A7%84%E8%8C%83/"/>
     <id>https://peilei6026.github.io/2020/08/04/WEB%E7%BC%96%E7%A0%81%E8%A7%84%E8%8C%83/</id>
     <published>2020-08-04T01:04:54.000Z</published>
-    <updated>2020-08-08T01:38:24.921Z</updated>
+    <updated>2020-08-20T08:14:16.611Z</updated>
     
     <content type="html"><![CDATA[<p>为什么要遵循编码规范<br>可读性好，易于维护，不易出错，最佳实践<br>web编码规范</p><p>命名的重要性</p>]]></content>
     
@@ -250,6 +258,8 @@
     
     
     
+      <category term="学习" scheme="https://peilei6026.github.io/tags/%E5%AD%A6%E4%B9%A0/"/>
+    
       <category term="培训" scheme="https://peilei6026.github.io/tags/%E5%9F%B9%E8%AE%AD/"/>
     
   </entry>
@@ -259,7 +269,7 @@
     <link href="https://peilei6026.github.io/2020/08/03/js%E5%AE%9E%E7%8E%B0%E4%BA%94%E5%AD%90%E6%A3%8B/"/>
     <id>https://peilei6026.github.io/2020/08/03/js%E5%AE%9E%E7%8E%B0%E4%BA%94%E5%AD%90%E6%A3%8B/</id>
     <published>2020-08-03T07:22:17.000Z</published>
-    <updated>2020-08-20T08:10:14.446Z</updated>
+    <updated>2020-08-20T08:13:35.003Z</updated>
     
     <content type="html"><![CDATA[<!DOCTYPE html><html lang="en"><head>    <meta charset="UTF-8">    <title>五子棋</title>    <style>        canvas {            display: block;            margin: 50px auto;            box-shadow: -2px -2px 2px #efefef, 5px 5px 5px #b9b9b9;        }    </style><meta name="generator" content="Hexo 4.2.0"><link rel="alternate" href="/atom.xml" title="裴雷de博客" type="application/atom+xml"></head><body>    <canvas id="chess" width="450px" height="450px"></canvas>    <script>        var chessBoard = []        var over = false<pre><code>    // 赢法数组    var wins = []    // 赢法的统计数组    var myWin = []    var computerWin = []    for (var i = 0; i &lt; 15; i++) {        chessBoard[i] = []        for(var j = 0; j &lt; 15; j++) {            chessBoard[i][j] = 0        }    }    for (var i = 0; i &lt; 15; i++) {        wins[i] = []        for(var j = 0; j &lt; 15; j++) {            wins[i][j] = []        }    }    var count = 0    for(var i = 0; i &lt; 15; i++) {        for(var j = 0; j&lt;11; j++) {            for(var k = 0; k &lt; 5; k++) {                wins[i][j+k][count] = true            }            count++        }    }    for(var i = 0; i &lt; 15; i++) {        for(var j = 0; j&lt;11; j++) {            for(var k = 0; k &lt; 5; k++) {                wins[j+k][i][count] = true            }            count++        }    }    for(var i = 0; i &lt; 11; i++) {        for(var j = 0; j&lt;11; j++) {            for(var k = 0; k &lt; 5; k++) {                wins[i+k][j+k][count] = true            }            count++        }    }            for(var i = 0; i &lt; 11; i++) {        for(var j = 14; j&gt;3; j--) {            for(var k = 0; k &lt; 5; k++) {                wins[i+k][j-k][count] = true            }            count++        }    }    for(var i = 0; i &lt; count; i++) {        myWin[i] = 0        computerWin[i] = 0    }    var me = true    var chess = document.getElementById(&apos;chess&apos;)    var context = chess.getContext(&apos;2d&apos;)    context.strokeStyle = &apos;#bfbfbf&apos;    // var logo = new Image()    // logo.src = &apos;images/logo.png&apos;    // logo.onload = function () {    //     context.drawImage(logo, 0, 0, 450, 450)    // }    for(var i = 0; i &lt; 15; i++) {        context.moveTo(15 + i * 30, 15)        context.lineTo(15 + i * 30, 435)        context.stroke()        context.moveTo(15, 15 + i * 30)        context.lineTo(435, 15 + i * 30)        context.stroke()    }    var oneStep = function (i, j, me) {        context.beginPath()        context.arc(15 + i * 30, 15 + j * 30, 13, 0, 2 * Math.PI)        context.closePath()        var gradient = context.createRadialGradient(15 + i * 30 + 2, 15 + j * 30 - 2, 15, 15 + i * 30 + 2, 15 + j * 30 - 2, 0)        if (me) {            gradient.addColorStop(0, &apos;#0a0a0a&apos;)            gradient.addColorStop(1, &apos;#636766&apos;)        } else {            gradient.addColorStop(0, &apos;#d1d1d1&apos;)            gradient.addColorStop(1, &apos;#f9f9f9&apos;)        }        context.fillStyle = gradient        context.fill()    }    chess.onclick = function (e) {        if (over || !me) {return}        var x = e.offsetX        var y = e.offsetY        var i = Math.floor(x / 30)        var j = Math.floor(y / 30)        if (chessBoard[i][j] === 0) {            oneStep(i, j, me)            chessBoard[i][j] = 1            for(var k = 0; k &lt; count; k++) {                if (wins[i][j][k]) {                    myWin[k]++                    computerWin[k] = 6                    if (myWin[k] == 5) {                        window.alert(&apos;你赢了&apos;)                        over = true                    }                }            }            if (!over) {                me = !me                computerAI()            }        }    }    var computerAI = function () {        var myScore = []        var computerScore = []        var max = 0        var u = 0, v = 0        for(var i = 0; i &lt; 15; i++) {            myScore[i] = []            computerScore[i] = []            for(var j = 0; j&lt; 15; j++) {                myScore[i][j] = 0                computerScore[i][j] = 0            }        }        for(var i = 0; i &lt; 15; i++) {            for(var j = 0; j&lt; 15;j++) {                if (chessBoard[i][j] == 0) {                    for (var k = 0; k &lt; count; k++) {                        if (wins[i][j][k]) {                            if (myWin[k] == 1) {                                myScore[i][j] += 200                            } else if(myWin[k] == 2) {                                myScore[i][j] += 400                            } else if(myWin[k] == 3) {                                myScore[i][j] += 2000                            } else if(myWin[k] == 4) {                                myScore[i][j] += 10000                            }                            if (computerWin[k] == 1) {                                computerScore[i][j] += 220                            } else if(computerWin[k] == 2) {                                computerScore[i][j] += 420                            } else if(computerWin[k] == 3) {                                computerScore[i][j] += 2100                            } else if(computerWin[k] == 4) {                                computerScore[i][j] += 20000                            }                        }                    }                    if (myScore[i][j] &gt; max) {                        max = myScore[i][j]                        u = i                        v = j                    } else if(myScore[i][j] == max) {                        if (computerScore[i][j] &gt; computerScore[u][v]) {                            u = i                            v = j                        }                    }                    if (computerScore[i][j] &gt; max) {                        max = computerScore[i][j]                        u = i                        v = j                    } else if(computerScore[i][j] == max) {                        if (myScore[i][j] &gt; myScore[u][v]) {                            u = i                            v = j                        }                    }                }            }        }        oneStep(u, v, false)        chessBoard[u][v] = 2        for(var k = 0; k &lt; count; k++) {            if (wins[u][v][k]) {                computerWin[k]++                myWin[k] = 6                if (computerWin[k] == 5) {                    window.alert(&apos;你输了&apos;)                    over = true                }            }        }        if (!over) {            me = !me        }    }&lt;/script&gt;</code></pre></body></html>]]></content>
     
@@ -280,6 +290,8 @@
     </summary>
     
     
+    
+      <category term="学习" scheme="https://peilei6026.github.io/tags/%E5%AD%A6%E4%B9%A0/"/>
     
       <category term="js" scheme="https://peilei6026.github.io/tags/js/"/>
     
@@ -429,7 +441,7 @@
     <link href="https://peilei6026.github.io/2020/07/11/%E5%85%B3%E4%BA%8E%E6%88%90%E5%8A%9F%E6%88%96%E8%80%85%E7%94%9F%E6%B4%BB%E7%9A%84%E8%8B%A5%E5%B9%B2%E6%84%8F%E8%A7%81/"/>
     <id>https://peilei6026.github.io/2020/07/11/%E5%85%B3%E4%BA%8E%E6%88%90%E5%8A%9F%E6%88%96%E8%80%85%E7%94%9F%E6%B4%BB%E7%9A%84%E8%8B%A5%E5%B9%B2%E6%84%8F%E8%A7%81/</id>
     <published>2020-07-11T15:56:39.000Z</published>
-    <updated>2020-07-11T16:02:34.658Z</updated>
+    <updated>2020-08-20T08:13:14.572Z</updated>
     
     <content type="html"><![CDATA[<p>I can’t stop breathing because tomorrow, when the sun rises, who knows what the tide can bring?<br>我不能停止呼吸，因为明天，当太阳升起，谁知道潮水能带来什么？</p><p>如果把不断的奋斗，挑战自己作为定义，你会不会更加成功？<br>只要你还在努力，还在越走越近，你就是一个成功人士。<br>你会一直享受这种越走越近的快乐。</p><p>当你把成功的定义放在外界，你会把自己陷入一种不可控的焦虑，一种获得前的恐惧，获得后空虚的生活当中。你的天花板是别人的地板，而你总在往上看，从来没有留意过窗边的风景。<br>只有当你把成功定义放在内心，你才能真正获得可以掌控的幸福，获得那种贯彻始终的幸福生活。你可以安心的靠在窗口看看风景，然后更快上楼。</p>]]></content>
     
