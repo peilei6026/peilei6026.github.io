@@ -160,27 +160,27 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-输入n个数，找出其中最小的K个数" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-js数据结构及算法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/07/18/%E8%BE%93%E5%85%A5n%E4%B8%AA%E6%95%B0%EF%BC%8C%E6%89%BE%E5%87%BA%E5%85%B6%E4%B8%AD%E6%9C%80%E5%B0%8F%E7%9A%84K%E4%B8%AA%E6%95%B0/">输入n个数，找出其中最小的K个数</a>
+      <a class="article-title" href="/2020/08/20/js%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%8F%8A%E7%AE%97%E6%B3%95/">js数据结构及算法</a>
     </h1>
   
 
         
-        <a href="/2020/07/18/%E8%BE%93%E5%85%A5n%E4%B8%AA%E6%95%B0%EF%BC%8C%E6%89%BE%E5%87%BA%E5%85%B6%E4%B8%AD%E6%9C%80%E5%B0%8F%E7%9A%84K%E4%B8%AA%E6%95%B0/" class="archive-article-date">
-  	<time datetime="2020-07-18T14:45:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-18</time>
+        <a href="/2020/08/20/js%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%8F%8A%E7%AE%97%E6%B3%95/" class="archive-article-date">
+  	<time datetime="2020-08-20T07:50:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-20</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="问题：输入4，5，1，6，2，7，3，8这8个数，则最小的4个数是1，2，3，4"><a href="#问题：输入4，5，1，6，2，7，3，8这8个数，则最小的4个数是1，2，3，4" class="headerlink" title="问题：输入4，5，1，6，2，7，3，8这8个数，则最小的4个数是1，2，3，4"></a>问题：输入4，5，1，6，2，7，3，8这8个数，则最小的4个数是1，2，3，4</h1><h1 id="解题思路：这道题我们仍然可以用快速排序的思路来解决，基于数组的第k个数来调整，比第k个数小的数字都移到数组左边，比第k个数大的数字都移到数组的右边，这样一来，位于数组左边的k个数就是最小的k个数字（不一定需要全部排序）。在-PHP-中，只需要调用-sort-函数，取前k个数字就可以得到结果了，并且其时间复杂度是O-nlogn-，符合我们的预期。当然，快排也好，归并也好，都只适合小规模的数据，并不适用于海量数据的处理，比如上百万、上千万的数据集，使用数组函数-sort-显然不合适了，使用自行实现的快排也不合适，这个时候，我们可以考虑使用前面算法和数据结构中介绍的堆排序。堆排序的时间复杂度也是-O-nlogn-，这里我们需要通过大顶堆来实现，即维护一个大小为k的大顶堆，如果待处理数据集的长度大于k，则当数字容量超过k时，比较后续数字与堆顶数字值（堆中最大），大于则跳过，小于则重新堆化大顶堆，依次类推，直到整个数据集遍历一遍，最后保留下来的大顶堆就是最小的k个数。"><a href="#解题思路：这道题我们仍然可以用快速排序的思路来解决，基于数组的第k个数来调整，比第k个数小的数字都移到数组左边，比第k个数大的数字都移到数组的右边，这样一来，位于数组左边的k个数就是最小的k个数字（不一定需要全部排序）。在-PHP-中，只需要调用-sort-函数，取前k个数字就可以得到结果了，并且其时间复杂度是O-nlogn-，符合我们的预期。当然，快排也好，归并也好，都只适合小规模的数据，并不适用于海量数据的处理，比如上百万、上千万的数据集，使用数组函数-sort-显然不合适了，使用自行实现的快排也不合适，这个时候，我们可以考虑使用前面算法和数据结构中介绍的堆排序。堆排序的时间复杂度也是-O-nlogn-，这里我们需要通过大顶堆来实现，即维护一个大小为k的大顶堆，如果待处理数据集的长度大于k，则当数字容量超过k时，比较后续数字与堆顶数字值（堆中最大），大于则跳过，小于则重新堆化大顶堆，依次类推，直到整个数据集遍历一遍，最后保留下来的大顶堆就是最小的k个数。" class="headerlink" title="解题思路：这道题我们仍然可以用快速排序的思路来解决，基于数组的第k个数来调整，比第k个数小的数字都移到数组左边，比第k个数大的数字都移到数组的右边，这样一来，位于数组左边的k个数就是最小的k个数字（不一定需要全部排序）。在 PHP 中，只需要调用 sort 函数，取前k个数字就可以得到结果了，并且其时间复杂度是O(nlogn)，符合我们的预期。当然，快排也好，归并也好，都只适合小规模的数据，并不适用于海量数据的处理，比如上百万、上千万的数据集，使用数组函数 sort 显然不合适了，使用自行实现的快排也不合适，这个时候，我们可以考虑使用前面算法和数据结构中介绍的堆排序。堆排序的时间复杂度也是 O(nlogn)，这里我们需要通过大顶堆来实现，即维护一个大小为k的大顶堆，如果待处理数据集的长度大于k，则当数字容量超过k时，比较后续数字与堆顶数字值（堆中最大），大于则跳过，小于则重新堆化大顶堆，依次类推，直到整个数据集遍历一遍，最后保留下来的大顶堆就是最小的k个数。"></a>解题思路：这道题我们仍然可以用快速排序的思路来解决，基于数组的第k个数来调整，比第k个数小的数字都移到数组左边，比第k个数大的数字都移到数组的右边，这样一来，位于数组左边的k个数就是最小的k个数字（不一定需要全部排序）。在 PHP 中，只需要调用 sort 函数，取前k个数字就可以得到结果了，并且其时间复杂度是O(nlogn)，符合我们的预期。当然，快排也好，归并也好，都只适合小规模的数据，并不适用于海量数据的处理，比如上百万、上千万的数据集，使用数组函数 sort 显然不合适了，使用自行实现的快排也不合适，这个时候，我们可以考虑使用前面算法和数据结构中介绍的堆排序。堆排序的时间复杂度也是 O(nlogn)，这里我们需要通过大顶堆来实现，即维护一个大小为k的大顶堆，如果待处理数据集的长度大于k，则当数字容量超过k时，比较后续数字与堆顶数字值（堆中最大），大于则跳过，小于则重新堆化大顶堆，依次类推，直到整个数据集遍历一遍，最后保留下来的大顶堆就是最小的k个数。</h1>
+        
       
 
       
@@ -193,7 +193,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">笔试题</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
         		</li>
       		
 		</ul>
@@ -203,7 +203,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2020/07/18/%E8%BE%93%E5%85%A5n%E4%B8%AA%E6%95%B0%EF%BC%8C%E6%89%BE%E5%87%BA%E5%85%B6%E4%B8%AD%E6%9C%80%E5%B0%8F%E7%9A%84K%E4%B8%AA%E6%95%B0/">展开全文 >></a>
+          <a class="article-more-a" href="/2020/08/20/js%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%8F%8A%E7%AE%97%E6%B3%95/">展开全文 >></a>
         </p>
       
 
@@ -233,178 +233,28 @@
 
 
   
-    <article id="post-数组中有一个数字出现的次数超过数组长度的一半，请找出这个数字" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-一些问题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/07/17/%E6%95%B0%E7%BB%84%E4%B8%AD%E6%9C%89%E4%B8%80%E4%B8%AA%E6%95%B0%E5%AD%97%E5%87%BA%E7%8E%B0%E7%9A%84%E6%AC%A1%E6%95%B0%E8%B6%85%E8%BF%87%E6%95%B0%E7%BB%84%E9%95%BF%E5%BA%A6%E7%9A%84%E4%B8%80%E5%8D%8A%EF%BC%8C%E8%AF%B7%E6%89%BE%E5%87%BA%E8%BF%99%E4%B8%AA%E6%95%B0%E5%AD%97/">数组中有一个数字出现的次数超过数组长度的一半，请找出这个数字</a>
+      <a class="article-title" href="/2020/08/19/%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98/">一些问题</a>
     </h1>
   
 
         
-        <a href="/2020/07/17/%E6%95%B0%E7%BB%84%E4%B8%AD%E6%9C%89%E4%B8%80%E4%B8%AA%E6%95%B0%E5%AD%97%E5%87%BA%E7%8E%B0%E7%9A%84%E6%AC%A1%E6%95%B0%E8%B6%85%E8%BF%87%E6%95%B0%E7%BB%84%E9%95%BF%E5%BA%A6%E7%9A%84%E4%B8%80%E5%8D%8A%EF%BC%8C%E8%AF%B7%E6%89%BE%E5%87%BA%E8%BF%99%E4%B8%AA%E6%95%B0%E5%AD%97/" class="archive-article-date">
-  	<time datetime="2020-07-17T15:15:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-17</time>
+        <a href="/2020/08/19/%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98/" class="archive-article-date">
+  	<time datetime="2020-08-19T12:58:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-19</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="题目：例如输入一个长度为9的数组-1-2-3-2-2-2-5-4-2-由于2的数组中出现了5次-超过数组长度的一半，因此输出2"><a href="#题目：例如输入一个长度为9的数组-1-2-3-2-2-2-5-4-2-由于2的数组中出现了5次-超过数组长度的一半，因此输出2" class="headerlink" title="题目：例如输入一个长度为9的数组[1,2,3,2,2,2,5,4,2],由于2的数组中出现了5次,超过数组长度的一半，因此输出2."></a>题目：例如输入一个长度为9的数组[1,2,3,2,2,2,5,4,2],由于2的数组中出现了5次,超过数组长度的一半，因此输出2.</h1><h1 id="结题思路：对数组做排序-位于数组中间的数字就是我们要找的数字-次数超过一半-非php语言可能需要自己做快排，PHP数组不需要自己排序，调用数组自带得排序函数sort即可，因为它底层应用了快排和归并算法；"><a href="#结题思路：对数组做排序-位于数组中间的数字就是我们要找的数字-次数超过一半-非php语言可能需要自己做快排，PHP数组不需要自己排序，调用数组自带得排序函数sort即可，因为它底层应用了快排和归并算法；" class="headerlink" title="结题思路：对数组做排序,位于数组中间的数字就是我们要找的数字(次数超过一半),非php语言可能需要自己做快排，PHP数组不需要自己排序，调用数组自带得排序函数sort即可，因为它底层应用了快排和归并算法；"></a>结题思路：对数组做排序,位于数组中间的数字就是我们要找的数字(次数超过一半),非php语言可能需要自己做快排，PHP数组不需要自己排序，调用数组自带得排序函数sort即可，因为它底层应用了快排和归并算法；</h1><h1 id="思路二：遍历的时候通过额外的数组统计每个值出现的次数，这个额外的数组的建就是遍历数组的值。"><a href="#思路二：遍历的时候通过额外的数组统计每个值出现的次数，这个额外的数组的建就是遍历数组的值。" class="headerlink" title="思路二：遍历的时候通过额外的数组统计每个值出现的次数，这个额外的数组的建就是遍历数组的值。"></a>思路二：遍历的时候通过额外的数组统计每个值出现的次数，这个额外的数组的建就是遍历数组的值。</h1><h1 id="答案-php版"><a href="#答案-php版" class="headerlink" title="答案(php版)"></a>答案(php版)</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;方法1：排序法</span><br><span class="line">function method1(array $arr)</span><br><span class="line">&#123;</span><br><span class="line">    sort($arr);</span><br><span class="line">    return $arr[celi(count($arr)&#x2F;2)];</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;&#x2F;方法2：统计法</span><br><span class="line">function method2(array $arr)</span><br><span class="line">&#123;</span><br><span class="line">    $temp&#x3D;[];</span><br><span class="line">    $max &#x3D; count($arr) &#x2F; 2;</span><br><span class="line">    foreach ($arr as $val)&#123;</span><br><span class="line">        if(empty($temp[$val]))&#123;</span><br><span class="line">            $temp[$val] &#x3D; 1;</span><br><span class="line">        &#125;else&#123;</span><br><span class="line">            $temp[$val]++;</span><br><span class="line">        &#125;</span><br><span class="line">        if($temp[$val]&gt;&#x3D;ceil($max))&#123;</span><br><span class="line">            return $val;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;&#x2F;测试代码</span><br><span class="line">$arr &#x3D; [1,2,3,2,2,2,5,4,2];</span><br><span class="line">var_dump(method1($arr));&#x2F;&#x2F;int(2)</span><br><span class="line">var_dump(method2($arr));&#x2F;&#x2F;int(2s)</span><br></pre></td></tr></table></figure>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">笔试题</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/07/17/%E6%95%B0%E7%BB%84%E4%B8%AD%E6%9C%89%E4%B8%80%E4%B8%AA%E6%95%B0%E5%AD%97%E5%87%BA%E7%8E%B0%E7%9A%84%E6%AC%A1%E6%95%B0%E8%B6%85%E8%BF%87%E6%95%B0%E7%BB%84%E9%95%BF%E5%BA%A6%E7%9A%84%E4%B8%80%E5%8D%8A%EF%BC%8C%E8%AF%B7%E6%89%BE%E5%87%BA%E8%BF%99%E4%B8%AA%E6%95%B0%E5%AD%97/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-对公司员工年龄进行排序-快速排序" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/07/16/%E5%AF%B9%E5%85%AC%E5%8F%B8%E5%91%98%E5%B7%A5%E5%B9%B4%E9%BE%84%E8%BF%9B%E8%A1%8C%E6%8E%92%E5%BA%8F-%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/">对公司员工年龄进行排序(快速排序)</a>
-    </h1>
-  
-
-        
-        <a href="/2020/07/16/%E5%AF%B9%E5%85%AC%E5%8F%B8%E5%91%98%E5%B7%A5%E5%B9%B4%E9%BE%84%E8%BF%9B%E8%A1%8C%E6%8E%92%E5%BA%8F-%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/" class="archive-article-date">
-  	<time datetime="2020-07-16T13:48:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-16</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="问题：假设xxx公司有几万名员工-大厂标配-现在想要对所有员工的年龄进行排序-请实现一个排序算法，要求时间复杂度为O-nlogn-。"><a href="#问题：假设xxx公司有几万名员工-大厂标配-现在想要对所有员工的年龄进行排序-请实现一个排序算法，要求时间复杂度为O-nlogn-。" class="headerlink" title="问题：假设xxx公司有几万名员工(大厂标配),现在想要对所有员工的年龄进行排序,请实现一个排序算法，要求时间复杂度为O(nlogn)。"></a>问题：假设xxx公司有几万名员工(大厂标配),现在想要对所有员工的年龄进行排序,请实现一个排序算法，要求时间复杂度为O(nlogn)。</h1><h1 id="解题思路-时间复杂度O-nlogn-那么选择冒泡就不合适了，如果给定的数据初始排序大部分都已经排序好只是后半段部分需要调整，那应该可以直接用插入排序，取决于初始排序的情况，最好的情况是可以在O-n-剩下的归并，快速，堆排序都行，这里用快速实现"><a href="#解题思路-时间复杂度O-nlogn-那么选择冒泡就不合适了，如果给定的数据初始排序大部分都已经排序好只是后半段部分需要调整，那应该可以直接用插入排序，取决于初始排序的情况，最好的情况是可以在O-n-剩下的归并，快速，堆排序都行，这里用快速实现" class="headerlink" title="解题思路:时间复杂度O(nlogn),那么选择冒泡就不合适了，如果给定的数据初始排序大部分都已经排序好只是后半段部分需要调整，那应该可以直接用插入排序，取决于初始排序的情况，最好的情况是可以在O(n),剩下的归并，快速，堆排序都行，这里用快速实现"></a>解题思路:时间复杂度O(nlogn),那么选择冒泡就不合适了，如果给定的数据初始排序大部分都已经排序好只是后半段部分需要调整，那应该可以直接用插入排序，取决于初始排序的情况，最好的情况是可以在O(n),剩下的归并，快速，堆排序都行，这里用快速实现</h1><h1 id="代码运行"><a href="#代码运行" class="headerlink" title="代码运行"></a>代码运行</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">function quick_sort($nums)&#123;</span><br><span class="line">    if(count($nums)&lt;&#x3D;1)&#123;</span><br><span class="line">        return $nums;</span><br><span class="line">    &#125;</span><br><span class="line">    quick_sort_c($nums,0,count($nums)-1);</span><br><span class="line">    return $nums;</span><br><span class="line">&#125;</span><br><span class="line">function quick_sort_c($nums,$p,$r)&#123;</span><br><span class="line">    if($p&gt;&#x3D;$r)&#123;</span><br><span class="line">        return;</span><br><span class="line">    &#125;</span><br><span class="line">    $provit&#x3D;is_point($nums,$p,$s);</span><br><span class="line">    quick_sork_c($nums,$p,$provit-1);</span><br><span class="line">    quick_sork_c($nums,$provit+1,$r);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function is_point(&amp;$nums,$p,$r)</span><br><span class="line">&#123;</span><br><span class="line">    $provit&#x3D;$nums[$r];</span><br><span class="line">    $i&#x3D;$p;</span><br><span class="line">    fot($j&#x3D;$p;$j&lt;$r;$j++)&#123;</span><br><span class="line">        &#x2F;&#x2F;每次把比$provit小的放在[$p-$i-1]中，剩下的放在[$i-$j]都是比$provit大的。</span><br><span class="line">        if($nums[$j]&lt;$provit)&#123;</span><br><span class="line">            $temp&#x3D;$nums[$i];</span><br><span class="line">            $nums[$i]&#x3D;$nums[$j];</span><br><span class="line">            $nums[$j]&#x3D;$temp;</span><br><span class="line">            $i++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    &#x2F;&#x2F;最后把$provit放在中间返回</span><br><span class="line">    $temp&#x3D;$nums[$i];</span><br><span class="line">    $nums[$i]&#x3D;$provit;</span><br><span class="line">    $nums[$r]&#x3D;$temp;</span><br><span class="line">    return $i;</span><br><span class="line">&#125;</span><br><span class="line">$nums&#x3D;[4,5,6,3,2,1,7,9,6,9,33];</span><br><span class="line">var_dump(quick_sort($nums));</span><br></pre></td></tr></table></figure>
-
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">笔试题</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/07/16/%E5%AF%B9%E5%85%AC%E5%8F%B8%E5%91%98%E5%B7%A5%E5%B9%B4%E9%BE%84%E8%BF%9B%E8%A1%8C%E6%8E%92%E5%BA%8F-%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-关于成功或者生活的若干意见" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/07/11/%E5%85%B3%E4%BA%8E%E6%88%90%E5%8A%9F%E6%88%96%E8%80%85%E7%94%9F%E6%B4%BB%E7%9A%84%E8%8B%A5%E5%B9%B2%E6%84%8F%E8%A7%81/">关于成功或者生活的若干意见</a>
-    </h1>
-  
-
-        
-        <a href="/2020/07/11/%E5%85%B3%E4%BA%8E%E6%88%90%E5%8A%9F%E6%88%96%E8%80%85%E7%94%9F%E6%B4%BB%E7%9A%84%E8%8B%A5%E5%B9%B2%E6%84%8F%E8%A7%81/" class="archive-article-date">
-  	<time datetime="2020-07-11T15:56:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-11</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>I can’t stop breathing because tomorrow, when the sun rises, who knows what the tide can bring?<br>我不能停止呼吸，因为明天，当太阳升起，谁知道潮水能带来什么？</p>
-<p>如果把不断的奋斗，挑战自己作为定义，你会不会更加成功？<br>只要你还在努力，还在越走越近，你就是一个成功人士。<br>你会一直享受这种越走越近的快乐。</p>
-<p>当你把成功的定义放在外界，你会把自己陷入一种不可控的焦虑，一种获得前的恐惧，获得后空虚的生活当中。你的天花板是别人的地板，而你总在往上看，从来没有留意过窗边的风景。<br>只有当你把成功定义放在内心，你才能真正获得可以掌控的幸福，获得那种贯彻始终的幸福生活。你可以安心的靠在窗口看看风景，然后更快上楼。</p>
-
+        <h1 id="一些正则"><a href="#一些正则" class="headerlink" title="一些正则"></a>一些正则</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;*是否带有小数*&#x2F;</span><br><span class="line">function    isDecimal(strValue )  &#123;  </span><br><span class="line">   var  objRegExp&#x3D; &#x2F;^\d+\.\d+$&#x2F;;</span><br><span class="line">   return  objRegExp.test(strValue);  </span><br><span class="line">&#125;  </span><br><span class="line"></span><br><span class="line">&#x2F;*校验是否中文名称组成 *&#x2F;</span><br><span class="line">function ischina(str) &#123;</span><br><span class="line">    var reg&#x3D;&#x2F;^[\u4E00-\u9FA5]&#123;2,4&#125;$&#x2F;;   &#x2F;*定义验证表达式*&#x2F;</span><br><span class="line">    return reg.test(str);     &#x2F;*进行验证*&#x2F;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;*校验是否全由8位数字组成 *&#x2F;</span><br><span class="line">function isStudentNo(str) &#123;</span><br><span class="line">    var reg&#x3D;&#x2F;^[0-9]&#123;8&#125;$&#x2F;;   &#x2F;*定义验证表达式*&#x2F;</span><br><span class="line">    return reg.test(str);     &#x2F;*进行验证*&#x2F;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;*校验电话码格式 *&#x2F;</span><br><span class="line">function isTelCode(str) &#123;</span><br><span class="line">    var reg&#x3D; &#x2F;^((0\d&#123;2,3&#125;-\d&#123;7,8&#125;)|(1[3584]\d&#123;9&#125;))$&#x2F;;</span><br><span class="line">    return reg.test(str);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;*校验邮件地址是否合法 *&#x2F;</span><br><span class="line">function IsEmail(str) &#123;</span><br><span class="line">    var reg&#x3D;&#x2F;^\w+@[a-zA-Z0-9]&#123;2,10&#125;(?:\.[a-z]&#123;2,4&#125;)&#123;1,3&#125;$&#x2F;;</span><br><span class="line">    return reg.test(str);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="关于fetch的一些实例"><a href="#关于fetch的一些实例" class="headerlink" title="关于fetch的一些实例"></a>关于fetch的一些实例</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 获取数据</span><br><span class="line">  getData() &#123;</span><br><span class="line">    fetch(&#39;http:&#x2F;&#x2F;localhost:3000&#x2F;Navigation&#39;, &#123;</span><br><span class="line">      method: &#39;GET&#39;,</span><br><span class="line">      headers: &#123;</span><br><span class="line">        &#39;Content-Type&#39;: &#39;application&#x2F;json&#39;,</span><br><span class="line">      &#125;,</span><br><span class="line">    &#125;).then((response) &#x3D;&gt; &#123;</span><br><span class="line">      if (response.ok) &#123;</span><br><span class="line">        return response.json();</span><br><span class="line">        &#x2F;&#x2F; throw new Error(&#39;Fail to get response with status &#39; + response.status);</span><br><span class="line">      &#125;</span><br><span class="line">      return response.json();</span><br><span class="line">    &#125;).then((data) &#x3D;&gt; &#123;</span><br><span class="line">      this.setState(&#123; data &#125;);</span><br><span class="line">    &#x2F;&#x2F; axios.get(&#39;http:&#x2F;&#x2F;localhost:3000&#x2F;Navigation&#39;, &#123;</span><br><span class="line">    &#x2F;&#x2F; &#125;).then((data) &#x3D;&gt; &#123;</span><br><span class="line">    &#x2F;&#x2F;   this.setState(&#123; data &#125;);</span><br><span class="line">    &#x2F;&#x2F; &#125;);</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;</span><br><span class="line">&#x2F;&#x2F; 删除数据</span><br><span class="line">  onDelete &#x3D; (key) &#x3D;&gt; &#123;</span><br><span class="line">    fetch(&#96;http:&#x2F;&#x2F;localhost:3000&#x2F;Navigation&#x2F;$&#123;key&#125;&#96;, &#123;</span><br><span class="line">      method: &#39;DELETE&#39;,</span><br><span class="line">      headers: &#123;</span><br><span class="line">        &#39;Content-Type&#39;: &#39;application&#x2F;json&#39;,</span><br><span class="line">      &#125;,</span><br><span class="line">    &#125;).then(this.getData());</span><br><span class="line">  &#125;</span><br><span class="line">&#x2F;&#x2F; 添加数据</span><br><span class="line">  addData &#x3D; () &#x3D;&gt; &#123;</span><br><span class="line">    const info &#x3D; &#123;</span><br><span class="line">      id: &#96;$&#123;this.id.value&#125;&#96;,</span><br><span class="line">      navigationName: &#96;$&#123;this.name.value&#125;&#96;,</span><br><span class="line">      navigationId: &#39;&#39;,</span><br><span class="line">      navigationPath: &#96;$&#123;this.name.navigationPath&#125;&#96;,</span><br><span class="line">      display: 1,</span><br><span class="line">      weights: 2,</span><br><span class="line">      startUsing: 2,</span><br><span class="line">      creationTime: &#96;$&#123;moment().format(&#39;YYYY-MM-DD HH:mm:ss&#39;)&#125;&#96;,</span><br><span class="line">      changeTheTime: &#39;&#39;,</span><br><span class="line">      deleteTime: &#39;&#39;,</span><br><span class="line">      delete: 0,</span><br><span class="line">    &#125;;</span><br><span class="line">    axios.post(&#39;http:&#x2F;&#x2F;localhost:3000&#x2F;Navigation&#39;, info).then((data) &#x3D;&gt; &#123;</span><br><span class="line">      this.setState(&#123; data &#125;);</span><br><span class="line">    &#125;);</span><br></pre></td></tr></table></figure>
       
 
       
@@ -427,7 +277,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2020/07/11/%E5%85%B3%E4%BA%8E%E6%88%90%E5%8A%9F%E6%88%96%E8%80%85%E7%94%9F%E6%B4%BB%E7%9A%84%E8%8B%A5%E5%B9%B2%E6%84%8F%E8%A7%81/">展开全文 >></a>
+          <a class="article-more-a" href="/2020/08/19/%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98/">展开全文 >></a>
         </p>
       
 
@@ -457,27 +307,354 @@
 
 
   
-    <article id="post-PropTypes与DefaultProps的应用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-js设计模式与开发实践" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/07/06/PropTypes%E4%B8%8EDefaultProps%E7%9A%84%E5%BA%94%E7%94%A8/">PropTypes与DefaultProps的应用</a>
+      <a class="article-title" href="/2020/08/14/js%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B8%8E%E5%BC%80%E5%8F%91%E5%AE%9E%E8%B7%B5/">js设计模式与开发实践</a>
     </h1>
   
 
         
-        <a href="/2020/07/06/PropTypes%E4%B8%8EDefaultProps%E7%9A%84%E5%BA%94%E7%94%A8/" class="archive-article-date">
-  	<time datetime="2020-07-06T11:32:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-06</time>
+        <a href="/2020/08/14/js%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B8%8E%E5%BC%80%E5%8F%91%E5%AE%9E%E8%B7%B5/" class="archive-article-date">
+  	<time datetime="2020-08-14T09:14:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-14</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
+        <h1 id="第一部分基础"><a href="#第一部分基础" class="headerlink" title="第一部分基础"></a>第一部分基础</h1><h1 id="1-面向对象得js"><a href="#1-面向对象得js" class="headerlink" title="1. 面向对象得js"></a>1. 面向对象得js</h1><h1 id="1-1-动态类型语言和鸭子类型"><a href="#1-1-动态类型语言和鸭子类型" class="headerlink" title="1.1 动态类型语言和鸭子类型"></a>1.1 动态类型语言和鸭子类型</h1><p>编程语言分为<br><em>静态类型语言*，<br>在编译时便已经确定变量得类型的<br>优点：<br>编译时能发现不匹配的错误，编辑器可以帮助我们提前避免程序在运行期间有可能发生的一些错误。<br>其次如果在程序中明确地规定了数据类型，编辑器还可以针对这些信息对程序进行一些优化工作，提高程序执行速度。<br>缺点：<br>*动态类型语言</em><br>和在程序运行得时候，待变量被赋值后，才会具有某种类型得 </p>
+<h1 id="第二部分核心"><a href="#第二部分核心" class="headerlink" title="第二部分核心"></a>第二部分核心</h1><h1 id="第三部分技巧"><a href="#第三部分技巧" class="headerlink" title="第三部分技巧"></a>第三部分技巧</h1>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/08/14/js%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B8%8E%E5%BC%80%E5%8F%91%E5%AE%9E%E8%B7%B5/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
         
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-产品研发的22条军规" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/08/11/%E4%BA%A7%E5%93%81%E7%A0%94%E5%8F%91%E7%9A%8422%E6%9D%A1%E5%86%9B%E8%A7%84/">产品研发的22条军规</a>
+    </h1>
+  
+
+        
+        <a href="/2020/08/11/%E4%BA%A7%E5%93%81%E7%A0%94%E5%8F%91%E7%9A%8422%E6%9D%A1%E5%86%9B%E8%A7%84/" class="archive-article-date">
+  	<time datetime="2020-08-11T00:54:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-11</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>时间安排：<br>上午三个小时<br>一小时到一个半小时<br>到12.00之间，完成一个作业。<br>作业内容：<br>写一个文章**<br>不限题目 学完之后，通过学习经历，如果改进工作方法条例流程<br>用思辨的方法<br>时间安排：下午<br>研发管理系统使用<br>时间安排：晚上<br>作业用word/ppt来写。<br>个人上来讲<br>演讲表达能力</p>
+<p>衡水中学的故事，教育体制的关系，军事化管理，缺少自我驱动能力学习，<br>问一个问题：分班，不是这样的，不论分到那里，只是工作的刚刚开始，具备广度和深度的人才，（心理学），–聆听<br>(《管理沟通》)<br>终身学习，贯穿到你的职业生涯始终。<br>接纳其他人的优点，规避缺点<br>迎合改变，</p>
+<p>是所有研发人员都遵循的基本原则<br>是进行技术决策的方法论<br>是万得特色得研发最佳实践。</p>
+<h1 id="1-重视研发标准化建设与执行"><a href="#1-重视研发标准化建设与执行" class="headerlink" title="1.重视研发标准化建设与执行"></a>1.重视研发标准化建设与执行</h1><p>部门事业群众多，信息交换麻烦，规范不标准，<br>工作没办法固化，病毒威胁</p>
+<h1 id="2-用已知的最优方法实现"><a href="#2-用已知的最优方法实现" class="headerlink" title="2.用已知的最优方法实现"></a>2.用已知的最优方法实现</h1><p>认知有限，方法是不是最好的，<br>选用最好，最优得方法，</p>
+<h1 id="3-让程序使用尽可能少的资源"><a href="#3-让程序使用尽可能少的资源" class="headerlink" title="3.让程序使用尽可能少的资源"></a>3.让程序使用尽可能少的资源</h1><p>使用最少得资源，带宽cpu内存<br>32位每个进程可以访问得空间是4gb，最多控制在100mb</p>
+<h1 id="4-用好多线程编程"><a href="#4-用好多线程编程" class="headerlink" title="4.用好多线程编程"></a>4.用好多线程编程</h1><p>变成异步编程。<br>网站图片依次加载</p>
+<h1 id="5-编写移植性好的代码"><a href="#5-编写移植性好的代码" class="headerlink" title="5.编写移植性好的代码"></a>5.编写移植性好的代码</h1><p>编写移植性好的代码。<br>苹果/安卓， 移植性好和兼容新好，代码写的通用，熟悉各种类型得浏览器，寻找不同得，例用别人写好得类库。</p>
+<h1 id="6-减少代码耦合，提高复用性"><a href="#6-减少代码耦合，提高复用性" class="headerlink" title="6.减少代码耦合，提高复用性"></a>6.减少代码耦合，提高复用性</h1><p>减少代码耦合，提高复用性，组件化，关于设计方法得资料<br>代码重构和代码之美，结构合理，模块中间思路清晰，</p>
+<h1 id="7-编码之前先弄清楚需求"><a href="#7-编码之前先弄清楚需求" class="headerlink" title="7.编码之前先弄清楚需求"></a>7.编码之前先弄清楚需求</h1><p>需要先明白需求，</p>
+<h1 id="8-优先使用成熟和标准的技术"><a href="#8-优先使用成熟和标准的技术" class="headerlink" title="8.优先使用成熟和标准的技术"></a>8.优先使用成熟和标准的技术</h1><h1 id="9-技术框架必须支持国际化"><a href="#9-技术框架必须支持国际化" class="headerlink" title="9.技术框架必须支持国际化"></a>9.技术框架必须支持国际化</h1><p>陆总</p>
+<h1 id="10-考虑项目实施成本"><a href="#10-考虑项目实施成本" class="headerlink" title="10.考虑项目实施成本"></a>10.考虑项目实施成本</h1><p>纯碎技术 </p>
+<h1 id="11-编写高质量的技术文档"><a href="#11-编写高质量的技术文档" class="headerlink" title="11.编写高质量的技术文档"></a>11.编写高质量的技术文档</h1><h1 id="12-迭代改进，持续集成"><a href="#12-迭代改进，持续集成" class="headerlink" title="12.迭代改进，持续集成"></a>12.迭代改进，持续集成</h1><p>方法论问题。。。复杂问题简单化，一段一段景行插接 推送出去，</p>
+<h1 id="13-编码的目标是为了方便用户而不是方便自己"><a href="#13-编码的目标是为了方便用户而不是方便自己" class="headerlink" title="13.编码的目标是为了方便用户而不是方便自己"></a>13.编码的目标是为了方便用户而不是方便自己</h1><p>五十行一个bug 学会写测试单元 ，不许是闭环</p>
+<h1 id="14-关键逻辑必须注释"><a href="#14-关键逻辑必须注释" class="headerlink" title="14.关键逻辑必须注释"></a>14.关键逻辑必须注释</h1><p>不是越多越好，写在关键部分，其余的得把函数名写清楚就行。</p>
+<h1 id="15-自己写的代码自己先测试"><a href="#15-自己写的代码自己先测试" class="headerlink" title="15.自己写的代码自己先测试"></a>15.自己写的代码自己先测试</h1><h1 id="16-提高代码质量的最简单方法是多写几遍"><a href="#16-提高代码质量的最简单方法是多写几遍" class="headerlink" title="16.提高代码质量的最简单方法是多写几遍"></a>16.提高代码质量的最简单方法是多写几遍</h1><h1 id="17-让架构与代码充满美感"><a href="#17-让架构与代码充满美感" class="headerlink" title="17.让架构与代码充满美感"></a>17.让架构与代码充满美感</h1><h1 id="18-让程序运行快一点、再快一点，直到极限"><a href="#18-让程序运行快一点、再快一点，直到极限" class="headerlink" title="18.让程序运行快一点、再快一点，直到极限"></a>18.让程序运行快一点、再快一点，直到极限</h1><p>用户感觉慢的时间极限时间为两秒，最好到1秒之内。</p>
+<h1 id="19-每个Bug都是可以解决的，关键是决心"><a href="#19-每个Bug都是可以解决的，关键是决心" class="headerlink" title="19.每个Bug都是可以解决的，关键是决心"></a>19.每个Bug都是可以解决的，关键是决心</h1><h1 id="20-找不到问题的根源绝不放弃"><a href="#20-找不到问题的根源绝不放弃" class="headerlink" title="20.找不到问题的根源绝不放弃"></a>20.找不到问题的根源绝不放弃</h1><h1 id="21-技术攻坚最难的时候正是成长的时候"><a href="#21-技术攻坚最难的时候正是成长的时候" class="headerlink" title="21.技术攻坚最难的时候正是成长的时候"></a>21.技术攻坚最难的时候正是成长的时候</h1><h1 id="22-坚持学习，永葆青春"><a href="#22-坚持学习，永葆青春" class="headerlink" title="22.坚持学习，永葆青春"></a>22.坚持学习，永葆青春</h1>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/08/11/%E4%BA%A7%E5%93%81%E7%A0%94%E5%8F%91%E7%9A%8422%E6%9D%A1%E5%86%9B%E8%A7%84/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-关于敏捷开发那些事" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/08/10/%E5%85%B3%E4%BA%8E%E6%95%8F%E6%8D%B7%E5%BC%80%E5%8F%91%E9%82%A3%E4%BA%9B%E4%BA%8B/">关于敏捷开发那些事</a>
+    </h1>
+  
+
+        
+        <a href="/2020/08/10/%E5%85%B3%E4%BA%8E%E6%95%8F%E6%8D%B7%E5%BC%80%E5%8F%91%E9%82%A3%E4%BA%9B%E4%BA%8B/" class="archive-article-date">
+  	<time datetime="2020-08-10T01:34:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-10</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="敏捷宣言-价值观"><a href="#敏捷宣言-价值观" class="headerlink" title="敏捷宣言(价值观)"></a>敏捷宣言(价值观)</h1><p>个体与互动 高于 流程与工具<br>工作的软件 高于 详尽的文档<br>客户合作 高于 合同谈判<br>响应变化 高于 遵循计划<br>敏捷开发的核心思想是 以人为本 ，适应变化</p>
+<p>敏捷是一种状态，心态及能力</p>
+<h1 id="敏捷原则"><a href="#敏捷原则" class="headerlink" title="敏捷原则"></a>敏捷原则</h1>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/08/10/%E5%85%B3%E4%BA%8E%E6%95%8F%E6%8D%B7%E5%BC%80%E5%8F%91%E9%82%A3%E4%BA%9B%E4%BA%8B/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Web安全" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/08/08/Web%E5%AE%89%E5%85%A8/">Web安全</a>
+    </h1>
+  
+
+        
+        <a href="/2020/08/08/Web%E5%AE%89%E5%85%A8/" class="archive-article-date">
+  	<time datetime="2020-08-08T01:07:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-08</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="同源策略"><a href="#同源策略" class="headerlink" title="同源策略"></a>同源策略</h1><p>域名(子域名)相同，端口相同，协议相同<br>公司的Nginx前端配置保证了其 web应用处于一个同源状态中<br>web应用中有请求数据的部分建议开启session验证或者自己携带token验证</p>
+<h1 id="跨站脚本攻击-XSS"><a href="#跨站脚本攻击-XSS" class="headerlink" title="跨站脚本攻击(XSS)"></a>跨站脚本攻击(XSS)</h1><p>XSS通常值的时候，黑客通过HTML注入来篡改网页，主要分为</p>
+<h2 id="反射性XSS"><a href="#反射性XSS" class="headerlink" title="反射性XSS"></a>反射性XSS</h2><h2 id="存储性XSS"><a href="#存储性XSS" class="headerlink" title="存储性XSS"></a>存储性XSS</h2><p>钓鱼网站等在浏览过程中执行恶意代码</p>
+<h2 id="基于DOM的XSS"><a href="#基于DOM的XSS" class="headerlink" title="基于DOM的XSS"></a>基于DOM的XSS</h2><h2 id="Demo"><a href="#Demo" class="headerlink" title="Demo"></a>Demo</h2><p>输入testurl后输入’onclick=alert(/xss/)//</p>
+<h2 id="例用字符串编码"><a href="#例用字符串编码" class="headerlink" title="例用字符串编码"></a>例用字符串编码</h2><h2 id="绕过长度限制"><a href="#绕过长度限制" class="headerlink" title="绕过长度限制"></a>绕过长度限制</h2><h2 id="使用标签"><a href="#使用标签" class="headerlink" title="使用标签"></a>使用<base>标签</h2><h2 id="window-name"><a href="#window-name" class="headerlink" title="window.name"></a>window.name</h2><p>窃取管理员帐号或Cookie，冒充管理员操纵后台数据。  </p>
+<p>窃取用户的个人信息或者登录帐号，对网站的用户安全产生巨大的威胁。 </p>
+<p>网站挂马，利用嵌入到Web应用程序中的代码，在用户的计算机植入木马。 </p>
+<p>发送广告或者垃圾信息，严重影响到用户的正常使用。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Web</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/08/08/Web%E5%AE%89%E5%85%A8/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-JQ培训" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/08/07/JQ%E5%9F%B9%E8%AE%AD/">JQ培训</a>
+    </h1>
+  
+
+        
+        <a href="/2020/08/07/JQ%E5%9F%B9%E8%AE%AD/" class="archive-article-date">
+  	<time datetime="2020-08-07T01:06:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-07</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>查看jq使用版本<br>在浏览器console窗口使用$.fn.jquery</p>
+<p>jQuery核心思想，write less,do more!<br>jQ对象就是用jq的类库选择器获得的对象，即对DOM对象的封装</p>
+<p>通过选取HTML，对选取的元素执行某些操作<br>技术语法 $(selector).action()<br>选择符(selector),查询和查找html元素<br>action()执行对元素的操作</p>
+<h1 id="文档就绪事件"><a href="#文档就绪事件" class="headerlink" title="文档就绪事件"></a>文档就绪事件</h1><p>$(docunment).ready(function(){<br>    //开始写JQ代码<br>})<br>简介写法<br>$（function(){<br>    //开始写jq<br>}</p>
+<h1 id="元素选择器"><a href="#元素选择器" class="headerlink" title="元素选择器"></a>元素选择器</h1><p>基于元素名<br>当用户点击按钮后，所有<p>元素都被隐藏；</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$(document).ready(function()&#123;</span><br><span class="line">	$(&quot;button&quot;).click(function()&#123;</span><br><span class="line">		$(&quot;p&quot;).hide();</span><br><span class="line">	&#125;);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h1 id="id选择器"><a href="#id选择器" class="headerlink" title="id选择器"></a>id选择器</h1><p>通过HTML元素的id属性选取指定的元素。<br>当用户点击按钮后，所有id=”test“属性的元素都将被隐藏起来</p>
+<p>$(document).ready(function(){<br>    $(“button”).clink(function(){<br>        $(“test”).hide();<br>    })<br>})</p>
+
       
 
       
@@ -500,7 +677,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2020/07/06/PropTypes%E4%B8%8EDefaultProps%E7%9A%84%E5%BA%94%E7%94%A8/">展开全文 >></a>
+          <a class="article-more-a" href="/2020/08/07/JQ%E5%9F%B9%E8%AE%AD/">展开全文 >></a>
         </p>
       
 
@@ -530,27 +707,28 @@
 
 
   
-    <article id="post-梵净山" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-JS权威指南" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/07/05/%E6%A2%B5%E5%87%80%E5%B1%B1/">梵净山</a>
+      <a class="article-title" href="/2020/08/06/JS%E6%9D%83%E5%A8%81%E6%8C%87%E5%8D%97/">JS权威指南</a>
     </h1>
   
 
         
-        <a href="/2020/07/05/%E6%A2%B5%E5%87%80%E5%B1%B1/" class="archive-article-date">
-  	<time datetime="2020-07-04T16:34:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-05</time>
+        <a href="/2020/08/06/JS%E6%9D%83%E5%A8%81%E6%8C%87%E5%8D%97/" class="archive-article-date">
+  	<time datetime="2020-08-06T00:59:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-06</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h1 id="基础知识"><a href="#基础知识" class="headerlink" title="基础知识"></a>基础知识</h1><p>脚本语言，弱类型，轻量级，性能卓越。<br>轻量级：语言简练，实用性广</p>
+
       
 
       
@@ -563,7 +741,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">杂谈</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">React</a>
         		</li>
       		
 		</ul>
@@ -573,7 +751,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2020/07/05/%E6%A2%B5%E5%87%80%E5%B1%B1/">展开全文 >></a>
+          <a class="article-more-a" href="/2020/08/06/JS%E6%9D%83%E5%A8%81%E6%8C%87%E5%8D%97/">展开全文 >></a>
         </p>
       
 
@@ -603,34 +781,32 @@
 
 
   
-    <article id="post-免死金牌？不存在的" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-HTML与CSS" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/07/03/%E5%85%8D%E6%AD%BB%E9%87%91%E7%89%8C%EF%BC%9F%E4%B8%8D%E5%AD%98%E5%9C%A8%E7%9A%84/">免死金牌？不存在的</a>
+      <a class="article-title" href="/2020/08/05/HTML%E4%B8%8ECSS/">HTML与CSS</a>
     </h1>
   
 
         
-        <a href="/2020/07/03/%E5%85%8D%E6%AD%BB%E9%87%91%E7%89%8C%EF%BC%9F%E4%B8%8D%E5%AD%98%E5%9C%A8%E7%9A%84/" class="archive-article-date">
-  	<time datetime="2020-07-03T12:41:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-03</time>
+        <a href="/2020/08/05/HTML%E4%B8%8ECSS/" class="archive-article-date">
+  	<time datetime="2020-08-05T01:11:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-05</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>黄马褂，尚方宝剑，免死金牌，丹书铁卷都是我们在古装剧或者古代题材文学作品种耳熟能详的道具，他们共同的特点就是可以当作[护身符]来使用，关键时刻可以保命。在历史上，具备这种[护身符]功能的东西确实存在的，只不过他的换现能力往往并不能令人满意，有时反而会为主人招来杀身之祸。</p>
-<h1 id="拉钩上吊一百年，不许变"><a href="#拉钩上吊一百年，不许变" class="headerlink" title="拉钩上吊一百年，不许变"></a>拉钩上吊一百年，不许变</h1><p>[拉钩上吊一百年，不许变]是我们小时候每个人都听说过的童谣，[吊]在古代是铜钱的量词，比如[一吊钱]这种说法。古时候的铜钱不好保管，人们就用绳子将其串起来使用，[上吊]因此就演变成了[把某事说定，不改了]的意思，不过这毕竟看起来有点[小儿科]，皇帝们承诺方式看上去高大上很多。</p>
-<h1 id="中国最早的-铁卷"><a href="#中国最早的-铁卷" class="headerlink" title="中国最早的[铁卷]"></a>中国最早的[铁卷]</h1><p>作为皇帝犒赏，笼络皇亲国戚,朝廷重臣的一种手段，从汉高祖刘邦开始颁发一些优待或者减免刑罚的[铁卷]，一般为铁制成的，外形类似瓦片，最早用丹砂填字，因此成为[丹书铁卷]。刘邦的铁卷赐给韩信仅仅五年后，就把韩信杀了，据司马迁统计，汉朝受过[铁卷]封赏的百余人中，仅有五人得已善终。</p>
-<h1 id="海誓山盟也不好使"><a href="#海誓山盟也不好使" class="headerlink" title="海誓山盟也不好使"></a>海誓山盟也不好使</h1><p>据&lt;资治通鉴&gt;记载，武则天晚年担心自己去世后，皇太子李显会清算武性的娘家人，于是要求皇太子等李姓皇族发誓与武家和平相处。她[告天地于名堂，铭之铁卷，藏之史馆]。然而尽管有天地作证，有海誓山盟，有铁卷铭文，武则天死后，几乎所有身居要职的武家人还是难逃一死。</p>
-<h1 id="最著名的-丹书铁卷"><a href="#最著名的-丹书铁卷" class="headerlink" title="最著名的[丹书铁卷]"></a>最著名的[丹书铁卷]</h1><p>读过水浒传的一定都对[小旋风]柴进的[丹书铁卷]，印象深刻，正因为有了这块[护身符]，他才敢广收江湖上各路被通缉的好汉，在梁山上威望极高，坐第十把交椅，柴进的祖上柴宗训是五代十国后周的最后一位皇帝，赵匡胤正式从他的手中[黄袍加身]，夺取了江山，并给柴式后人颁发了[丹书铁卷]。</p>
-<h1 id="说话算数的皇帝"><a href="#说话算数的皇帝" class="headerlink" title="说话算数的皇帝"></a>说话算数的皇帝</h1><p>与其他皇帝不同，赵匡胤给柴氏后人颁发了[丹书铁卷]后，竟能说到做到，柴宗训死时，赵匡胤甚至[素服发哀，辍朝十日]，此外赵匡胤说过的[不得杀士大夫以及上书言事人]还给天下所有读书人发了[免死金牌]。如果没有这句话，苏轼或者在[乌台诗案]就会掉了脑袋，也就不会有&lt;赤壁赋&gt;等千古名篇了。</p>
-<h1 id="死亡通知单"><a href="#死亡通知单" class="headerlink" title="死亡通知单"></a>死亡通知单</h1><p>在一群出生入死的文成武将的帮衬下，朱元璋这个要饭的和尚终于成了明朝的开国皇帝，登基不久，他向六名公爵，二十八名侯爵颁发了[丹书铁卷]。经过大部分功臣们依旧小心翼翼的或者，但还是最终难逃明太祖的猜忌，一张张[丹书铁卷]变成了一道道[催命符]，开国功臣中几乎无人善终。</p>
-<h1 id="免死金牌再多也没有用"><a href="#免死金牌再多也没有用" class="headerlink" title="免死金牌再多也没有用"></a>免死金牌再多也没有用</h1><p>还是明朝，天启年最臭名昭著的大太监魏忠贤排除异己，独揽朝政，最得势的时候号称[九千九百岁]，[铁卷叠颁]说的就是当时朝廷颁发了好几块[免死金牌]给他，然而崇祯皇帝一登基就治了他十大罪，最终吓得他上吊自杀，可见明朝的[免死金牌]更像是[招灾牌]，还是离得越远越好。</p>
+        <h1 id="Hyper-Text-Markup-Language"><a href="#Hyper-Text-Markup-Language" class="headerlink" title="Hyper Text Markup Language"></a>Hyper Text Markup Language</h1><p>Hyper Text Markup Language<br>Hyper Text;超链接，在多个文档之间简历关联性，形成逻辑上的网状结构<br>Markup Language:语言标签，语言由标签构成。</p>
+<h1 id="什么式-HTML"><a href="#什么式-HTML" class="headerlink" title="什么式 HTML"></a>什么式 HTML</h1><p>结构简单，固定标签和使用规则，支持各种信息(文本，图像，音视频)<br>应用广泛<br>各种类型的网站<br>各种办公应用软件<br>应用嵌套/APP 嵌套<br>跨平台 在浏览器支持下显示效果一样</p>
+<p>易维护 开发快速，升级简单</p>
+<h1 id="SGML-DTD"><a href="#SGML-DTD" class="headerlink" title="SGML+DTD"></a>SGML+DTD</h1><p>Standard Generalized Markup Language</p>
+<p>Document Type Definition</p>
+<h1 id="HTML-特点"><a href="#HTML-特点" class="headerlink" title="HTML 特点"></a>HTML 特点</h1><p>本地存储,语义性，网页多媒体，连接，设备兼容性，三维，图形以及特效，性能与集成特性</p>
 
       
 
@@ -644,7 +820,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">杂谈</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">HTML</a>
         		</li>
       		
 		</ul>
@@ -654,7 +830,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2020/07/03/%E5%85%8D%E6%AD%BB%E9%87%91%E7%89%8C%EF%BC%9F%E4%B8%8D%E5%AD%98%E5%9C%A8%E7%9A%84/">展开全文 >></a>
+          <a class="article-more-a" href="/2020/08/05/HTML%E4%B8%8ECSS/">展开全文 >></a>
         </p>
       
 
@@ -684,34 +860,28 @@
 
 
   
-    <article id="post-男生要不要留胡子" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-WEB编码规范" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/07/02/%E7%94%B7%E7%94%9F%E8%A6%81%E4%B8%8D%E8%A6%81%E7%95%99%E8%83%A1%E5%AD%90/">男生要不要留胡子</a>
+      <a class="article-title" href="/2020/08/04/WEB%E7%BC%96%E7%A0%81%E8%A7%84%E8%8C%83/">WEB编码规范</a>
     </h1>
   
 
         
-        <a href="/2020/07/02/%E7%94%B7%E7%94%9F%E8%A6%81%E4%B8%8D%E8%A6%81%E7%95%99%E8%83%A1%E5%AD%90/" class="archive-article-date">
-  	<time datetime="2020-07-02T14:30:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-02</time>
+        <a href="/2020/08/04/WEB%E7%BC%96%E7%A0%81%E8%A7%84%E8%8C%83/" class="archive-article-date">
+  	<time datetime="2020-08-04T01:04:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-04</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>胡子和战争有什么关系？希特勒和日本人的小胡子有什么讲究？胡子的款式是如何变迁的？</p>
-<h1 id="男人们开始刮胡子了-新石器时代"><a href="#男人们开始刮胡子了-新石器时代" class="headerlink" title="男人们开始刮胡子了-新石器时代"></a>男人们开始刮胡子了-新石器时代</h1><p>据考证，早在新石器时代，人类就开始用磨光了的石头，贝壳等工具刮胡子，确切点说应该更像是[锯]胡子，找不到合适工具的时候他们甚至会用火烧掉胡子，这样做主要是为了减少虱子，跳蚤等小虫子的寄生。铜器出现之后，有了锋利轻便的趁手工具，男性们就更加热衷于让自己的下巴变得更加光滑。</p>
-<h1 id="输了就得要听人家的-古罗马-士兵不能留胡子"><a href="#输了就得要听人家的-古罗马-士兵不能留胡子" class="headerlink" title="输了就得要听人家的-古罗马  士兵不能留胡子"></a>输了就得要听人家的-古罗马  士兵不能留胡子</h1><p>在西方，从亚历山大大帝开始，他要求自己的士兵平时必须把脸刮干净，以免战场上徒手搏斗的时候被对方抓住胡子，这一习俗一直保持到古罗马时期，罗马皇帝屋大维和凯撒都是不留胡子的。后来，留着大胡子，被视为野蛮人的日耳曼人击败了罗马人，男人们又重新留起来象征威武的大胡子。</p>
-<h1 id="还是别留胡子了-天主教-矛盾的天主教的神职人员"><a href="#还是别留胡子了-天主教-矛盾的天主教的神职人员" class="headerlink" title="还是别留胡子了-天主教 矛盾的天主教的神职人员"></a>还是别留胡子了-天主教 矛盾的天主教的神职人员</h1><p>由于耶稣就是留着胡子的形象，因此基督教徒们大多蓄须。在中世纪欧洲，胡须是判断男性是否到了婚育年龄的标准，而天主教的神职人员却都是终生不能结婚的。为了化解这一尴尬和矛盾，天主教廷正式规定神职人员必须定期刮胡子。由于神职人员的崇高地址，普通男性夜开始刮起了胡子，蓄须则再次成为了野蛮，贫穷的象征。</p>
-<h1 id="纠结的沙皇们-俄罗斯"><a href="#纠结的沙皇们-俄罗斯" class="headerlink" title="纠结的沙皇们-俄罗斯"></a>纠结的沙皇们-俄罗斯</h1><p>在同一时期，信奉东正教居多的东欧国家则坚持蓄须的原则。俄罗斯首位沙皇伊凡四世就觉得俄罗斯人若像西方人那样剃去胡须是一种不可饶恕的罪孽，是对上帝赐予的面容的侮辱，然而到了他的后代彼得一世的，又认为还是下巴光滑的男性看起来比较顺眼，并对想要留胡子的男性开征[胡须税]，从此俄罗斯人的脸上也变得干净了。</p>
-<h1 id="胡子象征权威"><a href="#胡子象征权威" class="headerlink" title="胡子象征权威"></a>胡子象征权威</h1><p>克里米亚战争中，由于没有时间刮胡子，取胜归国的英军士兵们大多是大胡子，一时间蓄须重新风靡欧洲。随后不久，德皇威廉一世登基，他标志性的[海豹胡]也成为了权威的象征，他的孙子威廉二世觉得[海豹胡]还不足以张杨自己的个性，他把胡须两端向上高高翘起，形成了更张扬的[牛角胡]。</p>
-<h1 id="引领中国风潮-俾斯麦"><a href="#引领中国风潮-俾斯麦" class="headerlink" title="引领中国风潮-俾斯麦"></a>引领中国风潮-俾斯麦</h1><p>德国[铁血宰相]俾斯麦也已[海豹胡]的形象示人，他的海豹胡甚至影响到了中国的北洋军阀们。袁世凯，段祺瑞，张作霖，曹锟等大军阀全都以[海豹胡]示人，后来，由于奥地利帝国要求官员必须剃胡子并露出下巴，作为对立，改革派和革命派人士纷纷留起了大胡子，其中以马克思，恩格斯尤为明显。</p>
-<h1 id="鬼子们的卫生胡-日本"><a href="#鬼子们的卫生胡-日本" class="headerlink" title="鬼子们的卫生胡-日本"></a>鬼子们的卫生胡-日本</h1><p>为了方便打理，以希特勒为代表的欧洲人率先发明了[卫生胡]。日本明治维新后开始全盘西化，同为二元制君主立宪国家的德国成了日本的首选目标，因此[卫生胡]也传到了日本。[卫生胡]显示在日本的武士阶层流行起来，而到了军国主义盛行的昭和年间，崇尚[武士道]的日本军人也纷纷留起了这种胡子。</p>
+        <p>为什么要遵循编码规范<br>可读性好，易于维护，不易出错，最佳实践<br>web编码规范</p>
+<p>命名的重要性</p>
 
       
 
@@ -725,7 +895,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">杂谈</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">培训</a>
         		</li>
       		
 		</ul>
@@ -735,169 +905,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2020/07/02/%E7%94%B7%E7%94%9F%E8%A6%81%E4%B8%8D%E8%A6%81%E7%95%99%E8%83%A1%E5%AD%90/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-文字简说" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/07/01/%E6%96%87%E5%AD%97%E7%AE%80%E8%AF%B4/">文字简说</a>
-    </h1>
-  
-
-        
-        <a href="/2020/07/01/%E6%96%87%E5%AD%97%E7%AE%80%E8%AF%B4/" class="archive-article-date">
-  	<time datetime="2020-07-01T14:16:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-01</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>简述：拼音是怎么来的？右左怎么变成了左右？鸟怎么就不是鸟儿了？<br>内容简介：汉字是中国人的文字，拼音是汉字的注音，图像是文字曾经的样子，从左到右是汉字排版的方向。这是如今我们所熟悉的汉字，却不是它曾经的样子，作为上古时期各大文字体系中唯一传从到今的文字，汉字都经历了怎样的故事呢？</p>
-<h1 id="上古结绳而治"><a href="#上古结绳而治" class="headerlink" title="上古结绳而治"></a>上古结绳而治</h1><p>在尚未发明文字的时候，上古时代的人类祖先们采用结绳记事，大事大结，小事小结，这不是中国人的专利，非洲和南美洲等地也曾使用这种方法，马克思就曾在自己的书里面记载过印第安人的结绳记事：是用一种各色贝珠穿成的绳子，一定的珠串与一定的事实相联系，只有经过训练的人才能解读。</p>
-<h1 id="世上最古老的文字"><a href="#世上最古老的文字" class="headerlink" title="世上最古老的文字"></a>世上最古老的文字</h1><p>后来，人们开始用图画的形式记录交流信息，进而演化出了象形文字，包括埃及的象形文字，赫梯象形文，苏美尔文，古印度文以及中国的甲骨文，苏美尔人的楔形文字是已知世界上最古老的文字，在2000年间一直是美索不达米亚地区唯一的文字体系，到了公元前500年左右，楔形文字甚至成为了西亚大部分地区通用的商业交往媒介。</p>
-<h1 id="中国最古老的文字"><a href="#中国最古老的文字" class="headerlink" title="中国最古老的文字"></a>中国最古老的文字</h1><p>甲骨文作为象形文字的一种，是现存在最早可识别的成熟汉字体系，有些甲骨文中的字还具有或多或少的象形图画的痕迹，但从已识别的约2000个甲骨文单字来看，它已具备[象形，形声，指事，转注，假借]的造字方法。</p>
-<h1 id="世界上最早的拼音"><a href="#世界上最早的拼音" class="headerlink" title="世界上最早的拼音"></a>世界上最早的拼音</h1><p>有意思的是，汉字的[象形]与古西方的[象形]并不完全相同。事实上，古埃及文字中绝大部分图画符号并非以行表意，而是表音，更类似于字母文字，举个例子来说，在古埃及文字语法中，看起来像是各种鸟的符号，其实跟鸟无关，而是表示不同的发音，所以，[古埃及象形文字]其实是世界上最早的拼音文字。</p>
-<h1 id="中国最早的拼音"><a href="#中国最早的拼音" class="headerlink" title="中国最早的拼音"></a>中国最早的拼音</h1><p>中国原来是没有拼字字母的，人们采用同音字或者两个汉字来给另一个字注音。明朝末年，玛窦等西方传教士来中国，为了学习汉字开始用拉丁字母来拼写汉语。而中国自己的汉语拼音运动是清朝年末开始的，鸦片战争以后，梁启超等爱国知识分子提出了教育救国的主张，指出汉字的繁难是教育不能普及的原因，掀起了[切音字运动]。</p>
-<h1 id="世界上最早的书写方向"><a href="#世界上最早的书写方向" class="headerlink" title="世界上最早的书写方向"></a>世界上最早的书写方向</h1><p>文字在记录口语的时候，必然随着口语的顺序进行，但是把口语唯一的时间顺序转换成空间顺序的时候会遇到很多种选择。在早期文字中，书写方向就比较随性，例如埃及圣书体，一般是写到哪儿就从哪儿继续，叫做牛耕式写法，也就是[蛇形走位]</p>
-<h1 id="中国字的-转向"><a href="#中国字的-转向" class="headerlink" title="中国字的[转向]"></a>中国字的[转向]</h1><p>传统汉字右起竖写，很可能是因为方便，因为早期以竹简著书，左手拿起右手拉开阅读或书写都比较顺手，而西方文化引进以后，在用一篇文章中就出现了竖着的中国字和横行的外国公式，阅读起来非常不便。中华国民精英们就此进行了大讨论，不过识字的人是在太少，此事便罢了，直到新中国成立后的文字改革，汉字才成立如今的样子。</p>
-<h1 id="横竖的差别大了"><a href="#横竖的差别大了" class="headerlink" title="横竖的差别大了"></a>横竖的差别大了</h1><p>当时的人们&lt;新青年&gt;上的热火朝天，还进行了一个实验：同一个人读同样的文字，一个横排一个竖排，读完了横排版用了35秒，而读竖排版用了50秒，掐指一算，按照这个速度读横排的《水浒传》要11天7小时，竖排的要用16天7小时，[若按照这么来想，吾们天天看报章读书籍，只因为排版不得法，不知空费了吾们多少光阴！]</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">杂谈</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/07/01/%E6%96%87%E5%AD%97%E7%AE%80%E8%AF%B4/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-啤酒中的战斗机-精酿啤酒" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/06/29/%E5%95%A4%E9%85%92%E4%B8%AD%E7%9A%84%E6%88%98%E6%96%97%E6%9C%BA-%E7%B2%BE%E9%85%BF%E5%95%A4%E9%85%92/">啤酒中的战斗机,精酿啤酒</a>
-    </h1>
-  
-
-        
-        <a href="/2020/06/29/%E5%95%A4%E9%85%92%E4%B8%AD%E7%9A%84%E6%88%98%E6%96%97%E6%9C%BA-%E7%B2%BE%E9%85%BF%E5%95%A4%E9%85%92/" class="archive-article-date">
-  	<time datetime="2020-06-29T15:01:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-29</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>啤酒是人们日常生活中非常重要的一种饮品，历史悠久，且受众广泛，然而在大众啤酒百年不变且日趋饱和的大背景下，精酿啤酒市场被越来越多的人来看好，而精酿啤酒千奇百怪的创作，口味，以及外观，也开始收到更多人的追平和喜爱，那么这种精酿啤酒是谁创造出来的呢？所谓精酿到底是什么呢？和大众啤酒又有什么区别呢？</p>
-<h1 id="什么是精酿"><a href="#什么是精酿" class="headerlink" title="什么是精酿"></a>什么是精酿</h1><p>精酿是相对于大规模生产的工业啤酒而言的一种品质较高的啤酒，而工业啤酒通俗的说，就是百威，喜力，雪花，燕京，青岛，科罗娜等等平时随处可见的大牌子，味道寡淡，酒精度低，包装高度统一。</p>
-<h1 id="精酿从何而来"><a href="#精酿从何而来" class="headerlink" title="精酿从何而来"></a>精酿从何而来</h1><p>精酿啤酒的概念是美国人发起的，引用美国酿造者协会BA对精酿酿造者的要求就是：一要小，年产量小于600万桶（95.388万吨),生产的啤酒用于商业交易，二要独立自主，非精酿酿造者或公司机构，且占股份不能超过25%；三要遵循传统，酿造者所酿造的大部分啤酒的风味都应该是从传统的原料与发酵工艺中获得。</p>
-<h1 id="工业啤酒为什么【水】"><a href="#工业啤酒为什么【水】" class="headerlink" title="工业啤酒为什么【水】"></a>工业啤酒为什么【水】</h1><p>首先原料不同，工业啤酒为了啤酒的稳定性和控制成本，往往会在酿造的过程中加入大量的玉米，淀粉和酶制剂等，使得口感十分寡淡。而精酿只用麦芽，啤酒花，酵母和水，不会添加添加剂，只有时会加入一点橙皮，香菜籽，海盐等辅料，来增加啤酒的特色和风味。</p>
-<h1 id="为什么精酿啤酒更为浓郁？"><a href="#为什么精酿啤酒更为浓郁？" class="headerlink" title="为什么精酿啤酒更为浓郁？"></a>为什么精酿啤酒更为浓郁？</h1><p>工业啤酒是一般是拉个酵母低温发酵，为了提高产品和控制时间成本，发酵周期很短，只有七天左右，而精酿啤酒相对比较高端，不会有过多考虑成本的问题，而是让啤酒充分发酵，这样含有的麦芽汁浓度也就更好了，口味也就更加浓郁。</p>
-<h1 id="精酿是怎么酿的？"><a href="#精酿是怎么酿的？" class="headerlink" title="精酿是怎么酿的？"></a>精酿是怎么酿的？</h1><p>艾尔工艺，是将酵母放在发酵罐的顶端来进行发酵，发酵温度需要严格把控在10-20度，采用的发酵罐一般会比较小，发酵完成后不会进行过滤和杀菌，而工业啤酒采用的是拉个工艺酿造，和精酿啤酒几乎完全相反，在发酵罐底部进行发酵，温度控制在10度以下，完成后及进行过滤和杀毒，以保鲜时间。</p>
-<h1 id="这些都是什么千奇百怪的味道"><a href="#这些都是什么千奇百怪的味道" class="headerlink" title="这些都是什么千奇百怪的味道"></a>这些都是什么千奇百怪的味道</h1><p>精酿啤酒的更温暖的环境中发酵，并且有成百上千中不同的菌株，依靠不同的菌株，从而产生大量的酯类和其他的一些特殊香味，一些情况下有苹果，凤梨，香蕉，梅子，李子等味道，当然，有些精酿也会主动添加一些不同的佐料，如巧克力，咖啡，水果甚至是木头来调味</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">杂谈</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/06/29/%E5%95%A4%E9%85%92%E4%B8%AD%E7%9A%84%E6%88%98%E6%96%97%E6%9C%BA-%E7%B2%BE%E9%85%BF%E5%95%A4%E9%85%92/">展开全文 >></a>
+          <a class="article-more-a" href="/2020/08/04/WEB%E7%BC%96%E7%A0%81%E8%A7%84%E8%8C%83/">展开全文 >></a>
         </p>
       
 
@@ -929,7 +937,7 @@
   
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
     </nav>
   
 
@@ -1028,11 +1036,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">HTML</a>
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+                <a href="javascript:void(0)" class="js-tag color5">HTML</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1044,7 +1052,31 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">学习</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">js</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Web</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">培训</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">hexo个人博客</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1068,11 +1100,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">笔试题</a>
+                <a href="javascript:void(0)" class="js-tag color5">56项目</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">56项目</a>
+                <a href="javascript:void(0)" class="js-tag color3">复盘</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1080,23 +1112,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">笔试题</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">调酒</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+                <a href="javascript:void(0)" class="js-tag color1">随笔    - 随笔</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">学习</a>
+                <a href="javascript:void(0)" class="js-tag color3">架构</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">复盘</a>
+                <a href="javascript:void(0)" class="js-tag color3">前端</a>
               </li>
             
             <div class="clearfix"></div>
