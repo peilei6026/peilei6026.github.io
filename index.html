@@ -160,6 +160,603 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-CSS创意与视觉表现 copy" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/08/21/CSS%E5%88%9B%E6%84%8F%E4%B8%8E%E8%A7%86%E8%A7%89%E8%A1%A8%E7%8E%B0%20copy/">CSS创意与视觉表现</a>
+    </h1>
+  
+
+        
+        <a href="/2020/08/21/CSS%E5%88%9B%E6%84%8F%E4%B8%8E%E8%A7%86%E8%A7%89%E8%A1%A8%E7%8E%B0%20copy/" class="archive-article-date">
+  	<time datetime="2020-08-21T02:47:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-21</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+<meta name="generator" content="Hexo 4.2.0"><link rel="alternate" href="/atom.xml" title="裴雷de博客" type="application/atom+xml">
+</head>
+<body>
+<style type="text/css">
+.column {
+    overflow: hidden;
+}
+.column-left {
+    height: 400px;
+    background-color: #fff;
+    position: relative;
+    float: left;
+}
+.column-right {
+    height: 400px;
+    padding: 16px;
+    background-color: #eee;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+.resize-save {
+    position: absolute;
+    top: 0; right: 5px; bottom: 0; left: 0;
+    padding: 16px;
+    overflow-x: hidden;
+}
+.resize-bar {
+    width: 200px; height: inherit;
+    resize: horizontal;
+    cursor: ew-resize;
+    cursor: col-resize;
+    opacity: 0;
+    overflow: scroll;
+}
+/* 拖拽线 */
+.resize-line {
+    position: absolute;
+    right: 0; top: 0; bottom: 0;
+    border-right: 2px solid #eee;
+    border-left: 1px solid #bbb;
+    pointer-events: none;
+}
+.resize-bar:hover ~ .resize-line,
+.resize-bar:active ~ .resize-line {
+    border-left: 1px dashed skyblue;
+}
+.resize-bar::-webkit-scrollbar {
+    width: 200px; height: inherit;
+}
+
+<p>/* Firefox只有下面一小块区域可以拉伸 */<br>@supports (-moz-user-select: none) {<br>    .resize-bar:hover ~ .resize-line,<br>    .resize-bar:active ~ .resize-line {<br>        border-left: 1px solid #bbb;<br>    }<br>    .resize-bar:hover ~ .resize-line::after,<br>    .resize-bar:active ~ .resize-line::after {<br>        content: ‘’;<br>        position: absolute;<br>        width: 16px; height: 16px;<br>        bottom: 0; right: -8px;<br>        background: url(./resize.svg);<br>        background-size: 100% 100%;<br>    }<br>}<br></style></p>
+<div class="column">
+    <div class="column-left">
+        <div class="resize-bar"></div>
+        <div class="resize-line"></div>
+        <div class="resize-save">
+            左侧的内容，左侧的内容，左侧的内容，左侧的内容
+        </div>                                            
+    </div>
+    <div class="column-right">
+        右侧的内容，右侧的内容，右侧的内容，右侧的内容
+    </div>
+</div>
+</body>
+</html>
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+<style type="text/css">
+.flow-colorful {
+    max-width: 600px;
+    height: 150px;
+    background: linear-gradient(to right, red, orange, yellow, green, cyan, blue, purple);
+    animation: hue 6s linear infinite;
+}
+@keyframes hue {
+    from {
+        filter: hue-rotate(0deg);
+    }
+    to {
+        filter: hue-rotate(360deg);
+    }
+}
+</style>
+<div class="flow-colorful"></div>
+</body>
+</html>
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+<style type="text/css">
+.flow-slogon {
+    font-size: 120px;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-image: linear-gradient(to right, red, yellow, lime, aqua, blue, fuchsia);
+    animation: hue 6s linear infinite;
+}
+</style>
+<h2 class="flow-slogon">第五届CSS大会</h2>
+</body>
+</html>
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+<style type="text/css">
+.flow-twill {
+    padding-right: 30%;
+    height: calc(1.4142 * 20px);
+    background: repeating-linear-gradient(45deg, teal, teal 10px, transparent 11px, transparent 19px, teal 20px);
+    background-clip: content-box;
+    animation: twill 1s linear infinite;
+    position: relative;
+}
+.flow-twill::before {
+    content: '';
+    position: absolute;
+    width: 100%; height: 100%;
+    background: linear-gradient(rgba(0,0,0,.5), hsla(0,0%,100%,.5), rgba(0,0,0,.5));
+}
+@keyframes twill {
+    from {
+        background-position: 0 0;
+    }
+    to {
+        background-position: 0 calc(-1 * 1.4142 * 40px);
+    }
+}
+.flow-wave {
+    padding: 5px 0;
+}
+.flow-wave:hover,
+.flow-wave:focus {
+    background: radial-gradient(circle at 10px -7px, transparent 8px, currentColor 8px, currentColor 9px, transparent 9px) repeat-x,
+        radial-gradient(circle at 10px 27px, transparent 8px, currentColor 8px, currentColor 9px, transparent 9px) repeat-x;
+    background-size: 20px 20px;
+    background-position: -10px calc(100% + 16px), 0 calc(100% - 4px);
+    animation: waveFlow 1s infinite linear;
+}
+@keyframes waveFlow {
+    from { background-position-x: -10px, 0; }
+    to { background-position-x: -30px, -20px; }
+}
+</style>
+<div class="flow-twill"></div>
+<a href="javascript:" class="flow-wave">hover我（移动端按下）</a>
+</body>
+</html>
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+<style type="text/css">
+.CSS代码：
+dot-a {
+    display: inline-block;
+    height: 1em; line-height: 1;
+    text-align: left;
+    vertical-align: -.25ex;
+    overflow: hidden;
+}
+dot-a::before {
+    display: block;
+    content: '...\A..\A.';
+    white-space: pre-wrap;
+    animation: dot1 3s infinite step-start both;
+}
+@keyframes dot1 {
+    33% { transform: translateY(-2em); }
+    66% { transform: translateY(-1em); }
+}
+</style>
+正在加载中<dot-a>...</dot-a>
+</body>
+</html>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">CSS</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">学习</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/08/21/CSS%E5%88%9B%E6%84%8F%E4%B8%8E%E8%A7%86%E8%A7%89%E8%A1%A8%E7%8E%B0%20copy/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-CSS创意与视觉表现(1)" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/08/21/CSS%E5%88%9B%E6%84%8F%E4%B8%8E%E8%A7%86%E8%A7%89%E8%A1%A8%E7%8E%B0(1)/">CSS创意与视觉表现</a>
+    </h1>
+  
+
+        
+        <a href="/2020/08/21/CSS%E5%88%9B%E6%84%8F%E4%B8%8E%E8%A7%86%E8%A7%89%E8%A1%A8%E7%8E%B0(1)/" class="archive-article-date">
+  	<time datetime="2020-08-21T02:47:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-21</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+<body>
+<style type="text/css">
+    .cover {
+    padding: 36% 50%;
+    background: linear-gradient(to right, white 50%, black calc(50% + 1px));
+    position: relative;
+    font-size: 200%;
+}
+.cover::before,
+.cover::after {
+    content: '';
+    position: absolute;
+    width: 36%; height: 50%;
+    border-radius: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.cover::before {
+    top: 0;
+    background: radial-gradient(circle, white 13%, black calc(13% + 1px));
+}
+.cover::after {
+    bottom: 0;
+    background: radial-gradient(circle, black 13%, white calc(13% + 1px));
+}
+.cover-h,
+.cover-p {
+    position: absolute;
+    mix-blend-mode: difference;
+    left: 0; right: 0;
+    text-align: center;
+    color: #fff;
+    z-index: 1;
+}
+</style>
+
+<div class="cover">
+    <h2 class="cover-h">CSS创意与视觉表现</h2>
+</div>
+</body>
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+<meta name="generator" content="Hexo 4.2.0"><link rel="alternate" href="/atom.xml" title="裴雷de博客" type="application/atom+xml">
+</head>
+<body>
+<style type="text/css">
+    .square {
+    display: inline-block;
+    padding: 300px;
+    background-color: #fff;
+    background-image: linear-gradient(45deg, #eee 25%, transparent 25%, transparent 75%, #eee 75%), linear-gradient(45deg, #eee 25%, transparent 25%, transparent 75%, #eee 75%);
+    background-size: 16px 16px;
+    background-position: 0 0, 8px 8px;
+}
+</style>
+<div class="square"></div>
+</body>
+</html>
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+<style type="text/css">
+.pie-simple {
+    width: 128px; height: 128px;
+    background-color: white;
+    border-radius: 50%;
+    overflow: hidden;
+}
+.pie-left,
+.pie-right {
+    width: 50%; height: 100%;
+    float: left;
+    position: relative;
+    overflow: hidden;
+}
+.pie-left::before,
+.pie-right::before,
+.pie-right::after {
+    content: '';
+    position: absolute;
+    width: 100%; height: 100%;
+    background-color: teal;
+}
+.pie-left::before {
+    left: 100%;
+    transform-origin: left;
+    transform: rotate(calc(3.6deg * (var(--percent) - 50)));
+    opacity: calc(99999 * (var(--percent) - 50));
+}
+.pie-right::before {
+    right: 100%;
+    transform-origin: right;
+    transform: rotate(calc(3.6deg * var(--percent)));
+}
+.pie-right::after {
+    opacity: calc(99999 * (var(--percent) - 50));
+}
+.pie-spin {
+    width: 128px; height: 128px;
+    background-color: white;
+    border-radius: 50%;
+    overflow: hidden;
+}
+.pie-spin-left,
+.pie-spin-right {
+    width: 50%; height: 100%;
+    float: left;
+    position: relative;
+    overflow: hidden;
+}
+.pie-spin-left::before,
+.pie-spin-right::before,
+.pie-spin-left::after,
+.pie-spin-right::after {
+    content: '';
+    position: absolute;
+    width: 100%; height: 100%;
+    background-color: teal;
+}
+.pie-spin-left {
+    opacity: 1;
+    animation: second-half-show 1.6s steps(1, end) infinite;
+}
+.pie-spin-left::before {
+    left: 100%;
+    transform-origin: left;
+    animation: spin 1.6s .8s infinite linear;
+}
+.pie-spin-right::before {
+    right: 100%;
+    transform-origin: right;
+    animation: spin 1.6s infinite linear;
+}
+.pie-spin-right::after {
+    animation: second-half-show 1.6s steps(1, end) infinite;
+    opacity: 1;
+}
+.pie-spin-left::after {
+    animation: second-half-hide 1.6s steps(1, end) infinite;
+    opacity: 0;
+}
+@keyframes spin {
+  0%   { transform: rotate(0); }
+  100% { transform: rotate(360deg); }
+}
+@keyframes second-half-hide {
+  0%        { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+@keyframes second-half-show {
+  0%        { opacity: 0; }
+  50%, 100% { opacity: 1; }
+}
+.pie-spin2 {
+    width: 128px; height: 128px;
+    background-color: white;
+    border-radius: 50%;
+    overflow: hidden;
+}
+.pie-spin2-left,
+.pie-spin2-right {
+    width: 50%; height: 100%;
+    float: left;
+    position: relative;
+    overflow: hidden;
+}
+.pie-spin2-left::before,
+.pie-spin2-right::before {
+    content: '';
+    position: absolute;
+    width: 100%; height: 100%;
+    background-color: teal;
+}
+.pie-spin2-left::before {
+    left: 100%;
+    transform-origin: left;
+    animation: spinWait2 3.2s infinite linear;
+}
+.pie-spin2-right::before {
+    right: 100%;
+    transform-origin: right;
+    animation: spinWait1 3.2s infinite linear;
+}
+@keyframes spinWait1 {
+    0%        { transform: rotate(0deg); }
+    25%, 50%  { transform: rotate(180deg); }
+    75%, 100% { transform: rotate(360deg); }
+}
+@keyframes spinWait2 {
+    0%, 25%  { transform: rotate(0deg); }
+    50%, 75% { transform: rotate(180deg); }
+    100%     { transform: rotate(360deg); }
+}
+</style>
+<div class="pie-item">
+    <p>10%大小</p>
+    <div class="pie-simple" style="--percent: 10;">
+        <div class="pie-left"></div>
+        <div class="pie-right"></div>
+    </div>
+</div>
+<div class="pie-item">
+    <p>40%大小</p>
+    <div class="pie-simple" style="--percent: 40;">
+        <div class="pie-left"></div>
+        <div class="pie-right"></div>
+    </div>
+</div>
+<div class="pie-item">
+    <p>80%大小</p>
+    <div class="pie-simple" style="--percent: 80;">
+        <div class="pie-left"></div>
+        <div class="pie-right"></div>
+    </div>
+</div>
+<div class="pie-item">
+    <p>99%大小</p>
+    <div class="pie-simple" style="--percent: 99;">
+        <div class="pie-left"></div>
+        <div class="pie-right"></div>
+    </div>
+</div>
+<div class="pie-spin2">
+    <div class="pie-spin2-left"></div>
+    <div class="pie-spin2-right"></div>
+</div>
+<div class="pie-spin">
+    <div class="pie-spin-left"></div>
+    <div class="pie-spin-right"></div>
+</div>
+</body>
+</html>
+
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">CSS</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">学习</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/08/21/CSS%E5%88%9B%E6%84%8F%E4%B8%8E%E8%A7%86%E8%A7%89%E8%A1%A8%E7%8E%B0(1)/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-js解析路由为对象" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -226,11 +823,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">学习</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">学习</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
         		</li>
       		
 		</ul>
@@ -372,11 +969,11 @@ li[i].onclick = function () {
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">学习</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">学习</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
         		</li>
       		
 		</ul>
@@ -526,11 +1123,11 @@ li[i].onclick = function () {
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">学习</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">学习</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
         		</li>
       		
 		</ul>
@@ -603,11 +1200,11 @@ li[i].onclick = function () {
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">学习</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">学习</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
         		</li>
       		
 		</ul>
@@ -756,11 +1353,11 @@ li[i].onclick = function () {
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">学习</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">学习</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
         		</li>
       		
 		</ul>
@@ -964,172 +1561,6 @@ li[i].onclick = function () {
 
 
   
-    <article id="post-Web安全" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/08/08/Web%E5%AE%89%E5%85%A8/">Web安全</a>
-    </h1>
-  
-
-        
-        <a href="/2020/08/08/Web%E5%AE%89%E5%85%A8/" class="archive-article-date">
-  	<time datetime="2020-08-08T01:07:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-08</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="同源策略"><a href="#同源策略" class="headerlink" title="同源策略"></a>同源策略</h1><p>域名(子域名)相同，端口相同，协议相同<br>公司的Nginx前端配置保证了其 web应用处于一个同源状态中<br>web应用中有请求数据的部分建议开启session验证或者自己携带token验证</p>
-<h1 id="跨站脚本攻击-XSS"><a href="#跨站脚本攻击-XSS" class="headerlink" title="跨站脚本攻击(XSS)"></a>跨站脚本攻击(XSS)</h1><p>XSS通常值的时候，黑客通过HTML注入来篡改网页，主要分为</p>
-<h2 id="反射性XSS"><a href="#反射性XSS" class="headerlink" title="反射性XSS"></a>反射性XSS</h2><h2 id="存储性XSS"><a href="#存储性XSS" class="headerlink" title="存储性XSS"></a>存储性XSS</h2><p>钓鱼网站等在浏览过程中执行恶意代码</p>
-<h2 id="基于DOM的XSS"><a href="#基于DOM的XSS" class="headerlink" title="基于DOM的XSS"></a>基于DOM的XSS</h2><h2 id="Demo"><a href="#Demo" class="headerlink" title="Demo"></a>Demo</h2><p>输入testurl后输入’onclick=alert(/xss/)//</p>
-<h2 id="例用字符串编码"><a href="#例用字符串编码" class="headerlink" title="例用字符串编码"></a>例用字符串编码</h2><h2 id="绕过长度限制"><a href="#绕过长度限制" class="headerlink" title="绕过长度限制"></a>绕过长度限制</h2><h2 id="使用标签"><a href="#使用标签" class="headerlink" title="使用标签"></a>使用<base>标签</h2><h2 id="window-name"><a href="#window-name" class="headerlink" title="window.name"></a>window.name</h2><p>窃取管理员帐号或Cookie，冒充管理员操纵后台数据。  </p>
-<p>窃取用户的个人信息或者登录帐号，对网站的用户安全产生巨大的威胁。 </p>
-<p>网站挂马，利用嵌入到Web应用程序中的代码，在用户的计算机植入木马。 </p>
-<p>发送广告或者垃圾信息，严重影响到用户的正常使用。</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">学习</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Web</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/08/08/Web%E5%AE%89%E5%85%A8/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-JQ培训" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/08/07/JQ%E5%9F%B9%E8%AE%AD/">JQ培训</a>
-    </h1>
-  
-
-        
-        <a href="/2020/08/07/JQ%E5%9F%B9%E8%AE%AD/" class="archive-article-date">
-  	<time datetime="2020-08-07T01:06:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-07</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>查看jq使用版本<br>在浏览器console窗口使用$.fn.jquery</p>
-<p>jQuery核心思想，write less,do more!<br>jQ对象就是用jq的类库选择器获得的对象，即对DOM对象的封装</p>
-<p>通过选取HTML，对选取的元素执行某些操作<br>技术语法 $(selector).action()<br>选择符(selector),查询和查找html元素<br>action()执行对元素的操作</p>
-<h1 id="文档就绪事件"><a href="#文档就绪事件" class="headerlink" title="文档就绪事件"></a>文档就绪事件</h1><p>$(docunment).ready(function(){<br>    //开始写JQ代码<br>})<br>简介写法<br>$（function(){<br>    //开始写jq<br>}</p>
-<h1 id="元素选择器"><a href="#元素选择器" class="headerlink" title="元素选择器"></a>元素选择器</h1><p>基于元素名<br>当用户点击按钮后，所有<p>元素都被隐藏；</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$(document).ready(function()&#123;</span><br><span class="line">	$(&quot;button&quot;).click(function()&#123;</span><br><span class="line">		$(&quot;p&quot;).hide();</span><br><span class="line">	&#125;);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<h1 id="id选择器"><a href="#id选择器" class="headerlink" title="id选择器"></a>id选择器</h1><p>通过HTML元素的id属性选取指定的元素。<br>当用户点击按钮后，所有id=”test“属性的元素都将被隐藏起来</p>
-<p>$(document).ready(function(){<br>    $(“button”).clink(function(){<br>        $(“test”).hide();<br>    })<br>})</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">React</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/08/07/JQ%E5%9F%B9%E8%AE%AD/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
@@ -1231,7 +1662,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ES6</a>
+                <a href="javascript:void(0)" class="js-tag color3">学习</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1239,19 +1670,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">js</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">学习</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">HTML</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ES6</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">React</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">js</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1263,11 +1694,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Web</a>
+                <a href="javascript:void(0)" class="js-tag color4">hexo个人博客</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">hexo个人博客</a>
+                <a href="javascript:void(0)" class="js-tag color4">Web</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1279,11 +1710,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Web前端开发修炼指南</a>
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+                <a href="javascript:void(0)" class="js-tag color2">Web前端开发修炼指南</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1291,19 +1722,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">架构</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">前端</a>
+                <a href="javascript:void(0)" class="js-tag color5">编写规范</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">笔试题</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">编写规范</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1324,6 +1747,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">随笔    - 随笔</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">架构</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">前端</a>
               </li>
             
             <div class="clearfix"></div>
