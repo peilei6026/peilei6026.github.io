@@ -160,6 +160,729 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-WEB编码规范" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/08/04/WEB%E7%BC%96%E7%A0%81%E8%A7%84%E8%8C%83/">WEB编码规范</a>
+    </h1>
+  
+
+        
+        <a href="/2020/08/04/WEB%E7%BC%96%E7%A0%81%E8%A7%84%E8%8C%83/" class="archive-article-date">
+  	<time datetime="2020-08-04T01:04:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-04</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>为什么要遵循编码规范<br>可读性好，易于维护，不易出错，最佳实践<br>web编码规范</p>
+<p>命名的重要性</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">学习</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">培训</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/08/04/WEB%E7%BC%96%E7%A0%81%E8%A7%84%E8%8C%83/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-js实现五子棋" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/08/03/js%E5%AE%9E%E7%8E%B0%E4%BA%94%E5%AD%90%E6%A3%8B/">js实现五子棋</a>
+    </h1>
+  
+
+        
+        <a href="/2020/08/03/js%E5%AE%9E%E7%8E%B0%E4%BA%94%E5%AD%90%E6%A3%8B/" class="archive-article-date">
+  	<time datetime="2020-08-03T07:22:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-03</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>五子棋</title>
+	<style>
+		canvas {
+			display: block;
+			margin: 50px auto;
+			box-shadow: -2px -2px 2px #efefef, 5px 5px 5px #b9b9b9;
+		}
+	</style>
+<meta name="generator" content="Hexo 4.2.0"><link rel="alternate" href="/atom.xml" title="裴雷de博客" type="application/atom+xml">
+</head>
+<body>
+	<canvas id="chess" width="450px" height="450px"></canvas>
+	<script>
+		var chessBoard = []
+		var over = false
+
+		// 赢法数组
+		var wins = []
+
+		// 赢法的统计数组
+		var myWin = []
+		var computerWin = []
+
+		for (var i = 0; i < 15; i++) {
+			chessBoard[i] = []
+			for(var j = 0; j < 15; j++) {
+				chessBoard[i][j] = 0
+			}
+		}
+
+		for (var i = 0; i < 15; i++) {
+			wins[i] = []
+			for(var j = 0; j < 15; j++) {
+				wins[i][j] = []
+			}
+		}
+
+		var count = 0
+		for(var i = 0; i < 15; i++) {
+			for(var j = 0; j<11; j++) {
+				for(var k = 0; k < 5; k++) {
+					wins[i][j+k][count] = true
+				}
+				count++
+			}
+		}
+
+		for(var i = 0; i < 15; i++) {
+			for(var j = 0; j<11; j++) {
+				for(var k = 0; k < 5; k++) {
+					wins[j+k][i][count] = true
+				}
+				count++
+			}
+		}
+
+		for(var i = 0; i < 11; i++) {
+			for(var j = 0; j<11; j++) {
+				for(var k = 0; k < 5; k++) {
+					wins[i+k][j+k][count] = true
+				}
+				count++
+			}
+		}		
+
+		for(var i = 0; i < 11; i++) {
+			for(var j = 14; j>3; j--) {
+				for(var k = 0; k < 5; k++) {
+					wins[i+k][j-k][count] = true
+				}
+				count++
+			}
+		}
+
+		for(var i = 0; i < count; i++) {
+			myWin[i] = 0
+			computerWin[i] = 0
+		}
+
+		var me = true
+		var chess = document.getElementById('chess')
+		var context = chess.getContext('2d')
+
+		context.strokeStyle = '#bfbfbf'
+
+		// var logo = new Image()
+		// logo.src = 'images/logo.png'
+		// logo.onload = function () {
+		// 	context.drawImage(logo, 0, 0, 450, 450)
+		// }
+
+		for(var i = 0; i < 15; i++) {
+			context.moveTo(15 + i * 30, 15)
+			context.lineTo(15 + i * 30, 435)
+			context.stroke()
+			context.moveTo(15, 15 + i * 30)
+			context.lineTo(435, 15 + i * 30)
+			context.stroke()
+		}
+
+		
+
+		var oneStep = function (i, j, me) {
+			context.beginPath()
+			context.arc(15 + i * 30, 15 + j * 30, 13, 0, 2 * Math.PI)
+			context.closePath()
+			var gradient = context.createRadialGradient(15 + i * 30 + 2, 15 + j * 30 - 2, 15, 15 + i * 30 + 2, 15 + j * 30 - 2, 0)
+			if (me) {
+				gradient.addColorStop(0, '#0a0a0a')
+				gradient.addColorStop(1, '#636766')
+			} else {
+				gradient.addColorStop(0, '#d1d1d1')
+				gradient.addColorStop(1, '#f9f9f9')
+			}
+			context.fillStyle = gradient
+			context.fill()
+		}
+
+		chess.onclick = function (e) {
+			if (over || !me) {return}
+			var x = e.offsetX
+			var y = e.offsetY
+			var i = Math.floor(x / 30)
+			var j = Math.floor(y / 30)
+			if (chessBoard[i][j] === 0) {
+				oneStep(i, j, me)
+				chessBoard[i][j] = 1
+				for(var k = 0; k < count; k++) {
+					if (wins[i][j][k]) {
+						myWin[k]++
+						computerWin[k] = 6
+						if (myWin[k] == 5) {
+							window.alert('你赢了')
+							over = true
+						}
+					}
+				}
+
+				if (!over) {
+					me = !me
+					computerAI()
+				}
+			}
+		}
+
+		var computerAI = function () {
+			var myScore = []
+			var computerScore = []
+			var max = 0
+			var u = 0, v = 0
+
+			for(var i = 0; i < 15; i++) {
+				myScore[i] = []
+				computerScore[i] = []
+				for(var j = 0; j< 15; j++) {
+					myScore[i][j] = 0
+					computerScore[i][j] = 0
+				}
+			}
+
+			for(var i = 0; i < 15; i++) {
+				for(var j = 0; j< 15;j++) {
+					if (chessBoard[i][j] == 0) {
+						for (var k = 0; k < count; k++) {
+							if (wins[i][j][k]) {
+								if (myWin[k] == 1) {
+									myScore[i][j] += 200
+								} else if(myWin[k] == 2) {
+									myScore[i][j] += 400
+								} else if(myWin[k] == 3) {
+									myScore[i][j] += 2000
+								} else if(myWin[k] == 4) {
+									myScore[i][j] += 10000
+								}
+
+								if (computerWin[k] == 1) {
+									computerScore[i][j] += 220
+								} else if(computerWin[k] == 2) {
+									computerScore[i][j] += 420
+								} else if(computerWin[k] == 3) {
+									computerScore[i][j] += 2100
+								} else if(computerWin[k] == 4) {
+									computerScore[i][j] += 20000
+								}
+							}
+						}
+
+						if (myScore[i][j] > max) {
+							max = myScore[i][j]
+							u = i
+							v = j
+						} else if(myScore[i][j] == max) {
+							if (computerScore[i][j] > computerScore[u][v]) {
+								u = i
+								v = j
+							}
+						}
+
+						if (computerScore[i][j] > max) {
+							max = computerScore[i][j]
+							u = i
+							v = j
+						} else if(computerScore[i][j] == max) {
+							if (myScore[i][j] > myScore[u][v]) {
+								u = i
+								v = j
+							}
+						}
+					}
+				}
+			}
+
+			oneStep(u, v, false)
+			chessBoard[u][v] = 2
+
+			for(var k = 0; k < count; k++) {
+				if (wins[u][v][k]) {
+					computerWin[k]++
+					myWin[k] = 6
+					if (computerWin[k] == 5) {
+						window.alert('你输了')
+						over = true
+					}
+				}
+			}
+
+			if (!over) {
+				me = !me
+			}
+		}
+	</script>
+</body>
+</html>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">学习</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/08/03/js%E5%AE%9E%E7%8E%B0%E4%BA%94%E5%AD%90%E6%A3%8B/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-JavaScript简介" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/08/03/JavaScript%E7%AE%80%E4%BB%8B/"> JavaScript简介</a>
+    </h1>
+  
+
+        
+        <a href="/2020/08/03/JavaScript%E7%AE%80%E4%BB%8B/" class="archive-article-date">
+  	<time datetime="2020-08-03T05:27:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-03</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="JavaScript简介"><a href="#JavaScript简介" class="headerlink" title="JavaScript简介"></a>JavaScript简介</h1><p>JS是互联网上最流行的脚本语言，这门语言可以用于HTML和web，更可广泛用于服务器，PC笔记本电脑，平板电脑，和智能手机等设备。</p>
+<h1 id="JS是脚本语言"><a href="#JS是脚本语言" class="headerlink" title="JS是脚本语言"></a>JS是脚本语言</h1><p>JS是一种轻量级的编程语言<br>JS是可插入的HTML页面的编程代码<br>JS插入HTML页面后，可由所有的现代浏览器执行<br>JS很容易学习</p>
+<h1 id="JS直接写入HTML输出流"><a href="#JS直接写入HTML输出流" class="headerlink" title="JS直接写入HTML输出流"></a>JS直接写入HTML输出流</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">document.write(&quot;&lt;h1&gt;这是一个段落&lt;&#x2F;h1&gt;&quot;)；</span><br><span class="line">document.write(&quot;&lt;p&gt;这是一个段落&lt;&#x2F;&gt;);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>您只能在HTML输出中使用document.write，如果您在文档加载后使用该方法，会覆盖整个文档<h1 id="JS对事件的反应"><a href="#JS对事件的反应" class="headerlink" title="JS对事件的反应"></a>JS对事件的反应</h1></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;button type &#x3D;&quot;button&quot; onclick&#x3D;&quot;alert(&#39;欢迎!&#39;)&quot;&gt;点我！&lt;&#x2F;button&gt;</span><br></pre></td></tr></table></figure>
+<p>alert()函数在JS中并不常见，但是他对代码测试非常方便。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">React</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/08/03/JavaScript%E7%AE%80%E4%BB%8B/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-JavaScript的新特性" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/07/30/JavaScript%E7%9A%84%E6%96%B0%E7%89%B9%E6%80%A7/">JavaScript的新特性</a>
+    </h1>
+  
+
+        
+        <a href="/2020/07/30/JavaScript%E7%9A%84%E6%96%B0%E7%89%B9%E6%80%A7/" class="archive-article-date">
+  	<time datetime="2020-07-30T13:45:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-30</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">React</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/07/30/JavaScript%E7%9A%84%E6%96%B0%E7%89%B9%E6%80%A7/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-前端架构的认知" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/07/29/%E5%89%8D%E7%AB%AF%E6%9E%B6%E6%9E%84%E7%9A%84%E8%AE%A4%E7%9F%A5/">前端架构的认知</a>
+    </h1>
+  
+
+        
+        <a href="/2020/07/29/%E5%89%8D%E7%AB%AF%E6%9E%B6%E6%9E%84%E7%9A%84%E8%AE%A4%E7%9F%A5/" class="archive-article-date">
+  	<time datetime="2020-07-29T14:39:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-29</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>架构并不是只限于技术选型<br>是架构设计作为软件生命周期的一部分，并不是说开始的时候，设计完成后就会一成不变，软件的生命周期包含了迭代，维护，重构等过程，架构设计亦是如此，所以说架构是需要变化的，目的就是适应当前的情况的开发场景。<br>而架构产生的时间，必定是收到当前的约束条件，如人力，团对技术积累，时间，业务定位等需求。所以，当前架构可能并不能满足未来的需求，我们要开放对待这个问题，只要当前的架构符合一定的设计原则，未来进行架构的演进就不是问题。<br>架构这个词的解释也没有一个明确的定义，每个层级，每个场景都有自己的解释</p>
+<p>软件架构(software architecture)，是一系列相关的抽象模式，用于指导大型软件系统各个方面的设计。<br>其实软件开发和盖一栋大楼一样，都需要规划，设计，实施等一系列的阶段，最开始设计建筑图纸，主题架构，还要考虑绿化，材料，安全等因素，经过一系列的决策，才有了一套成熟的建筑施工方案，按照规范建造，才能保证质量和速度。<br>而开发一个软件或者前端工程也是一个建筑的过程，我们要通过业务来定位系统间的关系，讨论技术栈和框架的徐娜用，根据当前团对的技术水平进行技术的选型，考虑各个模块之间的界限和交互，上线部署策略，问题回滚策略等一系列的决策才能设计符合当前情况的技术框架。</p>
+<h1 id="前端开发过程中需要怎样的架构"><a href="#前端开发过程中需要怎样的架构" class="headerlink" title="前端开发过程中需要怎样的架构"></a>前端开发过程中需要怎样的架构</h1><p>基本要求如下:</p>
+<ul>
+<li>符合当前的业务定位</li>
+<li>前端架构必须具有可实施性</li>
+<li>必须匹配当前的技术储备</li>
+<li>有足够的人力资源去完成</li>
+<li>具有可伸缩，可扩展性<br>[因地制宜]应该是开始设计架构的基本准则，每套架构的产生都有其他的外界因素影响，所以，各个公司，各个团对之间的架构不能照搬，如果强制搬过来，可能会适得其反，就像你那alibaba的技术架构去搬到初创公司，那是根本行不通的，人员，资源不匹配，是没办法去实施架构的。</li>
+<li>准确的业务定位，业务可能是影响架构的主要因素之一，所以我们要找准业务上的定位</li>
+<li>明确与其他业务之间的联系，确定与其他系统的层次关系，相互间的通讯依赖等</li>
+<li>设计好系统内子模块之间的关系，如A业务模块需要与B模块交互，该采取怎样的方式</li>
+<li>基础模块明确，项目中，必定含有基础模块取提供一些公用的方法，数据去提供给各个子模块。</li>
+<li>组件规划，这就是在细一层的规划了，制定组件的交互方式，开发范式</li>
+<li>开发规范和上线流程，用于指导开发中的过程<h1 id="架构设计setp"><a href="#架构设计setp" class="headerlink" title="架构设计setp"></a>架构设计setp</h1>设计需要进行一系列的技术及非技术的相关工作。</li>
+<li>收集利益相关者的需求，产品经理，业务人员，项目负责人等</li>
+<li>与相应的技术人员进行讨论，确定架构上的潜在限制和要求</li>
+<li>寻找可行性的技术方案</li>
+<li>细化技术方案细节，确定一些功能列表中的技术可行性</li>
+<li>确定风险点</li>
+<li>与技术人员反复讨论，集合大家意见</li>
+<li>对技术方案进行demo的概念化验证</li>
+<li>结合当前业务，细化架构的部分实施细节</li>
+<li>进行排期</li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">架构</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/07/29/%E5%89%8D%E7%AB%AF%E6%9E%B6%E6%9E%84%E7%9A%84%E8%AE%A4%E7%9F%A5/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-输入n个数，找出其中最小的K个数" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/07/18/%E8%BE%93%E5%85%A5n%E4%B8%AA%E6%95%B0%EF%BC%8C%E6%89%BE%E5%87%BA%E5%85%B6%E4%B8%AD%E6%9C%80%E5%B0%8F%E7%9A%84K%E4%B8%AA%E6%95%B0/">输入n个数，找出其中最小的K个数</a>
+    </h1>
+  
+
+        
+        <a href="/2020/07/18/%E8%BE%93%E5%85%A5n%E4%B8%AA%E6%95%B0%EF%BC%8C%E6%89%BE%E5%87%BA%E5%85%B6%E4%B8%AD%E6%9C%80%E5%B0%8F%E7%9A%84K%E4%B8%AA%E6%95%B0/" class="archive-article-date">
+  	<time datetime="2020-07-18T14:45:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-18</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="问题：输入4，5，1，6，2，7，3，8这8个数，则最小的4个数是1，2，3，4"><a href="#问题：输入4，5，1，6，2，7，3，8这8个数，则最小的4个数是1，2，3，4" class="headerlink" title="问题：输入4，5，1，6，2，7，3，8这8个数，则最小的4个数是1，2，3，4"></a>问题：输入4，5，1，6，2，7，3，8这8个数，则最小的4个数是1，2，3，4</h1><h1 id="解题思路：这道题我们仍然可以用快速排序的思路来解决，基于数组的第k个数来调整，比第k个数小的数字都移到数组左边，比第k个数大的数字都移到数组的右边，这样一来，位于数组左边的k个数就是最小的k个数字（不一定需要全部排序）。在-PHP-中，只需要调用-sort-函数，取前k个数字就可以得到结果了，并且其时间复杂度是O-nlogn-，符合我们的预期。当然，快排也好，归并也好，都只适合小规模的数据，并不适用于海量数据的处理，比如上百万、上千万的数据集，使用数组函数-sort-显然不合适了，使用自行实现的快排也不合适，这个时候，我们可以考虑使用前面算法和数据结构中介绍的堆排序。堆排序的时间复杂度也是-O-nlogn-，这里我们需要通过大顶堆来实现，即维护一个大小为k的大顶堆，如果待处理数据集的长度大于k，则当数字容量超过k时，比较后续数字与堆顶数字值（堆中最大），大于则跳过，小于则重新堆化大顶堆，依次类推，直到整个数据集遍历一遍，最后保留下来的大顶堆就是最小的k个数。"><a href="#解题思路：这道题我们仍然可以用快速排序的思路来解决，基于数组的第k个数来调整，比第k个数小的数字都移到数组左边，比第k个数大的数字都移到数组的右边，这样一来，位于数组左边的k个数就是最小的k个数字（不一定需要全部排序）。在-PHP-中，只需要调用-sort-函数，取前k个数字就可以得到结果了，并且其时间复杂度是O-nlogn-，符合我们的预期。当然，快排也好，归并也好，都只适合小规模的数据，并不适用于海量数据的处理，比如上百万、上千万的数据集，使用数组函数-sort-显然不合适了，使用自行实现的快排也不合适，这个时候，我们可以考虑使用前面算法和数据结构中介绍的堆排序。堆排序的时间复杂度也是-O-nlogn-，这里我们需要通过大顶堆来实现，即维护一个大小为k的大顶堆，如果待处理数据集的长度大于k，则当数字容量超过k时，比较后续数字与堆顶数字值（堆中最大），大于则跳过，小于则重新堆化大顶堆，依次类推，直到整个数据集遍历一遍，最后保留下来的大顶堆就是最小的k个数。" class="headerlink" title="解题思路：这道题我们仍然可以用快速排序的思路来解决，基于数组的第k个数来调整，比第k个数小的数字都移到数组左边，比第k个数大的数字都移到数组的右边，这样一来，位于数组左边的k个数就是最小的k个数字（不一定需要全部排序）。在 PHP 中，只需要调用 sort 函数，取前k个数字就可以得到结果了，并且其时间复杂度是O(nlogn)，符合我们的预期。当然，快排也好，归并也好，都只适合小规模的数据，并不适用于海量数据的处理，比如上百万、上千万的数据集，使用数组函数 sort 显然不合适了，使用自行实现的快排也不合适，这个时候，我们可以考虑使用前面算法和数据结构中介绍的堆排序。堆排序的时间复杂度也是 O(nlogn)，这里我们需要通过大顶堆来实现，即维护一个大小为k的大顶堆，如果待处理数据集的长度大于k，则当数字容量超过k时，比较后续数字与堆顶数字值（堆中最大），大于则跳过，小于则重新堆化大顶堆，依次类推，直到整个数据集遍历一遍，最后保留下来的大顶堆就是最小的k个数。"></a>解题思路：这道题我们仍然可以用快速排序的思路来解决，基于数组的第k个数来调整，比第k个数小的数字都移到数组左边，比第k个数大的数字都移到数组的右边，这样一来，位于数组左边的k个数就是最小的k个数字（不一定需要全部排序）。在 PHP 中，只需要调用 sort 函数，取前k个数字就可以得到结果了，并且其时间复杂度是O(nlogn)，符合我们的预期。当然，快排也好，归并也好，都只适合小规模的数据，并不适用于海量数据的处理，比如上百万、上千万的数据集，使用数组函数 sort 显然不合适了，使用自行实现的快排也不合适，这个时候，我们可以考虑使用前面算法和数据结构中介绍的堆排序。堆排序的时间复杂度也是 O(nlogn)，这里我们需要通过大顶堆来实现，即维护一个大小为k的大顶堆，如果待处理数据集的长度大于k，则当数字容量超过k时，比较后续数字与堆顶数字值（堆中最大），大于则跳过，小于则重新堆化大顶堆，依次类推，直到整个数据集遍历一遍，最后保留下来的大顶堆就是最小的k个数。</h1>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">笔试题</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/07/18/%E8%BE%93%E5%85%A5n%E4%B8%AA%E6%95%B0%EF%BC%8C%E6%89%BE%E5%87%BA%E5%85%B6%E4%B8%AD%E6%9C%80%E5%B0%8F%E7%9A%84K%E4%B8%AA%E6%95%B0/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-数组中有一个数字出现的次数超过数组长度的一半，请找出这个数字" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -457,505 +1180,6 @@
 
 
   
-    <article id="post-免死金牌？不存在的" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/07/03/%E5%85%8D%E6%AD%BB%E9%87%91%E7%89%8C%EF%BC%9F%E4%B8%8D%E5%AD%98%E5%9C%A8%E7%9A%84/">免死金牌？不存在的</a>
-    </h1>
-  
-
-        
-        <a href="/2020/07/03/%E5%85%8D%E6%AD%BB%E9%87%91%E7%89%8C%EF%BC%9F%E4%B8%8D%E5%AD%98%E5%9C%A8%E7%9A%84/" class="archive-article-date">
-  	<time datetime="2020-07-03T12:41:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-03</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>黄马褂，尚方宝剑，免死金牌，丹书铁卷都是我们在古装剧或者古代题材文学作品种耳熟能详的道具，他们共同的特点就是可以当作[护身符]来使用，关键时刻可以保命。在历史上，具备这种[护身符]功能的东西确实存在的，只不过他的换现能力往往并不能令人满意，有时反而会为主人招来杀身之祸。</p>
-<h1 id="拉钩上吊一百年，不许变"><a href="#拉钩上吊一百年，不许变" class="headerlink" title="拉钩上吊一百年，不许变"></a>拉钩上吊一百年，不许变</h1><p>[拉钩上吊一百年，不许变]是我们小时候每个人都听说过的童谣，[吊]在古代是铜钱的量词，比如[一吊钱]这种说法。古时候的铜钱不好保管，人们就用绳子将其串起来使用，[上吊]因此就演变成了[把某事说定，不改了]的意思，不过这毕竟看起来有点[小儿科]，皇帝们承诺方式看上去高大上很多。</p>
-<h1 id="中国最早的-铁卷"><a href="#中国最早的-铁卷" class="headerlink" title="中国最早的[铁卷]"></a>中国最早的[铁卷]</h1><p>作为皇帝犒赏，笼络皇亲国戚,朝廷重臣的一种手段，从汉高祖刘邦开始颁发一些优待或者减免刑罚的[铁卷]，一般为铁制成的，外形类似瓦片，最早用丹砂填字，因此成为[丹书铁卷]。刘邦的铁卷赐给韩信仅仅五年后，就把韩信杀了，据司马迁统计，汉朝受过[铁卷]封赏的百余人中，仅有五人得已善终。</p>
-<h1 id="海誓山盟也不好使"><a href="#海誓山盟也不好使" class="headerlink" title="海誓山盟也不好使"></a>海誓山盟也不好使</h1><p>据&lt;资治通鉴&gt;记载，武则天晚年担心自己去世后，皇太子李显会清算武性的娘家人，于是要求皇太子等李姓皇族发誓与武家和平相处。她[告天地于名堂，铭之铁卷，藏之史馆]。然而尽管有天地作证，有海誓山盟，有铁卷铭文，武则天死后，几乎所有身居要职的武家人还是难逃一死。</p>
-<h1 id="最著名的-丹书铁卷"><a href="#最著名的-丹书铁卷" class="headerlink" title="最著名的[丹书铁卷]"></a>最著名的[丹书铁卷]</h1><p>读过水浒传的一定都对[小旋风]柴进的[丹书铁卷]，印象深刻，正因为有了这块[护身符]，他才敢广收江湖上各路被通缉的好汉，在梁山上威望极高，坐第十把交椅，柴进的祖上柴宗训是五代十国后周的最后一位皇帝，赵匡胤正式从他的手中[黄袍加身]，夺取了江山，并给柴式后人颁发了[丹书铁卷]。</p>
-<h1 id="说话算数的皇帝"><a href="#说话算数的皇帝" class="headerlink" title="说话算数的皇帝"></a>说话算数的皇帝</h1><p>与其他皇帝不同，赵匡胤给柴氏后人颁发了[丹书铁卷]后，竟能说到做到，柴宗训死时，赵匡胤甚至[素服发哀，辍朝十日]，此外赵匡胤说过的[不得杀士大夫以及上书言事人]还给天下所有读书人发了[免死金牌]。如果没有这句话，苏轼或者在[乌台诗案]就会掉了脑袋，也就不会有&lt;赤壁赋&gt;等千古名篇了。</p>
-<h1 id="死亡通知单"><a href="#死亡通知单" class="headerlink" title="死亡通知单"></a>死亡通知单</h1><p>在一群出生入死的文成武将的帮衬下，朱元璋这个要饭的和尚终于成了明朝的开国皇帝，登基不久，他向六名公爵，二十八名侯爵颁发了[丹书铁卷]。经过大部分功臣们依旧小心翼翼的或者，但还是最终难逃明太祖的猜忌，一张张[丹书铁卷]变成了一道道[催命符]，开国功臣中几乎无人善终。</p>
-<h1 id="免死金牌再多也没有用"><a href="#免死金牌再多也没有用" class="headerlink" title="免死金牌再多也没有用"></a>免死金牌再多也没有用</h1><p>还是明朝，天启年最臭名昭著的大太监魏忠贤排除异己，独揽朝政，最得势的时候号称[九千九百岁]，[铁卷叠颁]说的就是当时朝廷颁发了好几块[免死金牌]给他，然而崇祯皇帝一登基就治了他十大罪，最终吓得他上吊自杀，可见明朝的[免死金牌]更像是[招灾牌]，还是离得越远越好。</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">杂谈</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/07/03/%E5%85%8D%E6%AD%BB%E9%87%91%E7%89%8C%EF%BC%9F%E4%B8%8D%E5%AD%98%E5%9C%A8%E7%9A%84/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-男生要不要留胡子" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/07/02/%E7%94%B7%E7%94%9F%E8%A6%81%E4%B8%8D%E8%A6%81%E7%95%99%E8%83%A1%E5%AD%90/">男生要不要留胡子</a>
-    </h1>
-  
-
-        
-        <a href="/2020/07/02/%E7%94%B7%E7%94%9F%E8%A6%81%E4%B8%8D%E8%A6%81%E7%95%99%E8%83%A1%E5%AD%90/" class="archive-article-date">
-  	<time datetime="2020-07-02T14:30:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-02</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>胡子和战争有什么关系？希特勒和日本人的小胡子有什么讲究？胡子的款式是如何变迁的？</p>
-<h1 id="男人们开始刮胡子了-新石器时代"><a href="#男人们开始刮胡子了-新石器时代" class="headerlink" title="男人们开始刮胡子了-新石器时代"></a>男人们开始刮胡子了-新石器时代</h1><p>据考证，早在新石器时代，人类就开始用磨光了的石头，贝壳等工具刮胡子，确切点说应该更像是[锯]胡子，找不到合适工具的时候他们甚至会用火烧掉胡子，这样做主要是为了减少虱子，跳蚤等小虫子的寄生。铜器出现之后，有了锋利轻便的趁手工具，男性们就更加热衷于让自己的下巴变得更加光滑。</p>
-<h1 id="输了就得要听人家的-古罗马-士兵不能留胡子"><a href="#输了就得要听人家的-古罗马-士兵不能留胡子" class="headerlink" title="输了就得要听人家的-古罗马  士兵不能留胡子"></a>输了就得要听人家的-古罗马  士兵不能留胡子</h1><p>在西方，从亚历山大大帝开始，他要求自己的士兵平时必须把脸刮干净，以免战场上徒手搏斗的时候被对方抓住胡子，这一习俗一直保持到古罗马时期，罗马皇帝屋大维和凯撒都是不留胡子的。后来，留着大胡子，被视为野蛮人的日耳曼人击败了罗马人，男人们又重新留起来象征威武的大胡子。</p>
-<h1 id="还是别留胡子了-天主教-矛盾的天主教的神职人员"><a href="#还是别留胡子了-天主教-矛盾的天主教的神职人员" class="headerlink" title="还是别留胡子了-天主教 矛盾的天主教的神职人员"></a>还是别留胡子了-天主教 矛盾的天主教的神职人员</h1><p>由于耶稣就是留着胡子的形象，因此基督教徒们大多蓄须。在中世纪欧洲，胡须是判断男性是否到了婚育年龄的标准，而天主教的神职人员却都是终生不能结婚的。为了化解这一尴尬和矛盾，天主教廷正式规定神职人员必须定期刮胡子。由于神职人员的崇高地址，普通男性夜开始刮起了胡子，蓄须则再次成为了野蛮，贫穷的象征。</p>
-<h1 id="纠结的沙皇们-俄罗斯"><a href="#纠结的沙皇们-俄罗斯" class="headerlink" title="纠结的沙皇们-俄罗斯"></a>纠结的沙皇们-俄罗斯</h1><p>在同一时期，信奉东正教居多的东欧国家则坚持蓄须的原则。俄罗斯首位沙皇伊凡四世就觉得俄罗斯人若像西方人那样剃去胡须是一种不可饶恕的罪孽，是对上帝赐予的面容的侮辱，然而到了他的后代彼得一世的，又认为还是下巴光滑的男性看起来比较顺眼，并对想要留胡子的男性开征[胡须税]，从此俄罗斯人的脸上也变得干净了。</p>
-<h1 id="胡子象征权威"><a href="#胡子象征权威" class="headerlink" title="胡子象征权威"></a>胡子象征权威</h1><p>克里米亚战争中，由于没有时间刮胡子，取胜归国的英军士兵们大多是大胡子，一时间蓄须重新风靡欧洲。随后不久，德皇威廉一世登基，他标志性的[海豹胡]也成为了权威的象征，他的孙子威廉二世觉得[海豹胡]还不足以张杨自己的个性，他把胡须两端向上高高翘起，形成了更张扬的[牛角胡]。</p>
-<h1 id="引领中国风潮-俾斯麦"><a href="#引领中国风潮-俾斯麦" class="headerlink" title="引领中国风潮-俾斯麦"></a>引领中国风潮-俾斯麦</h1><p>德国[铁血宰相]俾斯麦也已[海豹胡]的形象示人，他的海豹胡甚至影响到了中国的北洋军阀们。袁世凯，段祺瑞，张作霖，曹锟等大军阀全都以[海豹胡]示人，后来，由于奥地利帝国要求官员必须剃胡子并露出下巴，作为对立，改革派和革命派人士纷纷留起了大胡子，其中以马克思，恩格斯尤为明显。</p>
-<h1 id="鬼子们的卫生胡-日本"><a href="#鬼子们的卫生胡-日本" class="headerlink" title="鬼子们的卫生胡-日本"></a>鬼子们的卫生胡-日本</h1><p>为了方便打理，以希特勒为代表的欧洲人率先发明了[卫生胡]。日本明治维新后开始全盘西化，同为二元制君主立宪国家的德国成了日本的首选目标，因此[卫生胡]也传到了日本。[卫生胡]显示在日本的武士阶层流行起来，而到了军国主义盛行的昭和年间，崇尚[武士道]的日本军人也纷纷留起了这种胡子。</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">杂谈</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/07/02/%E7%94%B7%E7%94%9F%E8%A6%81%E4%B8%8D%E8%A6%81%E7%95%99%E8%83%A1%E5%AD%90/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-文字简说" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/07/01/%E6%96%87%E5%AD%97%E7%AE%80%E8%AF%B4/">文字简说</a>
-    </h1>
-  
-
-        
-        <a href="/2020/07/01/%E6%96%87%E5%AD%97%E7%AE%80%E8%AF%B4/" class="archive-article-date">
-  	<time datetime="2020-07-01T14:16:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-01</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>简述：拼音是怎么来的？右左怎么变成了左右？鸟怎么就不是鸟儿了？<br>内容简介：汉字是中国人的文字，拼音是汉字的注音，图像是文字曾经的样子，从左到右是汉字排版的方向。这是如今我们所熟悉的汉字，却不是它曾经的样子，作为上古时期各大文字体系中唯一传从到今的文字，汉字都经历了怎样的故事呢？</p>
-<h1 id="上古结绳而治"><a href="#上古结绳而治" class="headerlink" title="上古结绳而治"></a>上古结绳而治</h1><p>在尚未发明文字的时候，上古时代的人类祖先们采用结绳记事，大事大结，小事小结，这不是中国人的专利，非洲和南美洲等地也曾使用这种方法，马克思就曾在自己的书里面记载过印第安人的结绳记事：是用一种各色贝珠穿成的绳子，一定的珠串与一定的事实相联系，只有经过训练的人才能解读。</p>
-<h1 id="世上最古老的文字"><a href="#世上最古老的文字" class="headerlink" title="世上最古老的文字"></a>世上最古老的文字</h1><p>后来，人们开始用图画的形式记录交流信息，进而演化出了象形文字，包括埃及的象形文字，赫梯象形文，苏美尔文，古印度文以及中国的甲骨文，苏美尔人的楔形文字是已知世界上最古老的文字，在2000年间一直是美索不达米亚地区唯一的文字体系，到了公元前500年左右，楔形文字甚至成为了西亚大部分地区通用的商业交往媒介。</p>
-<h1 id="中国最古老的文字"><a href="#中国最古老的文字" class="headerlink" title="中国最古老的文字"></a>中国最古老的文字</h1><p>甲骨文作为象形文字的一种，是现存在最早可识别的成熟汉字体系，有些甲骨文中的字还具有或多或少的象形图画的痕迹，但从已识别的约2000个甲骨文单字来看，它已具备[象形，形声，指事，转注，假借]的造字方法。</p>
-<h1 id="世界上最早的拼音"><a href="#世界上最早的拼音" class="headerlink" title="世界上最早的拼音"></a>世界上最早的拼音</h1><p>有意思的是，汉字的[象形]与古西方的[象形]并不完全相同。事实上，古埃及文字中绝大部分图画符号并非以行表意，而是表音，更类似于字母文字，举个例子来说，在古埃及文字语法中，看起来像是各种鸟的符号，其实跟鸟无关，而是表示不同的发音，所以，[古埃及象形文字]其实是世界上最早的拼音文字。</p>
-<h1 id="中国最早的拼音"><a href="#中国最早的拼音" class="headerlink" title="中国最早的拼音"></a>中国最早的拼音</h1><p>中国原来是没有拼字字母的，人们采用同音字或者两个汉字来给另一个字注音。明朝末年，玛窦等西方传教士来中国，为了学习汉字开始用拉丁字母来拼写汉语。而中国自己的汉语拼音运动是清朝年末开始的，鸦片战争以后，梁启超等爱国知识分子提出了教育救国的主张，指出汉字的繁难是教育不能普及的原因，掀起了[切音字运动]。</p>
-<h1 id="世界上最早的书写方向"><a href="#世界上最早的书写方向" class="headerlink" title="世界上最早的书写方向"></a>世界上最早的书写方向</h1><p>文字在记录口语的时候，必然随着口语的顺序进行，但是把口语唯一的时间顺序转换成空间顺序的时候会遇到很多种选择。在早期文字中，书写方向就比较随性，例如埃及圣书体，一般是写到哪儿就从哪儿继续，叫做牛耕式写法，也就是[蛇形走位]</p>
-<h1 id="中国字的-转向"><a href="#中国字的-转向" class="headerlink" title="中国字的[转向]"></a>中国字的[转向]</h1><p>传统汉字右起竖写，很可能是因为方便，因为早期以竹简著书，左手拿起右手拉开阅读或书写都比较顺手，而西方文化引进以后，在用一篇文章中就出现了竖着的中国字和横行的外国公式，阅读起来非常不便。中华国民精英们就此进行了大讨论，不过识字的人是在太少，此事便罢了，直到新中国成立后的文字改革，汉字才成立如今的样子。</p>
-<h1 id="横竖的差别大了"><a href="#横竖的差别大了" class="headerlink" title="横竖的差别大了"></a>横竖的差别大了</h1><p>当时的人们&lt;新青年&gt;上的热火朝天，还进行了一个实验：同一个人读同样的文字，一个横排一个竖排，读完了横排版用了35秒，而读竖排版用了50秒，掐指一算，按照这个速度读横排的《水浒传》要11天7小时，竖排的要用16天7小时，[若按照这么来想，吾们天天看报章读书籍，只因为排版不得法，不知空费了吾们多少光阴！]</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">杂谈</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/07/01/%E6%96%87%E5%AD%97%E7%AE%80%E8%AF%B4/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-啤酒中的战斗机-精酿啤酒" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/06/29/%E5%95%A4%E9%85%92%E4%B8%AD%E7%9A%84%E6%88%98%E6%96%97%E6%9C%BA-%E7%B2%BE%E9%85%BF%E5%95%A4%E9%85%92/">啤酒中的战斗机,精酿啤酒</a>
-    </h1>
-  
-
-        
-        <a href="/2020/06/29/%E5%95%A4%E9%85%92%E4%B8%AD%E7%9A%84%E6%88%98%E6%96%97%E6%9C%BA-%E7%B2%BE%E9%85%BF%E5%95%A4%E9%85%92/" class="archive-article-date">
-  	<time datetime="2020-06-29T15:01:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-29</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>啤酒是人们日常生活中非常重要的一种饮品，历史悠久，且受众广泛，然而在大众啤酒百年不变且日趋饱和的大背景下，精酿啤酒市场被越来越多的人来看好，而精酿啤酒千奇百怪的创作，口味，以及外观，也开始收到更多人的追平和喜爱，那么这种精酿啤酒是谁创造出来的呢？所谓精酿到底是什么呢？和大众啤酒又有什么区别呢？</p>
-<h1 id="什么是精酿"><a href="#什么是精酿" class="headerlink" title="什么是精酿"></a>什么是精酿</h1><p>精酿是相对于大规模生产的工业啤酒而言的一种品质较高的啤酒，而工业啤酒通俗的说，就是百威，喜力，雪花，燕京，青岛，科罗娜等等平时随处可见的大牌子，味道寡淡，酒精度低，包装高度统一。</p>
-<h1 id="精酿从何而来"><a href="#精酿从何而来" class="headerlink" title="精酿从何而来"></a>精酿从何而来</h1><p>精酿啤酒的概念是美国人发起的，引用美国酿造者协会BA对精酿酿造者的要求就是：一要小，年产量小于600万桶（95.388万吨),生产的啤酒用于商业交易，二要独立自主，非精酿酿造者或公司机构，且占股份不能超过25%；三要遵循传统，酿造者所酿造的大部分啤酒的风味都应该是从传统的原料与发酵工艺中获得。</p>
-<h1 id="工业啤酒为什么【水】"><a href="#工业啤酒为什么【水】" class="headerlink" title="工业啤酒为什么【水】"></a>工业啤酒为什么【水】</h1><p>首先原料不同，工业啤酒为了啤酒的稳定性和控制成本，往往会在酿造的过程中加入大量的玉米，淀粉和酶制剂等，使得口感十分寡淡。而精酿只用麦芽，啤酒花，酵母和水，不会添加添加剂，只有时会加入一点橙皮，香菜籽，海盐等辅料，来增加啤酒的特色和风味。</p>
-<h1 id="为什么精酿啤酒更为浓郁？"><a href="#为什么精酿啤酒更为浓郁？" class="headerlink" title="为什么精酿啤酒更为浓郁？"></a>为什么精酿啤酒更为浓郁？</h1><p>工业啤酒是一般是拉个酵母低温发酵，为了提高产品和控制时间成本，发酵周期很短，只有七天左右，而精酿啤酒相对比较高端，不会有过多考虑成本的问题，而是让啤酒充分发酵，这样含有的麦芽汁浓度也就更好了，口味也就更加浓郁。</p>
-<h1 id="精酿是怎么酿的？"><a href="#精酿是怎么酿的？" class="headerlink" title="精酿是怎么酿的？"></a>精酿是怎么酿的？</h1><p>艾尔工艺，是将酵母放在发酵罐的顶端来进行发酵，发酵温度需要严格把控在10-20度，采用的发酵罐一般会比较小，发酵完成后不会进行过滤和杀菌，而工业啤酒采用的是拉个工艺酿造，和精酿啤酒几乎完全相反，在发酵罐底部进行发酵，温度控制在10度以下，完成后及进行过滤和杀毒，以保鲜时间。</p>
-<h1 id="这些都是什么千奇百怪的味道"><a href="#这些都是什么千奇百怪的味道" class="headerlink" title="这些都是什么千奇百怪的味道"></a>这些都是什么千奇百怪的味道</h1><p>精酿啤酒的更温暖的环境中发酵，并且有成百上千中不同的菌株，依靠不同的菌株，从而产生大量的酯类和其他的一些特殊香味，一些情况下有苹果，凤梨，香蕉，梅子，李子等味道，当然，有些精酿也会主动添加一些不同的佐料，如巧克力，咖啡，水果甚至是木头来调味</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">杂谈</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/06/29/%E5%95%A4%E9%85%92%E4%B8%AD%E7%9A%84%E6%88%98%E6%96%97%E6%9C%BA-%E7%B2%BE%E9%85%BF%E5%95%A4%E9%85%92/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-离校循环单" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/06/21/%E7%A6%BB%E6%A0%A1%E5%BE%AA%E7%8E%AF%E5%8D%95/">离校循环单</a>
-    </h1>
-  
-
-        
-        <a href="/2020/06/21/%E7%A6%BB%E6%A0%A1%E5%BE%AA%E7%8E%AF%E5%8D%95/" class="archive-article-date">
-  	<time datetime="2020-06-21T02:44:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-21</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        项目过程文档暂不公开，请见谅。
-        
-          <a class="article-more-a" href="/2020/06/21/%E7%A6%BB%E6%A0%A1%E5%BE%AA%E7%8E%AF%E5%8D%95/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">56项目</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/06/21/%E7%A6%BB%E6%A0%A1%E5%BE%AA%E7%8E%AF%E5%8D%95/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-laravel性能优化" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/06/19/laravel%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/">laravel性能优化</a>
-    </h1>
-  
-
-        
-        <a href="/2020/06/19/laravel%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/" class="archive-article-date">
-  	<time datetime="2020-06-19T09:58:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-19</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="查看laravel版本"><a href="#查看laravel版本" class="headerlink" title="查看laravel版本"></a>查看laravel版本</h1><p>php artisan</p>
-<h1 id="开启OPcache"><a href="#开启OPcache" class="headerlink" title="开启OPcache"></a>开启OPcache</h1><p>说明<br>OPcache是由PHP官方公司Zend开发的一款免费使用的PHP优化加速拓展,他可以PHP脚本编译后的bytecode缓存在共享内存中供以后反复使用，从而避免了从磁盘读取代码再次编译的消耗，同时，它还应用了一些代码优化模式，使得代码执行更快，从而加速PHP应用响应。<br>php自从5.5以来，就已经内置了OPcache扩展，不过默认是关闭的状态的，本文讲介绍如何开启OPcache以及在laravel中使用的正确方式。<br>PHP7。2FPM的配置信息位于：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;etc&#x2F;php&#x2F;7.2&#x2F;fpm&#x2F;php.ini</span><br></pre></td></tr></table></figure>
-<p>编辑以上文件，搜索<code>opcache.enable</code>将值设为1即为开机:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">opcache.enable&#x3D;1</span><br></pre></td></tr></table></figure>
-<p>php.ini 里相关的配置以下，注释里面包括说明和设定的值，请详细阅读：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">; 是否在命令行开启，这里默认设置为 0 ，暂且关闭</span><br><span class="line">;opcache.enable_cli&#x3D;0</span><br><span class="line"></span><br><span class="line">; 这个内存是用来存储编译后的字节码的，视你的程序</span><br><span class="line">; 代码量而定，Laravel 应用一般建议设置为 256，单位 MB，</span><br><span class="line">; 默认是 128</span><br><span class="line">opcache.memory_consumption&#x3D;256</span><br><span class="line"></span><br><span class="line">; 会对程序所有的字符串进行统一存储以加快存取速度，</span><br><span class="line">; 默认是 8m，建议 32 或者不超过 64。</span><br><span class="line">opcache.interned_strings_buffer&#x3D;32</span><br><span class="line"></span><br><span class="line">; 最大加速多少个脚本文件，视项目脚本文件数而定，</span><br><span class="line">; 合理区间 200~1000000 ，默认是 10000 ，建议 500000</span><br><span class="line">opcache.max_accelerated_files&#x3D;1000000</span><br><span class="line"></span><br><span class="line">; 最大作废比例百分比，到达这个比例会重启，默认是 5 ，建议 10</span><br><span class="line">opcache.max_wasted_percentage&#x3D;10</span><br><span class="line"></span><br><span class="line">; 开启情况下会在脚本名称前加上当前目录信息做为缓存的 Key，关闭可以</span><br><span class="line">; 提高性能，但是会面临出错的风险（文件名一致时），建议开启，关闭使用 0</span><br><span class="line">opcache.use_cwd&#x3D;1</span><br><span class="line"></span><br><span class="line">; 开启的话，会按照 opcache.revalidate_freq 设置的频率去检查文件</span><br><span class="line">; 是否修改以便重新缓存，默认开启，生产环境下请设置为关闭，然后</span><br><span class="line">; 写自动化脚本，在每次更新代码后自动重启 OPcache</span><br><span class="line">opcache.validate_timestamps&#x3D;0</span><br><span class="line"></span><br><span class="line">; 文件更新检测频率，单位秒，只有在 opcache.validate_timestamps </span><br><span class="line">; 开启时才有效。默认为 2，意味着 2 秒钟检查一次，会对文件系统造</span><br><span class="line">; 成负担，如果是在开发环境中请酌情使用，生产环境随意设置，因为</span><br><span class="line">; 我们会设置 validate_timestamps 为关闭。</span><br><span class="line">opcache.revalidate_freq&#x3D;2200</span><br><span class="line"></span><br><span class="line">; 文件加载的逻辑，默认关闭，无需修改</span><br><span class="line">;opcache.revalidate_path&#x3D;0</span><br><span class="line"></span><br><span class="line">; 开启的话会把代码注释一起缓存，关闭可减低内存使用，但是</span><br><span class="line">; 如果有一些代码依赖于注释里的指令，例如 Doctrine, </span><br><span class="line">; Zend Framework 2 和 PHPUnit，将会出现问题。建议开启</span><br><span class="line">opcache.save_comments&#x3D;1</span><br></pre></td></tr></table></figure>
-<p>修改完成后，需要重启FPM生效:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$sudo service php7.2-fpm restart</span><br></pre></td></tr></table></figure>
-<h1 id="性能测试"><a href="#性能测试" class="headerlink" title="性能测试"></a>性能测试</h1><p>接下来我们使用课程里面安装的ab压测工具试下性能:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ab -n 100 -c 2 http:&#x2F;&#x2F;larabbs.test&#x2F;topics</span><br></pre></td></tr></table></figure>
-<p>以上命令以并发数为2的情况发送100请求，得到的结果是:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Requests per second:    11.20 [#&#x2F;sec] (mean) </span><br><span class="line">Time per request:       178.643 [ms] (mean)</span><br><span class="line">Time per request:       89.322 [ms] (mean, across all concurrent requests)</span><br></pre></td></tr></table></figure>
-<p>解释如下:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># 并发数，每秒能处理多少个请求，越多越好</span><br><span class="line">Requests per second:    11.20 [#&#x2F;sec] (mean)</span><br><span class="line"></span><br><span class="line"># 一个并发（这里是 2）处理的时间，单位毫秒，越小越好</span><br><span class="line">Time per request:       178.643 [ms] (mean) </span><br><span class="line"></span><br><span class="line"># 平均每个请求的响应时间，单位毫秒，越小越好</span><br><span class="line">Time per request:       89.322 [ms] (mean, across all concurrent requests)</span><br></pre></td></tr></table></figure>
-<p>接下来尝试OPcache关闭的情况，打开Php.ini将opcache.enable设置为0，然后重启FPM，接着重复上面的ab命令，得到的结果:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Requests per second:    8.80 [#&#x2F;sec] (mean)</span><br><span class="line">Time per request:       227.230 [ms] (mean)</span><br><span class="line">Time per request:       113.615 [ms] (mean, across all concurrent requests)</span><br></pre></td></tr></table></figure>
-<p>可以看到性能有非常显著的提高。</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">学习</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Laravel</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">优化</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/06/19/laravel%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/2/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/4/">Next &amp;raquo;</a>
@@ -1053,11 +1277,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
+                <a href="javascript:void(0)" class="js-tag color3">日记</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">学习</a>
+                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1065,15 +1289,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">HTML</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">ES6</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">React</a>
+                <a href="javascript:void(0)" class="js-tag color3">学习</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1081,7 +1301,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">HTML</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">React</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1097,14 +1325,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Laravel</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">优化</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
@@ -1117,6 +1337,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">架构</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">前端</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">编写规范</a>
               </li>
              
@@ -1125,15 +1353,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">项目</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">56项目</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">调酒</a>
+                <a href="javascript:void(0)" class="js-tag color3">项目</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1141,15 +1365,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">调酒</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">考证</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Laravel</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">优化</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">随笔    - 随笔</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">架构</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">前端</a>
               </li>
             
             <div class="clearfix"></div>

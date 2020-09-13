@@ -160,6 +160,554 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-js出现次数前10的字母" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/08/20/js%E5%87%BA%E7%8E%B0%E6%AC%A1%E6%95%B0%E5%89%8D10%E7%9A%84%E5%AD%97%E6%AF%8D/">出现次数前10的字母</a>
+    </h1>
+  
+
+        
+        <a href="/2020/08/20/js%E5%87%BA%E7%8E%B0%E6%AC%A1%E6%95%B0%E5%89%8D10%E7%9A%84%E5%AD%97%E6%AF%8D/" class="archive-article-date">
+  	<time datetime="2020-08-20T08:41:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-20</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>FileReader</title>
+<meta name="generator" content="Hexo 4.2.0"><link rel="alternate" href="/atom.xml" title="裴雷de博客" type="application/atom+xml">
+</head>
+<body>
+  <input id="input" type="file">
+  <script>
+    const input = document.querySelector('input[type=file]')
+    input.addEventListener('change', ()=>{
+      const reader = new FileReader()
+      reader.readAsText(input.files[0],'utf8') // input.files[0]为第一个文件
+      reader.onload = ()=>{
+        // document.body.innerHTML += reader.result  // reader.result为获取结果
+        const resule = reader.result;
+        //遍历结果
+        // console.log(resule);
+        // document.body.innerHTML += "1231";
+            // var str = resule;
+            // var rel = /(\d{1,3})+(?:\.\d+)?/g;
+            //取出所有字母
+            var str = resule.replace(/[^a-zA-Z]/g,'');
+            // console.log(str);
+           var json = {};
+        //遍历str拆解其中的每一个字符将其某个字符的值及出现的个数拿出来作为json的kv
+                 for (var i = 0; i < str.length; i++) {
+                //判断json中是否有当前str的值 
+                 if (!json[str.charAt(i)]) {
+                    //如果不存在 就将当前值添加到json中去
+                         json[str.charAt(i)] = 1;
+                  } else {
+                     //else的话就让数组中已有的当前值的index值++；
+                             json[str.charAt(i)]++;
+                 }
+            }
+            // console.log(json);
+            var arr = [];
+                for (let i in json) {
+                         let o = {};
+                        //  console.log(o)
+                        o[i] = json[i];
+                arr.push(o)
+                }
+        //    var res= arr.sort(function(a,b){return });
+        //    var res=  arr.map((key)=>{
+        //         [
+        //             key,arr[key]
+        //         ]
+        //     })
+           var res= arr.sort(function(a,b){
+               return Object.values(b)[0]-Object.values(a)[0]
+           });
+        //    console.log(res[0]);
+        // console.log(res);
+        var resu= [];
+        for(var i=0;i<10;i++){
+             for(var k in res[i]){
+                document.write("出现的字母"+ k+ " " + "次数"+res[i][k]+"<br>" )
+                //  console.log(k);
+                //  console.log(res[i][k]);
+             }
+            // console.log(resu);
+
+<pre><code>    }
+    // console.log(resu);
+  }
+}, false)
+
+// 获取上传txt文件的结果
+
+&lt;/script&gt;</code></pre></body>
+</html>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">学习</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/08/20/js%E5%87%BA%E7%8E%B0%E6%AC%A1%E6%95%B0%E5%89%8D10%E7%9A%84%E5%AD%97%E6%AF%8D/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-js数据结构及算法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/08/20/js%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%8F%8A%E7%AE%97%E6%B3%95/">js数据结构及算法</a>
+    </h1>
+  
+
+        
+        <a href="/2020/08/20/js%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%8F%8A%E7%AE%97%E6%B3%95/" class="archive-article-date">
+  	<time datetime="2020-08-20T07:50:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-20</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">学习</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/08/20/js%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%8F%8A%E7%AE%97%E6%B3%95/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-一些问题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/08/19/%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98/">一些问题</a>
+    </h1>
+  
+
+        
+        <a href="/2020/08/19/%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98/" class="archive-article-date">
+  	<time datetime="2020-08-19T12:58:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-19</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="一些正则"><a href="#一些正则" class="headerlink" title="一些正则"></a>一些正则</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;*是否带有小数*&#x2F;</span><br><span class="line">function    isDecimal(strValue )  &#123;  </span><br><span class="line">   var  objRegExp&#x3D; &#x2F;^\d+\.\d+$&#x2F;;</span><br><span class="line">   return  objRegExp.test(strValue);  </span><br><span class="line">&#125;  </span><br><span class="line"></span><br><span class="line">&#x2F;*校验是否中文名称组成 *&#x2F;</span><br><span class="line">function ischina(str) &#123;</span><br><span class="line">    var reg&#x3D;&#x2F;^[\u4E00-\u9FA5]&#123;2,4&#125;$&#x2F;;   &#x2F;*定义验证表达式*&#x2F;</span><br><span class="line">    return reg.test(str);     &#x2F;*进行验证*&#x2F;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;*校验是否全由8位数字组成 *&#x2F;</span><br><span class="line">function isStudentNo(str) &#123;</span><br><span class="line">    var reg&#x3D;&#x2F;^[0-9]&#123;8&#125;$&#x2F;;   &#x2F;*定义验证表达式*&#x2F;</span><br><span class="line">    return reg.test(str);     &#x2F;*进行验证*&#x2F;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;*校验电话码格式 *&#x2F;</span><br><span class="line">function isTelCode(str) &#123;</span><br><span class="line">    var reg&#x3D; &#x2F;^((0\d&#123;2,3&#125;-\d&#123;7,8&#125;)|(1[3584]\d&#123;9&#125;))$&#x2F;;</span><br><span class="line">    return reg.test(str);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;*校验邮件地址是否合法 *&#x2F;</span><br><span class="line">function IsEmail(str) &#123;</span><br><span class="line">    var reg&#x3D;&#x2F;^\w+@[a-zA-Z0-9]&#123;2,10&#125;(?:\.[a-z]&#123;2,4&#125;)&#123;1,3&#125;$&#x2F;;</span><br><span class="line">    return reg.test(str);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="关于fetch的一些实例"><a href="#关于fetch的一些实例" class="headerlink" title="关于fetch的一些实例"></a>关于fetch的一些实例</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 获取数据</span><br><span class="line">  getData() &#123;</span><br><span class="line">    fetch(&#39;http:&#x2F;&#x2F;localhost:3000&#x2F;Navigation&#39;, &#123;</span><br><span class="line">      method: &#39;GET&#39;,</span><br><span class="line">      headers: &#123;</span><br><span class="line">        &#39;Content-Type&#39;: &#39;application&#x2F;json&#39;,</span><br><span class="line">      &#125;,</span><br><span class="line">    &#125;).then((response) &#x3D;&gt; &#123;</span><br><span class="line">      if (response.ok) &#123;</span><br><span class="line">        return response.json();</span><br><span class="line">        &#x2F;&#x2F; throw new Error(&#39;Fail to get response with status &#39; + response.status);</span><br><span class="line">      &#125;</span><br><span class="line">      return response.json();</span><br><span class="line">    &#125;).then((data) &#x3D;&gt; &#123;</span><br><span class="line">      this.setState(&#123; data &#125;);</span><br><span class="line">    &#x2F;&#x2F; axios.get(&#39;http:&#x2F;&#x2F;localhost:3000&#x2F;Navigation&#39;, &#123;</span><br><span class="line">    &#x2F;&#x2F; &#125;).then((data) &#x3D;&gt; &#123;</span><br><span class="line">    &#x2F;&#x2F;   this.setState(&#123; data &#125;);</span><br><span class="line">    &#x2F;&#x2F; &#125;);</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;</span><br><span class="line">&#x2F;&#x2F; 删除数据</span><br><span class="line">  onDelete &#x3D; (key) &#x3D;&gt; &#123;</span><br><span class="line">    fetch(&#96;http:&#x2F;&#x2F;localhost:3000&#x2F;Navigation&#x2F;$&#123;key&#125;&#96;, &#123;</span><br><span class="line">      method: &#39;DELETE&#39;,</span><br><span class="line">      headers: &#123;</span><br><span class="line">        &#39;Content-Type&#39;: &#39;application&#x2F;json&#39;,</span><br><span class="line">      &#125;,</span><br><span class="line">    &#125;).then(this.getData());</span><br><span class="line">  &#125;</span><br><span class="line">&#x2F;&#x2F; 添加数据</span><br><span class="line">  addData &#x3D; () &#x3D;&gt; &#123;</span><br><span class="line">    const info &#x3D; &#123;</span><br><span class="line">      id: &#96;$&#123;this.id.value&#125;&#96;,</span><br><span class="line">      navigationName: &#96;$&#123;this.name.value&#125;&#96;,</span><br><span class="line">      navigationId: &#39;&#39;,</span><br><span class="line">      navigationPath: &#96;$&#123;this.name.navigationPath&#125;&#96;,</span><br><span class="line">      display: 1,</span><br><span class="line">      weights: 2,</span><br><span class="line">      startUsing: 2,</span><br><span class="line">      creationTime: &#96;$&#123;moment().format(&#39;YYYY-MM-DD HH:mm:ss&#39;)&#125;&#96;,</span><br><span class="line">      changeTheTime: &#39;&#39;,</span><br><span class="line">      deleteTime: &#39;&#39;,</span><br><span class="line">      delete: 0,</span><br><span class="line">    &#125;;</span><br><span class="line">    axios.post(&#39;http:&#x2F;&#x2F;localhost:3000&#x2F;Navigation&#39;, info).then((data) &#x3D;&gt; &#123;</span><br><span class="line">      this.setState(&#123; data &#125;);</span><br><span class="line">    &#125;);</span><br></pre></td></tr></table></figure>
+<h1 id="解决html直接运行js的问题"><a href="#解决html直接运行js的问题" class="headerlink" title="解决html直接运行js的问题"></a>解决html直接运行js的问题</h1>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/08/19/%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-js设计模式与开发实践" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/08/14/js%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B8%8E%E5%BC%80%E5%8F%91%E5%AE%9E%E8%B7%B5/">js设计模式与开发实践</a>
+    </h1>
+  
+
+        
+        <a href="/2020/08/14/js%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B8%8E%E5%BC%80%E5%8F%91%E5%AE%9E%E8%B7%B5/" class="archive-article-date">
+  	<time datetime="2020-08-14T09:14:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-14</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="第一部分基础"><a href="#第一部分基础" class="headerlink" title="第一部分基础"></a>第一部分基础</h1><h1 id="1-面向对象得js"><a href="#1-面向对象得js" class="headerlink" title="1. 面向对象得js"></a>1. 面向对象得js</h1><h1 id="1-1-动态类型语言和鸭子类型"><a href="#1-1-动态类型语言和鸭子类型" class="headerlink" title="1.1 动态类型语言和鸭子类型"></a>1.1 动态类型语言和鸭子类型</h1><p>编程语言分为<br><em>静态类型语言*，<br>在编译时便已经确定变量得类型的<br>优点：<br>编译时能发现不匹配的错误，编辑器可以帮助我们提前避免程序在运行期间有可能发生的一些错误。<br>其次如果在程序中明确地规定了数据类型，编辑器还可以针对这些信息对程序进行一些优化工作，提高程序执行速度。<br>缺点：<br>*动态类型语言</em><br>和在程序运行得时候，待变量被赋值后，才会具有某种类型得 </p>
+<h1 id="第二部分核心"><a href="#第二部分核心" class="headerlink" title="第二部分核心"></a>第二部分核心</h1><h1 id="第三部分技巧"><a href="#第三部分技巧" class="headerlink" title="第三部分技巧"></a>第三部分技巧</h1>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">学习</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/08/14/js%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B8%8E%E5%BC%80%E5%8F%91%E5%AE%9E%E8%B7%B5/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-产品研发的22条军规" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/08/11/%E4%BA%A7%E5%93%81%E7%A0%94%E5%8F%91%E7%9A%8422%E6%9D%A1%E5%86%9B%E8%A7%84/">产品研发的22条军规</a>
+    </h1>
+  
+
+        
+        <a href="/2020/08/11/%E4%BA%A7%E5%93%81%E7%A0%94%E5%8F%91%E7%9A%8422%E6%9D%A1%E5%86%9B%E8%A7%84/" class="archive-article-date">
+  	<time datetime="2020-08-11T00:54:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-11</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>时间安排：<br>上午三个小时<br>一小时到一个半小时<br>到12.00之间，完成一个作业。<br>作业内容：<br>写一个文章**<br>不限题目 学完之后，通过学习经历，如果改进工作方法条例流程<br>用思辨的方法<br>时间安排：下午<br>研发管理系统使用<br>时间安排：晚上<br>作业用word/ppt来写。<br>个人上来讲<br>演讲表达能力</p>
+<p>衡水中学的故事，教育体制的关系，军事化管理，缺少自我驱动能力学习，<br>问一个问题：分班，不是这样的，不论分到那里，只是工作的刚刚开始，具备广度和深度的人才，（心理学），–聆听<br>(《管理沟通》)<br>终身学习，贯穿到你的职业生涯始终。<br>接纳其他人的优点，规避缺点<br>迎合改变，</p>
+<p>是所有研发人员都遵循的基本原则<br>是进行技术决策的方法论<br>是万得特色得研发最佳实践。</p>
+<h1 id="1-重视研发标准化建设与执行"><a href="#1-重视研发标准化建设与执行" class="headerlink" title="1.重视研发标准化建设与执行"></a>1.重视研发标准化建设与执行</h1><p>部门事业群众多，信息交换麻烦，规范不标准，<br>工作没办法固化，病毒威胁</p>
+<h1 id="2-用已知的最优方法实现"><a href="#2-用已知的最优方法实现" class="headerlink" title="2.用已知的最优方法实现"></a>2.用已知的最优方法实现</h1><p>认知有限，方法是不是最好的，<br>选用最好，最优得方法，</p>
+<h1 id="3-让程序使用尽可能少的资源"><a href="#3-让程序使用尽可能少的资源" class="headerlink" title="3.让程序使用尽可能少的资源"></a>3.让程序使用尽可能少的资源</h1><p>使用最少得资源，带宽cpu内存<br>32位每个进程可以访问得空间是4gb，最多控制在100mb</p>
+<h1 id="4-用好多线程编程"><a href="#4-用好多线程编程" class="headerlink" title="4.用好多线程编程"></a>4.用好多线程编程</h1><p>变成异步编程。<br>网站图片依次加载</p>
+<h1 id="5-编写移植性好的代码"><a href="#5-编写移植性好的代码" class="headerlink" title="5.编写移植性好的代码"></a>5.编写移植性好的代码</h1><p>编写移植性好的代码。<br>苹果/安卓， 移植性好和兼容新好，代码写的通用，熟悉各种类型得浏览器，寻找不同得，例用别人写好得类库。</p>
+<h1 id="6-减少代码耦合，提高复用性"><a href="#6-减少代码耦合，提高复用性" class="headerlink" title="6.减少代码耦合，提高复用性"></a>6.减少代码耦合，提高复用性</h1><p>减少代码耦合，提高复用性，组件化，关于设计方法得资料<br>代码重构和代码之美，结构合理，模块中间思路清晰，</p>
+<h1 id="7-编码之前先弄清楚需求"><a href="#7-编码之前先弄清楚需求" class="headerlink" title="7.编码之前先弄清楚需求"></a>7.编码之前先弄清楚需求</h1><p>需要先明白需求，</p>
+<h1 id="8-优先使用成熟和标准的技术"><a href="#8-优先使用成熟和标准的技术" class="headerlink" title="8.优先使用成熟和标准的技术"></a>8.优先使用成熟和标准的技术</h1><h1 id="9-技术框架必须支持国际化"><a href="#9-技术框架必须支持国际化" class="headerlink" title="9.技术框架必须支持国际化"></a>9.技术框架必须支持国际化</h1><p>陆总</p>
+<h1 id="10-考虑项目实施成本"><a href="#10-考虑项目实施成本" class="headerlink" title="10.考虑项目实施成本"></a>10.考虑项目实施成本</h1><p>纯碎技术 </p>
+<h1 id="11-编写高质量的技术文档"><a href="#11-编写高质量的技术文档" class="headerlink" title="11.编写高质量的技术文档"></a>11.编写高质量的技术文档</h1><h1 id="12-迭代改进，持续集成"><a href="#12-迭代改进，持续集成" class="headerlink" title="12.迭代改进，持续集成"></a>12.迭代改进，持续集成</h1><p>方法论问题。。。复杂问题简单化，一段一段景行插接 推送出去，</p>
+<h1 id="13-编码的目标是为了方便用户而不是方便自己"><a href="#13-编码的目标是为了方便用户而不是方便自己" class="headerlink" title="13.编码的目标是为了方便用户而不是方便自己"></a>13.编码的目标是为了方便用户而不是方便自己</h1><p>五十行一个bug 学会写测试单元 ，不许是闭环</p>
+<h1 id="14-关键逻辑必须注释"><a href="#14-关键逻辑必须注释" class="headerlink" title="14.关键逻辑必须注释"></a>14.关键逻辑必须注释</h1><p>不是越多越好，写在关键部分，其余的得把函数名写清楚就行。</p>
+<h1 id="15-自己写的代码自己先测试"><a href="#15-自己写的代码自己先测试" class="headerlink" title="15.自己写的代码自己先测试"></a>15.自己写的代码自己先测试</h1><h1 id="16-提高代码质量的最简单方法是多写几遍"><a href="#16-提高代码质量的最简单方法是多写几遍" class="headerlink" title="16.提高代码质量的最简单方法是多写几遍"></a>16.提高代码质量的最简单方法是多写几遍</h1><h1 id="17-让架构与代码充满美感"><a href="#17-让架构与代码充满美感" class="headerlink" title="17.让架构与代码充满美感"></a>17.让架构与代码充满美感</h1><h1 id="18-让程序运行快一点、再快一点，直到极限"><a href="#18-让程序运行快一点、再快一点，直到极限" class="headerlink" title="18.让程序运行快一点、再快一点，直到极限"></a>18.让程序运行快一点、再快一点，直到极限</h1><p>用户感觉慢的时间极限时间为两秒，最好到1秒之内。</p>
+<h1 id="19-每个Bug都是可以解决的，关键是决心"><a href="#19-每个Bug都是可以解决的，关键是决心" class="headerlink" title="19.每个Bug都是可以解决的，关键是决心"></a>19.每个Bug都是可以解决的，关键是决心</h1><h1 id="20-找不到问题的根源绝不放弃"><a href="#20-找不到问题的根源绝不放弃" class="headerlink" title="20.找不到问题的根源绝不放弃"></a>20.找不到问题的根源绝不放弃</h1><h1 id="21-技术攻坚最难的时候正是成长的时候"><a href="#21-技术攻坚最难的时候正是成长的时候" class="headerlink" title="21.技术攻坚最难的时候正是成长的时候"></a>21.技术攻坚最难的时候正是成长的时候</h1><h1 id="22-坚持学习，永葆青春"><a href="#22-坚持学习，永葆青春" class="headerlink" title="22.坚持学习，永葆青春"></a>22.坚持学习，永葆青春</h1>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/08/11/%E4%BA%A7%E5%93%81%E7%A0%94%E5%8F%91%E7%9A%8422%E6%9D%A1%E5%86%9B%E8%A7%84/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-关于敏捷开发那些事" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/08/10/%E5%85%B3%E4%BA%8E%E6%95%8F%E6%8D%B7%E5%BC%80%E5%8F%91%E9%82%A3%E4%BA%9B%E4%BA%8B/">关于敏捷开发那些事</a>
+    </h1>
+  
+
+        
+        <a href="/2020/08/10/%E5%85%B3%E4%BA%8E%E6%95%8F%E6%8D%B7%E5%BC%80%E5%8F%91%E9%82%A3%E4%BA%9B%E4%BA%8B/" class="archive-article-date">
+  	<time datetime="2020-08-10T01:34:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-10</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="敏捷宣言-价值观"><a href="#敏捷宣言-价值观" class="headerlink" title="敏捷宣言(价值观)"></a>敏捷宣言(价值观)</h1><p>个体与互动 高于 流程与工具<br>工作的软件 高于 详尽的文档<br>客户合作 高于 合同谈判<br>响应变化 高于 遵循计划<br>敏捷开发的核心思想是 以人为本 ，适应变化</p>
+<p>敏捷是一种状态，心态及能力</p>
+<h1 id="敏捷原则"><a href="#敏捷原则" class="headerlink" title="敏捷原则"></a>敏捷原则</h1>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/08/10/%E5%85%B3%E4%BA%8E%E6%95%8F%E6%8D%B7%E5%BC%80%E5%8F%91%E9%82%A3%E4%BA%9B%E4%BA%8B/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Web安全" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -483,729 +1031,6 @@
 
 
   
-    <article id="post-WEB编码规范" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/08/04/WEB%E7%BC%96%E7%A0%81%E8%A7%84%E8%8C%83/">WEB编码规范</a>
-    </h1>
-  
-
-        
-        <a href="/2020/08/04/WEB%E7%BC%96%E7%A0%81%E8%A7%84%E8%8C%83/" class="archive-article-date">
-  	<time datetime="2020-08-04T01:04:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-04</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>为什么要遵循编码规范<br>可读性好，易于维护，不易出错，最佳实践<br>web编码规范</p>
-<p>命名的重要性</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">学习</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">培训</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/08/04/WEB%E7%BC%96%E7%A0%81%E8%A7%84%E8%8C%83/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-js实现五子棋" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/08/03/js%E5%AE%9E%E7%8E%B0%E4%BA%94%E5%AD%90%E6%A3%8B/">js实现五子棋</a>
-    </h1>
-  
-
-        
-        <a href="/2020/08/03/js%E5%AE%9E%E7%8E%B0%E4%BA%94%E5%AD%90%E6%A3%8B/" class="archive-article-date">
-  	<time datetime="2020-08-03T07:22:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-03</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>五子棋</title>
-	<style>
-		canvas {
-			display: block;
-			margin: 50px auto;
-			box-shadow: -2px -2px 2px #efefef, 5px 5px 5px #b9b9b9;
-		}
-	</style>
-<meta name="generator" content="Hexo 4.2.0"><link rel="alternate" href="/atom.xml" title="裴雷de博客" type="application/atom+xml">
-</head>
-<body>
-	<canvas id="chess" width="450px" height="450px"></canvas>
-	<script>
-		var chessBoard = []
-		var over = false
-
-		// 赢法数组
-		var wins = []
-
-		// 赢法的统计数组
-		var myWin = []
-		var computerWin = []
-
-		for (var i = 0; i < 15; i++) {
-			chessBoard[i] = []
-			for(var j = 0; j < 15; j++) {
-				chessBoard[i][j] = 0
-			}
-		}
-
-		for (var i = 0; i < 15; i++) {
-			wins[i] = []
-			for(var j = 0; j < 15; j++) {
-				wins[i][j] = []
-			}
-		}
-
-		var count = 0
-		for(var i = 0; i < 15; i++) {
-			for(var j = 0; j<11; j++) {
-				for(var k = 0; k < 5; k++) {
-					wins[i][j+k][count] = true
-				}
-				count++
-			}
-		}
-
-		for(var i = 0; i < 15; i++) {
-			for(var j = 0; j<11; j++) {
-				for(var k = 0; k < 5; k++) {
-					wins[j+k][i][count] = true
-				}
-				count++
-			}
-		}
-
-		for(var i = 0; i < 11; i++) {
-			for(var j = 0; j<11; j++) {
-				for(var k = 0; k < 5; k++) {
-					wins[i+k][j+k][count] = true
-				}
-				count++
-			}
-		}		
-
-		for(var i = 0; i < 11; i++) {
-			for(var j = 14; j>3; j--) {
-				for(var k = 0; k < 5; k++) {
-					wins[i+k][j-k][count] = true
-				}
-				count++
-			}
-		}
-
-		for(var i = 0; i < count; i++) {
-			myWin[i] = 0
-			computerWin[i] = 0
-		}
-
-		var me = true
-		var chess = document.getElementById('chess')
-		var context = chess.getContext('2d')
-
-		context.strokeStyle = '#bfbfbf'
-
-		// var logo = new Image()
-		// logo.src = 'images/logo.png'
-		// logo.onload = function () {
-		// 	context.drawImage(logo, 0, 0, 450, 450)
-		// }
-
-		for(var i = 0; i < 15; i++) {
-			context.moveTo(15 + i * 30, 15)
-			context.lineTo(15 + i * 30, 435)
-			context.stroke()
-			context.moveTo(15, 15 + i * 30)
-			context.lineTo(435, 15 + i * 30)
-			context.stroke()
-		}
-
-		
-
-		var oneStep = function (i, j, me) {
-			context.beginPath()
-			context.arc(15 + i * 30, 15 + j * 30, 13, 0, 2 * Math.PI)
-			context.closePath()
-			var gradient = context.createRadialGradient(15 + i * 30 + 2, 15 + j * 30 - 2, 15, 15 + i * 30 + 2, 15 + j * 30 - 2, 0)
-			if (me) {
-				gradient.addColorStop(0, '#0a0a0a')
-				gradient.addColorStop(1, '#636766')
-			} else {
-				gradient.addColorStop(0, '#d1d1d1')
-				gradient.addColorStop(1, '#f9f9f9')
-			}
-			context.fillStyle = gradient
-			context.fill()
-		}
-
-		chess.onclick = function (e) {
-			if (over || !me) {return}
-			var x = e.offsetX
-			var y = e.offsetY
-			var i = Math.floor(x / 30)
-			var j = Math.floor(y / 30)
-			if (chessBoard[i][j] === 0) {
-				oneStep(i, j, me)
-				chessBoard[i][j] = 1
-				for(var k = 0; k < count; k++) {
-					if (wins[i][j][k]) {
-						myWin[k]++
-						computerWin[k] = 6
-						if (myWin[k] == 5) {
-							window.alert('你赢了')
-							over = true
-						}
-					}
-				}
-
-				if (!over) {
-					me = !me
-					computerAI()
-				}
-			}
-		}
-
-		var computerAI = function () {
-			var myScore = []
-			var computerScore = []
-			var max = 0
-			var u = 0, v = 0
-
-			for(var i = 0; i < 15; i++) {
-				myScore[i] = []
-				computerScore[i] = []
-				for(var j = 0; j< 15; j++) {
-					myScore[i][j] = 0
-					computerScore[i][j] = 0
-				}
-			}
-
-			for(var i = 0; i < 15; i++) {
-				for(var j = 0; j< 15;j++) {
-					if (chessBoard[i][j] == 0) {
-						for (var k = 0; k < count; k++) {
-							if (wins[i][j][k]) {
-								if (myWin[k] == 1) {
-									myScore[i][j] += 200
-								} else if(myWin[k] == 2) {
-									myScore[i][j] += 400
-								} else if(myWin[k] == 3) {
-									myScore[i][j] += 2000
-								} else if(myWin[k] == 4) {
-									myScore[i][j] += 10000
-								}
-
-								if (computerWin[k] == 1) {
-									computerScore[i][j] += 220
-								} else if(computerWin[k] == 2) {
-									computerScore[i][j] += 420
-								} else if(computerWin[k] == 3) {
-									computerScore[i][j] += 2100
-								} else if(computerWin[k] == 4) {
-									computerScore[i][j] += 20000
-								}
-							}
-						}
-
-						if (myScore[i][j] > max) {
-							max = myScore[i][j]
-							u = i
-							v = j
-						} else if(myScore[i][j] == max) {
-							if (computerScore[i][j] > computerScore[u][v]) {
-								u = i
-								v = j
-							}
-						}
-
-						if (computerScore[i][j] > max) {
-							max = computerScore[i][j]
-							u = i
-							v = j
-						} else if(computerScore[i][j] == max) {
-							if (myScore[i][j] > myScore[u][v]) {
-								u = i
-								v = j
-							}
-						}
-					}
-				}
-			}
-
-			oneStep(u, v, false)
-			chessBoard[u][v] = 2
-
-			for(var k = 0; k < count; k++) {
-				if (wins[u][v][k]) {
-					computerWin[k]++
-					myWin[k] = 6
-					if (computerWin[k] == 5) {
-						window.alert('你输了')
-						over = true
-					}
-				}
-			}
-
-			if (!over) {
-				me = !me
-			}
-		}
-	</script>
-</body>
-</html>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">学习</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/08/03/js%E5%AE%9E%E7%8E%B0%E4%BA%94%E5%AD%90%E6%A3%8B/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-JavaScript简介" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/08/03/JavaScript%E7%AE%80%E4%BB%8B/"> JavaScript简介</a>
-    </h1>
-  
-
-        
-        <a href="/2020/08/03/JavaScript%E7%AE%80%E4%BB%8B/" class="archive-article-date">
-  	<time datetime="2020-08-03T05:27:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-03</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="JavaScript简介"><a href="#JavaScript简介" class="headerlink" title="JavaScript简介"></a>JavaScript简介</h1><p>JS是互联网上最流行的脚本语言，这门语言可以用于HTML和web，更可广泛用于服务器，PC笔记本电脑，平板电脑，和智能手机等设备。</p>
-<h1 id="JS是脚本语言"><a href="#JS是脚本语言" class="headerlink" title="JS是脚本语言"></a>JS是脚本语言</h1><p>JS是一种轻量级的编程语言<br>JS是可插入的HTML页面的编程代码<br>JS插入HTML页面后，可由所有的现代浏览器执行<br>JS很容易学习</p>
-<h1 id="JS直接写入HTML输出流"><a href="#JS直接写入HTML输出流" class="headerlink" title="JS直接写入HTML输出流"></a>JS直接写入HTML输出流</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">document.write(&quot;&lt;h1&gt;这是一个段落&lt;&#x2F;h1&gt;&quot;)；</span><br><span class="line">document.write(&quot;&lt;p&gt;这是一个段落&lt;&#x2F;&gt;);</span><br></pre></td></tr></table></figure>
-<ul>
-<li>您只能在HTML输出中使用document.write，如果您在文档加载后使用该方法，会覆盖整个文档<h1 id="JS对事件的反应"><a href="#JS对事件的反应" class="headerlink" title="JS对事件的反应"></a>JS对事件的反应</h1></li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;button type &#x3D;&quot;button&quot; onclick&#x3D;&quot;alert(&#39;欢迎!&#39;)&quot;&gt;点我！&lt;&#x2F;button&gt;</span><br></pre></td></tr></table></figure>
-<p>alert()函数在JS中并不常见，但是他对代码测试非常方便。</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">React</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/08/03/JavaScript%E7%AE%80%E4%BB%8B/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-JavaScript的新特性" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/07/30/JavaScript%E7%9A%84%E6%96%B0%E7%89%B9%E6%80%A7/">JavaScript的新特性</a>
-    </h1>
-  
-
-        
-        <a href="/2020/07/30/JavaScript%E7%9A%84%E6%96%B0%E7%89%B9%E6%80%A7/" class="archive-article-date">
-  	<time datetime="2020-07-30T13:45:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-30</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">React</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/07/30/JavaScript%E7%9A%84%E6%96%B0%E7%89%B9%E6%80%A7/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-前端架构的认知" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/07/29/%E5%89%8D%E7%AB%AF%E6%9E%B6%E6%9E%84%E7%9A%84%E8%AE%A4%E7%9F%A5/">前端架构的认知</a>
-    </h1>
-  
-
-        
-        <a href="/2020/07/29/%E5%89%8D%E7%AB%AF%E6%9E%B6%E6%9E%84%E7%9A%84%E8%AE%A4%E7%9F%A5/" class="archive-article-date">
-  	<time datetime="2020-07-29T14:39:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-29</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>架构并不是只限于技术选型<br>是架构设计作为软件生命周期的一部分，并不是说开始的时候，设计完成后就会一成不变，软件的生命周期包含了迭代，维护，重构等过程，架构设计亦是如此，所以说架构是需要变化的，目的就是适应当前的情况的开发场景。<br>而架构产生的时间，必定是收到当前的约束条件，如人力，团对技术积累，时间，业务定位等需求。所以，当前架构可能并不能满足未来的需求，我们要开放对待这个问题，只要当前的架构符合一定的设计原则，未来进行架构的演进就不是问题。<br>架构这个词的解释也没有一个明确的定义，每个层级，每个场景都有自己的解释</p>
-<p>软件架构(software architecture)，是一系列相关的抽象模式，用于指导大型软件系统各个方面的设计。<br>其实软件开发和盖一栋大楼一样，都需要规划，设计，实施等一系列的阶段，最开始设计建筑图纸，主题架构，还要考虑绿化，材料，安全等因素，经过一系列的决策，才有了一套成熟的建筑施工方案，按照规范建造，才能保证质量和速度。<br>而开发一个软件或者前端工程也是一个建筑的过程，我们要通过业务来定位系统间的关系，讨论技术栈和框架的徐娜用，根据当前团对的技术水平进行技术的选型，考虑各个模块之间的界限和交互，上线部署策略，问题回滚策略等一系列的决策才能设计符合当前情况的技术框架。</p>
-<h1 id="前端开发过程中需要怎样的架构"><a href="#前端开发过程中需要怎样的架构" class="headerlink" title="前端开发过程中需要怎样的架构"></a>前端开发过程中需要怎样的架构</h1><p>基本要求如下:</p>
-<ul>
-<li>符合当前的业务定位</li>
-<li>前端架构必须具有可实施性</li>
-<li>必须匹配当前的技术储备</li>
-<li>有足够的人力资源去完成</li>
-<li>具有可伸缩，可扩展性<br>[因地制宜]应该是开始设计架构的基本准则，每套架构的产生都有其他的外界因素影响，所以，各个公司，各个团对之间的架构不能照搬，如果强制搬过来，可能会适得其反，就像你那alibaba的技术架构去搬到初创公司，那是根本行不通的，人员，资源不匹配，是没办法去实施架构的。</li>
-<li>准确的业务定位，业务可能是影响架构的主要因素之一，所以我们要找准业务上的定位</li>
-<li>明确与其他业务之间的联系，确定与其他系统的层次关系，相互间的通讯依赖等</li>
-<li>设计好系统内子模块之间的关系，如A业务模块需要与B模块交互，该采取怎样的方式</li>
-<li>基础模块明确，项目中，必定含有基础模块取提供一些公用的方法，数据去提供给各个子模块。</li>
-<li>组件规划，这就是在细一层的规划了，制定组件的交互方式，开发范式</li>
-<li>开发规范和上线流程，用于指导开发中的过程<h1 id="架构设计setp"><a href="#架构设计setp" class="headerlink" title="架构设计setp"></a>架构设计setp</h1>设计需要进行一系列的技术及非技术的相关工作。</li>
-<li>收集利益相关者的需求，产品经理，业务人员，项目负责人等</li>
-<li>与相应的技术人员进行讨论，确定架构上的潜在限制和要求</li>
-<li>寻找可行性的技术方案</li>
-<li>细化技术方案细节，确定一些功能列表中的技术可行性</li>
-<li>确定风险点</li>
-<li>与技术人员反复讨论，集合大家意见</li>
-<li>对技术方案进行demo的概念化验证</li>
-<li>结合当前业务，细化架构的部分实施细节</li>
-<li>进行排期</li>
-</ul>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">架构</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/07/29/%E5%89%8D%E7%AB%AF%E6%9E%B6%E6%9E%84%E7%9A%84%E8%AE%A4%E7%9F%A5/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-输入n个数，找出其中最小的K个数" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/07/18/%E8%BE%93%E5%85%A5n%E4%B8%AA%E6%95%B0%EF%BC%8C%E6%89%BE%E5%87%BA%E5%85%B6%E4%B8%AD%E6%9C%80%E5%B0%8F%E7%9A%84K%E4%B8%AA%E6%95%B0/">输入n个数，找出其中最小的K个数</a>
-    </h1>
-  
-
-        
-        <a href="/2020/07/18/%E8%BE%93%E5%85%A5n%E4%B8%AA%E6%95%B0%EF%BC%8C%E6%89%BE%E5%87%BA%E5%85%B6%E4%B8%AD%E6%9C%80%E5%B0%8F%E7%9A%84K%E4%B8%AA%E6%95%B0/" class="archive-article-date">
-  	<time datetime="2020-07-18T14:45:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-18</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="问题：输入4，5，1，6，2，7，3，8这8个数，则最小的4个数是1，2，3，4"><a href="#问题：输入4，5，1，6，2，7，3，8这8个数，则最小的4个数是1，2，3，4" class="headerlink" title="问题：输入4，5，1，6，2，7，3，8这8个数，则最小的4个数是1，2，3，4"></a>问题：输入4，5，1，6，2，7，3，8这8个数，则最小的4个数是1，2，3，4</h1><h1 id="解题思路：这道题我们仍然可以用快速排序的思路来解决，基于数组的第k个数来调整，比第k个数小的数字都移到数组左边，比第k个数大的数字都移到数组的右边，这样一来，位于数组左边的k个数就是最小的k个数字（不一定需要全部排序）。在-PHP-中，只需要调用-sort-函数，取前k个数字就可以得到结果了，并且其时间复杂度是O-nlogn-，符合我们的预期。当然，快排也好，归并也好，都只适合小规模的数据，并不适用于海量数据的处理，比如上百万、上千万的数据集，使用数组函数-sort-显然不合适了，使用自行实现的快排也不合适，这个时候，我们可以考虑使用前面算法和数据结构中介绍的堆排序。堆排序的时间复杂度也是-O-nlogn-，这里我们需要通过大顶堆来实现，即维护一个大小为k的大顶堆，如果待处理数据集的长度大于k，则当数字容量超过k时，比较后续数字与堆顶数字值（堆中最大），大于则跳过，小于则重新堆化大顶堆，依次类推，直到整个数据集遍历一遍，最后保留下来的大顶堆就是最小的k个数。"><a href="#解题思路：这道题我们仍然可以用快速排序的思路来解决，基于数组的第k个数来调整，比第k个数小的数字都移到数组左边，比第k个数大的数字都移到数组的右边，这样一来，位于数组左边的k个数就是最小的k个数字（不一定需要全部排序）。在-PHP-中，只需要调用-sort-函数，取前k个数字就可以得到结果了，并且其时间复杂度是O-nlogn-，符合我们的预期。当然，快排也好，归并也好，都只适合小规模的数据，并不适用于海量数据的处理，比如上百万、上千万的数据集，使用数组函数-sort-显然不合适了，使用自行实现的快排也不合适，这个时候，我们可以考虑使用前面算法和数据结构中介绍的堆排序。堆排序的时间复杂度也是-O-nlogn-，这里我们需要通过大顶堆来实现，即维护一个大小为k的大顶堆，如果待处理数据集的长度大于k，则当数字容量超过k时，比较后续数字与堆顶数字值（堆中最大），大于则跳过，小于则重新堆化大顶堆，依次类推，直到整个数据集遍历一遍，最后保留下来的大顶堆就是最小的k个数。" class="headerlink" title="解题思路：这道题我们仍然可以用快速排序的思路来解决，基于数组的第k个数来调整，比第k个数小的数字都移到数组左边，比第k个数大的数字都移到数组的右边，这样一来，位于数组左边的k个数就是最小的k个数字（不一定需要全部排序）。在 PHP 中，只需要调用 sort 函数，取前k个数字就可以得到结果了，并且其时间复杂度是O(nlogn)，符合我们的预期。当然，快排也好，归并也好，都只适合小规模的数据，并不适用于海量数据的处理，比如上百万、上千万的数据集，使用数组函数 sort 显然不合适了，使用自行实现的快排也不合适，这个时候，我们可以考虑使用前面算法和数据结构中介绍的堆排序。堆排序的时间复杂度也是 O(nlogn)，这里我们需要通过大顶堆来实现，即维护一个大小为k的大顶堆，如果待处理数据集的长度大于k，则当数字容量超过k时，比较后续数字与堆顶数字值（堆中最大），大于则跳过，小于则重新堆化大顶堆，依次类推，直到整个数据集遍历一遍，最后保留下来的大顶堆就是最小的k个数。"></a>解题思路：这道题我们仍然可以用快速排序的思路来解决，基于数组的第k个数来调整，比第k个数小的数字都移到数组左边，比第k个数大的数字都移到数组的右边，这样一来，位于数组左边的k个数就是最小的k个数字（不一定需要全部排序）。在 PHP 中，只需要调用 sort 函数，取前k个数字就可以得到结果了，并且其时间复杂度是O(nlogn)，符合我们的预期。当然，快排也好，归并也好，都只适合小规模的数据，并不适用于海量数据的处理，比如上百万、上千万的数据集，使用数组函数 sort 显然不合适了，使用自行实现的快排也不合适，这个时候，我们可以考虑使用前面算法和数据结构中介绍的堆排序。堆排序的时间复杂度也是 O(nlogn)，这里我们需要通过大顶堆来实现，即维护一个大小为k的大顶堆，如果待处理数据集的长度大于k，则当数字容量超过k时，比较后续数字与堆顶数字值（堆中最大），大于则跳过，小于则重新堆化大顶堆，依次类推，直到整个数据集遍历一遍，最后保留下来的大顶堆就是最小的k个数。</h1>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">笔试题</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/07/18/%E8%BE%93%E5%85%A5n%E4%B8%AA%E6%95%B0%EF%BC%8C%E6%89%BE%E5%87%BA%E5%85%B6%E4%B8%AD%E6%9C%80%E5%B0%8F%E7%9A%84K%E4%B8%AA%E6%95%B0/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/3/">Next &amp;raquo;</a>
@@ -1303,11 +1128,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
+                <a href="javascript:void(0)" class="js-tag color3">日记</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">学习</a>
+                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1315,15 +1140,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">HTML</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">ES6</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">React</a>
+                <a href="javascript:void(0)" class="js-tag color3">学习</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1331,7 +1152,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">HTML</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">React</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1347,14 +1176,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Laravel</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">优化</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
@@ -1367,6 +1188,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">架构</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">前端</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">编写规范</a>
               </li>
              
@@ -1375,15 +1204,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">项目</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">56项目</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">调酒</a>
+                <a href="javascript:void(0)" class="js-tag color3">项目</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1391,15 +1216,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">调酒</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">考证</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Laravel</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">优化</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">随笔    - 随笔</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">架构</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">前端</a>
               </li>
             
             <div class="clearfix"></div>

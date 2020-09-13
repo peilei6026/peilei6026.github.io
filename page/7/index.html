@@ -160,6 +160,542 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-调酒" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/04/14/%E8%B0%83%E9%85%92/">调酒</a>
+    </h1>
+  
+
+        
+        <a href="/2020/04/14/%E8%B0%83%E9%85%92/" class="archive-article-date">
+  	<time datetime="2020-04-14T06:26:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-14</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">调酒</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/04/14/%E8%B0%83%E9%85%92/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-React-JSX" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/04/13/React-JSX/">React JSX</a>
+    </h1>
+  
+
+        
+        <a href="/2020/04/13/React-JSX/" class="archive-article-date">
+  	<time datetime="2020-04-13T15:19:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-13</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="React-JSX"><a href="#React-JSX" class="headerlink" title="React JSX"></a>React JSX</h2><p>React使用JSX来代替常规的JavaScipt。<br>JSX是一个看起来很像XML的JavaScript语法扩展。<br>我们不需要一定使用JSX,但它有以下优点：</p>
+<ul>
+<li>JSX执行更快，因为它在编译为JavaScript代码后进行了优化。</li>
+<li>它是类型安全的，在编译过程中就能发现错误。</li>
+<li>使用JSX编写模板更加见到那快速。<br>我们先看下以下代码<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const element &#x3D; &lt;h1&gt;Hello,world!&lt;&#x2F;h1&gt;;</span><br></pre></td></tr></table></figure>
+这种看起来可能有些奇怪的标签语法即不是字符串也不是HTML。<br>它被称为JSX,一种JavaScript的语法扩展，我们扩展在React中使用JSX来描述用户界面。<br>JSX是在JavaScript内部实现的<br>我们知道元素是构成React应用的最小单位，JSX就是用来声明React当中的元素。<br>与浏览器的DOM元素不同,React当中的元素事实上就是普通的对象，React DOM可以确保浏览器DOM的数据内容与React元素保持一致。<br>要将React元素渲染到根DOM节点中，我们通过把他们都传递给ReactDOM.render()的方法来将其渲染到页面上:<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var myDivElement &#x3D; &lt;div className&#x3D;&quot;foo&quot; &#x2F;&gt;;</span><br><span class="line">ReactDOM.render(myDivElement,document.getElementById(&#39;example&#39;));</span><br></pre></td></tr></table></figure></li>
+<li><em>注意*</em><br>由于JSX就是javaScript,一些标识符就像class和for不建议作为xml属性名。作为替代，React DOM使用className和htmlFor来作对应的属性。</li>
+</ul>
+<h2 id="使用JSX"><a href="#使用JSX" class="headerlink" title="使用JSX"></a>使用JSX</h2><p>JSX看起来类似HTML，我们可以看下实例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ReactDOM.render(</span><br><span class="line">    &lt;h1&gt;Hello,World!&lt;&#x2F;h1&gt;,</span><br><span class="line">    document.getElementById(&#39;example&#39;)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<p>我们可以在以上代码中嵌套多个HTML标签，需要使用一个div元素包裹它，实例中的p元素添加了自定义属性<code>data-myattribute</code>,添加自定义属性需要使用<code>data-</code>前缀。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">ReactDOM.render(</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">    &lt;h1&gt;欢迎学习React&lt;&#x2F;h1&gt;</span><br><span class="line">    &lt;p data-myattribute &#x3D; &quot;somevalue&quot;&gt;这是一个不错的JavaScript库！&lt;&#x2F;p&gt;</span><br><span class="line">    &lt;&#x2F;div&gt;</span><br><span class="line">    ,</span><br><span class="line">    document.getElementById(&#39;example&#39;)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<h2 id="独立文件"><a href="#独立文件" class="headerlink" title="独立文件"></a>独立文件</h2><p>你的React JSX代码可以放在一个单独的文件上，例如我们创建一个helloworld_react.js文件,代码如下:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ReactDOM.render(</span><br><span class="line">    &lt;h1&gt;Hello,world!&lt;&#x2F;h1&gt;,</span><br><span class="line">    document.getElementById(&#39;example&#39;)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<p>然后再HTML文件中引入该JS文件:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;div id&#x3D;&quot;example&quot;&gt;&lt;&#x2F;div&gt;</span><br><span class="line">    &lt;script type&#x3D;&quot;text&#x2F;babel&quot; src&#x3D;&quot;helloworld_react.js&quot;&gt;&lt;&#x2F;script&gt;</span><br><span class="line">&lt;&#x2F;body&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="JavaScript表达式"><a href="#JavaScript表达式" class="headerlink" title="JavaScript表达式"></a>JavaScript表达式</h2><p>我们可以在JSX中使用JavaScript表达式。表达式写在花括号{}中。实例如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">ReactDOM.render(</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">        &lt;h1&gt;&#123;1+1&#125;&lt;&#x2F;h1&gt;</span><br><span class="line">    &lt;&#x2F;div&gt;,</span><br><span class="line">    document.getElementById(&#39;example&#39;)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<p>在JSX中不能使用if else语句，但可以使用conditional(三元运算)表达式来代替，以下实例中如果变量i等于1浏览器将输出true,如果修改i的值，则会输出false</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">ReactDOM.reder(</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">        &lt;h1&gt;&#123;1 &#x3D;&#x3D; ? &#39;True!&#39; : &#39;False&#39;&#125;&lt;&#x2F;h1&gt;</span><br><span class="line">    &lt;&#x2F;div&gt;</span><br><span class="line">    ,</span><br><span class="line">    document.getElementById(&#39;example&#39;)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<h2 id="样式"><a href="#样式" class="headerlink" title="样式"></a>样式</h2><p>React推荐使用内联样式。我们可以使用camlCase语法来设置内联样式，React会在指定元素数字后自动添加px。以下实例演示了为h1元素添加myStule内联样式：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var myStyle &#x3D; &#123;</span><br><span class="line">    fontSize: 100,</span><br><span class="line">    color: &#39;#FF000&#39;</span><br><span class="line">&#125;;</span><br><span class="line">ReactDOM.render(</span><br><span class="line">    &lt;h1&gt;&lt;&#x2F;h1&gt;,</span><br><span class="line">    document.getElementById(&#39;example)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<h2 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h2><p>注释需要写在花括号内，实例如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">ReactDOM.render(</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">    &lt;h1&gt;React注释&lt;&#x2F;1&gt;</span><br><span class="line">    &#123;&#x2F;*注释....*&#x2F;&#125;</span><br><span class="line">    &lt;&#x2F;div&gt;</span><br><span class="line">    document.getElementById(&#39;example&#39;)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<h2 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h2><p>JSX允许在模板中插入数组，数组会自动展开所有成员：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var arr &#x3D; [</span><br><span class="line">    &lt;h1&gt;裴雷&lt;&#x2F;h1&gt;</span><br><span class="line">    &lt;h2&gt;欢迎来到React的世界&lt;&#x2F;h2&gt;</span><br><span class="line">];</span><br><span class="line">ReactDOM.render(</span><br><span class="line">    &lt;div&gt;&#123;arr&#125;&lt;&#x2F;div&gt;,</span><br><span class="line">    document.getElementById(&#39;example&#39;)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">React</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/04/13/React-JSX/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-React元素渲染" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/04/13/React%E5%85%83%E7%B4%A0%E6%B8%B2%E6%9F%93/">React元素渲染</a>
+    </h1>
+  
+
+        
+        <a href="/2020/04/13/React%E5%85%83%E7%B4%A0%E6%B8%B2%E6%9F%93/" class="archive-article-date">
+  	<time datetime="2020-04-13T14:21:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-13</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="React元素渲染"><a href="#React元素渲染" class="headerlink" title="React元素渲染"></a>React元素渲染</h1><p>元素是构成React应用得最小单位</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const element &#x3D; &lt;h1&gt;Hello,world!&lt;&#x2F;h1&gt;;</span><br></pre></td></tr></table></figure>
+<p>与浏览去得DOM元素不同，React当中的元素事实上是普通的对象,React DOM可以确保浏览器DOM的数据内容与React元素保持一致。</p>
+<h1 id="将元素渲染到DOM中"><a href="#将元素渲染到DOM中" class="headerlink" title="将元素渲染到DOM中"></a>将元素渲染到DOM中</h1><p>首先我们在HTML页面中添加一个<code>id=&quot;example&quot;</code>的<code>&lt;div&gt;</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id&#x3D;&quot;example&quot;&gt;&lt;&#x2F;div&gt;</span><br></pre></td></tr></table></figure>
+<p>在此div中的所有内容都将由React DOM来管理，所以我们将其成为”根“DOM节点<br>我们用React开发应用时一般只会定义一个根节点，但如果你是一个在已有的项目中引用React的话，你可能会需要在不同的部分单独定义React根节点。<br>要将React元素渲染到根DOM节点中，我们通过把他们都传递给<code>ReactDOM.render()</code>的方法来将其渲染到页面中：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">const element &#x3D; &lt;h1&gt;Hello,world!&lt;&#x2F;h1&gt;;</span><br><span class="line">ReactDOM.render(</span><br><span class="line">    element,</span><br><span class="line">    document.getElementById(&#39;example&#39;)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<h1 id="更新元素渲染"><a href="#更新元素渲染" class="headerlink" title="更新元素渲染"></a>更新元素渲染</h1><p>React元素都是不可变的。当元素被创建之后，你是无法改变其内容或者属性的<br>目前更新界面的唯一办法激素hi创建一个新的元素，然后将他传入ReactDOM.render()方法：<br>来看一下这个计时器的例子：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">function tick()&#123;</span><br><span class="line">    const element &#x3D; (</span><br><span class="line">        &lt;div&gt;</span><br><span class="line">            &lt;h1&gt;Hello,world!&lt;&#x2F;h1&gt;</span><br><span class="line">            &lt;h2&gt;现在时&#123;new Date().toLocaleTimeString()&#125;.&lt;&#x2F;h2&gt;</span><br><span class="line">        &lt;&#x2F;div&gt;</span><br><span class="line">    );</span><br><span class="line">    ReactDOM.render(</span><br><span class="line">        element,</span><br><span class="line">        document.getElementById(&#39;example&#39;)</span><br><span class="line">    );</span><br><span class="line">&#125;</span><br><span class="line">setInterval(tick,1000);</span><br></pre></td></tr></table></figure>
+<p>以上实例通过setinterval()方法。<br>我们可以将要展示的部分封装起来，以下实例用一个函数来表示：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">function Clock(props)&#123;</span><br><span class="line">    return (</span><br><span class="line">        &lt;div&gt;</span><br><span class="line">            &lt;h1&gt;Hello,world!&lt;&#x2F;h1&gt;</span><br><span class="line">            &lt;h2&gt;现在时&#123;props.date.toLocaleTimeString()&#125;.&lt;&#x2F;h2&gt;</span><br><span class="line">        &lt;&#x2F;div&gt;</span><br><span class="line">    );</span><br><span class="line">&#125;</span><br><span class="line">function tick()&#123;</span><br><span class="line">    ReactDOM.render(</span><br><span class="line">        &lt;Clock date&#x3D;&#123;new Data()&#125; &#x2F;&gt;,</span><br><span class="line">        document.getElementById(&#39;example&#39;)</span><br><span class="line">    );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">setInterval(tick,1000);</span><br></pre></td></tr></table></figure>
+<p>除了函数外我们还可以创建一个React.Component的ES6类，该类封装了要展示的元素,需要注意的是render()方法中，需要使用<code>this.props</code>替代<code>props</code>:<br>React只会更新必要的部分</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">class Clock extends React.Component&#123;</span><br><span class="line">    render()&#123;</span><br><span class="line">        return()</span><br><span class="line">        &lt;div&gt;</span><br><span class="line">            &lt;h1&gt;Hello,world!&lt;&#x2F;h1&gt;</span><br><span class="line">            &lt;h2&gt;现在是&#123;this.props.date.toLocaleTimeString()&#125;.&lt;&#x2F;h2&gt;</span><br><span class="line">        &lt;&#x2F;div&gt;</span><br><span class="line">        );</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function tick()&#123;</span><br><span class="line">    ReactDOM.render(</span><br><span class="line">        &lt;Clock date&#x3D;&#123;new Date()&#125; &#x2F;&gt;,</span><br><span class="line">        document.getElementById(&#39;example&#39;)</span><br><span class="line">    );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">setInterval(tick,1000);</span><br></pre></td></tr></table></figure>
+<p>指的主义的是React DOM首先会比较元素内容先后的不同，而在渲染过程中只会更新改变了的部分。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">React</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/04/13/React%E5%85%83%E7%B4%A0%E6%B8%B2%E6%9F%93/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-React-安装" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/04/12/React-%E5%AE%89%E8%A3%85/">React 安装</a>
+    </h1>
+  
+
+        
+        <a href="/2020/04/12/React-%E5%AE%89%E8%A3%85/" class="archive-article-date">
+  	<time datetime="2020-04-11T17:11:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-12</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>React可以直接下载使用<br>直接使用Staticfile CDN的React CDN库，地址如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src&#x3D;&quot;https:&#x2F;&#x2F;cdn.staticfile.org&#x2F;react&#x2F;16.4.0&#x2F;umd&#x2F;react.development.js&quot;&gt;&lt;&#x2F;script&gt;</span><br><span class="line">&lt;script src&#x3D;&quot;https:&#x2F;&#x2F;cdn.staticfile.org&#x2F;react-dom&#x2F;16.4.0&#x2F;umd&#x2F;react-dom.development.js&quot;&gt;&lt;&#x2F;script&gt;</span><br><span class="line">&lt;!-- 生产环境中不建议使用 --&gt;</span><br><span class="line">&lt;script src&#x3D;&quot;https:&#x2F;&#x2F;cdn.staticfile.org&#x2F;babel-standalone&#x2F;6.26.0&#x2F;babel.min.js&quot;&gt;&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
+<p>官方提供的CDN地址</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src&#x3D;&quot;https:&#x2F;&#x2F;unpkg.com&#x2F;react@16&#x2F;umd&#x2F;react.development.js&quot;&gt;&lt;&#x2F;script&gt;</span><br><span class="line">&lt;script src&#x3D;&quot;https:&#x2F;&#x2F;unpkg.com&#x2F;react-dom@16&#x2F;umd&#x2F;react-dom.development.js&quot;&gt;&lt;&#x2F;script&gt;</span><br><span class="line">&lt;!-- 生产环境中不建议使用 --&gt;</span><br><span class="line">&lt;script src&#x3D;&quot;https:&#x2F;&#x2F;unpkg.com&#x2F;babel-standalone@6.15.0&#x2F;babel.min.js&quot;&gt;&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
+<p>注意：在浏览器中使用Bael编译JSX效率是非常低的。</p>
+<p><strong>使用示例</strong><br>以下示例输出了，Hello,world!</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">&lt;meta charset&#x3D;&quot;UTF-8&quot; &#x2F;&gt;</span><br><span class="line">&lt;title&gt;Hello React!&lt;&#x2F;title&gt;</span><br><span class="line">&lt;script src&#x3D;&quot;https:&#x2F;&#x2F;cdn.staticfile.org&#x2F;react&#x2F;16.4.0&#x2F;umd&#x2F;react.development.js&quot;&gt;&lt;&#x2F;script&gt;</span><br><span class="line">&lt;script src&#x3D;&quot;https:&#x2F;&#x2F;cdn.staticfile.org&#x2F;react-dom&#x2F;16.4.0&#x2F;umd&#x2F;react-dom.development.js&quot;&gt;&lt;&#x2F;script&gt;</span><br><span class="line">&lt;script src&#x3D;&quot;https:&#x2F;&#x2F;cdn.staticfile.org&#x2F;babel-standalone&#x2F;6.26.0&#x2F;babel.min.js&quot;&gt;&lt;&#x2F;script&gt;</span><br><span class="line">&lt;&#x2F;head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line"> </span><br><span class="line">&lt;div id&#x3D;&quot;example&quot;&gt;&lt;&#x2F;div&gt;</span><br><span class="line">&lt;script type&#x3D;&quot;text&#x2F;babel&quot;&gt;</span><br><span class="line">ReactDOM.render(</span><br><span class="line">    &lt;h1&gt;Hello, world!&lt;&#x2F;h1&gt;,</span><br><span class="line">    document.getElementById(&#39;example&#39;)</span><br><span class="line">);</span><br><span class="line">&lt;&#x2F;script&gt;</span><br><span class="line"> </span><br><span class="line">&lt;&#x2F;body&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure>
+<p><strong>实例解析：</strong><br>实例中我们引入了三个库：react.min.js,react-dom.min.js和babel.min.js</p>
+<ul>
+<li>react.min.js-React的核心库</li>
+<li>react-dom.min.js-提供与DOM相关的功能</li>
+<li>babel.min.js-Babel 可以将 ES6 代码转为 ES5 代码，这样我们就能在目前不支持 ES6 浏览器上执行 React 代码。Babel 内嵌了对 JSX 的支持。通过将 Babel 和 babel-sublime 包（package）一同使用可以让源码的语法渲染上升到一个全新的水平<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ReactDOM.render(</span><br><span class="line">    &lt;h1&gt;Hello,world!&lt;&#x2F;h1&gt;,</span><br><span class="line">    document.getElementById(&#39;example&#39;)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+以上代码将一个h1标题，插入id=”example”节点中</li>
+<li><em>注意*</em><br>如果我们需要使用JSX,则<script></script>标签得type属性需要设置为text/babel</li>
+</ul>
+<h2 id="通过npm使用React"><a href="#通过npm使用React" class="headerlink" title="通过npm使用React"></a>通过npm使用React</h2><h3 id="cnpm安装"><a href="#cnpm安装" class="headerlink" title="cnpm安装"></a>cnpm安装</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install -g cnpm --registry&#x3D;https:&#x2F;&#x2F;registry.npm.taobao.org</span><br><span class="line">npm config set registry https:&#x2F;&#x2F;registry.npm.taobao.org</span><br></pre></td></tr></table></figure>
+<h3 id="使用-create-react-app-快速构建-React-开发环境"><a href="#使用-create-react-app-快速构建-React-开发环境" class="headerlink" title="使用 create-react-app 快速构建 React 开发环境"></a>使用 create-react-app 快速构建 React 开发环境</h3><p>create-react-app 是来自于 Facebook，通过该命令我们无需配置就能快速构建 React 开发环境。<br>create-react-app 自动创建的项目是基于 Webpack + ES6 。<br>执行以下命令创建项目：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cnpm install -g create-react-app</span><br><span class="line">create-react-app my-app</span><br><span class="line">cd my-app&#x2F;</span><br><span class="line">npm start</span><br></pre></td></tr></table></figure>
+<p>项目的目录结构如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">my-app&#x2F;</span><br><span class="line">  README.md</span><br><span class="line">  node_modules&#x2F;</span><br><span class="line">  package.json</span><br><span class="line">  .gitignore</span><br><span class="line">  public&#x2F;</span><br><span class="line">    favicon.ico</span><br><span class="line">    index.html</span><br><span class="line">    manifest.json</span><br><span class="line">  src&#x2F;</span><br><span class="line">    App.css</span><br><span class="line">    App.js</span><br><span class="line">    App.test.js</span><br><span class="line">    index.css</span><br><span class="line">    index.js</span><br><span class="line">    logo.svg</span><br></pre></td></tr></table></figure>
+
+<p>manifest.json 指定了开始页面 index.html，一切的开始都从这里开始，所以这个是代码执行的源头。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">尝试修改 src&#x2F;App.js 文件代码：</span><br><span class="line">import React, &#123; Component &#125; from &#39;react&#39;;</span><br><span class="line">import logo from &#39;.&#x2F;logo.svg&#39;;</span><br><span class="line">import &#39;.&#x2F;App.css&#39;;</span><br><span class="line"> </span><br><span class="line">class App extends Component &#123;</span><br><span class="line">  render() &#123;</span><br><span class="line">    return (</span><br><span class="line">      &lt;div className&#x3D;&quot;App&quot;&gt;</span><br><span class="line">        &lt;div className&#x3D;&quot;App-header&quot;&gt;</span><br><span class="line">          &lt;img src&#x3D;&#123;logo&#125; className&#x3D;&quot;App-logo&quot; alt&#x3D;&quot;logo&quot; &#x2F;&gt;</span><br><span class="line">          &lt;h2&gt;欢迎来到菜鸟教程&lt;&#x2F;h2&gt;</span><br><span class="line">        &lt;&#x2F;div&gt;</span><br><span class="line">        &lt;p className&#x3D;&quot;App-intro&quot;&gt;</span><br><span class="line">          你可以在 &lt;code&gt;src&#x2F;App.js&lt;&#x2F;code&gt; 文件中修改。</span><br><span class="line">        &lt;&#x2F;p&gt;</span><br><span class="line">      &lt;&#x2F;div&gt;</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">export default App;</span><br></pre></td></tr></table></figure>
+<img width=200 src="/assets/blogImg/react1.png" >
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">学习</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">React</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/04/12/React-%E5%AE%89%E8%A3%85/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-随笔" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/04/11/%E9%9A%8F%E7%AC%94/">随笔</a>
+    </h1>
+  
+
+        
+        <a href="/2020/04/11/%E9%9A%8F%E7%AC%94/" class="archive-article-date">
+  	<time datetime="2020-04-11T03:28:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-11</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="windows10自带unbutu16-4-LTS忘记root密码"><a href="#windows10自带unbutu16-4-LTS忘记root密码" class="headerlink" title="windows10自带unbutu16.4 LTS忘记root密码"></a>windows10自带unbutu16.4 LTS忘记root密码</h2><p>1、进入Ubuntu，打开一个终端<br>2、sudo passwd root<br>3、输入新密码，确认密码。<br>4、修改密码成功，切换至管理员账号su root,输入新密码，成功</p>
+<h2 id="Ubuntu更改其他用户密码（如user）步骤："><a href="#Ubuntu更改其他用户密码（如user）步骤：" class="headerlink" title="Ubuntu更改其他用户密码（如user）步骤："></a>Ubuntu更改其他用户密码（如user）步骤：</h2><p>1、进入Ubuntu，打开一个终端，输入 sudo su转为root用户。 注意，必须先转为root用户！！！<br>2、sudo passwd user(user 是对应的用户名)<br>3、输入新密码，确认密码。<br>4、修改密码成功，重启，输入新密码进入Ubuntu</p>
+<h2 id="windows10自带unbutu16-4-LTS安装界面"><a href="#windows10自带unbutu16-4-LTS安装界面" class="headerlink" title="windows10自带unbutu16.4 LTS安装界面"></a>windows10自带unbutu16.4 LTS安装界面</h2><h3 id="切换清华源"><a href="#切换清华源" class="headerlink" title="切换清华源"></a>切换清华源</h3><p>备份源文件并更改源</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo cp &#x2F;etc&#x2F;apt&#x2F;sources.list &#x2F;etc&#x2F;apt&#x2F;sources.list.bak</span><br><span class="line">sudo vim &#x2F;etc&#x2F;apt&#x2F;sources.list</span><br></pre></td></tr></table></figure>
+<p>把里面的都注释，然后直接把完整源放在文件后面</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">deb https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;ubuntu&#x2F; bionic main restricted universe multiverse</span><br><span class="line">deb-src https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;ubuntu&#x2F; bionic main restricted universe multiverse</span><br><span class="line">deb https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;ubuntu&#x2F; bionic-updates main restricted universe multiverse</span><br><span class="line">deb-src https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;ubuntu&#x2F; bionic-updates main restricted universe multiverse</span><br><span class="line">deb https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;ubuntu&#x2F; bionic-backports main restricted universe multiverse</span><br><span class="line">deb-src https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;ubuntu&#x2F; bionic-backports main restricted universe multiverse</span><br><span class="line">deb https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;ubuntu&#x2F; bionic-security main restricted universe multiverse</span><br><span class="line">deb-src https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;ubuntu&#x2F; bionic-security main restricted universe multiverse</span><br><span class="line">deb https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;ubuntu&#x2F; bionic-proposed main restricted universe multiverse</span><br><span class="line">deb-src https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;ubuntu&#x2F; bionic-proposed main restricted universe multiverse</span><br></pre></td></tr></table></figure>
+<p>执行</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br></pre></td></tr></table></figure>
+<h3 id="安装三个软件-xorg-xfce-xrdp"><a href="#安装三个软件-xorg-xfce-xrdp" class="headerlink" title="安装三个软件,xorg,xfce,xrdp"></a>安装三个软件,xorg,xfce,xrdp</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install xorg</span><br><span class="line">sudo apt-get install xfce4</span><br><span class="line">sudo apt-get install xrdp</span><br></pre></td></tr></table></figure>
+
+<h2 id="升级node-版本-linux"><a href="#升级node-版本-linux" class="headerlink" title="升级node 版本(linux)"></a>升级node 版本(linux)</h2><p>npm install -g n<br>报错</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm ERR! notsup Unsupported platform for n@2.1.8: wanted</span><br><span class="line">&#123;“os”:”!win32”,”arch”:”any”&#125; (current: &#123;“os”:”win32”,”arch”:”x64”&#125;)</span><br></pre></td></tr></table></figure>
+<p>解决方案</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g n -force</span><br></pre></td></tr></table></figure>
+<h2 id="创建react项目出错"><a href="#创建react项目出错" class="headerlink" title="创建react项目出错"></a>创建react项目出错</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">internal&#x2F;modules&#x2F;cjs&#x2F;loader.js:584</span><br></pre></td></tr></table></figure>
+<p>结局方案：删除npm系统文件夹内的node_modules中的create-react-app文件夹<br>然后执行命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cnpm install -g create-react-app</span><br><span class="line">create-react-app my-app</span><br></pre></td></tr></table></figure>
+<h1 id="React错误1-JSX表达式必须具有一个父元素。"><a href="#React错误1-JSX表达式必须具有一个父元素。" class="headerlink" title="React错误1 JSX表达式必须具有一个父元素。"></a>React错误1 JSX表达式必须具有一个父元素。</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">Failed to compile</span><br><span class="line">.&#x2F;src&#x2F;TodoList.js</span><br><span class="line">  Line 10:13:  Parsing error: Adjacent JSX elements must be wrapped in an enclosing tag. Did you want a JSX fragment &lt;&gt;...&lt;&#x2F;&gt;?</span><br><span class="line"></span><br><span class="line">   8 |                 &lt;input &#x2F;&gt;&lt;button&gt;提交&lt;&#x2F;button&gt;</span><br><span class="line">   9 |             &lt;&#x2F;div&gt;</span><br><span class="line">&gt; 10 |             &lt;ul&gt;</span><br><span class="line">     |             ^</span><br><span class="line">  11 |                 &lt;li&gt;学英语&lt;&#x2F;li&gt;</span><br><span class="line">  12 |             &lt;&#x2F;ul&gt;</span><br><span class="line">  13 |         )</span><br><span class="line">This error occurred during the build time and cannot be dismissed.</span><br><span class="line">问题原因：return必须整体包含在一个大的元素中。</span><br><span class="line">解决办法:1,最外层手动添加一个标签</span><br><span class="line">2.,React16中提供了Fragment标签</span><br></pre></td></tr></table></figure>
+<p>import React, {Component,Fragment} from ‘react’;<br>import { render } from ‘react-dom’;</p>
+<p>class TodoList extends Component {<br>    render(){<br>        return (<br>            <Fragment><br>            <div><br>                <input /><button>提交</button><br>            </div><br>            <ul><br>                <li>学英语</li><br>                <li>Learning React</li><br>            </ul><br>            </Fragment><br>        )<br>    }<br>}<br>export default TodoList;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">## React中得响应式设计思想和事件绑定</span><br><span class="line">#</span><br><span class="line">&#96;&#96;</span><br></pre></td></tr></table></figure>
+<p>TypeError: Cannot read property ‘state’ of undefined<br>handleInputChange<br>D:/react/todolist/src/TodoList.js:33<br>  30 |         )<br>  31 |     }<br>  32 |     handleInputChange(e) {</p>
+<blockquote>
+<p>33 |         this.state.inputValue= e.target.value;<br>  34 |         // console.log(e.target.value);<br>  35 |     }<br>  36 | }<br>View compiled<code>▶ 22 stack frames were collapsed.
+This screen is visible only in development. It will not appear if the app crashes in production.
+Open your browser’s developer console to further inspect this error.  Click the &#39;X&#39; or hit ESC to dismiss this message.</code></p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">this只想问题</span><br><span class="line">console.log(this)打印指向</span><br><span class="line"># JSX语法细节</span><br><span class="line">编写注释</span><br><span class="line">&lt;Fragment&gt;组件中</span><br><span class="line">&#123;&#x2F;&#x2F;&#125;</span><br><span class="line">class替换为className</span><br><span class="line">转义</span><br><span class="line">dangerouslySetInnerHTML&#x3D;&#123;&#123;&#125;&#125;</span><br></pre></td></tr></table></figure>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">随笔    - 随笔</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/04/11/%E9%9A%8F%E7%AC%94/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-hexo引入音乐" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/04/11/hexo%E5%BC%95%E5%85%A5%E9%9F%B3%E4%B9%90/">hexo引入音乐</a>
+    </h1>
+  
+
+        
+        <a href="/2020/04/11/hexo%E5%BC%95%E5%85%A5%E9%9F%B3%E4%B9%90/" class="archive-article-date">
+  	<time datetime="2020-04-11T03:21:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-11</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="引入音乐"><a href="#引入音乐" class="headerlink" title="引入音乐"></a>引入音乐</h1><h2 id="通过网易云插件"><a href="#通过网易云插件" class="headerlink" title="通过网易云插件"></a>通过网易云插件</h2><p>通过<code>https://music.163.com/</code>网站搜索音乐<br><img width=200 src="/assets/blogImg/网易云音乐插件.png" > </br></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;iframe frameborder&#x3D;&quot;no&quot; border&#x3D;&quot;0&quot; marginwidth&#x3D;&quot;0&quot; marginheight&#x3D;&quot;0&quot; width&#x3D;330 height&#x3D;86 src&#x3D;&quot;&#x2F;&#x2F;music.163.com&#x2F;outchain&#x2F;player?type&#x3D;2&amp;id&#x3D;448184048&amp;auto&#x3D;1&amp;height&#x3D;66&quot;&gt;&lt;&#x2F;iframe&gt;</span><br></pre></td></tr></table></figure>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">hexo个人博客</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/04/11/hexo%E5%BC%95%E5%85%A5%E9%9F%B3%E4%B9%90/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-博客编写文章指南" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -501,11 +1037,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
+                <a href="javascript:void(0)" class="js-tag color3">日记</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">学习</a>
+                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -513,15 +1049,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">HTML</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">ES6</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">React</a>
+                <a href="javascript:void(0)" class="js-tag color3">学习</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -529,7 +1061,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">HTML</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">React</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -545,14 +1085,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Laravel</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">优化</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
@@ -565,6 +1097,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">架构</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">前端</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">编写规范</a>
               </li>
              
@@ -573,15 +1113,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">项目</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">56项目</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">调酒</a>
+                <a href="javascript:void(0)" class="js-tag color3">项目</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -589,15 +1125,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">调酒</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">考证</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Laravel</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">优化</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">随笔    - 随笔</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">架构</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">前端</a>
               </li>
             
             <div class="clearfix"></div>

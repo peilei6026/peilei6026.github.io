@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://peilei6026.github.io/"/>
-  <updated>2020-08-21T03:10:22.074Z</updated>
+  <updated>2020-09-13T15:45:39.196Z</updated>
   <id>https://peilei6026.github.io/</id>
   
   <author>
@@ -17,31 +17,131 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>CSS创意与视觉表现</title>
-    <link href="https://peilei6026.github.io/2020/08/21/CSS%E5%88%9B%E6%84%8F%E4%B8%8E%E8%A7%86%E8%A7%89%E8%A1%A8%E7%8E%B0%20copy/"/>
-    <id>https://peilei6026.github.io/2020/08/21/CSS%E5%88%9B%E6%84%8F%E4%B8%8E%E8%A7%86%E8%A7%89%E8%A1%A8%E7%8E%B0%20copy/</id>
-    <published>2020-08-21T02:47:26.000Z</published>
-    <updated>2020-08-21T03:10:22.074Z</updated>
+    <title>金融市场基础知识</title>
+    <link href="https://peilei6026.github.io/2020/09/13/%E9%87%91%E8%9E%8D%E5%B8%82%E5%9C%BA%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/"/>
+    <id>https://peilei6026.github.io/2020/09/13/%E9%87%91%E8%9E%8D%E5%B8%82%E5%9C%BA%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/</id>
+    <published>2020-09-13T15:31:59.000Z</published>
+    <updated>2020-09-13T15:45:39.196Z</updated>
     
-    <content type="html"><![CDATA[<!DOCTYPE html><html><head>    <title></title><meta name="generator" content="Hexo 4.2.0"><link rel="alternate" href="/atom.xml" title="裴雷de博客" type="application/atom+xml"></head><body><style type="text/css">.column {    overflow: hidden;}.column-left {    height: 400px;    background-color: #fff;    position: relative;    float: left;}.column-right {    height: 400px;    padding: 16px;    background-color: #eee;    box-sizing: border-box;    overflow: hidden;}.resize-save {    position: absolute;    top: 0; right: 5px; bottom: 0; left: 0;    padding: 16px;    overflow-x: hidden;}.resize-bar {    width: 200px; height: inherit;    resize: horizontal;    cursor: ew-resize;    cursor: col-resize;    opacity: 0;    overflow: scroll;}/* 拖拽线 */.resize-line {    position: absolute;    right: 0; top: 0; bottom: 0;    border-right: 2px solid #eee;    border-left: 1px solid #bbb;    pointer-events: none;}.resize-bar:hover ~ .resize-line,.resize-bar:active ~ .resize-line {    border-left: 1px dashed skyblue;}.resize-bar::-webkit-scrollbar {    width: 200px; height: inherit;}<p>/* Firefox只有下面一小块区域可以拉伸 */<br>@supports (-moz-user-select: none) {<br>    .resize-bar:hover ~ .resize-line,<br>    .resize-bar:active ~ .resize-line {<br>        border-left: 1px solid #bbb;<br>    }<br>    .resize-bar:hover ~ .resize-line::after,<br>    .resize-bar:active ~ .resize-line::after {<br>        content: ‘’;<br>        position: absolute;<br>        width: 16px; height: 16px;<br>        bottom: 0; right: -8px;<br>        background: url(./resize.svg);<br>        background-size: 100% 100%;<br>    }<br>}<br></style></p><div class="column">    <div class="column-left">        <div class="resize-bar"></div>        <div class="resize-line"></div>        <div class="resize-save">            左侧的内容，左侧的内容，左侧的内容，左侧的内容        </div>                                                </div>    <div class="column-right">        右侧的内容，右侧的内容，右侧的内容，右侧的内容    </div></div></body></html><!DOCTYPE html><html><head>    <title></title></head><body><style type="text/css">.flow-colorful {    max-width: 600px;    height: 150px;    background: linear-gradient(to right, red, orange, yellow, green, cyan, blue, purple);    animation: hue 6s linear infinite;}@keyframes hue {    from {        filter: hue-rotate(0deg);    }    to {        filter: hue-rotate(360deg);    }}</style><div class="flow-colorful"></div></body></html><!DOCTYPE html><html><head>    <title></title></head><body><style type="text/css">.flow-slogon {    font-size: 120px;    -webkit-background-clip: text;    -webkit-text-fill-color: transparent;    background-image: linear-gradient(to right, red, yellow, lime, aqua, blue, fuchsia);    animation: hue 6s linear infinite;}</style><h2 class="flow-slogon">第五届CSS大会</h2></body></html><!DOCTYPE html><html><head>    <title></title></head><body><style type="text/css">.flow-twill {    padding-right: 30%;    height: calc(1.4142 * 20px);    background: repeating-linear-gradient(45deg, teal, teal 10px, transparent 11px, transparent 19px, teal 20px);    background-clip: content-box;    animation: twill 1s linear infinite;    position: relative;}.flow-twill::before {    content: '';    position: absolute;    width: 100%; height: 100%;    background: linear-gradient(rgba(0,0,0,.5), hsla(0,0%,100%,.5), rgba(0,0,0,.5));}@keyframes twill {    from {        background-position: 0 0;    }    to {        background-position: 0 calc(-1 * 1.4142 * 40px);    }}.flow-wave {    padding: 5px 0;}.flow-wave:hover,.flow-wave:focus {    background: radial-gradient(circle at 10px -7px, transparent 8px, currentColor 8px, currentColor 9px, transparent 9px) repeat-x,        radial-gradient(circle at 10px 27px, transparent 8px, currentColor 8px, currentColor 9px, transparent 9px) repeat-x;    background-size: 20px 20px;    background-position: -10px calc(100% + 16px), 0 calc(100% - 4px);    animation: waveFlow 1s infinite linear;}@keyframes waveFlow {    from { background-position-x: -10px, 0; }    to { background-position-x: -30px, -20px; }}</style><div class="flow-twill"></div><a href="javascript:" class="flow-wave">hover我（移动端按下）</a></body></html><!DOCTYPE html><html><head>    <title></title></head><body><style type="text/css">.CSS代码：dot-a {    display: inline-block;    height: 1em; line-height: 1;    text-align: left;    vertical-align: -.25ex;    overflow: hidden;}dot-a::before {    display: block;    content: '...\A..\A.';    white-space: pre-wrap;    animation: dot1 3s infinite step-start both;}@keyframes dot1 {    33% { transform: translateY(-2em); }    66% { transform: translateY(-1em); }}</style>正在加载中<dot-a>...</dot-a></body></html>]]></content>
+    <content type="html"><![CDATA[<h1 id="第一章金融市场体系"><a href="#第一章金融市场体系" class="headerlink" title="第一章金融市场体系"></a>第一章金融市场体系</h1><h2 id="第一节-金融市场概述"><a href="#第一节-金融市场概述" class="headerlink" title="第一节 金融市场概述"></a>第一节 金融市场概述</h2><h3 id="金融市场的分类"><a href="#金融市场的分类" class="headerlink" title="金融市场的分类"></a>金融市场的分类</h3><p>1.按照金融资产到期期限划分，将金融市场划分为货币市场和资本市场。<br>2.按照交割方式划分，将金融市场划分为现货市场和衍生品市场。<br>3.按照发行流通性质划分，将金融市场划分为发行市场和流通市场。<br>4.按照辐射区域划分，将金融市场划分为国内金融市场和国际金融市场。<br>5.按照组织方式划分，将金融市场划分为加以所市场和场外交易市场。<br>6.按照金融资产的种类划分，将金融市场划分为证券市场和非证券市场。</p><h3 id="金融市场的功能"><a href="#金融市场的功能" class="headerlink" title="金融市场的功能"></a>金融市场的功能</h3><p>价格发现，资金融通(首要功能),风险管理,提供流动性,降低搜寻成本和信息成本。</p><h3 id="直接融资"><a href="#直接融资" class="headerlink" title="直接融资"></a>直接融资</h3><p>直接融资是指拥有暂时闲置资金的单位(包括企业，机构和个人)，与资金短缺，需要补充资金的单位相互之间直接进行协议，或者在金融市场由前者购买后者发行的有价值的证券，将货币资金提供给所需要补充资金的单位使用，从而完成资金融通的过程。<br>直接融通的特点包括直接性，分散性，差异性较大，部分不可逆性，相对较强的自主性</p><h3 id="间接融通"><a href="#间接融通" class="headerlink" title="间接融通"></a>间接融通</h3><p>间接融通亦称间接金融，是指拥有闲置货币资金的单位通过存款的形式，或者购买银行，信托，保险等金融机构发行的有价证券，将其暂时闲置的资金先行给这些金融中介机构，然后在由这些金融机构以贷款，贴现等形式或通过购买需要资金的单位发行的有价证券，把资金提供给这些单位使用，从而实现资金融通的过程，典型的间接融资形式便是与银行发生信用关系。<br>间接融通的特点包括：间接性，相对的集中性，信誉的差异性较小，全部具有可逆性，融资的主动权掌握在金融中介手中。</p>]]></content>
     
     <summary type="html">
     
       
       
-        
-&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-&lt;head&gt;
-    &lt;title&gt;&lt;/title&gt;
-&lt;meta name=&quot;generator&quot; content=&quot;Hexo 4.2.0&quot;&gt;&lt;link rel=&quot;alternate&quot; href=&quot;/atom.xml&quot; title=
+        &lt;h1 id=&quot;第一章金融市场体系&quot;&gt;&lt;a href=&quot;#第一章金融市场体系&quot; class=&quot;headerlink&quot; title=&quot;第一章金融市场体系&quot;&gt;&lt;/a&gt;第一章金融市场体系&lt;/h1&gt;&lt;h2 id=&quot;第一节-金融市场概述&quot;&gt;&lt;a href=&quot;#第一节-金融市场概述&quot; cla
       
     
     </summary>
     
     
     
-      <category term="CSS" scheme="https://peilei6026.github.io/tags/CSS/"/>
+      <category term="学习" scheme="https://peilei6026.github.io/tags/%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="考证" scheme="https://peilei6026.github.io/tags/%E8%80%83%E8%AF%81/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>2020.9.1每日总结</title>
+    <link href="https://peilei6026.github.io/2020/09/01/2020-9-1%E6%AF%8F%E6%97%A5%E6%80%BB%E7%BB%93/"/>
+    <id>https://peilei6026.github.io/2020/09/01/2020-9-1%E6%AF%8F%E6%97%A5%E6%80%BB%E7%BB%93/</id>
+    <published>2020-09-01T13:37:19.000Z</published>
+    <updated>2020-09-01T13:44:19.016Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="胡乱写的内容╮-╯▽╰-╭"><a href="#胡乱写的内容╮-╯▽╰-╭" class="headerlink" title="胡乱写的内容╮(╯▽╰)╭"></a>胡乱写的内容╮(╯▽╰)╭</h1><p>今天是格外晴朗的第一天，早上按时起来了，但是还有点赖床，希望明天有所改变，然后今天正式开始接触了，一些项目的编写，忘记写项目总结了，明天补上。<br>晚上能看一会代码但是还是不够，早上早点过去，再加一节代码编写吧。</p><h1 id="每日一课-如何设计列表页的阅读顺序"><a href="#每日一课-如何设计列表页的阅读顺序" class="headerlink" title="每日一课-如何设计列表页的阅读顺序"></a>每日一课-如何设计列表页的阅读顺序</h1><h2 id="用户的阅读顺序"><a href="#用户的阅读顺序" class="headerlink" title="用户的阅读顺序"></a>用户的阅读顺序</h2><h3 id="古登堡图"><a href="#古登堡图" class="headerlink" title="古登堡图"></a>古登堡图</h3><h3 id="F型图"><a href="#F型图" class="headerlink" title="F型图"></a>F型图</h3><h3 id="Z字型图"><a href="#Z字型图" class="headerlink" title="Z字型图"></a>Z字型图</h3><h2 id="列表图文排列方式"><a href="#列表图文排列方式" class="headerlink" title="列表图文排列方式"></a>列表图文排列方式</h2><p>左图右文<br>左文右图<br>上图下文<br>下文上图</p><h2 id="资讯类列表设计案例"><a href="#资讯类列表设计案例" class="headerlink" title="资讯类列表设计案例"></a>资讯类列表设计案例</h2><h3 id="选择排列方式"><a href="#选择排列方式" class="headerlink" title="选择排列方式"></a>选择排列方式</h3><p>信息内容的形式</p><h3 id="影响阅读顺序的设计技巧"><a href="#影响阅读顺序的设计技巧" class="headerlink" title="影响阅读顺序的设计技巧"></a>影响阅读顺序的设计技巧</h3><p>1.卡片式的设计<br>2.多点留白<br>3.控制图片好比例<br>4.字体设计<br>5.线条的区隔<br>6.圆角的运用</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;胡乱写的内容╮-╯▽╰-╭&quot;&gt;&lt;a href=&quot;#胡乱写的内容╮-╯▽╰-╭&quot; class=&quot;headerlink&quot; title=&quot;胡乱写的内容╮(╯▽╰)╭&quot;&gt;&lt;/a&gt;胡乱写的内容╮(╯▽╰)╭&lt;/h1&gt;&lt;p&gt;今天是格外晴朗的第一天，早上按时起来了，但是还有点赖
+      
+    
+    </summary>
+    
+    
+    
+      <category term="日记" scheme="https://peilei6026.github.io/tags/%E6%97%A5%E8%AE%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>React课程随笔</title>
+    <link href="https://peilei6026.github.io/2020/09/01/React%E8%AF%BE%E7%A8%8B%E9%9A%8F%E7%AC%94/"/>
+    <id>https://peilei6026.github.io/2020/09/01/React%E8%AF%BE%E7%A8%8B%E9%9A%8F%E7%AC%94/</id>
+    <published>2020-09-01T13:35:03.000Z</published>
+    <updated>2020-09-01T13:35:40.565Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>JS类型：关于类型，有哪些你不知道的细节</title>
+    <link href="https://peilei6026.github.io/2020/08/30/JS%E7%B1%BB%E5%9E%8B%EF%BC%9A%E5%85%B3%E4%BA%8E%E7%B1%BB%E5%9E%8B%EF%BC%8C%E6%9C%89%E5%93%AA%E4%BA%9B%E4%BD%A0%E4%B8%8D%E7%9F%A5%E9%81%93%E7%9A%84%E7%BB%86%E8%8A%82-1/"/>
+    <id>https://peilei6026.github.io/2020/08/30/JS%E7%B1%BB%E5%9E%8B%EF%BC%9A%E5%85%B3%E4%BA%8E%E7%B1%BB%E5%9E%8B%EF%BC%8C%E6%9C%89%E5%93%AA%E4%BA%9B%E4%BD%A0%E4%B8%8D%E7%9F%A5%E9%81%93%E7%9A%84%E7%BB%86%E8%8A%82-1/</id>
+    <published>2020-08-30T02:47:45.000Z</published>
+    <updated>2020-08-30T02:50:36.747Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="类型"><a href="#类型" class="headerlink" title="类型"></a>类型</h1><p>JS语言的每一个值都是属于某一种数据类型。JS语言规定了7中语言类型，语言类型广泛用于变量，函数参数，表达式，函数返回值等场合，根据最新的语言标准，<br>1.undefined;<br>2.null;<br>3.boolean<br>4.string<br>5.number<br>6.symbol<br>7.object</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;类型&quot;&gt;&lt;a href=&quot;#类型&quot; class=&quot;headerlink&quot; title=&quot;类型&quot;&gt;&lt;/a&gt;类型&lt;/h1&gt;&lt;p&gt;JS语言的每一个值都是属于某一种数据类型。JS语言规定了7中语言类型，语言类型广泛用于变量，函数参数，表达式，函数返回值等场合，根据最新的语
+      
+    
+    </summary>
+    
+    
+    
+      <category term="学习" scheme="https://peilei6026.github.io/tags/%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="js" scheme="https://peilei6026.github.io/tags/js/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>JS类型：关于类型，有哪些你不知道的细节</title>
+    <link href="https://peilei6026.github.io/2020/08/30/JS%E7%B1%BB%E5%9E%8B%EF%BC%9A%E5%85%B3%E4%BA%8E%E7%B1%BB%E5%9E%8B%EF%BC%8C%E6%9C%89%E5%93%AA%E4%BA%9B%E4%BD%A0%E4%B8%8D%E7%9F%A5%E9%81%93%E7%9A%84%E7%BB%86%E8%8A%82/"/>
+    <id>https://peilei6026.github.io/2020/08/30/JS%E7%B1%BB%E5%9E%8B%EF%BC%9A%E5%85%B3%E4%BA%8E%E7%B1%BB%E5%9E%8B%EF%BC%8C%E6%9C%89%E5%93%AA%E4%BA%9B%E4%BD%A0%E4%B8%8D%E7%9F%A5%E9%81%93%E7%9A%84%E7%BB%86%E8%8A%82/</id>
+    <published>2020-08-30T02:47:03.000Z</published>
+    <updated>2020-08-30T02:47:03.728Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>MangoDB</title>
+    <link href="https://peilei6026.github.io/2020/08/25/MangoDB/"/>
+    <id>https://peilei6026.github.io/2020/08/25/MangoDB/</id>
+    <published>2020-08-24T23:12:10.000Z</published>
+    <updated>2020-08-24T23:21:33.740Z</updated>
+    
+    <content type="html"><![CDATA[<p>是由C++语言编写的，基于分布式文件存储的开源数据库系统。<br>在高负载的情况下，添加更多的节点，可以保证服务器的性能。<br>MongoDB旨在web应用提供可扩展的高性能数据存储解决方案。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;是由C++语言编写的，基于分布式文件存储的开源数据库系统。&lt;br&gt;在高负载的情况下，添加更多的节点，可以保证服务器的性能。&lt;br&gt;MongoDB旨在web应用提供可扩展的高性能数据存储解决方案。&lt;/p&gt;
+
+      
+    
+    </summary>
+    
+    
     
       <category term="学习" scheme="https://peilei6026.github.io/tags/%E5%AD%A6%E4%B9%A0/"/>
     
@@ -66,6 +166,37 @@
     .cover {
     padding: 36% 50%;
     background: linear-gradient(to right, white 50%, black calc(50% + 1px
+      
+    
+    </summary>
+    
+    
+    
+      <category term="CSS" scheme="https://peilei6026.github.io/tags/CSS/"/>
+    
+      <category term="学习" scheme="https://peilei6026.github.io/tags/%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>CSS创意与视觉表现</title>
+    <link href="https://peilei6026.github.io/2020/08/21/CSS%E5%88%9B%E6%84%8F%E4%B8%8E%E8%A7%86%E8%A7%89%E8%A1%A8%E7%8E%B0%20copy/"/>
+    <id>https://peilei6026.github.io/2020/08/21/CSS%E5%88%9B%E6%84%8F%E4%B8%8E%E8%A7%86%E8%A7%89%E8%A1%A8%E7%8E%B0%20copy/</id>
+    <published>2020-08-21T02:47:26.000Z</published>
+    <updated>2020-08-21T03:10:22.074Z</updated>
+    
+    <content type="html"><![CDATA[<!DOCTYPE html><html><head>    <title></title><meta name="generator" content="Hexo 4.2.0"><link rel="alternate" href="/atom.xml" title="裴雷de博客" type="application/atom+xml"></head><body><style type="text/css">.column {    overflow: hidden;}.column-left {    height: 400px;    background-color: #fff;    position: relative;    float: left;}.column-right {    height: 400px;    padding: 16px;    background-color: #eee;    box-sizing: border-box;    overflow: hidden;}.resize-save {    position: absolute;    top: 0; right: 5px; bottom: 0; left: 0;    padding: 16px;    overflow-x: hidden;}.resize-bar {    width: 200px; height: inherit;    resize: horizontal;    cursor: ew-resize;    cursor: col-resize;    opacity: 0;    overflow: scroll;}/* 拖拽线 */.resize-line {    position: absolute;    right: 0; top: 0; bottom: 0;    border-right: 2px solid #eee;    border-left: 1px solid #bbb;    pointer-events: none;}.resize-bar:hover ~ .resize-line,.resize-bar:active ~ .resize-line {    border-left: 1px dashed skyblue;}.resize-bar::-webkit-scrollbar {    width: 200px; height: inherit;}<p>/* Firefox只有下面一小块区域可以拉伸 */<br>@supports (-moz-user-select: none) {<br>    .resize-bar:hover ~ .resize-line,<br>    .resize-bar:active ~ .resize-line {<br>        border-left: 1px solid #bbb;<br>    }<br>    .resize-bar:hover ~ .resize-line::after,<br>    .resize-bar:active ~ .resize-line::after {<br>        content: ‘’;<br>        position: absolute;<br>        width: 16px; height: 16px;<br>        bottom: 0; right: -8px;<br>        background: url(./resize.svg);<br>        background-size: 100% 100%;<br>    }<br>}<br></style></p><div class="column">    <div class="column-left">        <div class="resize-bar"></div>        <div class="resize-line"></div>        <div class="resize-save">            左侧的内容，左侧的内容，左侧的内容，左侧的内容        </div>                                                </div>    <div class="column-right">        右侧的内容，右侧的内容，右侧的内容，右侧的内容    </div></div></body></html><!DOCTYPE html><html><head>    <title></title></head><body><style type="text/css">.flow-colorful {    max-width: 600px;    height: 150px;    background: linear-gradient(to right, red, orange, yellow, green, cyan, blue, purple);    animation: hue 6s linear infinite;}@keyframes hue {    from {        filter: hue-rotate(0deg);    }    to {        filter: hue-rotate(360deg);    }}</style><div class="flow-colorful"></div></body></html><!DOCTYPE html><html><head>    <title></title></head><body><style type="text/css">.flow-slogon {    font-size: 120px;    -webkit-background-clip: text;    -webkit-text-fill-color: transparent;    background-image: linear-gradient(to right, red, yellow, lime, aqua, blue, fuchsia);    animation: hue 6s linear infinite;}</style><h2 class="flow-slogon">第五届CSS大会</h2></body></html><!DOCTYPE html><html><head>    <title></title></head><body><style type="text/css">.flow-twill {    padding-right: 30%;    height: calc(1.4142 * 20px);    background: repeating-linear-gradient(45deg, teal, teal 10px, transparent 11px, transparent 19px, teal 20px);    background-clip: content-box;    animation: twill 1s linear infinite;    position: relative;}.flow-twill::before {    content: '';    position: absolute;    width: 100%; height: 100%;    background: linear-gradient(rgba(0,0,0,.5), hsla(0,0%,100%,.5), rgba(0,0,0,.5));}@keyframes twill {    from {        background-position: 0 0;    }    to {        background-position: 0 calc(-1 * 1.4142 * 40px);    }}.flow-wave {    padding: 5px 0;}.flow-wave:hover,.flow-wave:focus {    background: radial-gradient(circle at 10px -7px, transparent 8px, currentColor 8px, currentColor 9px, transparent 9px) repeat-x,        radial-gradient(circle at 10px 27px, transparent 8px, currentColor 8px, currentColor 9px, transparent 9px) repeat-x;    background-size: 20px 20px;    background-position: -10px calc(100% + 16px), 0 calc(100% - 4px);    animation: waveFlow 1s infinite linear;}@keyframes waveFlow {    from { background-position-x: -10px, 0; }    to { background-position-x: -30px, -20px; }}</style><div class="flow-twill"></div><a href="javascript:" class="flow-wave">hover我（移动端按下）</a></body></html><!DOCTYPE html><html><head>    <title></title></head><body><style type="text/css">.CSS代码：dot-a {    display: inline-block;    height: 1em; line-height: 1;    text-align: left;    vertical-align: -.25ex;    overflow: hidden;}dot-a::before {    display: block;    content: '...\A..\A.';    white-space: pre-wrap;    animation: dot1 3s infinite step-start both;}@keyframes dot1 {    33% { transform: translateY(-2em); }    66% { transform: translateY(-1em); }}</style>正在加载中<dot-a>...</dot-a></body></html>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;&lt;/title&gt;
+&lt;meta name=&quot;generator&quot; content=&quot;Hexo 4.2.0&quot;&gt;&lt;link rel=&quot;alternate&quot; href=&quot;/atom.xml&quot; title=
       
     
     </summary>
@@ -389,160 +520,6 @@ jquery有i
     
     
       <category term="HTML" scheme="https://peilei6026.github.io/tags/HTML/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>WEB编码规范</title>
-    <link href="https://peilei6026.github.io/2020/08/04/WEB%E7%BC%96%E7%A0%81%E8%A7%84%E8%8C%83/"/>
-    <id>https://peilei6026.github.io/2020/08/04/WEB%E7%BC%96%E7%A0%81%E8%A7%84%E8%8C%83/</id>
-    <published>2020-08-04T01:04:54.000Z</published>
-    <updated>2020-08-20T08:14:16.611Z</updated>
-    
-    <content type="html"><![CDATA[<p>为什么要遵循编码规范<br>可读性好，易于维护，不易出错，最佳实践<br>web编码规范</p><p>命名的重要性</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;为什么要遵循编码规范&lt;br&gt;可读性好，易于维护，不易出错，最佳实践&lt;br&gt;web编码规范&lt;/p&gt;
-&lt;p&gt;命名的重要性&lt;/p&gt;
-
-      
-    
-    </summary>
-    
-    
-    
-      <category term="学习" scheme="https://peilei6026.github.io/tags/%E5%AD%A6%E4%B9%A0/"/>
-    
-      <category term="培训" scheme="https://peilei6026.github.io/tags/%E5%9F%B9%E8%AE%AD/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>js实现五子棋</title>
-    <link href="https://peilei6026.github.io/2020/08/03/js%E5%AE%9E%E7%8E%B0%E4%BA%94%E5%AD%90%E6%A3%8B/"/>
-    <id>https://peilei6026.github.io/2020/08/03/js%E5%AE%9E%E7%8E%B0%E4%BA%94%E5%AD%90%E6%A3%8B/</id>
-    <published>2020-08-03T07:22:17.000Z</published>
-    <updated>2020-08-20T08:39:52.805Z</updated>
-    
-    <content type="html"><![CDATA[<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><title>五子棋</title><style>canvas {display: block;margin: 50px auto;box-shadow: -2px -2px 2px #efefef, 5px 5px 5px #b9b9b9;}</style><meta name="generator" content="Hexo 4.2.0"><link rel="alternate" href="/atom.xml" title="裴雷de博客" type="application/atom+xml"></head><body><canvas id="chess" width="450px" height="450px"></canvas><script>var chessBoard = []var over = false// 赢法数组var wins = []// 赢法的统计数组var myWin = []var computerWin = []for (var i = 0; i < 15; i++) {chessBoard[i] = []for(var j = 0; j < 15; j++) {chessBoard[i][j] = 0}}for (var i = 0; i < 15; i++) {wins[i] = []for(var j = 0; j < 15; j++) {wins[i][j] = []}}var count = 0for(var i = 0; i < 15; i++) {for(var j = 0; j<11; j++) {for(var k = 0; k < 5; k++) {wins[i][j+k][count] = true}count++}}for(var i = 0; i < 15; i++) {for(var j = 0; j<11; j++) {for(var k = 0; k < 5; k++) {wins[j+k][i][count] = true}count++}}for(var i = 0; i < 11; i++) {for(var j = 0; j<11; j++) {for(var k = 0; k < 5; k++) {wins[i+k][j+k][count] = true}count++}}for(var i = 0; i < 11; i++) {for(var j = 14; j>3; j--) {for(var k = 0; k < 5; k++) {wins[i+k][j-k][count] = true}count++}}for(var i = 0; i < count; i++) {myWin[i] = 0computerWin[i] = 0}var me = truevar chess = document.getElementById('chess')var context = chess.getContext('2d')context.strokeStyle = '#bfbfbf'// var logo = new Image()// logo.src = 'images/logo.png'// logo.onload = function () {// context.drawImage(logo, 0, 0, 450, 450)// }for(var i = 0; i < 15; i++) {context.moveTo(15 + i * 30, 15)context.lineTo(15 + i * 30, 435)context.stroke()context.moveTo(15, 15 + i * 30)context.lineTo(435, 15 + i * 30)context.stroke()}var oneStep = function (i, j, me) {context.beginPath()context.arc(15 + i * 30, 15 + j * 30, 13, 0, 2 * Math.PI)context.closePath()var gradient = context.createRadialGradient(15 + i * 30 + 2, 15 + j * 30 - 2, 15, 15 + i * 30 + 2, 15 + j * 30 - 2, 0)if (me) {gradient.addColorStop(0, '#0a0a0a')gradient.addColorStop(1, '#636766')} else {gradient.addColorStop(0, '#d1d1d1')gradient.addColorStop(1, '#f9f9f9')}context.fillStyle = gradientcontext.fill()}chess.onclick = function (e) {if (over || !me) {return}var x = e.offsetXvar y = e.offsetYvar i = Math.floor(x / 30)var j = Math.floor(y / 30)if (chessBoard[i][j] === 0) {oneStep(i, j, me)chessBoard[i][j] = 1for(var k = 0; k < count; k++) {if (wins[i][j][k]) {myWin[k]++computerWin[k] = 6if (myWin[k] == 5) {window.alert('你赢了')over = true}}}if (!over) {me = !mecomputerAI()}}}var computerAI = function () {var myScore = []var computerScore = []var max = 0var u = 0, v = 0for(var i = 0; i < 15; i++) {myScore[i] = []computerScore[i] = []for(var j = 0; j< 15; j++) {myScore[i][j] = 0computerScore[i][j] = 0}}for(var i = 0; i < 15; i++) {for(var j = 0; j< 15;j++) {if (chessBoard[i][j] == 0) {for (var k = 0; k < count; k++) {if (wins[i][j][k]) {if (myWin[k] == 1) {myScore[i][j] += 200} else if(myWin[k] == 2) {myScore[i][j] += 400} else if(myWin[k] == 3) {myScore[i][j] += 2000} else if(myWin[k] == 4) {myScore[i][j] += 10000}if (computerWin[k] == 1) {computerScore[i][j] += 220} else if(computerWin[k] == 2) {computerScore[i][j] += 420} else if(computerWin[k] == 3) {computerScore[i][j] += 2100} else if(computerWin[k] == 4) {computerScore[i][j] += 20000}}}if (myScore[i][j] > max) {max = myScore[i][j]u = iv = j} else if(myScore[i][j] == max) {if (computerScore[i][j] > computerScore[u][v]) {u = iv = j}}if (computerScore[i][j] > max) {max = computerScore[i][j]u = iv = j} else if(computerScore[i][j] == max) {if (myScore[i][j] > myScore[u][v]) {u = iv = j}}}}}oneStep(u, v, false)chessBoard[u][v] = 2for(var k = 0; k < count; k++) {if (wins[u][v][k]) {computerWin[k]++myWin[k] = 6if (computerWin[k] == 5) {window.alert('你输了')over = true}}}if (!over) {me = !me}}</script></body></html>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        
-&lt;!DOCTYPE html&gt;
-&lt;html lang=&quot;en&quot;&gt;
-&lt;head&gt;
-	&lt;meta charset=&quot;UTF-8&quot;&gt;
-	&lt;title&gt;五子棋&lt;/title&gt;
-	&lt;style&gt;
-		canvas {
-			display: block;
-			margin: 50px 
-      
-    
-    </summary>
-    
-    
-    
-      <category term="学习" scheme="https://peilei6026.github.io/tags/%E5%AD%A6%E4%B9%A0/"/>
-    
-      <category term="js" scheme="https://peilei6026.github.io/tags/js/"/>
-    
-  </entry>
-  
-  <entry>
-    <title> JavaScript简介</title>
-    <link href="https://peilei6026.github.io/2020/08/03/JavaScript%E7%AE%80%E4%BB%8B/"/>
-    <id>https://peilei6026.github.io/2020/08/03/JavaScript%E7%AE%80%E4%BB%8B/</id>
-    <published>2020-08-03T05:27:54.000Z</published>
-    <updated>2020-08-03T05:48:02.199Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="JavaScript简介"><a href="#JavaScript简介" class="headerlink" title="JavaScript简介"></a>JavaScript简介</h1><p>JS是互联网上最流行的脚本语言，这门语言可以用于HTML和web，更可广泛用于服务器，PC笔记本电脑，平板电脑，和智能手机等设备。</p><h1 id="JS是脚本语言"><a href="#JS是脚本语言" class="headerlink" title="JS是脚本语言"></a>JS是脚本语言</h1><p>JS是一种轻量级的编程语言<br>JS是可插入的HTML页面的编程代码<br>JS插入HTML页面后，可由所有的现代浏览器执行<br>JS很容易学习</p><h1 id="JS直接写入HTML输出流"><a href="#JS直接写入HTML输出流" class="headerlink" title="JS直接写入HTML输出流"></a>JS直接写入HTML输出流</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">document.write(&quot;&lt;h1&gt;这是一个段落&lt;&#x2F;h1&gt;&quot;)；</span><br><span class="line">document.write(&quot;&lt;p&gt;这是一个段落&lt;&#x2F;&gt;);</span><br></pre></td></tr></table></figure><ul><li>您只能在HTML输出中使用document.write，如果您在文档加载后使用该方法，会覆盖整个文档<h1 id="JS对事件的反应"><a href="#JS对事件的反应" class="headerlink" title="JS对事件的反应"></a>JS对事件的反应</h1></li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;button type &#x3D;&quot;button&quot; onclick&#x3D;&quot;alert(&#39;欢迎!&#39;)&quot;&gt;点我！&lt;&#x2F;button&gt;</span><br></pre></td></tr></table></figure><p>alert()函数在JS中并不常见，但是他对代码测试非常方便。</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;JavaScript简介&quot;&gt;&lt;a href=&quot;#JavaScript简介&quot; class=&quot;headerlink&quot; title=&quot;JavaScript简介&quot;&gt;&lt;/a&gt;JavaScript简介&lt;/h1&gt;&lt;p&gt;JS是互联网上最流行的脚本语言，这门语言可以用于HTML和w
-      
-    
-    </summary>
-    
-    
-    
-      <category term="React" scheme="https://peilei6026.github.io/tags/React/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>JavaScript的新特性</title>
-    <link href="https://peilei6026.github.io/2020/07/30/JavaScript%E7%9A%84%E6%96%B0%E7%89%B9%E6%80%A7/"/>
-    <id>https://peilei6026.github.io/2020/07/30/JavaScript%E7%9A%84%E6%96%B0%E7%89%B9%E6%80%A7/</id>
-    <published>2020-07-30T13:45:22.000Z</published>
-    <updated>2020-07-30T13:46:35.489Z</updated>
-    
-    <summary type="html">
-    
-    </summary>
-    
-    
-    
-      <category term="React" scheme="https://peilei6026.github.io/tags/React/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>前端架构的认知</title>
-    <link href="https://peilei6026.github.io/2020/07/29/%E5%89%8D%E7%AB%AF%E6%9E%B6%E6%9E%84%E7%9A%84%E8%AE%A4%E7%9F%A5/"/>
-    <id>https://peilei6026.github.io/2020/07/29/%E5%89%8D%E7%AB%AF%E6%9E%B6%E6%9E%84%E7%9A%84%E8%AE%A4%E7%9F%A5/</id>
-    <published>2020-07-29T14:39:23.000Z</published>
-    <updated>2020-07-31T14:32:42.554Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>架构并不是只限于技术选型<br>是架构设计作为软件生命周期的一部分，并不是说开始的时候，设计完成后就会一成不变，软件的生命周期包含了迭代，维护，重构等过程，架构设计亦是如此，所以说架构是需要变化的，目的就是适应当前的情况的开发场景。<br>而架构产生的时间，必定是收到当前的约束条件，如人力，团对技术积累，时间，业务定位等需求。所以，当前架构可能并不能满足未来的需求，我们要开放对待这个问题，只要当前的架构符合一定的设计原则，未来进行架构的演进就不是问题。<br>架构这个词的解释也没有一个明确的定义，每个层级，每个场景都有自己的解释</p><p>软件架构(software architecture)，是一系列相关的抽象模式，用于指导大型软件系统各个方面的设计。<br>其实软件开发和盖一栋大楼一样，都需要规划，设计，实施等一系列的阶段，最开始设计建筑图纸，主题架构，还要考虑绿化，材料，安全等因素，经过一系列的决策，才有了一套成熟的建筑施工方案，按照规范建造，才能保证质量和速度。<br>而开发一个软件或者前端工程也是一个建筑的过程，我们要通过业务来定位系统间的关系，讨论技术栈和框架的徐娜用，根据当前团对的技术水平进行技术的选型，考虑各个模块之间的界限和交互，上线部署策略，问题回滚策略等一系列的决策才能设计符合当前情况的技术框架。</p><h1 id="前端开发过程中需要怎样的架构"><a href="#前端开发过程中需要怎样的架构" class="headerlink" title="前端开发过程中需要怎样的架构"></a>前端开发过程中需要怎样的架构</h1><p>基本要求如下:</p><ul><li>符合当前的业务定位</li><li>前端架构必须具有可实施性</li><li>必须匹配当前的技术储备</li><li>有足够的人力资源去完成</li><li>具有可伸缩，可扩展性<br>[因地制宜]应该是开始设计架构的基本准则，每套架构的产生都有其他的外界因素影响，所以，各个公司，各个团对之间的架构不能照搬，如果强制搬过来，可能会适得其反，就像你那alibaba的技术架构去搬到初创公司，那是根本行不通的，人员，资源不匹配，是没办法去实施架构的。</li><li>准确的业务定位，业务可能是影响架构的主要因素之一，所以我们要找准业务上的定位</li><li>明确与其他业务之间的联系，确定与其他系统的层次关系，相互间的通讯依赖等</li><li>设计好系统内子模块之间的关系，如A业务模块需要与B模块交互，该采取怎样的方式</li><li>基础模块明确，项目中，必定含有基础模块取提供一些公用的方法，数据去提供给各个子模块。</li><li>组件规划，这就是在细一层的规划了，制定组件的交互方式，开发范式</li><li>开发规范和上线流程，用于指导开发中的过程<h1 id="架构设计setp"><a href="#架构设计setp" class="headerlink" title="架构设计setp"></a>架构设计setp</h1>设计需要进行一系列的技术及非技术的相关工作。</li><li>收集利益相关者的需求，产品经理，业务人员，项目负责人等</li><li>与相应的技术人员进行讨论，确定架构上的潜在限制和要求</li><li>寻找可行性的技术方案</li><li>细化技术方案细节，确定一些功能列表中的技术可行性</li><li>确定风险点</li><li>与技术人员反复讨论，集合大家意见</li><li>对技术方案进行demo的概念化验证</li><li>结合当前业务，细化架构的部分实施细节</li><li>进行排期</li></ul>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;架构并不是只限于技术选型&lt;br&gt;是架构设计作为软件生命周期的一部分，并不是说开始的时候，设计完成后就会一成不变，软件的生命周期包含了迭代，维
-      
-    
-    </summary>
-    
-    
-    
-      <category term="架构" scheme="https://peilei6026.github.io/tags/%E6%9E%B6%E6%9E%84/"/>
-    
-      <category term="前端" scheme="https://peilei6026.github.io/tags/%E5%89%8D%E7%AB%AF/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>输入n个数，找出其中最小的K个数</title>
-    <link href="https://peilei6026.github.io/2020/07/18/%E8%BE%93%E5%85%A5n%E4%B8%AA%E6%95%B0%EF%BC%8C%E6%89%BE%E5%87%BA%E5%85%B6%E4%B8%AD%E6%9C%80%E5%B0%8F%E7%9A%84K%E4%B8%AA%E6%95%B0/"/>
-    <id>https://peilei6026.github.io/2020/07/18/%E8%BE%93%E5%85%A5n%E4%B8%AA%E6%95%B0%EF%BC%8C%E6%89%BE%E5%87%BA%E5%85%B6%E4%B8%AD%E6%9C%80%E5%B0%8F%E7%9A%84K%E4%B8%AA%E6%95%B0/</id>
-    <published>2020-07-18T14:45:51.000Z</published>
-    <updated>2020-07-18T14:51:53.683Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="问题：输入4，5，1，6，2，7，3，8这8个数，则最小的4个数是1，2，3，4"><a href="#问题：输入4，5，1，6，2，7，3，8这8个数，则最小的4个数是1，2，3，4" class="headerlink" title="问题：输入4，5，1，6，2，7，3，8这8个数，则最小的4个数是1，2，3，4"></a>问题：输入4，5，1，6，2，7，3，8这8个数，则最小的4个数是1，2，3，4</h1><h1 id="解题思路：这道题我们仍然可以用快速排序的思路来解决，基于数组的第k个数来调整，比第k个数小的数字都移到数组左边，比第k个数大的数字都移到数组的右边，这样一来，位于数组左边的k个数就是最小的k个数字（不一定需要全部排序）。在-PHP-中，只需要调用-sort-函数，取前k个数字就可以得到结果了，并且其时间复杂度是O-nlogn-，符合我们的预期。当然，快排也好，归并也好，都只适合小规模的数据，并不适用于海量数据的处理，比如上百万、上千万的数据集，使用数组函数-sort-显然不合适了，使用自行实现的快排也不合适，这个时候，我们可以考虑使用前面算法和数据结构中介绍的堆排序。堆排序的时间复杂度也是-O-nlogn-，这里我们需要通过大顶堆来实现，即维护一个大小为k的大顶堆，如果待处理数据集的长度大于k，则当数字容量超过k时，比较后续数字与堆顶数字值（堆中最大），大于则跳过，小于则重新堆化大顶堆，依次类推，直到整个数据集遍历一遍，最后保留下来的大顶堆就是最小的k个数。"><a href="#解题思路：这道题我们仍然可以用快速排序的思路来解决，基于数组的第k个数来调整，比第k个数小的数字都移到数组左边，比第k个数大的数字都移到数组的右边，这样一来，位于数组左边的k个数就是最小的k个数字（不一定需要全部排序）。在-PHP-中，只需要调用-sort-函数，取前k个数字就可以得到结果了，并且其时间复杂度是O-nlogn-，符合我们的预期。当然，快排也好，归并也好，都只适合小规模的数据，并不适用于海量数据的处理，比如上百万、上千万的数据集，使用数组函数-sort-显然不合适了，使用自行实现的快排也不合适，这个时候，我们可以考虑使用前面算法和数据结构中介绍的堆排序。堆排序的时间复杂度也是-O-nlogn-，这里我们需要通过大顶堆来实现，即维护一个大小为k的大顶堆，如果待处理数据集的长度大于k，则当数字容量超过k时，比较后续数字与堆顶数字值（堆中最大），大于则跳过，小于则重新堆化大顶堆，依次类推，直到整个数据集遍历一遍，最后保留下来的大顶堆就是最小的k个数。" class="headerlink" title="解题思路：这道题我们仍然可以用快速排序的思路来解决，基于数组的第k个数来调整，比第k个数小的数字都移到数组左边，比第k个数大的数字都移到数组的右边，这样一来，位于数组左边的k个数就是最小的k个数字（不一定需要全部排序）。在 PHP 中，只需要调用 sort 函数，取前k个数字就可以得到结果了，并且其时间复杂度是O(nlogn)，符合我们的预期。当然，快排也好，归并也好，都只适合小规模的数据，并不适用于海量数据的处理，比如上百万、上千万的数据集，使用数组函数 sort 显然不合适了，使用自行实现的快排也不合适，这个时候，我们可以考虑使用前面算法和数据结构中介绍的堆排序。堆排序的时间复杂度也是 O(nlogn)，这里我们需要通过大顶堆来实现，即维护一个大小为k的大顶堆，如果待处理数据集的长度大于k，则当数字容量超过k时，比较后续数字与堆顶数字值（堆中最大），大于则跳过，小于则重新堆化大顶堆，依次类推，直到整个数据集遍历一遍，最后保留下来的大顶堆就是最小的k个数。"></a>解题思路：这道题我们仍然可以用快速排序的思路来解决，基于数组的第k个数来调整，比第k个数小的数字都移到数组左边，比第k个数大的数字都移到数组的右边，这样一来，位于数组左边的k个数就是最小的k个数字（不一定需要全部排序）。在 PHP 中，只需要调用 sort 函数，取前k个数字就可以得到结果了，并且其时间复杂度是O(nlogn)，符合我们的预期。当然，快排也好，归并也好，都只适合小规模的数据，并不适用于海量数据的处理，比如上百万、上千万的数据集，使用数组函数 sort 显然不合适了，使用自行实现的快排也不合适，这个时候，我们可以考虑使用前面算法和数据结构中介绍的堆排序。堆排序的时间复杂度也是 O(nlogn)，这里我们需要通过大顶堆来实现，即维护一个大小为k的大顶堆，如果待处理数据集的长度大于k，则当数字容量超过k时，比较后续数字与堆顶数字值（堆中最大），大于则跳过，小于则重新堆化大顶堆，依次类推，直到整个数据集遍历一遍，最后保留下来的大顶堆就是最小的k个数。</h1>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;问题：输入4，5，1，6，2，7，3，8这8个数，则最小的4个数是1，2，3，4&quot;&gt;&lt;a href=&quot;#问题：输入4，5，1，6，2，7，3，8这8个数，则最小的4个数是1，2，3，4&quot; class=&quot;headerlink&quot; title=&quot;问题：输入4，5，1，6
-      
-    
-    </summary>
-    
-    
-    
-      <category term="笔试题" scheme="https://peilei6026.github.io/tags/%E7%AC%94%E8%AF%95%E9%A2%98/"/>
     
   </entry>
   
